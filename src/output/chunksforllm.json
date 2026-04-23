@@ -1,0 +1,589 @@
+[
+  {
+    "chunk_id": "table_0_row_0",
+    "type": "table_row",
+    "data": {
+      "Important Questions": "What is the overall deductible?",
+      "Answers": "$500/Individual or $1,000/family",
+      "Why This Matters:": "Generally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met."
+    }
+  },
+  {
+    "chunk_id": "table_0_row_1",
+    "type": "table_row",
+    "data": {
+      "Important Questions": "Are there services covered before you meet your deductible?",
+      "Answers": "Yes. Preventive care and primary care services are covered before you meet your deductible.",
+      "Why This Matters:": "This plan covers some items and services even if you haven't yet met the annual deductible amount. But a copayment or coinsurance may apply. For example, this plan covers certain preventive services without cost-sharing and before you meet your deductible. See a list of covered preventive services at https://www.healthcare.gov/coverage/preventive-care-benefits/."
+    }
+  },
+  {
+    "chunk_id": "table_0_row_2",
+    "type": "table_row",
+    "data": {
+      "Important Questions": "Are there other deductibles for specific services?",
+      "Answers": "Yes. $300 for prescription drug coverage and $300 for occupational therapy services.",
+      "Why This Matters:": "You must pay all of the costs for these services up to the specific plan begins to pay for these services. deductible amount before this"
+    }
+  },
+  {
+    "chunk_id": "table_0_row_3",
+    "type": "table_row",
+    "data": {
+      "Important Questions": "What is the out-of-pocket limit for this plan?",
+      "Answers": "For network providers $2,500 individual / $5,000 family; for out- of-network providers $4,000 individual / $8,000 family",
+      "Why This Matters:": "The out-of-pocket limit is the most you could pay in a year for covered services. If family members in this plan, they have to meet their own out-of-pocket limits until family out-of-pocket limit has been met. you have other the overall"
+    }
+  },
+  {
+    "chunk_id": "table_0_row_4",
+    "type": "table_row",
+    "data": {
+      "Important Questions": "What is not included in the out-of-pocket limit?",
+      "Answers": "Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn't cover.",
+      "Why This Matters:": "Even though you pay these expenses, they don't count toward the out-of-pocket limit."
+    }
+  },
+  {
+    "chunk_id": "table_0_row_5",
+    "type": "table_row",
+    "data": {
+      "Important Questions": "Will you pay less if you use a network provider?",
+      "Answers": "Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers.",
+      "Why This Matters:": "This plan uses a provider network. You will pay less if you use a provider in the plan's network. You will pay the most if you use an out-of-network provider, and you might receive a bill from a provider for the difference between the provider's charge and what your plan pays (a balance bill). Be aware, your network provider might use an out-of-network provider for some services (such as lab work). Check with your provider before you get services."
+    }
+  },
+  {
+    "chunk_id": "table_0_row_6",
+    "type": "table_row",
+    "data": {
+      "Important Questions": "Do you need a referral see a specialist? to",
+      "Answers": "Yes.",
+      "Why This Matters:": "This plan will pay some or all of the costs to see a specialist have a referral before you see the specialist. for covered services but only if you"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_0",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "If you visit a health care provider's office or clinic",
+      "Services You May Need | Services You May Need": "Primary care visit to treat injury or illness an",
+      "What You Will Pay | Network Provider (You will pay the least)": "$35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply",
+      "What You Will Pay | Out-of-Network Provider (You will pay the most)": "40% coinsurance",
+      "Limitations, Exceptions, & Other Important Information | Limitations, Exceptions, & Other Important Information": "----------None----------"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_1",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "Specialist visit",
+      "Services You May Need | Services You May Need": "$50 copay/visit",
+      "What You Will Pay | Network Provider (You will pay the least)": "40% coinsurance",
+      "What You Will Pay | Out-of-Network Provider (You will pay the most)": "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service."
+    }
+  },
+  {
+    "chunk_id": "table_1_row_2",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "Preventive care/screening/immunization",
+      "Services You May Need | Services You May Need": "No charge for covered services",
+      "What You Will Pay | Network Provider (You will pay the least)": "40% coinsurance",
+      "What You Will Pay | Out-of-Network Provider (You will pay the most)": "You may have to pay for services that aren't preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for."
+    }
+  },
+  {
+    "chunk_id": "table_1_row_3",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "If you have a test",
+      "Services You May Need | Services You May Need": "Diagnostic test work) (x-ray, blood",
+      "What You Will Pay | Network Provider (You will pay the least)": "$10 copay/test",
+      "What You Will Pay | Out-of-Network Provider (You will pay the most)": "40% coinsurance",
+      "Limitations, Exceptions, & Other Important Information | Limitations, Exceptions, & Other Important Information": "----------None----------"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_4",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "Imaging (CT/PET scans, MRIs)",
+      "Services You May Need | Services You May Need": "$50 copay/test",
+      "What You Will Pay | Network Provider (You will pay the least)": "40% coinsurance"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_5",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com",
+      "Services You May Need | Services You May Need": "Generic drugs (Tier 1)",
+      "What You Will Pay | Network Provider (You will pay the least)": "$10 copay/prescription (retail & mail order)",
+      "What You Will Pay | Out-of-Network Provider (You will pay the most)": "40% coinsurance",
+      "Limitations, Exceptions, & Other Important Information | Limitations, Exceptions, & Other Important Information": "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail prescription). order"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_6",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "Preferred brand drugs (Tier 2)",
+      "Services You May Need | Services You May Need": "$30 copay/prescription (retail & mail order)",
+      "What You Will Pay | Network Provider (You will pay the least)": "40% coinsurance"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_7",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "Non-preferred brand drugs (Tier 3)",
+      "Services You May Need | Services You May Need": "40% coinsurance",
+      "What You Will Pay | Network Provider (You will pay the least)": "60% coinsurance"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_8",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "Specialty drugs (Tier 4)",
+      "Services You May Need | Services You May Need": "50% coinsurance",
+      "What You Will Pay | Network Provider (You will pay the least)": "70% coinsurance"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_9",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "If you have outpatient surgery",
+      "Services You May Need | Services You May Need": "Facility fee (e.g., surgery center) ambulatory",
+      "What You Will Pay | Network Provider (You will pay the least)": "$100/day copay",
+      "What You Will Pay | Out-of-Network Provider (You will pay the most)": "40%coinsurance",
+      "Limitations, Exceptions, & Other Important Information | Limitations, Exceptions, & Other Important Information": "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service."
+    }
+  },
+  {
+    "chunk_id": "table_1_row_10",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "Physician/surgeon fees",
+      "Services You May Need | Services You May Need": "20% coinsurance",
+      "What You Will Pay | Network Provider (You will pay the least)": "40% coinsurance",
+      "What You Will Pay | Out-of-Network Provider (You will pay the most)": "50% coinsurance for anesthesia."
+    }
+  },
+  {
+    "chunk_id": "table_1_row_11",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "If you need immediate medical attention",
+      "Services You May Need | Services You May Need": "Emergency room care",
+      "What You Will Pay | Network Provider (You will pay the least)": "20% coinsurance",
+      "What You Will Pay | Out-of-Network Provider (You will pay the most)": "20% coinsurance",
+      "Limitations, Exceptions, & Other Important Information | Limitations, Exceptions, & Other Important Information": "----------None----------"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_12",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "Emergency medical transportation",
+      "Services You May Need | Services You May Need": "20% coinsurance",
+      "What You Will Pay | Network Provider (You will pay the least)": "20% coinsurance"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_13",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "Urgent care",
+      "Services You May Need | Services You May Need": "$30 copay",
+      "What You Will Pay | Network Provider (You will pay the least)": "40% coinsurance"
+    }
+  },
+  {
+    "chunk_id": "table_1_row_14",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event": "If you have a hospital stay",
+      "Services You May Need | Services You May Need": "Facility fee (e.g., hospital room)",
+      "What You Will Pay | Network Provider (You will pay the least)": "20% coinsurance",
+      "What You Will Pay | Out-of-Network Provider (You will pay the most)": "40% coinsurance",
+      "Limitations, Exceptions, & Other Important Information | Limitations, Exceptions, & Other Important Information": "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in"
+    }
+  },
+  {
+    "chunk_id": "table_2_row_0",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "",
+      "col_1": "",
+      "col_2": "",
+      "col_3": "benefits by 50% of the total cost of the service."
+    }
+  },
+  {
+    "chunk_id": "table_2_row_1",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Physician/surgeon fees",
+      "col_1": "20% coinsurance",
+      "col_2": "40% coinsurance",
+      "col_3": "50% coinsurance for anesthesia."
+    }
+  },
+  {
+    "chunk_id": "table_2_row_2",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "If you need mental health, behavioral health, or substance abuse services",
+      "col_1": "Outpatient services",
+      "col_2": "$35 copay/office visit and 20% coinsurance for other outpatient services",
+      "col_3": "40% coinsurance",
+      "col_4": "----------None----------"
+    }
+  },
+  {
+    "chunk_id": "table_2_row_3",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Inpatient services",
+      "col_1": "20% coinsurance",
+      "col_2": "40% coinsurance"
+    }
+  },
+  {
+    "chunk_id": "table_2_row_4",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "If you are pregnant",
+      "col_1": "Office visits",
+      "col_2": "20% coinsurance",
+      "col_3": "40% coinsurance",
+      "col_4": "Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound)."
+    }
+  },
+  {
+    "chunk_id": "table_2_row_5",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Childbirth/delivery professional services",
+      "col_1": "20% coinsurance",
+      "col_2": "40% coinsurance"
+    }
+  },
+  {
+    "chunk_id": "table_2_row_6",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Childbirth/delivery facility services",
+      "col_1": "20% coinsurance",
+      "col_2": "40% coinsurance"
+    }
+  },
+  {
+    "chunk_id": "table_2_row_7",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "If you need help recovering or have other special health needs",
+      "col_1": "Home health care",
+      "col_2": "20% coinsurance",
+      "col_3": "40% coinsurance",
+      "col_4": "60 visits/calendar year"
+    }
+  },
+  {
+    "chunk_id": "table_2_row_8",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Rehabilitation services",
+      "col_1": "20% coinsurance",
+      "col_2": "40% coinsurance",
+      "col_3": "60 visits/calendar year. Includes physical"
+    }
+  },
+  {
+    "chunk_id": "table_2_row_9",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Habilitation services",
+      "col_1": "20% coinsurance",
+      "col_2": "40% coinsurance",
+      "col_3": "therapy, speech therapy, and occupational therapy."
+    }
+  },
+  {
+    "chunk_id": "table_2_row_10",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Skilled nursing care",
+      "col_1": "20% coinsurance",
+      "col_2": "40% coinsurance",
+      "col_3": "60 visits/calendar year"
+    }
+  },
+  {
+    "chunk_id": "table_2_row_11",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Durable medical equipment",
+      "col_1": "20% coinsurance",
+      "col_2": "40% coinsurance",
+      "col_3": "Excludes vehicle modifications, home modifications, exercise, and bathroom equipment."
+    }
+  },
+  {
+    "chunk_id": "table_2_row_12",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Hospice services",
+      "col_1": "20% coinsurance",
+      "col_2": "40% coinsurance",
+      "col_3": "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service."
+    }
+  },
+  {
+    "chunk_id": "table_2_row_13",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "If your child needs dental or eye care",
+      "col_1": "Children's eye exam",
+      "col_2": "$35 copay/visit",
+      "col_3": "Not covered",
+      "col_4": "Coverage limited to one exam/year."
+    }
+  },
+  {
+    "chunk_id": "table_2_row_14",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Children's glasses",
+      "col_1": "20% coinsurance",
+      "col_2": "Not covered",
+      "col_3": "Coverage limited to one pair of glasses/year."
+    }
+  },
+  {
+    "chunk_id": "table_2_row_15",
+    "type": "table_row",
+    "data": {
+      "Common Medical Event | Common Medical Event | Common Medical Event | Common Medical Event": "Children's dental check-up",
+      "col_1": "No charge",
+      "col_2": "Not covered",
+      "col_3": "----------None----------"
+    }
+  },
+  {
+    "chunk_id": "table_3_row_0",
+    "type": "table_row",
+    "data": {
+      "Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.)": "• Infertility Treatment • Long Term Care • Routine eye care (Adult)"
+    }
+  },
+  {
+    "chunk_id": "table_6_row_0",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$500"
+    }
+  },
+  {
+    "chunk_id": "table_6_row_1",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$300"
+    }
+  },
+  {
+    "chunk_id": "table_6_row_2",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$2,300"
+    }
+  },
+  {
+    "chunk_id": "table_6_row_4",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$60"
+    }
+  },
+  {
+    "chunk_id": "table_6_row_5",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$3,160"
+    }
+  },
+  {
+    "chunk_id": "table_9_row_0",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$700"
+    }
+  },
+  {
+    "chunk_id": "table_9_row_1",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$200"
+    }
+  },
+  {
+    "chunk_id": "table_9_row_2",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$400"
+    }
+  },
+  {
+    "chunk_id": "table_9_row_4",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$0"
+    }
+  },
+  {
+    "chunk_id": "table_9_row_5",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$1,300"
+    }
+  },
+  {
+    "chunk_id": "table_12_row_0",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$800"
+    }
+  },
+  {
+    "chunk_id": "table_12_row_1",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$1,200"
+    }
+  },
+  {
+    "chunk_id": "table_12_row_2",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$300"
+    }
+  },
+  {
+    "chunk_id": "table_12_row_4",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$60"
+    }
+  },
+  {
+    "chunk_id": "table_12_row_5",
+    "type": "table_row",
+    "data": {
+      "Cost Sharing": "$2,360"
+    }
+  },
+  {
+    "chunk_id": "section_0",
+    "type": "section",
+    "title": "Excluded Services & Other Covered Services:",
+    "content": "Coverage Period: 1/1/2017 - 12/31/2017 Coverage for: Family | Plan Type: PPO The Summary of Benefits and Coverage (SBC) document will help you choose a health plan. The SBC shows you how you and the plan would share the cost for covered health care services. NOTE: Information about the cost of this plan (called the premium) will be provided separately. This is only a summary. For more information about your coverage, or to get a copy of the complete terms of coverage, [insert contact information]. For general definitions of common terms, such as allowed amount, balance billing, coinsurance, copayment, deductible, provider, or other underlined terms see the Glossary. You can view the Glossary at www.[insert].com or call 1-800-[insert] to request a copy. Important QuestionsAnswersWhy This Matters:What is the overall deductible?$500/Individual or $1,000/familyGenerally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met.Are there services covered before you meet your deductible?Yes. Preventive care and primary care services are covered before you meet your deductible.This plan covers some items and services even if you haven't yet met the annual deductible amount. But a copayment or coinsurance may apply. For example, this plan covers certain preventive services without cost-sharing and before you meet your deductible. See a list of covered preventive services at https://www.healthcare.gov/coverage/preventive-care-benefits/.Are there other deductibles for specific services?Yes. $300 for prescription drug coverage and $300 for occupational therapy services.You must pay all of the costs for these services up to the specific plan begins to pay for these services. deductible amount before thisWhat is the out-of-pocket limit for this plan?For network providers $2,500 individual / $5,000 family; for out- of-network providers $4,000 individual / $8,000 familyThe out-of-pocket limit is the most you could pay in a year for covered services. If family members in this plan, they have to meet their own out-of-pocket limits until family out-of-pocket limit has been met. you have other the overallWhat is not included in the out-of-pocket limit?Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn't cover.Even though you pay these expenses, they don't count toward the out-of-pocket limit.Will you pay less if you use a network provider?Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers.This plan uses a provider network. You will pay less if you use a provider in the plan's network. You will pay the most if you use an out-of-network provider, and you might receive a bill from a provider for the difference between the provider's charge and what your plan pays (a balance bill). Be aware, your network provider might use an out-of-network provider for some services (such as lab work). Check with your provider before you get services.Do you need a referral see a specialist? toYes.This plan will pay some or all of the costs to see a specialist have a referral before you see the specialist. for covered services but only if you Common Medical EventServices You May NeedWhat You Will PayLimitations, Exceptions, & Other Important InformationNetwork Provider (You will pay the least)Out-of-Network Provider (You will pay the most)If you visit a health care provider's office or clinicPrimary care visit to treat injury or illness an$35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply40% coinsurance----------None----------Specialist visit$50 copay/visit40% coinsurancePreauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.Preventive care/screening/immunizationNo charge for covered services40% coinsuranceYou may have to pay for services that aren't preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.If you have a testDiagnostic test work) (x-ray, blood$10 copay/test40% coinsurance----------None----------Imaging (CT/PET scans, MRIs)$50 copay/test40% coinsuranceIf you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].comGeneric drugs (Tier 1)$10 copay/prescription (retail & mail order)40% coinsuranceCovers up to a 30-day supply (retail subscription); 31-90 day supply (mail prescription). orderPreferred brand drugs (Tier 2)$30 copay/prescription (retail & mail order)40% coinsuranceNon-preferred brand drugs (Tier 3)40% coinsurance60% coinsuranceSpecialty drugs (Tier 4)50% coinsurance70% coinsuranceIf you have outpatient surgeryFacility fee (e.g., surgery center) ambulatory$100/day copay40%coinsurancePreauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.Physician/surgeon fees20% coinsurance40% coinsurance50% coinsurance for anesthesia.If you need immediate medical attentionEmergency room care20% coinsurance20% coinsurance----------None----------Emergency medical transportation20% coinsurance20% coinsuranceUrgent care$30 copay40% coinsuranceIf you have a hospital stayFacility fee (e.g., hospital room)20% coinsurance40% coinsurancePreauthorization is required. Failure to obtain preauthorization may result in a reduction in Common Medical EventServices You May NeedWhat You Will PayLimitations, Exceptions, & Other ImportantNetwork Provider (You will pay the least)Out-of-Network Provider (You will pay the most)Informationbenefits by 50% of the total cost of the service.Physician/surgeon fees20% coinsurance40% coinsurance50% coinsurance for anesthesia.If you need mental health, behavioral health, or substance abuse servicesOutpatient services$35 copay/office visit and 20% coinsurance for other outpatient services40% coinsurance----------None----------Inpatient services20% coinsurance40% coinsuranceIf you are pregnantOffice visits20% coinsurance40% coinsuranceCost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).Childbirth/delivery professional services20% coinsurance40% coinsuranceChildbirth/delivery facility services20% coinsurance40% coinsuranceIf you need help recovering or have other special health needsHome health care20% coinsurance40% coinsurance60 visits/calendar yearRehabilitation services20% coinsurance40% coinsurance60 visits/calendar year. Includes physicalHabilitation services20% coinsurance40% coinsurancetherapy, speech therapy, and occupational therapy.Skilled nursing care20% coinsurance40% coinsurance60 visits/calendar yearDurable medical equipment20% coinsurance40% coinsuranceExcludes vehicle modifications, home modifications, exercise, and bathroom equipment.Hospice services20% coinsurance40% coinsurancePreauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.If your child needs dental or eye careChildren's eye exam$35 copay/visitNot coveredCoverage limited to one exam/year.Children's glasses20% coinsuranceNot coveredCoverage limited to one pair of glasses/year.Children's dental check-upNo chargeNot covered----------None---------- Excluded Services & Other Covered Services: Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.)• Cosmetic Surgery • Private Duty Nursing • Routine Foot Care• Dental Care • Non-emergency care outside the U.S.• Infertility Treatment • Long Term Care • Routine eye care (Adult) Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.) Acupuncture (if prescribed for rehabilitation Chiropractic Care Weight Loss Programs purposes) Bariatric Surgery Your Rights to Continue Coverage: There are agencies that can help if you want to continue your coverage after it ends. The contact information for those agencies is: [insert State, HHS, DOL, and/or other applicable agency contact information]. Other options to continue coverage are available to you too, including buying individual insurance coverage through the Health Insurance Marketplace. For more information about the Marketplace, visit www.HealthCare.gov or call 1800-318-2596. Your Grievance and Appeals Rights: There are agencies that can help if you have a complaint against your plan for a denial of a claim. This complaint is called a grievance or appeal. For more information about your rights, look at the explanation of benefits you will receive for that medical claim. Your plan documents also provide complete information to submit a claim appeal or a grievance for any reason to your plan. For more information about your rights, this notice, or assistance, contact: [insert applicable contact information from instructions]. Does this plan provide Minimum Essential Coverage? Yes . If you don't have Minimum Essential Coverage for a month under this plan or under other coverage, you'll have to make a payment when you file your tax return unless you qualify for an exemption from the requirement that you have health coverage for that month. Does this plan meet Minimum Value Standards? Yes . If your plan doesn't meet the Minimum Value Standards, you may be eligible for a premium tax credit to help you pay for a plan through the Marketplace. Language Access Services: [Spanish (Español): Para obtener asistencia en Español, llame al [insert telephone number].] [Tagalog (Tagalog): Kung kailangan ninyo ang tulong sa Tagalog tumawag sa [insert telephone number].] [Chinese ( 中文 ): 如果需要中文的帮助， 请拨打这个号码 [insert telephone number].] [Navajo (Dine): Dinek'ehgo shika at'ohwol ninisingo, kwiijigo holne' [insert telephone number].] ---------------------- To see examples of how this plan might cover costs for a sample medical situation, see the next section.----------- Hearing Aids ----------- About these Coverage Examples: This is not a cost estimator. Treatments shown are just examples of how this plan might cover medical care. Your actual costs will be different depending o n the actual care you receive, the prices y our providers charge, and many other factors. Focus on the cost sharing amounts (deductibl es, copayments and coinsurance) and excl uded services under the plan. Use this information to compare the portion of costs you might pay under differen t health plans. Please note these coverage examples are b ased on self-only coverage. Peg is Having a Baby (9 months of in-network pre-natal care and a hospital delivery)  The plan's overall deductible$500 Specialist copayment$50 Hospital (facility) coinsurance20% Other coinsurance20% This EXAMPLE event includes services like: Specialist office visits ( prenatal care) Childbirth/Delivery Professional Services Childbirth/Delivery Facility Services Diagnostic tests ( ultrasounds and blood work) Specialist visit (anesthesia) Total Example Cost$12,800 In this example, Peg would pay: Cost SharingDeductibles$500Copayments$300Coinsurance$2,300What isn't coveredLimits or exclusions$60The total Peg would pay is$3,160 Mia's Simple Fracture (in-network emergency room visit and follow up care)  The plan's overall deductible$500 Specialist copayment$50 Hospital (facility) coinsurance20% Other coinsurance20% This EXAMPLE event includes services like: Emergency room care (including medical supplies) Diagnostic test (x-ray) Durable medical equipment (crutches) Rehabilitation services (physical therapy) Total Example Cost$2,500 In this example, Mia would pay: Cost SharingDeductibles$700Copayments$200Coinsurance$400What isn't coveredLimits or exclusions$0The total Mia would pay is$1,300 Managing Joe's type 2 Diabetes (a year of routine in-network care of a wellcontrolled condition)  The plan's overall deductible$500 Specialist copayment$50 Hospital (facility) coinsurance20% Other coinsurance20% This EXAMPLE event includes services like: Primary care physician office visits ( including disease education) Diagnostic tests (blood work) Prescription drugs Durable medical equipment (glucose meter) Total Example Cost$7,400 In this example, Joe would pay: Cost SharingDeductibles$800Copayments$1,200Coinsurance$300What isn't coveredLimits or exclusions$60The total Joe would pay is$2,360 Note: These numbers assume the patient does not participate in the plan's wellness program. If you participate in the plan's wellness program, you may be able to reduce your costs. For more information about the wellness program, please contact: [insert]. 5 of 5 Coverage Period: 1/1/2017 - 12/31/2017 Coverage for: Family | Plan Type: PPO The Summary of Benefits and Coverage (SBC) document will help you choose a health plan. The SBC shows you how you and the plan would share the cost for covered health care services. NOTE: Information about the cost of this plan (called the premium) will be provided separately. This is only a summary. For more information about your coverage, or to get a copy of the complete terms of coverage, [insert contact information]. For general definitions of common terms, such as allowed amount, balance billing, coinsurance, copayment, deductible, provider, or other underlined terms see the Glossary. You can view the Glossary at www.[insert].com or call 1-800-[insert] to request a copy."
+  },
+  {
+    "chunk_id": "section_1",
+    "type": "section",
+    "title": "purposes)",
+    "content": "Your Rights to Continue Coverage: There are agencies that can help if you want to continue your coverage after it ends. The contact information for those agencies is: [insert State, HHS, DOL, and/or other applicable agency contact information]. Other options to continue coverage are available to you too, including buying individual insurance coverage through the Health Insurance Marketplace. For more information about the Marketplace, visit www.HealthCare.gov or call 1800-318-2596. Your Grievance and Appeals Rights: There are agencies that can help if you have a complaint against your plan for a denial of a claim. This complaint is called a grievance or appeal. For more information about your rights, look at the explanation of benefits you will receive for that medical claim. Your plan documents also provide complete information to submit a claim appeal or a grievance for any reason to your plan. For more information about your rights, this notice, or assistance, contact: [insert applicable contact information from instructions]."
+  },
+  {
+    "chunk_id": "section_2",
+    "type": "section",
+    "title": "Does this plan provide Minimum Essential Coverage? Yes .",
+    "content": "If you don't have Minimum Essential Coverage for a month under this plan or under other coverage, you'll have to make a payment when you file your tax return unless you qualify for an exemption from the requirement that you have health coverage for that month."
+  },
+  {
+    "chunk_id": "section_3",
+    "type": "section",
+    "title": "Does this plan meet Minimum Value Standards? Yes .",
+    "content": "If your plan doesn't meet the Minimum Value Standards, you may be eligible for a premium tax credit to help you pay for a plan through the Marketplace."
+  },
+  {
+    "chunk_id": "section_4",
+    "type": "section",
+    "title": "Language Access Services:",
+    "content": "[Spanish (Español): Para obtener asistencia en Español, llame al [insert telephone number].] [Tagalog (Tagalog): Kung kailangan ninyo ang tulong sa Tagalog tumawag sa [insert telephone number].] [Chinese ( 中文 ): 如果需要中文的帮助， 请拨打这个号码 [insert telephone number].] [Navajo (Dine): Dinek'ehgo shika at'ohwol ninisingo, kwiijigo holne' [insert telephone number].] ---------------------- To see examples of how this plan might cover costs for a sample medical situation, see the next section.----------- -----------"
+  },
+  {
+    "chunk_id": "section_5",
+    "type": "section",
+    "title": "About these Coverage Examples:",
+    "content": "This is not a cost estimator. Treatments shown are just examples of how this plan might cover medical care. Your actual costs will be different depending o n the actual care you receive, the prices y our providers charge, and many other factors. Focus on the cost sharing amounts (deductibl es, copayments and coinsurance) and excl uded services under the plan. Use this information to compare the portion of costs you might pay under differen t health plans. Please note these coverage examples are b ased on self-only coverage."
+  },
+  {
+    "chunk_id": "section_6",
+    "type": "section",
+    "title": "Peg is Having a Baby",
+    "content": "(9 months of in-network pre-natal care and a hospital delivery)"
+  },
+  {
+    "chunk_id": "section_7",
+    "type": "section",
+    "title": "This EXAMPLE event includes services like:",
+    "content": "Specialist office visits ( prenatal care) Childbirth/Delivery Professional Services Childbirth/Delivery Facility Services Diagnostic tests ( ultrasounds and blood work) Specialist visit (anesthesia)"
+  },
+  {
+    "chunk_id": "section_8",
+    "type": "section",
+    "title": "Mia's Simple Fracture",
+    "content": "(in-network emergency room visit and follow up care)"
+  },
+  {
+    "chunk_id": "section_9",
+    "type": "section",
+    "title": "This EXAMPLE event includes services like:",
+    "content": "Emergency room care (including medical supplies) Diagnostic test (x-ray) Durable medical equipment (crutches) Rehabilitation services (physical therapy)"
+  },
+  {
+    "chunk_id": "section_10",
+    "type": "section",
+    "title": "Managing Joe's type 2 Diabetes",
+    "content": "(a year of routine in-network care of a wellcontrolled condition)"
+  },
+  {
+    "chunk_id": "section_11",
+    "type": "section",
+    "title": "This EXAMPLE event includes services like:",
+    "content": "Primary care physician office visits ( including disease education) Diagnostic tests (blood work) Prescription drugs Durable medical equipment (glucose meter)"
+  },
+  {
+    "chunk_id": "section_12",
+    "type": "section",
+    "title": "In this example, Joe would pay:",
+    "content": "Note: These numbers assume the patient does not participate in the plan's wellness program. If you participate in the plan's wellness program, you may be able to reduce your costs. For more information about the wellness program, please contact: [insert]. 5 of 5"
+  },
+  {
+    "chunk_id": "list_0",
+    "type": "list",
+    "items": [
+      "Acupuncture (if prescribed for rehabilitation",
+      "Chiropractic Care",
+      "Weight Loss Programs"
+    ]
+  },
+  {
+    "chunk_id": "list_1",
+    "type": "list",
+    "items": [
+      "Bariatric Surgery"
+    ]
+  },
+  {
+    "chunk_id": "list_2",
+    "type": "list",
+    "items": [
+      "Hearing Aids"
+    ]
+  }
+]

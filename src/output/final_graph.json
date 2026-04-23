@@ -1,0 +1,709 @@
+{
+  "entities": [
+    "durable medical equipment",
+    "non-preferred brand drugs",
+    "emergencytransportation",
+    "routine eye care",
+    "emergencyroom",
+    "coinsurance",
+    "preventive care",
+    "pregnancycare",
+    "maternity care",
+    "childbirth",
+    "network provider",
+    "children's dental check-up",
+    "deductible",
+    "specialist",
+    "prescription drugs",
+    "mentalhealthservices",
+    "prescription drug coverage",
+    "diagnostic test",
+    "copayment",
+    "prescription",
+    "occupational therapy",
+    "urgent care",
+    "wellness program",
+    "children's eye exam",
+    "children's glasses",
+    "specialist visit",
+    "outofnetworkprovider",
+    "generic drugs",
+    "emergency room",
+    "rehabilitation",
+    "out-of-network provider",
+    "urgentcare",
+    "networkprovider",
+    "primary care",
+    "emergency room care",
+    "mental health services",
+    "childbirthdelivery",
+    "plan",
+    "hospitalstay",
+    "prenatal care",
+    "specialtydrugs",
+    "hospice services",
+    "outpatientsurgery",
+    "habilitation services",
+    "out-of-pocket limit",
+    "homehealthcare",
+    "long term care",
+    "physicianfees",
+    "hospital stay",
+    "imaging",
+    "preferred brand drugs",
+    "infertility treatment",
+    "skilled nursing care",
+    "primary care services",
+    "rehabilitation services",
+    "occupational therapy services"
+  ],
+  "relationships": [
+    [
+      "non-preferred brand drugs",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "infertility treatment",
+      "belongs_to",
+      "excluded services"
+    ],
+    [
+      "deductible",
+      "has_cost",
+      "$500"
+    ],
+    [
+      "specialist visit",
+      "belongs_to",
+      "prenatal care"
+    ],
+    [
+      "deductible",
+      "has_cost",
+      "$300"
+    ],
+    [
+      "imaging",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "preferred brand drugs",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "emergencytransportation",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "hospitalstay",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "long term care",
+      "belongs_to",
+      "excluded services"
+    ],
+    [
+      "pregnancycare",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "emergencyroom",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "durable medical equipment",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "primary care services",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "network provider",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "prenatal care",
+      "belongs_to",
+      "childbirth"
+    ],
+    [
+      "deductible",
+      "has_cost",
+      "$2,300"
+    ],
+    [
+      "durable medical equipment",
+      "belongs_to",
+      "wellness program"
+    ],
+    [
+      "out-of-network provider",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "occupational therapy",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "plan",
+      "has_deductible",
+      "deductible"
+    ],
+    [
+      "specialtydrugs",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "plan",
+      "has_coinsurance",
+      "coinsurance"
+    ],
+    [
+      "emergencytransportation",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "homehealthcare",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "hospice services",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "prescription drugs",
+      "has_limitation",
+      "durable medical equipment"
+    ],
+    [
+      "mentalhealthservices",
+      "has_cost",
+      "$35 copay/office visit"
+    ],
+    [
+      "deductible",
+      "has_cost",
+      "$60"
+    ],
+    [
+      "rehabilitation",
+      "has_cost",
+      "copay"
+    ],
+    [
+      "plan",
+      "has_limitation",
+      "out-of-pocket limit"
+    ],
+    [
+      "specialtydrugs",
+      "has_cost",
+      "50% coinsurance"
+    ],
+    [
+      "pregnancycare",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "primary care",
+      "belongs_to",
+      "prescription drugs"
+    ],
+    [
+      "hospitalstay",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "children's eye exam",
+      "has_cost",
+      "$35 copay/visit"
+    ],
+    [
+      "outpatientsurgery",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "deductible",
+      "has_cost",
+      "$700"
+    ],
+    [
+      "maternity care",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "children's glasses",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "preventive care",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "specialist",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "habilitation services",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "deductible",
+      "has_cost",
+      "$3,160"
+    ],
+    [
+      "hospitalstay",
+      "has_limitation",
+      "preauthorization required"
+    ],
+    [
+      "childbirthdelivery",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "childbirth",
+      "has_cost",
+      "deductible"
+    ],
+    [
+      "routine eye care",
+      "belongs_to",
+      "excluded services"
+    ],
+    [
+      "mentalhealthservices",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "primary care",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "generic drugs",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "prescription",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "urgentcare",
+      "has_cost",
+      "$30 copay"
+    ],
+    [
+      "children's dental check-up",
+      "has_cost",
+      "no charge"
+    ],
+    [
+      "diagnostic test",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "physicianfees",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "hospital stay",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "emergency room care",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "urgent care",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "outpatientsurgery",
+      "has_limitation",
+      "preauthorization required"
+    ],
+    [
+      "rehabilitation services",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "plan",
+      "has_copayment",
+      "copayment"
+    ],
+    [
+      "childbirthdelivery",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "prescription drug coverage",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "mental health services",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "diagnostic test",
+      "belongs_to",
+      "prenatal care"
+    ],
+    [
+      "urgentcare",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "homehealthcare",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "skilled nursing care",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "occupational therapy services",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "outpatientsurgery",
+      "has_cost",
+      "$100/day copay"
+    ],
+    [
+      "physicianfees",
+      "belongs_to",
+      "networkprovider"
+    ],
+    [
+      "specialist visit",
+      "belongs_to",
+      "plan"
+    ],
+    [
+      "emergency room",
+      "belongs_to",
+      "rehabilitation"
+    ],
+    [
+      "emergencyroom",
+      "has_cost",
+      "20% coinsurance"
+    ],
+    [
+      "plan",
+      "has_out_of_pocket_limit",
+      "out-of-pocket limit"
+    ]
+  ],
+  "attributes": [
+    [
+      "out-of-pocket limit",
+      "individual limit",
+      "$2,500"
+    ],
+    [
+      "pregnancycare",
+      "coinsurance",
+      "20%"
+    ],
+    [
+      "emergencyroom",
+      "coinsurance",
+      "20%"
+    ],
+    [
+      "emergencytransportation",
+      "coinsurance",
+      "20%"
+    ],
+    [
+      "homehealthcare",
+      "coinsurance",
+      "20%"
+    ],
+    [
+      "durable medical equipment",
+      "cost",
+      "$100"
+    ],
+    [
+      "deductible",
+      "amount",
+      "$500"
+    ],
+    [
+      "coinsurance",
+      "percentage",
+      "20%"
+    ],
+    [
+      "prescription",
+      "deductible",
+      "$300"
+    ],
+    [
+      "primary care",
+      "cost",
+      "$200"
+    ],
+    [
+      "non-preferred brand drugs",
+      "coinsurance",
+      "40%"
+    ],
+    [
+      "hospitalstay",
+      "coinsurance",
+      "20%"
+    ],
+    [
+      "specialtydrugs",
+      "coinsurance",
+      "50%"
+    ],
+    [
+      "specialist",
+      "copay",
+      "$50"
+    ],
+    [
+      "prescription drug coverage",
+      "deductible",
+      "$300"
+    ],
+    [
+      "children's glasses",
+      "limit",
+      "one pair of glasses/year"
+    ],
+    [
+      "diagnostic test",
+      "limitation",
+      "2 per year"
+    ],
+    [
+      "copayment",
+      "amount",
+      "$35"
+    ],
+    [
+      "preventive care",
+      "cost",
+      "$0"
+    ],
+    [
+      "prenatal care",
+      "cost",
+      "$500"
+    ],
+    [
+      "primary care services",
+      "copayment",
+      "$35"
+    ],
+    [
+      "emergency room",
+      "cost",
+      "$1000"
+    ],
+    [
+      "rehabilitation",
+      "copay",
+      "10%"
+    ],
+    [
+      "primary care",
+      "copay",
+      "$35"
+    ],
+    [
+      "occupational therapy services",
+      "deductible",
+      "$300"
+    ],
+    [
+      "specialist visit",
+      "copay",
+      "$50"
+    ],
+    [
+      "hospice services",
+      "requirement",
+      "preauthorization"
+    ],
+    [
+      "out-of-pocket limit",
+      "family limit",
+      "$5,000"
+    ],
+    [
+      "preferred brand drugs",
+      "copay",
+      "$30"
+    ],
+    [
+      "childbirthdelivery",
+      "coinsurance",
+      "20%"
+    ],
+    [
+      "prescription drugs",
+      "limitation",
+      "30 day supply"
+    ],
+    [
+      "generic drugs",
+      "copay",
+      "$10"
+    ],
+    [
+      "children's eye exam",
+      "limit",
+      "one exam/year"
+    ],
+    [
+      "urgent care",
+      "copayment",
+      "$30"
+    ],
+    [
+      "maternity care",
+      "coinsurance",
+      "20%"
+    ],
+    [
+      "imaging",
+      "copay",
+      "$50"
+    ],
+    [
+      "occupational therapy",
+      "deductible",
+      "$300"
+    ],
+    [
+      "physicianfees",
+      "coinsurance",
+      "20%"
+    ],
+    [
+      "diagnostic test",
+      "copay",
+      "$10"
+    ],
+    [
+      "homehealthcare",
+      "visit_limit",
+      "60 visits/calendar year"
+    ],
+    [
+      "hospital stay",
+      "coinsurance",
+      "20%"
+    ],
+    [
+      "emergency room care",
+      "coinsurance",
+      "20%"
+    ],
+    [
+      "skilled nursing care",
+      "limit",
+      "60 visits/calendar year"
+    ],
+    [
+      "childbirth",
+      "deductible",
+      "20%"
+    ],
+    [
+      "preventive care",
+      "cost",
+      "No charge"
+    ],
+    [
+      "out-of-pocket limit",
+      "amount",
+      "$2,500"
+    ],
+    [
+      "mentalhealthservices",
+      "copay",
+      "$35/office visit"
+    ],
+    [
+      "urgentcare",
+      "copay",
+      "$30"
+    ],
+    [
+      "outpatientsurgery",
+      "copay",
+      "$100/day"
+    ],
+    [
+      "mental health services",
+      "copayment",
+      "$35"
+    ],
+    [
+      "rehabilitation services",
+      "limit",
+      "60 visits/calendar year"
+    ],
+    [
+      "specialist visit",
+      "copayment",
+      "$50"
+    ],
+    [
+      "deductible",
+      "cost",
+      "$500"
+    ]
+  ]
+}

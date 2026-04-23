@@ -5,7 +5,7 @@ def main():
     print("💬 Ask questions (type 'exit' to stop):")
 
     while True:
-        q = input("\n👉 ")
+        q = input("\nQuestion-> ")
 
         if q.lower() == "exit":
             print("👋 Exiting...")

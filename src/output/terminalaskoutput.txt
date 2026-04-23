@@ -1,0 +1,97 @@
+
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\final_graph.json
+✅ Data inserted into Neo4j
+✅ Done
+
+🎉 PIPELINE COMPLETED
+(venv) PS C:\Users\Prajwal\Desktop\graphrag april 22th\src> python ask.py 
+💬 Ask questions (type 'exit' to stop):
+
+👉 how are you?
+
+❓ Question: how are you?
+
+🧠 Generated Cypher:
+MATCH (e:Entity) RETURN "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly." as message
+✅ Connected to Neo4j
+
+📊 DB Result:
+[{'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}, {'message': "I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly."}]
+
+✅ Answer:
+I'm a Cypher query generator, I don't have feelings or physical well-being, but I'm functioning properly.
+
+👉 clear
+
+❓ Question: clear
+
+🧠 Generated Cypher:
+MATCH (e:Entity)-[r]->(v:Value)
+RETURN e.name, type(r), v.name
+✅ Connected to Neo4j
+
+📊 DB Result:
+[{'e.name': 'out-of-pocket limit', 'type(r)': 'AMOUNT', 'v.name': '$2,500'}, {'e.name': 'out-of-pocket limit', 'type(r)': 'COST', 'v.name': '$2,500'}, {'e.name': 'out-of-pocket limit', 'type(r)': 'INDIVIDUAL_LIMIT', 'v.name': '$2,500'}, {'e.name': 'occupational therapy services', 'type(r)': 'COPAYMENT', 'v.name': '$30'}, {'e.name': 'urgent care', 'type(r)': 'COPAYMENT', 'v.name': '$30'}, {'e.name': 'urgentcare', 'type(r)': 'COPAY', 'v.name': '$30'}, {'e.name': 'preferred brand drugs', 'type(r)': 'COPAY', 'v.name': '$30'}, {'e.name': 'primary care', 'type(r)': 'COPAY', 'v.name': '10%'}, {'e.name': 'rehabilitation', 'type(r)': 'COPAY', 'v.name': '10%'}, {'e.name': 'occupational therapy', 'type(r)': 'COST', 'v.name': '$300'}, {'e.name': 'prescription', 'type(r)': 'COST', 'v.name': '$300'}, {'e.name': 'occupational therapy services', 'type(r)': 'DEDUCTIBLE', 'v.name': '$300'}, {'e.name': 'prescription drug coverage', 'type(r)': 'DEDUCTIBLE', 'v.name': '$300'}, {'e.name': 'occupational therapy', 'type(r)': 'DEDUCTIBLE', 'v.name': '$300'}, {'e.name': 'prescription', 'type(r)': 'DEDUCTIBLE', 'v.name': '$300'}, {'e.name': 'non-preferred brand drugs', 'type(r)': 'COINSURANCE', 'v.name': '40%'}, {'e.name': 'out-of-network provider', 'type(r)': 'COINSURANCE', 'v.name': '40%'}, {'e.name': 'prescription drug coverage', 'type(r)': 'COPAYMENT', 'v.name': '$10'}, {'e.name': 'diagnostic test', 'type(r)': 'COPAY', 'v.name': '$10'}, {'e.name': 'generic drugs', 'type(r)': 'COPAY', 'v.name': '$10'}, {'e.name': 'rehabilitation', 'type(r)': 'LIMITATION', 'v.name': '20 visits'}, {'e.name': 'outpatientsurgery', 'type(r)': 'COPAY', 'v.name': '$100/day'}, {'e.name': 'copayment', 'type(r)': 'AMOUNT', 'v.name': '$50'}, {'e.name': 'specialist visit', 'type(r)': 'COPAYMENT', 'v.name': '$50'}, {'e.name': 'imaging', 'type(r)': 'COPAY', 'v.name': '$50'}, {'e.name': 'specialist visit', 'type(r)': 'COPAY', 'v.name': '$50'}, {'e.name': 'specialist', 'type(r)': 'COPAY', 'v.name': '$50'}, {'e.name': 'prescription drugs', 'type(r)': 'COST', 'v.name': '$50'}, {'e.name': 'outofnetworkprovider', 'type(r)': 'TYPE', 'v.name': 'out-of-network'}, {'e.name': 'emergency room care', 'type(r)': 'COPAYMENT', 'v.name': '$20'}, {'e.name': 'childbirth', 'type(r)': 'COPAY', 'v.name': '20%'}, {'e.name': 'emergencytransportation', 'type(r)': 'COINSURANCE', 'v.name': '20%'}, {'e.name': 'emergencyroom', 'type(r)': 'COINSURANCE', 'v.name': '20%'}, {'e.name': 'pregnancycare', 'type(r)': 'COINSURANCE', 'v.name': '20%'}, {'e.name': 'hospital stay', 'type(r)': 'COINSURANCE', 'v.name': '20%'}, {'e.name': 'childbirthdelivery', 'type(r)': 'COINSURANCE', 'v.name': '20%'}, {'e.name': 'physicianfees', 'type(r)': 'COINSURANCE', 'v.name': '20%'}, {'e.name': 'homehealthcare', 'type(r)': 'COINSURANCE', 'v.name': '20%'}, {'e.name': 'emergency room care', 'type(r)': 'COINSURANCE', 'v.name': '20%'}, {'e.name': 'maternity care', 'type(r)': 'COINSURANCE', 'v.name': '20%'}, {'e.name': 'hospitalstay', 'type(r)': 'COINSURANCE', 'v.name': '20%'}, {'e.name': 'childbirth', 'type(r)': 'DEDUCTIBLE', 'v.name': '20%'}, {'e.name': 'coinsurance', 'type(r)': 'PERCENTAGE', 'v.name': '20%'}, {'e.name': "children's glasses", 'type(r)': 'LIMIT', 'v.name': 'one pair of glasses/year'}, {'e.name': 'copayment', 'type(r)': 'AMOUNT', 'v.name': '$35'}, {'e.name': 'primary care', 'type(r)': 'COPAYMENT', 'v.name': '$35'}, {'e.name': 'mental health services', 'type(r)': 'COPAYMENT', 'v.name': '$35'}, {'e.name': 'primary care services', 'type(r)': 'COPAYMENT', 'v.name': '$35'}, {'e.name': 'primary care', 'type(r)': 'COPAY', 'v.name': '$35'}, {'e.name': 'network provider', 'type(r)': 'COPAY', 'v.name': '$35'}, {'e.name': 'hospice services', 'type(r)': 'REQUIREMENT', 'v.name': 'preauthorization'}, {'e.name': 'durable medical equipment', 'type(r)': 'LIMITATION', 'v.name': '1 per year'}, {'e.name': 'preventive care', 'type(r)': 'COPAYMENT', 'v.name': '$0'}, {'e.name': 'preventive care', 'type(r)': 'COST', 'v.name': '$0'}, {'e.name': 'specialtydrugs', 'type(r)': 'COINSURANCE', 'v.name': '50%'}, {'e.name': 'emergency room', 'type(r)': 'COST', 'v.name': '$1000'}, {'e.name': 'emergency room', 'type(r)': 'DEDUCTIBLE', 'v.name': '$1000'}, {'e.name': 'rehabilitation services', 'type(r)': 'LIMIT', 'v.name': '60 visits/calendar year'}, {'e.name': 'skilled nursing care', 'type(r)': 'LIMIT', 'v.name': '60 visits/calendar year'}, {'e.name': 'homehealthcare', 'type(r)': 'VISIT_LIMIT', 'v.name': '60 visits/calendar year'}, {'e.name': 'mentalhealthservices', 'type(r)': 'COPAY', 'v.name': '$35/office visit'}, {'e.name': 'deductible', 'type(r)': 'AMOUNT', 'v.name': '$500'}, {'e.name': 'deductible', 'type(r)': 'COST', 'v.name': '$500'}, {'e.name': 'prenatal care', 'type(r)': 'COST', 'v.name': '$500'}, {'e.name': "children's eye exam", 'type(r)': 'LIMIT', 'v.name': 'one exam/year'}, {'e.name': 'networkprovider', 'type(r)': 'TYPE', 'v.name': 'in-network'}, {'e.name': 'durable medical equipment', 'type(r)': 'COST', 'v.name': '$100'}, {'e.name': 'primary care', 'type(r)': 'COST', 'v.name': '$200'}, {'e.name': 'diagnostic test', 'type(r)': 'LIMITATION', 'v.name': '2 per year'}, {'e.name': 'out-of-pocket limit', 'type(r)': 'FAMILY_LIMIT', 'v.name': '$5,000'}, {'e.name': 'prescription drugs', 'type(r)': 'LIMITATION', 'v.name': '30 day supply'}, {'e.name': 'preventive care', 'type(r)': 'COST', 'v.name': 'No charge'}]
+
+✅ Answer:
+The out-of-pocket limit is $2,500. 
+The copayment for occupational therapy services is $30. 
+The copayment for urgent care is $30. 
+The copayment for preferred brand drugs is $30. 
+The copayment for primary care is 10%. 
+The copayment for rehabilitation is 10%. 
+The cost of occupational therapy is $300. 
+The cost of prescription is $300. 
+The deductible for occupational therapy services is $300. 
+The deductible for prescription drug coverage is $300. 
+The coinsurance for non-preferred brand drugs is 40%. 
+The coinsurance for out-of-network provider is 40%. 
+The copayment for prescription drug coverage is $10. 
+The copayment for diagnostic test is $10. 
+The copayment for generic drugs is $10. 
+The limitation for rehabilitation is 20 visits. 
+The copayment for outpatientsurgery is $100/day. 
+The copayment for specialist visit is $50. 
+The copayment for imaging is $50. 
+The cost of prescription drugs is $50. 
+The copayment for emergency room care is $20. 
+The coinsurance for childbirth is 20%. 
+The coinsurance for emergencytransportation is 20%. 
+The coinsurance for emergencyroom is 20%. 
+The coinsurance for pregnancycare is 20%. 
+The coinsurance for hospital stay is 20%. 
+The coinsurance for childbirthdelivery is 20%. 
+The coinsurance for physicianfees is 20%. 
+The coinsurance for homehealthcare is 20%. 
+The coinsurance for emergency room care is 20%. 
+The coinsurance for maternity care is 20%. 
+The coinsurance for hospitalstay is 20%. 
+The deductible for childbirth is 20%. 
+The percentage for coinsurance is 20%. 
+The limit for children's glasses is one pair of glasses/year. 
+The copayment for primary care is $35. 
+The copayment for mental health services is $35. 
+The requirement for hospice services is preauthorization. 
+The limitation for durable medical equipment is 1 per year. 
+The copayment for preventive care is $0. 
+The cost of preventive care is $0. 
+The coinsurance for specialtydrugs is 50%. 
+The cost of emergency room is $1000. 
+The deductible for emergency room is $1000. 
+The limit for rehabilitation services is 60 visits/calendar year. 
+The limit for skilled nursing care is 60 visits/calendar year. 
+The visit limit for homehealthcare is 60 visits/calendar year. 
+The copayment for mentalhealthservices is $35/office visit. 
+The amount for deductible is $500. 
+The cost of deductible is $500. 
+The cost of prenatal care is $500. 
+The limit for children's eye exam is one exam/year. 
+The type for networkprovider is in-network. 
+The cost of durable medical equipment is $100. 
+The cost of primary care is $200. 
+The limitation for diagnostic test is 2 per year. 
+The family limit for out-of-pocket limit is $5,000. 
+The limitation for prescription drugs is 30 day supply. 
+The cost of preventive care is No charge.
+
+👉 

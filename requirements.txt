@@ -1,7 +1,7 @@
 neo4j
 groq
 python-dotenv
-#pdfplumber
+pdfplumber
 langchain
 langchain-text-splitters
 langchain-community

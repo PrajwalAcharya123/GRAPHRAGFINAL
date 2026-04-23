@@ -1,0 +1,1003 @@
+ "attribute": "DURATION",
+      "value": "9 months"
+    },
+    {
+      "entity": "In-Network Pre-Natal Care",
+      "attribute": "NETWORK_TYPE",
+      "value": "In-Network"
+    },
+    {
+      "entity": "Hospital Delivery",
+      "attribute": "NETWORK_TYPE",
+      "value": "In-Network"
+    }
+  ]
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_6.json
+
+🚀 Processing: section_7
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Specialist office visits",
+    "Childbirth/Delivery Professional Services",
+    "Childbirth/Delivery Facility Services",
+    "Diagnostic tests",
+    "Specialist visit"
+  ],
+  "relationships": [
+    {
+      "entity1": "Specialist office visits",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Childbirth/Delivery Professional Services",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Childbirth/Delivery Facility Services",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Diagnostic tests",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Specialist visit",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    }
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_7.json
+
+🚀 Processing: section_8
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Mia's Simple Fracture",
+    "In-Network Emergency Room Visit",
+    "Follow-up Care"
+  ],
+  "relationships": [
+    "Mia's Simple Fracture BELONGS_TO MedicalEvent",
+    "In-Network Emergency Room Visit BELONGS_TO Mia's Simple Fracture",
+    "Follow-up Care BELONGS_TO Mia's Simple Fracture"
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_8.json
+
+🚀 Processing: section_9
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Emergency room care",
+    "Diagnostic test",
+    "Durable medical equipment",
+    "Rehabilitation services"
+  ],
+  "relationships": [
+    {
+      "entity1": "Emergency room care",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Diagnostic test",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Durable medical equipment",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Rehabilitation services",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    }
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_9.json
+
+🚀 Processing: section_10
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Joe",
+    "Type 2 Diabetes",
+    "In-Network Care"
+  ],
+  "relationships": [
+    {
+      "entity1": "Joe",
+      "entity2": "Type 2 Diabetes",
+      "relationship": "HAS_CONDITION"
+    },
+    {
+      "entity1": "Type 2 Diabetes",
+      "entity2": "In-Network Care",
+      "relationship": "BELONGS_TO"
+    }
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_10.json
+
+🚀 Processing: section_11
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Primary care physician office visits",
+    "Diagnostic tests",
+    "Prescription drugs",
+    "Durable medical equipment"
+  ],
+  "relationships": [
+    {
+      "entity1": "Primary care physician office visits",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Diagnostic tests",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Prescription drugs",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Durable medical equipment",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    }
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_11.json
+
+🚀 Processing: section_12
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [],
+  "relationships": [],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_12.json
+
+🚀 Processing: list_0
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Acupuncture",
+    "Chiropractic Care",
+    "Weight Loss Programs",
+    "Rehabilitation"
+  ],
+  "relationships": [
+    {
+      "entity1": "Acupuncture",
+      "entity2": "Rehabilitation",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Chiropractic Care",
+      "entity2": "Rehabilitation",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Weight Loss Programs",
+      "entity2": "Rehabilitation",
+      "relationship": "BELONGS_TO"
+    }
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\list_0.json
+
+🚀 Processing: list_1
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Bariatric Surgery",
+    "Network",
+    "Out-of-Network"
+  ],
+  "relationships": [
+    "Bariatric Surgery BELONGS_TO MedicalEvent"
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\list_1.json
+
+🚀 Processing: list_2
+
+🔍 RAW LLM OUTPUT:
+ {
+  "entities": [
+    "Hearing Aids"
+  ],
+  "relationships": [
+    "Hearing Aids BELONGS_TO MedicalEvent"
+  ],
+  "attributes": []
+}
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\list_2.json
+(venv) PS C:\Users\Prajwal\Desktop\graphrag april 22th\src> python .\main.py
+🚀 FULL PIPELINE: PDF → HTML → JSON → JSON-LD
+
+📄 Converting PDF → HTML...
+[INFO] 2026-04-22 17:09:43,903 [RapidOCR] base.py:22: Using engine_name: torch
+[INFO] 2026-04-22 17:09:43,912 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-04-22 17:09:43,933 [RapidOCR] download_file.py:60: File exists and is valid: C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_PP-OCRv4_det_mobile.pth
+[INFO] 2026-04-22 17:09:43,934 [RapidOCR] main.py:50: Using C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_PP-OCRv4_det_mobile.pth
+[INFO] 2026-04-22 17:09:44,122 [RapidOCR] base.py:22: Using engine_name: torch
+[INFO] 2026-04-22 17:09:44,122 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-04-22 17:09:44,124 [RapidOCR] download_file.py:60: File exists and is valid: C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_ptocr_mobile_v2.0_cls_mobile.pth
+[INFO] 2026-04-22 17:09:44,124 [RapidOCR] main.py:50: Using C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_ptocr_mobile_v2.0_cls_mobile.pth
+[INFO] 2026-04-22 17:09:44,217 [RapidOCR] base.py:22: Using engine_name: torch
+[INFO] 2026-04-22 17:09:44,218 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-04-22 17:09:44,248 [RapidOCR] download_file.py:60: File exists and is valid: C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_PP-OCRv4_rec_mobile.pth
+[INFO] 2026-04-22 17:09:44,248 [RapidOCR] main.py:50: Using C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_PP-OCRv4_rec_mobile.pth
+Loading weights: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 770/770 [00:00<00:00, 7420.97it/s]
+✅ Raw HTML saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\docling_raw.html
+🧹 Structuring HTML...
+✅ Structured HTML saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\structured_html.html
+🧩 Creating structural chunks...
+✅ HTML chunks saved at: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\chunksforllm.json
+📦 Total chunks: 17
+✅ Chunks saved to: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\chunksforllm.json
+
+🚀 Processing: table_0_row_0
+
+🔍 RAW LLM OUTPUT:
+ ```
+{
+  "entities": [
+    "Deductible",
+    "Individual",
+    "Family",
+    "Plan"
+  ],
+  "relationships": [
+    "Deductible BELONGS_TO Plan",
+    "Individual BELONGS_TO Family"
+  ],
+  "attributes": [
+    { "entity": "Deductible", "attribute": "HAS_DEDUCTIBLE", "value": "$500" },
+    { "entity": "Deductible", "attribute": "HAS_DEDUCTIBLE", "value": "$1,000", "condition": "Family" }
+  ]
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\table_0_row_0.json
+
+🚀 Processing: section_0
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Primary care visit",
+    "Specialist visit",
+    "Preventive care",
+    "Diagnostic test",
+    "Imaging",
+    "Prescription drug",
+    "Outpatient surgery",
+    "Emergency room care",
+    "Urgent care",
+    "Hospital stay",
+    "Mental health services",
+    "Maternity care",
+    "Home health care",
+    "Rehabilitation services",
+    "Habilitation services",
+    "Skilled nursing care",
+    "Durable medical equipment",
+    "Hospice services",
+    "Dental care",
+    "Eye care"
+  ],
+  "relationships": [
+    {
+      "entity1": "Primary care visit",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Specialist visit",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Preventive care",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Diagnostic test",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Imaging",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Prescription drug",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Outpatient surgery",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Emergency room care",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Urgent care",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Hospital stay",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Mental health services",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Maternity care",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Home health care",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Rehabilitation services",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Habilitation services",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Skilled nursing care",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Durable medical equipment",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Hospice services",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Dental care",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Eye care",
+      "entity2": "Medical Event",
+      "relationship": "BELONGS_TO"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "Primary care visit",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "$35 copay/office visit"
+    },
+    {
+      "entity": "Primary care visit",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Specialist visit",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "$50 copay/visit"
+    },
+    {
+      "entity": "Specialist visit",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Preventive care",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "No charge for covered services"
+    },
+    {
+      "entity": "Preventive care",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Diagnostic test",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "$10 copay/test"
+    },
+    {
+      "entity": "Diagnostic test",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Imaging",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "$50 copay/test"
+    },
+    {
+      "entity": "Imaging",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Prescription drug",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "$10 copay/prescription (retail & mail order)"
+    },
+    {
+      "entity": "Prescription drug",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Outpatient surgery",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "$100/day copay"
+    },
+    {
+      "entity": "Outpatient surgery",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Emergency room care",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Emergency room care",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Urgent care",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "$30 copay"
+    },
+    {
+      "entity": "Urgent care",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Hospital stay",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Hospital stay",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Mental health services",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "$35 copay/office visit"
+    },
+    {
+      "entity": "Mental health services",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Maternity care",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Maternity care",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Home health care",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Home health care",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Rehabilitation services",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Rehabilitation services",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Habilitation services",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Habilitation services",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Skilled nursing care",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Skilled nursing care",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Durable medical equipment",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Durable medical equipment",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Hospice services",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Hospice services",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Dental care",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "Not covered"
+    },
+    {
+      "entity": "Dental care",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "Not covered"
+    },
+    {
+      "entity": "Eye care",
+      "attribute": "HAS_NETWORK_COST",
+      "value": "$35 copay/visit"
+    },
+    {
+      "entity": "Eye care",
+      "attribute": "HAS_OUT_NETWORK_COST",
+      "value": "Not covered"
+    },
+    {
+      "entity": "Medical Event",
+      "attribute": "HAS_DEDUCTIBLE",
+      "value": "$500/Individual or $1,000/family"
+    },
+    {
+      "entity": "Medical Event",
+      "attribute": "HAS_OUT_OF_POCKET_LIMIT",
+      "value": "$2,500 individual / $5,000 family (in-network), $4,000 individual / $8,000 family (out-of-network)"
+    }
+  ]
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_0.json
+
+🚀 Processing: section_1
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [],
+  "relationships": [],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_1.json
+
+🚀 Processing: section_2
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [],
+  "relationships": [],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_2.json
+
+🚀 Processing: section_3
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [],
+  "relationships": [],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_3.json
+
+🚀 Processing: section_4
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [],
+  "relationships": [],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_4.json
+
+🚀 Processing: section_5
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [],
+  "relationships": [],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_5.json
+
+🚀 Processing: section_6
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Peg",
+    "Baby",
+    "In-Network Pre-Natal Care",
+    "Hospital Delivery"
+  ],
+  "relationships": [
+    {
+      "entity1": "Peg",
+      "entity2": "Baby",
+      "relationship": "IS_HAVING"
+    },
+    {
+      "entity1": "In-Network Pre-Natal Care",
+      "entity2": "Peg",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Hospital Delivery",
+      "entity2": "Peg",
+      "relationship": "BELONGS_TO"
+    }
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_6.json
+
+🚀 Processing: section_7
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Specialist office visits",
+    "Childbirth/Delivery Professional Services",
+    "Childbirth/Delivery Facility Services",
+    "Diagnostic tests",
+    "Specialist visit"
+  ],
+  "relationships": [
+    {
+      "subject": "Specialist office visits",
+      "predicate": "BELONGS_TO",
+      "object": "MedicalEvent"
+    },
+    {
+      "subject": "Childbirth/Delivery Professional Services",
+      "predicate": "BELONGS_TO",
+      "object": "MedicalEvent"
+    },
+    {
+      "subject": "Childbirth/Delivery Facility Services",
+      "predicate": "BELONGS_TO",
+      "object": "MedicalEvent"
+    },
+    {
+      "subject": "Diagnostic tests",
+      "predicate": "BELONGS_TO",
+      "object": "MedicalEvent"
+    },
+    {
+      "subject": "Specialist visit",
+      "predicate": "BELONGS_TO",
+      "object": "MedicalEvent"
+    }
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_7.json
+
+🚀 Processing: section_8
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Mia's Simple Fracture",
+    "In-Network Emergency Room Visit",
+    "Follow-up Care"
+  ],
+  "relationships": [
+    "Mia's Simple Fracture BELONGS_TO MedicalEvent",
+    "In-Network Emergency Room Visit BELONGS_TO Mia's Simple Fracture",
+    "Follow-up Care BELONGS_TO Mia's Simple Fracture"
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_8.json
+
+🚀 Processing: section_9
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Emergency room care",
+    "Diagnostic test",
+    "Durable medical equipment",
+    "Rehabilitation services"
+  ],
+  "relationships": [
+    {
+      "entity1": "Emergency room care",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Diagnostic test",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Durable medical equipment",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Rehabilitation services",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    }
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_9.json
+
+🚀 Processing: section_10
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Joe",
+    "Type 2 Diabetes",
+    "In-Network Care"
+  ],
+  "relationships": [
+    "Type 2 Diabetes BELONGS_TO MedicalEvent",
+    "In-Network Care BELONGS_TO MedicalEvent",
+    "Joe HAS_CONDITION Type 2 Diabetes"
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_10.json
+
+🚀 Processing: section_11
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Primary care physician office visits",
+    "Diagnostic tests",
+    "Prescription drugs",
+    "Durable medical equipment"
+  ],
+  "relationships": [
+    {
+      "entity1": "Primary care physician office visits",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Diagnostic tests",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Prescription drugs",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    },
+    {
+      "entity1": "Durable medical equipment",
+      "relationship": "BELONGS_TO",
+      "entity2": "MedicalEvent"
+    }
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_11.json
+
+🚀 Processing: section_12
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [],
+  "relationships": [],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\section_12.json
+
+🚀 Processing: list_0
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Acupuncture",
+    "Chiropractic Care",
+    "Weight Loss Programs",
+    "Rehabilitation"
+  ],
+  "relationships": [
+    {
+      "entity1": "Acupuncture",
+      "entity2": "Rehabilitation",
+      "relationship": "BELONGS_TO"
+    },
+    {
+      "entity1": "Chiropractic Care",
+      "entity2": "Rehabilitation",
+      "relationship": "BELONGS_TO"
+    }
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\list_0.json
+
+🚀 Processing: list_1
+
+🔍 RAW LLM OUTPUT:
+ ```json
+{
+  "entities": [
+    "Bariatric Surgery",
+    "Network",
+    "Out-of-Network"
+  ],
+  "relationships": [
+    "Bariatric Surgery BELONGS_TO MedicalEvent"
+  ],
+  "attributes": []
+}
+```
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\list_1.json
+
+🚀 Processing: list_2
+
+🔍 RAW LLM OUTPUT:
+ {
+  "entities": [
+    "Hearing Aids"
+  ],
+  "relationships": [
+    "Hearing Aids BELONGS_TO MedicalEvent"
+  ],
+  "attributes": []
+}
+💾 Saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\list_2.json
+(venv) PS C:\Users\Prajwal\Desktop\graphrag april 22th\src> python .\main.py
+🚀 FULL PIPELINE: PDF → HTML → JSON → JSON-LD
+
+📄 Converting PDF → HTML...
+[INFO] 2026-04-22 17:30:13,184 [RapidOCR] base.py:22: Using engine_name: torch
+[INFO] 2026-04-22 17:30:13,189 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-04-22 17:30:13,202 [RapidOCR] download_file.py:60: File exists and is valid: C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_PP-OCRv4_det_mobile.pth
+[INFO] 2026-04-22 17:30:13,202 [RapidOCR] main.py:50: Using C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_PP-OCRv4_det_mobile.pth
+[INFO] 2026-04-22 17:30:13,374 [RapidOCR] base.py:22: Using engine_name: torch
+[INFO] 2026-04-22 17:30:13,374 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-04-22 17:30:13,376 [RapidOCR] download_file.py:60: File exists and is valid: C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_ptocr_mobile_v2.0_cls_mobile.pth
+[INFO] 2026-04-22 17:30:13,376 [RapidOCR] main.py:50: Using C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_ptocr_mobile_v2.0_cls_mobile.pth
+[INFO] 2026-04-22 17:30:13,448 [RapidOCR] base.py:22: Using engine_name: torch
+[INFO] 2026-04-22 17:30:13,449 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-04-22 17:30:13,477 [RapidOCR] download_file.py:60: File exists and is valid: C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_PP-OCRv4_rec_mobile.pth
+[INFO] 2026-04-22 17:30:13,477 [RapidOCR] main.py:50: Using C:\Users\Prajwal\Desktop\graphrag april 22th\venv\Lib\site-packages\rapidocr\models\ch_PP-OCRv4_rec_mobile.pth
+Loading weights: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 770/770 [00:00<00:00, 7707.85it/s]
+✅ Raw HTML saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\docling_raw.html
+🧹 Structuring HTML...
+✅ Structured HTML saved: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\structured_html.html
+🧩 Creating structural chunks...
+✅ HTML chunks saved at: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\chunksforllm.json
+📦 Total chunks: 17
+✅ Chunks saved to: C:\Users\Prajwal\Desktop\graphrag april 22th\src\output\chunksforllm.json
+(venv) PS C:\Users\Prajwal\Desktop\graphrag april 22th\src> 
