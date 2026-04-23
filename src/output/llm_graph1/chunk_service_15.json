@@ -1,0 +1,24 @@
+{
+  "entities": [
+    "Facility fee (e.g., surgery center) ambulatory",
+    "SBC Plan"
+  ],
+  "relationships": [
+    [
+      "Facility fee (e.g., surgery center) ambulatory",
+      "BELONGS_TO",
+      "SBC Plan"
+    ],
+    [
+      "Facility fee (e.g., surgery center) ambulatory",
+      "HAS_NETWORK_COST",
+      "$100/day copay"
+    ],
+    [
+      "Facility fee (e.g., surgery center) ambulatory",
+      "HAS_OUT_NETWORK_COST",
+      "40% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

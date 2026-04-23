@@ -1,0 +1,40 @@
+{
+  "entities": [
+    "$50 copay/test",
+    "SBC Plan"
+  ],
+  "relationships": [
+    [
+      "$50 copay/test",
+      "BELONGS_TO",
+      "SBC Plan"
+    ],
+    [
+      "$50 copay/test",
+      "HAS_NETWORK_COST",
+      "$50 copay"
+    ],
+    [
+      "$50 copay/test",
+      "HAS_OUT_NETWORK_COST",
+      ""
+    ],
+    [
+      "$50 copay/test",
+      "HAS_LIMITATION",
+      ""
+    ]
+  ],
+  "attributes": [
+    [
+      "$50 copay/test",
+      "NETWORK_COST",
+      "$50 copay"
+    ],
+    [
+      "$50 copay/test",
+      "OUT_OF_NETWORK_COST",
+      ""
+    ]
+  ]
+}

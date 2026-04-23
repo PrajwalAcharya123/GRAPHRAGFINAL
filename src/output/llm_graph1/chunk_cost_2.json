@@ -1,0 +1,18 @@
+{
+  "entities": [
+    "No charge for covered services"
+  ],
+  "relationships": [
+    [
+      "No charge for covered services",
+      "HAS_NETWORK_COST",
+      "40% coinsurance"
+    ],
+    [
+      "No charge for covered services",
+      "HAS_OUT_NETWORK_COST",
+      "You may have to pay for services that aren't preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for."
+    ]
+  ],
+  "attributes": []
+}

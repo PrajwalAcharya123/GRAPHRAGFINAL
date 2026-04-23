@@ -1,0 +1,43 @@
+{
+  "entities": [
+    "Preventive care/screening/immunization",
+    "covered services",
+    "services",
+    "plan",
+    "provider"
+  ],
+  "relationships": [
+    [
+      "Preventive care/screening/immunization",
+      "includes",
+      "covered services"
+    ],
+    [
+      "covered services",
+      "paid by",
+      "plan"
+    ],
+    [
+      "services",
+      "provided by",
+      "provider"
+    ],
+    [
+      "plan",
+      "pays for",
+      "covered services"
+    ]
+  ],
+  "attributes": [
+    [
+      "covered services",
+      "cost",
+      "No charge"
+    ],
+    [
+      "services",
+      "cost",
+      "40% coinsurance"
+    ]
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "entities": [
+    "Home health care"
+  ],
+  "relationships": [
+    [
+      "Home health care",
+      "HAS_NETWORK_COST",
+      "20% coinsurance"
+    ],
+    [
+      "Home health care",
+      "HAS_OUT_NETWORK_COST",
+      "40% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

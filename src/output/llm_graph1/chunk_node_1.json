@@ -1,0 +1,54 @@
+{
+  "entities": [
+    "Preventive care",
+    "Primary care services",
+    "Deductible",
+    "Copayment",
+    "Coinsurance",
+    "Preventive services"
+  ],
+  "relationships": [
+    [
+      "Preventive care",
+      "is covered by",
+      "Plan"
+    ],
+    [
+      "Primary care services",
+      "is covered by",
+      "Plan"
+    ],
+    [
+      "Deductible",
+      "is met by",
+      "Patient"
+    ],
+    [
+      "Copayment",
+      "applies to",
+      "Services"
+    ],
+    [
+      "Coinsurance",
+      "applies to",
+      "Services"
+    ],
+    [
+      "Preventive services",
+      "are covered by",
+      "Plan"
+    ]
+  ],
+  "attributes": [
+    [
+      "Deductible",
+      "type",
+      "annual"
+    ],
+    [
+      "Preventive services",
+      "cost-sharing",
+      "none"
+    ]
+  ]
+}

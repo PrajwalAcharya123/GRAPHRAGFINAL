@@ -1,0 +1,14 @@
+{
+  "entities": [
+    "SBC Plan",
+    "Routine Foot Care"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "EXCLUDES",
+      "Routine Foot Care"
+    ]
+  ],
+  "attributes": []
+}

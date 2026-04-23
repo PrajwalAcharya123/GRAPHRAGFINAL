@@ -1,0 +1,20 @@
+{
+  "entities": [
+    "Children's dental check-up",
+    "No charge",
+    "Not covered"
+  ],
+  "relationships": [
+    [
+      "Children's dental check-up",
+      "has_service",
+      "No charge"
+    ],
+    [
+      "Children's dental check-up",
+      "has_coverage",
+      "Not covered"
+    ]
+  ],
+  "attributes": []
+}

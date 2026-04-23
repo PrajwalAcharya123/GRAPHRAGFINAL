@@ -1,0 +1,26 @@
+{
+  "entities": [
+    "benefits",
+    "total cost",
+    "service"
+  ],
+  "relationships": [
+    [
+      "benefits",
+      "covers",
+      "total cost"
+    ],
+    [
+      "total cost",
+      "of",
+      "service"
+    ]
+  ],
+  "attributes": [
+    [
+      "benefits",
+      "percentage",
+      "50%"
+    ]
+  ]
+}

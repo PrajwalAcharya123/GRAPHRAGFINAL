@@ -1,0 +1,41 @@
+{
+  "entities": [
+    "plan",
+    "deductible",
+    "copayment"
+  ],
+  "relationships": [
+    [
+      "plan",
+      "has",
+      "deductible"
+    ],
+    [
+      "plan",
+      "has",
+      "copayment"
+    ],
+    [
+      "deductible",
+      "is",
+      "$500"
+    ],
+    [
+      "copayment",
+      "is",
+      "$50"
+    ]
+  ],
+  "attributes": [
+    [
+      "deductible",
+      "amount",
+      "$500"
+    ],
+    [
+      "copayment",
+      "amount",
+      "$50"
+    ]
+  ]
+}

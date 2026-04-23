@@ -1,0 +1,13 @@
+{
+  "entities": [
+    "$30 copay/prescription (retail & mail order)"
+  ],
+  "relationships": [
+    [
+      "$30 copay/prescription (retail & mail order)",
+      "HAS_NETWORK_COST",
+      "40% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

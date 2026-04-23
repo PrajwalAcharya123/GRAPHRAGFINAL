@@ -1,0 +1,18 @@
+{
+  "entities": [
+    "Generic drugs (Tier 1)"
+  ],
+  "relationships": [
+    [
+      "Generic drugs (Tier 1)",
+      "HAS_NETWORK_COST",
+      "$10 copay/prescription (retail & mail order)"
+    ],
+    [
+      "Generic drugs (Tier 1)",
+      "HAS_OUT_NETWORK_COST",
+      "40% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

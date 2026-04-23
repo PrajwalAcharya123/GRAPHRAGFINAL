@@ -1,0 +1,14 @@
+{
+  "entities": [
+    "SBC Plan",
+    "Non-emergency care outside the U.S."
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "EXCLUDES",
+      "Non-emergency care outside the U.S."
+    ]
+  ],
+  "attributes": []
+}

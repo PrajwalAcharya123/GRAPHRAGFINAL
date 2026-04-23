@@ -1,0 +1,53 @@
+{
+  "entities": [
+    "Specialist visit",
+    "copay",
+    "coinsurance",
+    "preauthorization",
+    "benefits"
+  ],
+  "relationships": [
+    [
+      "Specialist visit",
+      "has",
+      "copay"
+    ],
+    [
+      "Specialist visit",
+      "has",
+      "coinsurance"
+    ],
+    [
+      "Specialist visit",
+      "requires",
+      "preauthorization"
+    ],
+    [
+      "preauthorization",
+      "affects",
+      "benefits"
+    ]
+  ],
+  "attributes": [
+    [
+      "copay",
+      "amount",
+      "$50"
+    ],
+    [
+      "coinsurance",
+      "percentage",
+      "40%"
+    ],
+    [
+      "preauthorization",
+      "requirement",
+      "required"
+    ],
+    [
+      "benefits",
+      "reduction",
+      "50%"
+    ]
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "entities": [
+    "Infertility Treatment",
+    "SBC Plan"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "EXCLUDES",
+      "Infertility Treatment"
+    ]
+  ],
+  "attributes": []
+}

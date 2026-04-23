@@ -1,0 +1,46 @@
+{
+  "entities": [
+    "Physician/surgeon fees",
+    "anesthesia",
+    "coinsurance"
+  ],
+  "relationships": [
+    [
+      "Physician/surgeon fees",
+      "has",
+      "coinsurance"
+    ],
+    [
+      "anesthesia",
+      "has",
+      "coinsurance"
+    ],
+    [
+      "coinsurance",
+      "applies to",
+      "Physician/surgeon fees"
+    ],
+    [
+      "coinsurance",
+      "applies to",
+      "anesthesia"
+    ]
+  ],
+  "attributes": [
+    [
+      "coinsurance",
+      "percentage for services",
+      "20%"
+    ],
+    [
+      "coinsurance",
+      "percentage for you",
+      "40%"
+    ],
+    [
+      "coinsurance",
+      "percentage for anesthesia",
+      "50%"
+    ]
+  ]
+}

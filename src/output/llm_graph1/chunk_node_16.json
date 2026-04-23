@@ -1,0 +1,42 @@
+{
+  "entities": [
+    "Hospice services",
+    "coinsurance",
+    "preauthorization",
+    "benefits"
+  ],
+  "relationships": [
+    [
+      "Hospice services",
+      "requires",
+      "preauthorization"
+    ],
+    [
+      "coinsurance",
+      "applies to",
+      "Hospice services"
+    ],
+    [
+      "preauthorization",
+      "affects",
+      "benefits"
+    ]
+  ],
+  "attributes": [
+    [
+      "coinsurance",
+      "percentage",
+      "20%"
+    ],
+    [
+      "coinsurance",
+      "percentage",
+      "40%"
+    ],
+    [
+      "benefits",
+      "reduction percentage",
+      "50%"
+    ]
+  ]
+}

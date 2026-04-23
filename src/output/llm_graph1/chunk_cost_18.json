@@ -1,0 +1,18 @@
+{
+  "entities": [
+    "Outpatient services"
+  ],
+  "relationships": [
+    [
+      "Outpatient services",
+      "HAS_NETWORK_COST",
+      "$35 copay/office visit and 20% coinsurance for other outpatient services"
+    ],
+    [
+      "Outpatient services",
+      "HAS_OUT_NETWORK_COST",
+      "40% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

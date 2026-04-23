@@ -1,0 +1,20 @@
+{
+  "entities": [
+    "service_22",
+    "plan_1",
+    "cost_16"
+  ],
+  "relationships": [
+    [
+      "service_22",
+      "BELONGS_TO",
+      "plan_1"
+    ],
+    [
+      "service_22",
+      "HAS_OUT_NETWORK_COST",
+      "50% of the total cost of the service"
+    ]
+  ],
+  "attributes": []
+}

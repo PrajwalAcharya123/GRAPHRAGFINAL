@@ -1,0 +1,59 @@
+{
+  "entities": [
+    "out-of-pocket limit",
+    "plan",
+    "network providers",
+    "out-of-network providers",
+    "individual",
+    "family"
+  ],
+  "relationships": [
+    [
+      "plan",
+      "has",
+      "out-of-pocket limit"
+    ],
+    [
+      "out-of-pocket limit",
+      "applies to",
+      "network providers"
+    ],
+    [
+      "out-of-pocket limit",
+      "applies to",
+      "out-of-network providers"
+    ],
+    [
+      "individual",
+      "has",
+      "out-of-pocket limit"
+    ],
+    [
+      "family",
+      "has",
+      "out-of-pocket limit"
+    ]
+  ],
+  "attributes": [
+    [
+      "out-of-pocket limit",
+      "individual limit",
+      "$2,500"
+    ],
+    [
+      "out-of-pocket limit",
+      "family limit",
+      "$5,000"
+    ],
+    [
+      "out-of-pocket limit",
+      "out-of-network individual limit",
+      "$4,000"
+    ],
+    [
+      "out-of-pocket limit",
+      "out-of-network family limit",
+      "$8,000"
+    ]
+  ]
+}

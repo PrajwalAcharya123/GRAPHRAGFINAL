@@ -1,0 +1,14 @@
+{
+  "entities": [
+    "SBC Plan",
+    "Dental Care"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "EXCLUDES",
+      "Dental Care"
+    ]
+  ],
+  "attributes": []
+}

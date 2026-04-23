@@ -1,0 +1,13 @@
+{
+  "entities": [
+    "Out-of-Network Provider (You will pay the most)"
+  ],
+  "relationships": [
+    [
+      "Out-of-Network Provider (You will pay the most)",
+      "HAS_COST",
+      "Information"
+    ]
+  ],
+  "attributes": []
+}

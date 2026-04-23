@@ -1,0 +1,14 @@
+{
+  "entities": [
+    "SBC Plan",
+    "Cosmetic Surgery"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "EXCLUDES",
+      "Cosmetic Surgery"
+    ]
+  ],
+  "attributes": []
+}

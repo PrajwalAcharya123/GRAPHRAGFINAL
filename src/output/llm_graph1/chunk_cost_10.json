@@ -1,0 +1,18 @@
+{
+  "entities": [
+    "Anesthesia"
+  ],
+  "relationships": [
+    [
+      "Anesthesia",
+      "HAS_NETWORK_COST",
+      "40% coinsurance"
+    ],
+    [
+      "Anesthesia",
+      "HAS_OUT_NETWORK_COST",
+      "50% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

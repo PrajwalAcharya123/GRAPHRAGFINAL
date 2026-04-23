@@ -1,0 +1,19 @@
+{
+  "entities": [
+    "SBC Plan",
+    "20% coinsurance"
+  ],
+  "relationships": [
+    [
+      "20% coinsurance",
+      "BELONGS_TO",
+      "SBC Plan"
+    ],
+    [
+      "20% coinsurance",
+      "HAS_OUT_NETWORK_COST",
+      "40% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

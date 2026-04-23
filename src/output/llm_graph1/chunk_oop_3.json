@@ -1,0 +1,41 @@
+{
+  "entities": [
+    "SBC Plan",
+    "Network providers",
+    "Out-of-network providers"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "HAS_OUT_OF_POCKET_LIMIT",
+      "Network providers $2,500 individual / $5,000 family"
+    ],
+    [
+      "SBC Plan",
+      "HAS_OUT_OF_POCKET_LIMIT",
+      "Out-of-network providers $4,000 individual / $8,000 family"
+    ]
+  ],
+  "attributes": [
+    [
+      "SBC Plan",
+      "OUT_OF_POCKET_LIMIT_INDIVIDUAL_NETWORK",
+      "$2,500"
+    ],
+    [
+      "SBC Plan",
+      "OUT_OF_POCKET_LIMIT_FAMILY_NETWORK",
+      "$5,000"
+    ],
+    [
+      "SBC Plan",
+      "OUT_OF_POCKET_LIMIT_INDIVIDUAL_OUT_OF_NETWORK",
+      "$4,000"
+    ],
+    [
+      "SBC Plan",
+      "OUT_OF_POCKET_LIMIT_FAMILY_OUT_OF_NETWORK",
+      "$8,000"
+    ]
+  ]
+}

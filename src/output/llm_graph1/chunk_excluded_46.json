@@ -1,0 +1,14 @@
+{
+  "entities": [
+    "SBC Plan",
+    "Routine eye care (Adult)"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "EXCLUDES",
+      "Routine eye care (Adult)"
+    ]
+  ],
+  "attributes": []
+}

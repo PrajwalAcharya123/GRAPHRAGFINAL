@@ -1,0 +1,13 @@
+{
+  "entities": [
+    "service_18"
+  ],
+  "relationships": [
+    [
+      "service_18",
+      "HAS_NETWORK_COST",
+      "20% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

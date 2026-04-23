@@ -1,0 +1,24 @@
+{
+  "entities": [
+    "Home health care",
+    "SBC Plan"
+  ],
+  "relationships": [
+    [
+      "Home health care",
+      "BELONGS_TO",
+      "SBC Plan"
+    ],
+    [
+      "Home health care",
+      "HAS_NETWORK_COST",
+      "20% coinsurance"
+    ],
+    [
+      "Home health care",
+      "HAS_OUT_NETWORK_COST",
+      "40% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

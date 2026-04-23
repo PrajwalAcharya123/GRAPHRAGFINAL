@@ -1,0 +1,48 @@
+{
+  "entities": [
+    "network provider",
+    "out-of-network provider",
+    "plan",
+    "balance bill",
+    "lab work"
+  ],
+  "relationships": [
+    [
+      "plan",
+      "uses",
+      "network provider"
+    ],
+    [
+      "network provider",
+      "is used by",
+      "plan"
+    ],
+    [
+      "out-of-network provider",
+      "is not part of",
+      "plan"
+    ],
+    [
+      "balance bill",
+      "is received from",
+      "out-of-network provider"
+    ],
+    [
+      "lab work",
+      "is provided by",
+      "out-of-network provider"
+    ]
+  ],
+  "attributes": [
+    [
+      "plan",
+      "cost",
+      "less"
+    ],
+    [
+      "out-of-network provider",
+      "cost",
+      "most"
+    ]
+  ]
+}

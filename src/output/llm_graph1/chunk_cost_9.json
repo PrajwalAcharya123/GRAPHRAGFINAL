@@ -1,0 +1,18 @@
+{
+  "entities": [
+    "Facility fee (e.g., surgery center) ambulatory"
+  ],
+  "relationships": [
+    [
+      "Facility fee (e.g., surgery center) ambulatory",
+      "HAS_NETWORK_COST",
+      "$100/day copay"
+    ],
+    [
+      "Facility fee (e.g., surgery center) ambulatory",
+      "HAS_OUT_OF_NETWORK_COST",
+      "40% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

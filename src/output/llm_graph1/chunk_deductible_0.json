@@ -1,0 +1,20 @@
+{
+  "entities": [
+    "SBC Plan",
+    "Deductible"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "HAS_DEDUCTIBLE",
+      "Deductible"
+    ]
+  ],
+  "attributes": [
+    [
+      "Deductible",
+      "VALUE",
+      "$500/Individual or $1,000/family"
+    ]
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "entities": [
+    "Private Duty Nursing",
+    "SBC Plan"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "EXCLUDES",
+      "Private Duty Nursing"
+    ]
+  ],
+  "attributes": []
+}

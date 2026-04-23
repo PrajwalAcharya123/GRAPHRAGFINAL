@@ -1,0 +1,18 @@
+{
+  "entities": [
+    "Children's eye exam"
+  ],
+  "relationships": [
+    [
+      "Children's eye exam",
+      "HAS_NETWORK_COST",
+      "$35 copay/visit"
+    ],
+    [
+      "Children's eye exam",
+      "HAS_OUT_NETWORK_COST",
+      "Not covered"
+    ]
+  ],
+  "attributes": []
+}

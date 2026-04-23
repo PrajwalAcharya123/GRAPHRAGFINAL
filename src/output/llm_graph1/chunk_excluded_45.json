@@ -1,0 +1,14 @@
+{
+  "entities": [
+    "SBC Plan",
+    "Long Term Care"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "EXCLUDES",
+      "Long Term Care"
+    ]
+  ],
+  "attributes": []
+}

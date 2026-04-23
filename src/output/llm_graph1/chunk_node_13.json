@@ -1,0 +1,43 @@
+{
+  "entities": [
+    "Habilitation services",
+    "coinsurance",
+    "therapy",
+    "speech therapy",
+    "occupational therapy"
+  ],
+  "relationships": [
+    [
+      "Habilitation services",
+      "includes",
+      "therapy"
+    ],
+    [
+      "Habilitation services",
+      "includes",
+      "speech therapy"
+    ],
+    [
+      "Habilitation services",
+      "includes",
+      "occupational therapy"
+    ],
+    [
+      "coinsurance",
+      "applies to",
+      "Habilitation services"
+    ]
+  ],
+  "attributes": [
+    [
+      "coinsurance",
+      "percentage for services you may need",
+      "20%"
+    ],
+    [
+      "coinsurance",
+      "percentage for what you will pay",
+      "40%"
+    ]
+  ]
+}

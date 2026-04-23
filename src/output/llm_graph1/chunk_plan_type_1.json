@@ -1,0 +1,14 @@
+{
+  "entities": [
+    "PPO",
+    "SBC Plan"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "HAS_PLAN_TYPE",
+      "PPO"
+    ]
+  ],
+  "attributes": []
+}

@@ -1,0 +1,20 @@
+{
+  "entities": [
+    "SBC Plan",
+    "ReferralRequirement"
+  ],
+  "relationships": [
+    [
+      "SBC Plan",
+      "REQUIRES_REFERRAL",
+      "ReferralRequirement"
+    ]
+  ],
+  "attributes": [
+    [
+      "ReferralRequirement",
+      "VALUE",
+      "Yes"
+    ]
+  ]
+}

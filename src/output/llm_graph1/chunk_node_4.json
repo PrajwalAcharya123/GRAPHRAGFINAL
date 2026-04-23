@@ -1,0 +1,32 @@
+{
+  "entities": [
+    "out-of-pocket limit",
+    "copayments",
+    "premiums",
+    "balance-billed charges",
+    "health care"
+  ],
+  "relationships": [
+    [
+      "out-of-pocket limit",
+      "excludes",
+      "copayments"
+    ],
+    [
+      "out-of-pocket limit",
+      "excludes",
+      "premiums"
+    ],
+    [
+      "out-of-pocket limit",
+      "excludes",
+      "balance-billed charges"
+    ],
+    [
+      "out-of-pocket limit",
+      "excludes",
+      "health care"
+    ]
+  ],
+  "attributes": []
+}

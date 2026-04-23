@@ -1,0 +1,24 @@
+{
+  "entities": [
+    "Generic drugs (Tier 1)",
+    "SBC Plan"
+  ],
+  "relationships": [
+    [
+      "Generic drugs (Tier 1)",
+      "BELONGS_TO",
+      "SBC Plan"
+    ],
+    [
+      "Generic drugs (Tier 1)",
+      "HAS_NETWORK_COST",
+      "$10 copay/prescription (retail & mail order)"
+    ],
+    [
+      "Generic drugs (Tier 1)",
+      "HAS_OUT_NETWORK_COST",
+      "40% coinsurance"
+    ]
+  ],
+  "attributes": []
+}

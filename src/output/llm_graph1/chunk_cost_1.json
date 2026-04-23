@@ -1,0 +1,24 @@
+{
+  "entities": [
+    "service_7"
+  ],
+  "relationships": [
+    [
+      "service_7",
+      "HAS_NETWORK_COST",
+      "40% coinsurance"
+    ],
+    [
+      "service_7",
+      "HAS_OUT_NETWORK_COST",
+      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service."
+    ]
+  ],
+  "attributes": [
+    [
+      "service_7",
+      "COPAY",
+      "$50"
+    ]
+  ]
+}

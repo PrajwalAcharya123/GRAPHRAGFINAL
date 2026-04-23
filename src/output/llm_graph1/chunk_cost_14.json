@@ -1,0 +1,18 @@
+{
+  "entities": [
+    "Facility fee (e.g., hospital room)"
+  ],
+  "relationships": [
+    [
+      "Facility fee (e.g., hospital room)",
+      "HAS_NETWORK_COST",
+      "20% coinsurance"
+    ],
+    [
+      "Facility fee (e.g., hospital room)",
+      "HAS_OUT_NETWORK_COST",
+      "40% coinsurance"
+    ]
+  ],
+  "attributes": []
+}
