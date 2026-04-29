@@ -5,22 +5,22 @@ from answer_generator import generate_answer
 
 def ask_question(question):
 
-    print(f"\n❓ Question: {question}")
+    print(f"\n Question: {question}")
 
     # Step 1: Convert to Cypher
     cypher = question_to_cypher(question)
-    print(f"\n🧠 Generated Cypher:\n{cypher}")
-
+    print(f"\nGenerated Cypher:\n{cypher}")
+   
     # Step 2: Run query
     neo4j = Neo4jHandler()
     result = neo4j.run_query(cypher)
     neo4j.close()
 
-    print(f"\n📊 DB Result:\n{result}")
+    print(f"\nDB Result:\n{result}")
 
     # Step 3: Generate answer
     answer = generate_answer(question, result)
 
-    print(f"\n✅ Answer:\n{answer}")
+    print(f"\nThis is the answer retrieved from the Neo4j database:\n{answer}")
 
     return answer

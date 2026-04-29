@@ -6,133 +6,37 @@ load_dotenv()
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-# def question_to_cypher(question):
-#     prompt = f"""
-#     You are an expert Neo4j Cypher generator for a health insurance knowledge graph.
-
-#     Convert the user question into a Cypher query.
-
-#     GRAPH SCHEMA:
-
-#     Nodes:
-#     - (Entity {{name}})
-#     - (Value {{name}})
-
-#     Important Relationship Types:
-#     - BELONGS_TO
-#     - HAS_NETWORK_COST
-#     - HAS_OUT_NETWORK_COST
-#     - HAS_LIMITATION
-#     - HAS_DEDUCTIBLE
-#     - HAS_OUT_OF_POCKET_LIMIT
-#     - HAS_SERVICE
-#     - HAS_COVERAGE
-
-#     Structure patterns:
-#     - (Service)-[:BELONGS_TO]->(MedicalEvent)
-#     - (Service)-[:HAS_NETWORK_COST]->(Value)
-#     - (Service)-[:HAS_OUT_NETWORK_COST]->(Value)
-#     - (Service)-[:HAS_LIMITATION]->(Value)
-#     - (Plan)-[:HAS_DEDUCTIBLE]->(Value)
-
-#     RULES:
-
-#     1. Return ONLY Cypher query (no explanation)
-#     2. Always use MATCH
-#     3. Use WHERE with CONTAINS for fuzzy search
-#     4. Return meaningful fields (entity names and values)
-#     5. Use aliases like e, v, r
-#     6. Prefer patterns like:
-#     MATCH (e:Entity)-[r]->(v:Value)
-
-#     7. If question is about cost:
-#     search HAS_NETWORK_COST and HAS_OUT_NETWORK_COST
-
-#     8. If question is about deductible or limits:
-#     search Plan node
-
-#     ALWAYS return relationship-based results:
-#     MATCH (e:Entity)-[r]->(v:Value)
-#     RETURN e.name, type(r), v.name
-
-#     EXAMPLES:
-
-#     Q: What is the cost of primary care visit?
-#     A:
-#     MATCH (e:Entity)-[r]->(v:Value)
-#     WHERE e.name CONTAINS "Primary care visit"
-#     AND (type(r) = "HAS_NETWORK_COST" OR type(r) = "HAS_OUT_NETWORK_COST")
-#     RETURN e.name, type(r), v.name
-
-#     Q: What is the deductible?
-#     A:
-#     MATCH (e:Entity)-[r]->(v:Value)
-#     WHERE e.name CONTAINS "Plan"
-#     AND type(r) = "HAS_DEDUCTIBLE"
-#     RETURN e.name, v.name
-
-#     Q: What services belong to emergency care?
-#     A:
-#     MATCH (s:Entity)-[:BELONGS_TO]->(e:Entity)
-#     WHERE e.name CONTAINS "Emergency"
-#     RETURN s.name
-
-#     Q: What are the limitations of specialist visit?
-#     A:
-#     MATCH (e:Entity)-[:HAS_LIMITATION]->(v:Value)
-#     WHERE e.name CONTAINS "Specialist visit"
-#     RETURN e.name, v.name
-
-#     QUESTION:
-#     {question}
-#     """
 def question_to_cypher(question):
+    """
+    Improved Cypher generator specialized for SBC (Summary of Benefits and Coverage) documents.
+    """
     prompt = f"""
-You are a Neo4j Cypher generator.
+You are an expert Neo4j Cypher query generator for health insurance Summary of Benefits and Coverage (SBC) documents.
 
-Convert the user question into a Cypher query.
+### Graph Schema:
+- All nodes have label `:Entity`
+- Every node has a `name` property (very important)
+- Some nodes also have properties like: `network_cost`, `out_of_network_cost`, `answer`, `value`, `limitations`, `medical_event`
+- Relationships connect entities with various types (EXCLUDES, OFFERS, HAS_ANSWER, etc.)
 
-STRICT RULES:
+### STRICT INSTRUCTIONS:
+- Return **ONLY** valid Cypher code. No explanations, no markdown, no extra text.
+- Use `toLower(e.name)` for case-insensitive matching.
+- Prefer `OPTIONAL MATCH` to avoid empty results.
+- Use `coalesce()` to return the most useful value (network_cost, answer, value, name).
+- Always include at least: entity name, relationship type, and value/result.
 
-1. Return ONLY Cypher query (no explanation, no text)
-2. Choose correct pattern based on relationship:
+### Good Query Patterns:
 
-   - For cost-related data (COPAY, COST, DEDUCTIBLE, etc.):
-     MATCH (e:Entity)-[r]->(v:Value)
-
-   - For relationship between entities (BELONGS_TO):
-     MATCH (e:Entity)-[r:BELONGS_TO]->(v:Entity)
-
-3. Use case-insensitive matching:
-   WHERE toLower(e.name) CONTAINS "<keyword>"
-
-4. VALID relationship types (ONLY use these):
-   - COPAY
-   - COPAYMENT
-   - COST
-   - DEDUCTIBLE
-   - COINSURANCE
-   - LIMIT
-   - LIMITATION
-
-5. Map question → relationship:
-
-   - "copay", "copayment" → COPAY or COPAYMENT
-   - "cost", "price", "charge" → COST
-   - "deductible" → DEDUCTIBLE
-   - "coinsurance" → COINSURANCE
-   - "limit" → LIMIT or LIMITATION
-
-6. NEVER use:
-   HAS_NETWORK_COST
-   HAS_OUT_NETWORK_COST
-   HAS_DEDUCTIBLE
-   or any other invented relationship
-
-7. Extract the main entity from the question and use it in CONTAINS
-
-8. Always return:
-   RETURN e.name, type(r), v.name
+1. For "Out-of-Pocket Limit" questions:
+```cypher
+MATCH (e:Entity)
+WHERE toLower(e.name) CONTAINS "out-of-pocket limit" OR toLower(e.name) CONTAINS "oop limit"
+OPTIONAL MATCH (e)-[r]-(v)
+RETURN e.name AS entity,
+       type(r) AS relationship,
+       coalesce(e.answer, e.value, v.name, e.network_cost) AS result
+ORDER BY type(r)
 
 ---
 
@@ -153,11 +57,17 @@ AND type(r) = "COST"
 RETURN e.name, type(r), v.name
 
 Q: What is the deductible?
-A:
-MATCH (e:Entity)-[r]->(v:Value)
+A: MATCH (e:Entity)
 WHERE toLower(e.name) CONTAINS "deductible"
-AND type(r) = "DEDUCTIBLE"
-RETURN e.name, type(r), v.name
+
+OPTIONAL MATCH (e)-[r]-(v)
+RETURN
+    e.name AS deductible_type,
+    type(r) AS relationship,
+    coalesce( e.value, v.name, e.network_cost) AS deductible_info,
+    e.answer AS full_answer
+ORDER BY type(r)
+
 
 ---
 
@@ -171,3 +81,5 @@ QUESTION:
          stop=["\n\n"]
     )
     return response.choices[0].message.content.strip()
+
+

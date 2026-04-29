@@ -1,0 +1,689 @@
+{
+  "entities": [
+    "Plan Option 1",
+    "Primary care visit",
+    "Specialist visit",
+    "Preventive care",
+    "Emergency room care",
+    "Urgent care",
+    "Outpatient surgery",
+    "Hospital stay",
+    "Mental health services",
+    "Substance abuse services",
+    "Rehabilitation services",
+    "Habilitation services",
+    "Skilled nursing care",
+    "Durable medical equipment",
+    "Hospice services",
+    "Children's eye exam",
+    "Children's glasses",
+    "Children's dental check-up",
+    "Cosmetic Surgery",
+    "Private Duty Nursing",
+    "Routine Foot Care",
+    "Dental Care",
+    "Non-emergency care outside the U.S.",
+    "Infertility Treatment",
+    "Long Term Care",
+    "Routine eye care (Adult)",
+    "Acupuncture",
+    "Chiropractic Care",
+    "Weight Loss Programs",
+    "PPO",
+    "Deductible",
+    "Copay",
+    "Coinsurance",
+    "Out-of-network provider",
+    "Preauthorization",
+    "Network provider",
+    "Primary care visit",
+    "Specialist visit",
+    "Preventive care",
+    "Emergency room care",
+    "Urgent care",
+    "Outpatient surgery",
+    "Hospital stay",
+    "Mental health services",
+    "Substance abuse services",
+    "Rehabilitation services",
+    "Habilitation services",
+    "Skilled nursing care",
+    "Durable medical equipment",
+    "Hospice services",
+    "Children's eye exam",
+    "Children's glasses",
+    "Children's dental check-up",
+    "Specialist visit",
+    "preauthorization",
+    "Outpatient surgery",
+    "preauthorization",
+    "Hospital stay",
+    "preauthorization",
+    "Hospice services",
+    "preauthorization",
+    "Rehabilitation services",
+    "60 visits/calendar year",
+    "Skilled nursing care",
+    "60 visits/calendar year",
+    "Durable medical equipment",
+    "vehicle modifications, home modifications, exercise, and bathroom equipment",
+    "Children's eye exam",
+    "one exam/year",
+    "Children's glasses",
+    "one pair/year"
+  ],
+  "relationships": [
+    [
+      "Primary care visit",
+      "HAS_COPAY",
+      "$35"
+    ],
+    [
+      "Specialist visit",
+      "HAS_COPAY",
+      "$50"
+    ],
+    [
+      "Preventive care",
+      "HAS_COINSURANCE",
+      "0%"
+    ],
+    [
+      "Emergency room care",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Urgent care",
+      "HAS_COPAY",
+      "$30"
+    ],
+    [
+      "Outpatient surgery",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "Hospital stay",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "Mental health services",
+      "COVERS",
+      "Outpatient services"
+    ],
+    [
+      "Substance abuse services",
+      "COVERS",
+      "Outpatient services"
+    ],
+    [
+      "Rehabilitation services",
+      "COVERS",
+      "Physical therapy"
+    ],
+    [
+      "Habilitation services",
+      "COVERS",
+      "Occupational therapy"
+    ],
+    [
+      "Skilled nursing care",
+      "COVERS",
+      "Nursing care"
+    ],
+    [
+      "Durable medical equipment",
+      "COVERS",
+      "Equipment"
+    ],
+    [
+      "Hospice services",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "Children's eye exam",
+      "HAS_COPAY",
+      "$35"
+    ],
+    [
+      "Children's glasses",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Children's dental check-up",
+      "HAS_COPAY",
+      "No charge"
+    ],
+    [
+      "Cosmetic Surgery",
+      "NOT_COVERED",
+      "None"
+    ],
+    [
+      "Private Duty Nursing",
+      "NOT_COVERED",
+      "None"
+    ],
+    [
+      "Routine Foot Care",
+      "NOT_COVERED",
+      "None"
+    ],
+    [
+      "Dental Care",
+      "NOT_COVERED",
+      "None"
+    ],
+    [
+      "Non-emergency care outside the U.S.",
+      "NOT_COVERED",
+      "None"
+    ],
+    [
+      "Infertility Treatment",
+      "NOT_COVERED",
+      "None"
+    ],
+    [
+      "Long Term Care",
+      "NOT_COVERED",
+      "None"
+    ],
+    [
+      "Routine eye care (Adult)",
+      "NOT_COVERED",
+      "None"
+    ],
+    [
+      "Acupuncture",
+      "COVERS",
+      "Rehabilitation"
+    ],
+    [
+      "Chiropractic Care",
+      "COVERS",
+      "Rehabilitation"
+    ],
+    [
+      "Weight Loss Programs",
+      "NOT_COVERED",
+      "None"
+    ],
+    [
+      "PPO",
+      "APPLIES_TO",
+      "Network provider"
+    ],
+    [
+      "Deductible",
+      "APPLIES_TO",
+      "Out-of-network provider"
+    ],
+    [
+      "Copay",
+      "APPLIES_TO",
+      "Network provider"
+    ],
+    [
+      "Coinsurance",
+      "APPLIES_TO",
+      "Out-of-network provider"
+    ],
+    [
+      "Preauthorization",
+      "REQUIRES",
+      "Specialist visit"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Primary care visit"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Specialist visit"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Preventive care"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Emergency room care"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Urgent care"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Outpatient surgery"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Hospital stay"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Mental health services"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Substance abuse services"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Rehabilitation services"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Habilitation services"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Skilled nursing care"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Durable medical equipment"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Hospice services"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Children's eye exam"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Children's glasses"
+    ],
+    [
+      "HealthPlan",
+      "COVERS",
+      "Children's dental check-up"
+    ],
+    [
+      "Specialist visit",
+      "REQUIRES",
+      "preauthorization"
+    ],
+    [
+      "Outpatient surgery",
+      "REQUIRES",
+      "preauthorization"
+    ],
+    [
+      "Hospital stay",
+      "REQUIRES",
+      "preauthorization"
+    ],
+    [
+      "Hospice services",
+      "REQUIRES",
+      "preauthorization"
+    ],
+    [
+      "Rehabilitation services",
+      "LIMITS",
+      "60 visits/calendar year"
+    ],
+    [
+      "Skilled nursing care",
+      "LIMITS",
+      "60 visits/calendar year"
+    ],
+    [
+      "Durable medical equipment",
+      "EXCLUDES",
+      "vehicle modifications, home modifications, exercise, and bathroom equipment"
+    ],
+    [
+      "Children's eye exam",
+      "LIMITS",
+      "one exam/year"
+    ],
+    [
+      "Children's glasses",
+      "LIMITS",
+      "one pair/year"
+    ]
+  ],
+  "attributes": [
+    [
+      "Deductible",
+      "individual",
+      "$500"
+    ],
+    [
+      "Deductible",
+      "family",
+      "$1,000"
+    ],
+    [
+      "Out-of-pocket limit",
+      "individual",
+      "$2,500"
+    ],
+    [
+      "Out-of-pocket limit",
+      "family",
+      "$5,000"
+    ],
+    [
+      "Out-of-pocket limit",
+      "out-of-network individual",
+      "$4,000"
+    ],
+    [
+      "Out-of-pocket limit",
+      "out-of-network family",
+      "$8,000"
+    ],
+    [
+      "Copay",
+      "primary care visit",
+      "$35"
+    ],
+    [
+      "Copay",
+      "specialist visit",
+      "$50"
+    ],
+    [
+      "Coinsurance",
+      "emergency room care",
+      "20%"
+    ],
+    [
+      "Coinsurance",
+      "urgent care",
+      "40%"
+    ],
+    [
+      "Prescription drug coverage",
+      "deductible",
+      "$300"
+    ],
+    [
+      "Occupational therapy services",
+      "deductible",
+      "$300"
+    ],
+    [
+      "Primary care visit",
+      "network_cost",
+      "$35 copay"
+    ],
+    [
+      "Primary care visit",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Primary care visit",
+      "conditions",
+      "deductible does not apply"
+    ],
+    [
+      "Specialist visit",
+      "network_cost",
+      "$50 copay"
+    ],
+    [
+      "Specialist visit",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Specialist visit",
+      "conditions",
+      "preauthorization required"
+    ],
+    [
+      "Preventive care",
+      "network_cost",
+      "no charge"
+    ],
+    [
+      "Preventive care",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Preventive care",
+      "conditions",
+      "deductible does not apply"
+    ],
+    [
+      "Emergency room care",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Emergency room care",
+      "out_of_network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Emergency room care",
+      "conditions",
+      "none"
+    ],
+    [
+      "Urgent care",
+      "network_cost",
+      "$30 copay"
+    ],
+    [
+      "Urgent care",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Urgent care",
+      "conditions",
+      "none"
+    ],
+    [
+      "Outpatient surgery",
+      "network_cost",
+      "$100/day copay"
+    ],
+    [
+      "Outpatient surgery",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Outpatient surgery",
+      "conditions",
+      "preauthorization required"
+    ],
+    [
+      "Hospital stay",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Hospital stay",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Hospital stay",
+      "conditions",
+      "preauthorization required"
+    ],
+    [
+      "Mental health services",
+      "network_cost",
+      "$35 copay/office visit"
+    ],
+    [
+      "Mental health services",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Mental health services",
+      "conditions",
+      "none"
+    ],
+    [
+      "Substance abuse services",
+      "network_cost",
+      "$35 copay/office visit"
+    ],
+    [
+      "Substance abuse services",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Substance abuse services",
+      "conditions",
+      "none"
+    ],
+    [
+      "Rehabilitation services",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Rehabilitation services",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Rehabilitation services",
+      "conditions",
+      "60 visits/calendar year"
+    ],
+    [
+      "Habilitation services",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Habilitation services",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Habilitation services",
+      "conditions",
+      "none"
+    ],
+    [
+      "Skilled nursing care",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Skilled nursing care",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Skilled nursing care",
+      "conditions",
+      "60 visits/calendar year"
+    ],
+    [
+      "Durable medical equipment",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Durable medical equipment",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Durable medical equipment",
+      "conditions",
+      "excludes vehicle modifications, home modifications, exercise, and bathroom equipment"
+    ],
+    [
+      "Hospice services",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Hospice services",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Hospice services",
+      "conditions",
+      "preauthorization required"
+    ],
+    [
+      "Children's eye exam",
+      "network_cost",
+      "$35 copay"
+    ],
+    [
+      "Children's eye exam",
+      "out_of_network_cost",
+      "not covered"
+    ],
+    [
+      "Children's eye exam",
+      "conditions",
+      "one exam/year"
+    ],
+    [
+      "Children's glasses",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Children's glasses",
+      "out_of_network_cost",
+      "not covered"
+    ],
+    [
+      "Children's glasses",
+      "conditions",
+      "one pair/year"
+    ],
+    [
+      "Children's dental check-up",
+      "network_cost",
+      "no charge"
+    ],
+    [
+      "Children's dental check-up",
+      "out_of_network_cost",
+      "not covered"
+    ],
+    [
+      "Children's dental check-up",
+      "conditions",
+      "none"
+    ]
+  ]
+}

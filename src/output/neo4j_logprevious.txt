@@ -1,0 +1,2017 @@
+Individual -[HAS]-> Deductible
+Family -[HAS]-> Deductible
+Plan -[BEGINS_TO_PAY_AFTER]-> Deductible
+Policy -[COVERS]-> Family
+Policy -[COVERS]-> Individual
+Preventive care -[IS_COVERED_BY]-> Plan
+Primary care services -[IS_COVERED_BY]-> Plan
+Deductible -[IS_MET_BY]-> Patient
+Copayment -[APPLIES_TO]-> Services
+Coinsurance -[APPLIES_TO]-> Services
+Preventive services -[ARE_COVERED_BY]-> Plan
+Individual -[HAS]-> Deductible
+Family -[HAS]-> Deductible
+Plan -[BEGINS_TO_PAY_AFTER]-> Deductible
+Policy -[COVERS]-> Family
+Policy -[COVERS]-> Individual
+Preventive care -[IS_COVERED_BY]-> Plan
+Primary care services -[IS_COVERED_BY]-> Plan
+Deductible -[IS_MET_BY]-> Patient
+Copayment -[APPLIES_TO]-> Services
+Coinsurance -[APPLIES_TO]-> Services
+Preventive services -[ARE_COVERED_BY]-> Plan
+SBC Plan -[NAME]-> SBC Plan
+Individual -[HAS]-> Deductible
+Family -[HAS]-> Deductible
+Plan -[BEGINS_TO_PAY_AFTER]-> Deductible
+Policy -[COVERS]-> Family
+Policy -[COVERS]-> Individual
+Individual -[DEDUCTIBLE_AMOUNT]-> $500
+Family -[DEDUCTIBLE_AMOUNT]-> $1,000
+Preventive care -[IS_COVERED_BY]-> Plan
+Primary care services -[IS_COVERED_BY]-> Plan
+Deductible -[IS_MET_BY]-> Patient
+Copayment -[APPLIES_TO]-> Services
+Coinsurance -[APPLIES_TO]-> Services
+Preventive services -[ARE_COVERED_BY]-> Plan
+Deductible -[TYPE]-> annual
+Preventive services -[COST_SHARING]-> none
+prescription drug coverage -[HAS_DEDUCTIBLE]-> deductible
+occupational therapy services -[HAS_DEDUCTIBLE]-> deductible
+plan -[COVERS]-> prescription drug coverage
+plan -[COVERS]-> occupational therapy services
+deductible -[APPLIES_TO]-> prescription drug coverage
+deductible -[APPLIES_TO]-> occupational therapy services
+prescription drug coverage -[DEDUCTIBLE_AMOUNT]-> $300
+occupational therapy services -[DEDUCTIBLE_AMOUNT]-> $300
+plan -[HAS]-> out-of-pocket limit
+out-of-pocket limit -[APPLIES_TO]-> network providers
+out-of-pocket limit -[APPLIES_TO]-> out-of-network providers
+individual -[HAS]-> out-of-pocket limit
+family -[HAS]-> out-of-pocket limit
+out-of-pocket limit -[INDIVIDUAL_LIMIT]-> $2,500
+out-of-pocket limit -[FAMILY_LIMIT]-> $5,000
+out-of-pocket limit -[OUT_OF_NETWORK_INDIVIDUAL_LIMIT]-> $4,000
+out-of-pocket limit -[OUT_OF_NETWORK_FAMILY_LIMIT]-> $8,000
+out-of-pocket limit -[EXCLUDES]-> copayments
+out-of-pocket limit -[EXCLUDES]-> premiums
+out-of-pocket limit -[EXCLUDES]-> balance-billed charges
+out-of-pocket limit -[EXCLUDES]-> health care
+plan -[USES]-> network provider
+network provider -[IS_USED_BY]-> plan
+out-of-network provider -[IS_NOT_PART_OF]-> plan
+balance bill -[IS_RECEIVED_FROM]-> out-of-network provider
+lab work -[IS_PROVIDED_BY]-> out-of-network provider
+plan -[COST]-> less
+out-of-network provider -[COST]-> most
+plan -[PAYS]-> costs
+specialist -[REQUIRES]-> referral
+plan -[COVERS]-> services
+plan -[REQUIRES_REFERRAL]-> yes
+Specialist visit -[HAS]-> copay
+Specialist visit -[HAS]-> coinsurance
+Specialist visit -[REQUIRES]-> preauthorization
+preauthorization -[AFFECTS]-> benefits
+copay -[AMOUNT]-> $50
+coinsurance -[PERCENTAGE]-> 40%
+preauthorization -[REQUIREMENT]-> required
+benefits -[REDUCTION]-> 50%
+Preventive care/screening/immunization -[INCLUDES]-> covered services
+covered services -[PAID_BY]-> plan
+services -[PROVIDED_BY]-> provider
+plan -[PAYS_FOR]-> covered services
+covered services -[COST]-> No charge
+services -[COST]-> 40% coinsurance
+Physician/surgeon fees -[HAS]-> coinsurance
+anesthesia -[HAS]-> coinsurance
+coinsurance -[APPLIES_TO]-> Physician/surgeon fees
+coinsurance -[APPLIES_TO]-> anesthesia
+coinsurance -[PERCENTAGE_FOR_SERVICES]-> 20%
+coinsurance -[PERCENTAGE_FOR_YOU]-> 40%
+coinsurance -[PERCENTAGE_FOR_ANESTHESIA]-> 50%
+benefits -[COVERS]-> total cost
+total cost -[OF]-> service
+benefits -[PERCENTAGE]-> 50%
+Physician/surgeon fees -[HAS]-> coinsurance
+anesthesia -[HAS]-> coinsurance
+coinsurance -[PERCENTAGE_FOR_SERVICES]-> 20%
+coinsurance -[PERCENTAGE_FOR_YOU]-> 40%
+anesthesia -[COINSURANCE_PERCENTAGE]-> 50%
+Rehabilitation services -[HAS]-> coinsurance
+coinsurance -[APPLIES_TO]-> visits
+coinsurance -[PERCENTAGE_FOR_SERVICES_YOU_MAY_NEED]-> 20%
+coinsurance -[PERCENTAGE_FOR_WHAT_YOU_WILL_PAY]-> 40%
+visits -[LIMIT_PER_CALENDAR_YEAR]-> 60
+Habilitation services -[INCLUDES]-> therapy
+Habilitation services -[INCLUDES]-> speech therapy
+Habilitation services -[INCLUDES]-> occupational therapy
+coinsurance -[APPLIES_TO]-> Habilitation services
+coinsurance -[PERCENTAGE_FOR_SERVICES_YOU_MAY_NEED]-> 20%
+coinsurance -[PERCENTAGE_FOR_WHAT_YOU_WILL_PAY]-> 40%
+Skilled nursing care -[HAS]-> coinsurance
+coinsurance -[APPLIES_TO]-> visits
+coinsurance -[PERCENTAGE_FOR_SERVICES_YOU_MAY_NEED]-> 20%
+coinsurance -[PERCENTAGE_FOR_WHAT_YOU_WILL_PAY]-> 40%
+visits -[LIMIT_PER_CALENDAR_YEAR]-> 60
+Durable medical equipment -[HAS]-> coinsurance
+coinsurance -[EXCLUDES]-> vehicle modifications
+coinsurance -[EXCLUDES]-> home modifications
+coinsurance -[EXCLUDES]-> exercise
+coinsurance -[EXCLUDES]-> bathroom equipment
+coinsurance -[PERCENTAGE_FOR_SERVICES]-> 20%
+coinsurance -[PERCENTAGE_FOR_PAYMENT]-> 40%
+Hospice services -[REQUIRES]-> preauthorization
+coinsurance -[APPLIES_TO]-> Hospice services
+preauthorization -[AFFECTS]-> benefits
+coinsurance -[PERCENTAGE]-> 20%
+coinsurance -[PERCENTAGE]-> 40%
+benefits -[REDUCTION_PERCENTAGE]-> 50%
+Children's glasses -[HAS]-> coinsurance
+coinsurance -[APPLIES_TO]-> Children's glasses
+coverage -[LIMITS]-> Children's glasses
+coinsurance -[RATE]-> 20%
+coverage -[LIMIT]-> one pair of glasses/year
+Children's glasses -[COVERAGE_STATUS]-> Not covered
+Children's dental check-up -[HAS_SERVICE]-> No charge
+Children's dental check-up -[HAS_COVERAGE]-> Not covered
+plan -[HAS]-> deductible
+plan -[HAS]-> copayment
+deductible -[IS]-> $500
+copayment -[IS]-> $50
+deductible -[AMOUNT]-> $500
+copayment -[AMOUNT]-> $50
+plan -[HAS]-> deductible
+deductible -[APPLIES_TO]-> hospital
+hospital -[HAS]-> coinsurance
+coinsurance -[AMOUNT]-> 20%
+deductible -[AMOUNT]-> $500
+plan -[HAS]-> deductible
+deductible -[HAS]-> coinsurance
+deductible -[AMOUNT]-> $500
+coinsurance -[PERCENTAGE]-> 20%
+plan -[HAS]-> deductible
+plan -[HAS]-> specialist copayment
+deductible -[IS]-> $500
+specialist copayment -[IS]-> $50
+deductible -[AMOUNT]-> $500
+specialist copayment -[AMOUNT]-> $50
+plan -[HAS]-> deductible
+deductible -[APPLIES_TO]-> hospital
+hospital -[HAS]-> coinsurance
+coinsurance -[AMOUNT]-> 20%
+deductible -[AMOUNT]-> $500
+plan -[HAS]-> deductible
+deductible -[HAS]-> coinsurance
+deductible -[AMOUNT]-> $500
+coinsurance -[PERCENTAGE]-> 20%
+plan -[HAS]-> deductible
+plan -[HAS]-> copayment
+deductible -[IS]-> $500
+copayment -[IS]-> $50
+deductible -[AMOUNT]-> $500
+copayment -[AMOUNT]-> $50
+plan -[HAS]-> deductible
+deductible -[APPLIES_TO]-> hospital
+hospital -[HAS]-> coinsurance
+deductible -[AMOUNT]-> $500
+coinsurance -[PERCENTAGE]-> 20%
+plan -[HAS]-> deductible
+deductible -[HAS]-> coinsurance
+deductible -[AMOUNT]-> $500
+coinsurance -[PERCENTAGE]-> 20%
+Primary care visit to treat injury or illness -[HAS_NETWORK_COST]-> $50 copay/visit
+Diagnostic test -[HAS_NETWORK_COST]-> $50 copay/test
+Generic drugs (Tier 1) -[HAS_NETWORK_COST]-> $30 copay/prescription (retail & mail order)
+Facility fee (e.g., surgery center) ambulatory -[HAS_NETWORK_COST]-> 20% coinsurance
+Emergency room care -[HAS_NETWORK_COST]-> 20% coinsurance
+Facility fee (e.g., hospital room) -[HAS_NETWORK_COST]-> 20% coinsurance
+Outpatient services -[HAS_NETWORK_COST]-> 20% coinsurance
+Office visits -[HAS_NETWORK_COST]-> 20% coinsurance
+Home health care -[HAS_NETWORK_COST]-> 20% coinsurance
+Children's eye exam -[HAS_NETWORK_COST]-> No charge
+SBC Plan -[HAS_DEDUCTIBLE]-> $500/Individual or $1,000/family
+SBC Plan -[HAS_OUT_OF_POCKET_LIMIT]-> For network providers $2,500 individual / $5,000 family; for out- of-network providers $4,000 individual / $8,000 family
+Preventive care and primary care services -[BELONGS_TO]-> SBC Plan
+Prescription drug coverage -[BELONGS_TO]-> SBC Plan
+Occupational therapy services -[BELONGS_TO]-> SBC Plan
+SBC Plan -[PLAN_TYPE]-> PPO
+SBC Plan -[COVERAGE_PERIOD]-> 1/1/2017 - 12/31/2017
+SBC Plan -[HAS_COVERAGE_PERIOD]-> coverage period: 1/1/2017 - 12/31/2017
+SBC Plan -[COVERAGE_PERIOD]-> 1/1/2017 - 12/31/2017
+SBC Plan -[HAS_PLAN_TYPE]-> PPO
+SBC Plan -[HAS_DEDUCTIBLE]-> Deductible
+Deductible -[VALUE]-> $500/Individual or $1,000/family
+SBC Plan -[HAS_DEDUCTIBLE]-> Deductible
+Deductible -[DESCRIPTION]-> Yes. Preventive care and primary care services are covered before you meet your deductible.
+SBC Plan -[HAS_DEDUCTIBLE]-> $300 for prescription drug coverage
+SBC Plan -[HAS_DEDUCTIBLE]-> $300 for occupational therapy services
+prescription drug coverage -[DEDUCTIBLE_VALUE]-> $300
+occupational therapy services -[DEDUCTIBLE_VALUE]-> $300
+SBC Plan -[HAS_OUT_OF_POCKET_LIMIT]-> Network providers $2,500 individual / $5,000 family
+SBC Plan -[HAS_OUT_OF_POCKET_LIMIT]-> Out-of-network providers $4,000 individual / $8,000 family
+SBC Plan -[OUT_OF_POCKET_LIMIT_INDIVIDUAL_NETWORK]-> $2,500
+SBC Plan -[OUT_OF_POCKET_LIMIT_FAMILY_NETWORK]-> $5,000
+SBC Plan -[OUT_OF_POCKET_LIMIT_INDIVIDUAL_OUT_OF_NETWORK]-> $4,000
+SBC Plan -[OUT_OF_POCKET_LIMIT_FAMILY_OUT_OF_NETWORK]-> $8,000
+SBC Plan -[HAS_OUT_OF_POCKET_LIMIT]-> Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn't cover.
+SBC Plan -[REQUIRES_REFERRAL]-> ReferralRequirement
+ReferralRequirement -[VALUE]-> Yes
+Primary care visit to treat injury or illness an -[BELONGS_TO]-> SBC Plan
+Primary care visit to treat injury or illness an -[HAS_NETWORK_COST]-> $35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply
+Primary care visit to treat injury or illness an -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+Primary care visit to treat injury or illness an -[BELONGS_TO]-> Common Medical Event
+Primary care visit to treat injury or illness an -[HAS_NETWORK_COST]-> $35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply
+Primary care visit to treat injury or illness an -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+$50 copay/visit -[BELONGS_TO]-> SBC Plan
+$50 copay/visit -[HAS_NETWORK_COST]-> $50 copay/visit
+$50 copay/visit -[HAS_OUT_NETWORK_COST]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+$50 copay/visit -[HAS_LIMITATION]-> Preauthorization is required
+SBC Plan -[HAS_SERVICE]-> $50 copay/visit
+$50 copay/visit -[NETWORK_COST_VALUE]-> $50
+$50 copay/visit -[OUT_OF_NETWORK_COST_VALUE]-> 50% reduction
+service_7 -[HAS_NETWORK_COST]-> 40% coinsurance
+service_7 -[HAS_OUT_NETWORK_COST]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+service_7 -[COPAY]-> $50
+No charge for covered services -[BELONGS_TO]-> SBC Plan
+No charge for covered services -[HAS_NETWORK_COST]-> 40% coinsurance
+No charge for covered services -[HAS_OUT_NETWORK_COST]-> You may have to pay for services that aren't preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.
+No charge for covered services -[HAS_NETWORK_COST]-> 40% coinsurance
+No charge for covered services -[HAS_OUT_NETWORK_COST]-> You may have to pay for services that aren't preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.
+Diagnostic test work) (x-ray, blood -[BELONGS_TO]-> SBC Plan
+Diagnostic test work) (x-ray, blood -[HAS_NETWORK_COST]-> $10 copay/test
+Diagnostic test work) (x-ray, blood -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+Diagnostic test work) (x-ray, blood) -[HAS_NETWORK_COST]-> $10 copay/test
+Diagnostic test work) (x-ray, blood) -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+$50 copay/test -[BELONGS_TO]-> SBC Plan
+$50 copay/test -[HAS_NETWORK_COST]-> $50 copay
+$50 copay/test -[HAS_OUT_NETWORK_COST]-> 
+$50 copay/test -[HAS_LIMITATION]-> 
+$50 copay/test -[NETWORK_COST]-> $50 copay
+$50 copay/test -[OUT_OF_NETWORK_COST]-> 
+$50 copay/test -[HAS_NETWORK_COST]-> 40% coinsurance
+Generic drugs (Tier 1) -[BELONGS_TO]-> SBC Plan
+Generic drugs (Tier 1) -[HAS_NETWORK_COST]-> $10 copay/prescription (retail & mail order)
+Generic drugs (Tier 1) -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+Generic drugs (Tier 1) -[HAS_NETWORK_COST]-> $10 copay/prescription (retail & mail order)
+Generic drugs (Tier 1) -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+$30 copay/prescription (retail & mail order) -[HAS_NETWORK_COST]-> $30 copay
+$30 copay/prescription (retail & mail order) -[HAS_OUT_NETWORK_COST]-> 
+$30 copay/prescription (retail & mail order) -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+$30 copay/prescription (retail & mail order) -[HAS_NETWORK_COST]-> 40% coinsurance
+40% coinsurance -[BELONGS_TO]-> SBC Plan
+40% coinsurance -[HAS_NETWORK_COST]-> 60% coinsurance
+40% coinsurance -[HAS_OUT_NETWORK_COST]-> 
+40% coinsurance -[HAS_NETWORK_COST]-> 60% coinsurance
+50% coinsurance -[BELONGS_TO]-> SBC Plan
+50% coinsurance -[HAS_NETWORK_COST]-> 70% coinsurance
+50% coinsurance -[HAS_OUT_NETWORK_COST]-> 
+50% coinsurance -[HAS_NETWORK_COST]-> 70% coinsurance
+Facility fee (e.g., surgery center) ambulatory -[BELONGS_TO]-> SBC Plan
+Facility fee (e.g., surgery center) ambulatory -[HAS_NETWORK_COST]-> $100/day copay
+Facility fee (e.g., surgery center) ambulatory -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+Facility fee (e.g., surgery center) ambulatory -[HAS_NETWORK_COST]-> $100/day copay
+Facility fee (e.g., surgery center) ambulatory -[HAS_OUT_OF_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> 50% coinsurance for anesthesia
+Anesthesia -[HAS_NETWORK_COST]-> 40% coinsurance
+Anesthesia -[HAS_OUT_NETWORK_COST]-> 50% coinsurance
+Emergency room care -[BELONGS_TO]-> SBC Plan
+Emergency room care -[HAS_NETWORK_COST]-> 20% coinsurance
+Emergency room care -[HAS_OUT_NETWORK_COST]-> 20% coinsurance
+Emergency room care -[HAS_NETWORK_COST]-> 20% coinsurance
+Emergency room care -[HAS_OUT_NETWORK_COST]-> 20% coinsurance
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_NETWORK_COST]-> 20% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> 
+service_18 -[HAS_NETWORK_COST]-> 20% coinsurance
+$30 copay -[BELONGS_TO]-> SBC Plan
+$30 copay -[HAS_NETWORK_COST]-> $30 copay
+$30 copay -[HAS_OUT_NETWORK_COST]-> 
+$30 copay -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+$30 copay -[NETWORK_COST]-> $30 copay
+$30 copay -[OUT_OF_NETWORK_COST]-> 40% coinsurance
+service_19 -[HAS_NETWORK_COST]-> 40% coinsurance
+service_19 -[COPAY]-> $30
+Facility fee (e.g., hospital room) -[HAS_NETWORK_COST]-> 20% coinsurance
+Facility fee (e.g., hospital room) -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+Facility fee (e.g., hospital room) -[HAS_NETWORK_COST]-> 20% coinsurance
+Facility fee (e.g., hospital room) -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+SBC Plan -[COVERS]-> Out-of-Network Provider (You will pay the most)
+Out-of-Network Provider (You will pay the most) -[HAS_NETWORK_COST]-> Information
+Out-of-Network Provider (You will pay the most) -[HAS_OUT_NETWORK_COST]-> 
+Out-of-Network Provider (You will pay the most) -[HAS_COST]-> Information
+service_22 -[BELONGS_TO]-> plan_1
+service_22 -[HAS_OUT_NETWORK_COST]-> 50% of the total cost of the service
+service_22 -[HAS_OUT_NETWORK_COST]-> 50% of the total cost of the service
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> 50% coinsurance for anesthesia
+service_23 -[HAS_NETWORK_COST]-> 20% coinsurance
+service_23 -[HAS_OUT_NETWORK_COST]-> 50% coinsurance for anesthesia
+Outpatient services -[BELONGS_TO]-> SBC Plan
+Outpatient services -[HAS_NETWORK_COST]-> $35 copay/office visit and 20% coinsurance for other outpatient services
+Outpatient services -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+Outpatient services -[HAS_NETWORK_COST]-> $35 copay/office visit and 20% coinsurance for other outpatient services
+Outpatient services -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+Office visits -[BELONGS_TO]-> SBC Plan
+Office visits -[HAS_NETWORK_COST]-> 20% coinsurance
+Office visits -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+Office visits -[HAS_NETWORK_COST]-> 20% coinsurance
+Office visits -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+Home health care -[BELONGS_TO]-> SBC Plan
+Home health care -[HAS_NETWORK_COST]-> 20% coinsurance
+Home health care -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+Home health care -[HAS_NETWORK_COST]-> 20% coinsurance
+Home health care -[HAS_OUT_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> 60 visits/calendar year. Includes physical
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> 60 visits/calendar year. Includes physical
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> therapy, speech therapy, and occupational therapy.
+therapy, speech therapy, and occupational therapy -[HAS_NETWORK_COST]-> 40% coinsurance
+therapy, speech therapy, and occupational therapy -[HAS_OUT_NETWORK_COST]-> therapy, speech therapy, and occupational therapy
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> 60 visits/calendar year
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> 60 visits/calendar year
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+20% coinsurance -[HAS_NETWORK_COST]-> 40% coinsurance
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+Children's eye exam -[BELONGS_TO]-> SBC Plan
+Children's eye exam -[HAS_NETWORK_COST]-> $35 copay/visit
+Children's eye exam -[HAS_OUT_NETWORK_COST]-> Not covered
+Children's eye exam -[HAS_NETWORK_COST]-> $35 copay/visit
+Children's eye exam -[HAS_OUT_NETWORK_COST]-> Not covered
+20% coinsurance -[BELONGS_TO]-> SBC Plan
+20% coinsurance -[HAS_NETWORK_COST]-> Not covered
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> Coverage limited to one pair of glasses/year.
+20% coinsurance -[HAS_NETWORK_COST]-> Not covered
+20% coinsurance -[HAS_OUT_NETWORK_COST]-> Coverage limited to one pair of glasses/year.
+No charge -[BELONGS_TO]-> SBC Plan
+No charge -[HAS_NETWORK_COST]-> Not covered
+No charge -[HAS_OUT_NETWORK_COST]-> None
+No charge -[HAS_NETWORK_COST]-> Not covered
+No charge -[HAS_OUT_NETWORK_COST]-> ----------None----------
+SBC Plan -[EXCLUDES]-> Services Your Plan Generally Does NOT Cover
+SBC Plan -[EXCLUDES]-> Cosmetic Surgery
+SBC Plan -[EXCLUDES]-> Private Duty Nursing
+SBC Plan -[EXCLUDES]-> Routine Foot Care
+SBC Plan -[EXCLUDES]-> Dental Care
+SBC Plan -[EXCLUDES]-> Non-emergency care outside the U.S.
+SBC Plan -[EXCLUDES]-> Infertility Treatment
+SBC Plan -[EXCLUDES]-> Long Term Care
+SBC Plan -[EXCLUDES]-> Routine eye care (Adult)
+non-preferred brand drugs -[BELONGS_TO]-> plan
+deductible -[HAS_COST]-> $3,160
+children's dental check-up -[HAS_COST]-> no charge
+urgentcare -[BELONGS_TO]-> outofnetworkprovider
+homehealthcare -[BELONGS_TO]-> outofnetworkprovider
+physicianfees -[HAS_COST]-> 20% coinsurance
+deductible -[HAS_COST]-> $700
+hospital stay -[BELONGS_TO]-> plan
+plan -[BELONGS_TO]-> network provider
+plan -[HAS_DEDUCTIBLE]-> deductible
+mentalhealthservices -[HAS_COST]-> $35 copay/office visit
+prescription drug coverage -[BELONGS_TO]-> plan
+generic drugs -[BELONGS_TO]-> plan
+infertility treatment -[BELONGS_TO]-> excluded services
+deductible -[HAS_COST]-> $500
+long term care -[BELONGS_TO]-> excluded services
+primary care -[BELONGS_TO]-> prescription drugs
+hospitalstay -[BELONGS_TO]-> outofnetworkprovider
+specialist -[BELONGS_TO]-> plan
+deductible -[HAS_COST]-> $2,300
+emergencytransportation -[BELONGS_TO]-> networkprovider
+specialtydrugs -[HAS_COST]-> 50% coinsurance
+homehealthcare -[HAS_COST]-> 20% coinsurance
+emergencyroom -[BELONGS_TO]-> networkprovider
+specialtydrugs -[BELONGS_TO]-> networkprovider
+out-of-network provider -[BELONGS_TO]-> plan
+childbirthdelivery -[HAS_COST]-> 20% coinsurance
+emergencyroom -[HAS_COST]-> 20% coinsurance
+prenatal care -[BELONGS_TO]-> childbirth
+durable medical equipment -[HAS_COST]-> 20% coinsurance
+mental health services -[BELONGS_TO]-> plan
+pregnancycare -[BELONGS_TO]-> outofnetworkprovider
+habilitation services -[HAS_COST]-> 20% coinsurance
+physicianfees -[BELONGS_TO]-> networkprovider
+prescription -[BELONGS_TO]-> plan
+plan -[BELONGS_TO]-> out-of-network provider
+plan -[HAS_OUT_OF_POCKET_LIMIT]-> out-of-pocket limit
+urgent care -[BELONGS_TO]-> plan
+children's glasses -[HAS_COST]-> 20% coinsurance
+imaging -[BELONGS_TO]-> plan
+childbirthdelivery -[BELONGS_TO]-> networkprovider
+deductible -[HAS_COST]-> $300
+pregnancycare -[HAS_COST]-> 20% coinsurance
+routine eye care -[BELONGS_TO]-> excluded services
+plan -[HAS_COPAYMENT]-> copayment
+occupational therapy services -[BELONGS_TO]-> plan
+skilled nursing care -[HAS_COST]-> 20% coinsurance
+hospice services -[HAS_COST]-> 20% coinsurance
+prescription drugs -[BELONGS_TO]-> durable medical equipment
+emergency room -[BELONGS_TO]-> rehabilitation
+emergencytransportation -[BELONGS_TO]-> outofnetworkprovider
+outpatientsurgery -[BELONGS_TO]-> networkprovider
+childbirth -[HAS_COST]-> diagnostic test
+plan -[HAS_LIMITATION]-> out-of-pocket limit
+diagnostic test -[BELONGS_TO]-> plan
+emergency room care -[BELONGS_TO]-> plan
+emergencyroom -[BELONGS_TO]-> outofnetworkprovider
+specialtydrugs -[BELONGS_TO]-> outofnetworkprovider
+mentalhealthservices -[BELONGS_TO]-> networkprovider
+hospitalstay -[HAS_COST]-> 20% coinsurance
+outpatientsurgery -[HAS_COST]-> $100/day copay
+preferred brand drugs -[BELONGS_TO]-> plan
+physicianfees -[BELONGS_TO]-> outofnetworkprovider
+network provider -[BELONGS_TO]-> plan
+preventive care -[BELONGS_TO]-> plan
+occupational therapy -[BELONGS_TO]-> plan
+urgentcare -[BELONGS_TO]-> networkprovider
+rehabilitation services -[HAS_COST]-> 20% coinsurance
+homehealthcare -[BELONGS_TO]-> networkprovider
+emergencytransportation -[HAS_COST]-> 20% coinsurance
+maternity care -[BELONGS_TO]-> plan
+childbirthdelivery -[BELONGS_TO]-> outofnetworkprovider
+hospitalstay -[BELONGS_TO]-> networkprovider
+outpatientsurgery -[BELONGS_TO]-> outofnetworkprovider
+deductible -[HAS_COST]-> $60
+mentalhealthservices -[BELONGS_TO]-> outofnetworkprovider
+children's eye exam -[HAS_COST]-> $35 copay/visit
+primary care -[BELONGS_TO]-> plan
+specialist visit -[BELONGS_TO]-> plan
+pregnancycare -[BELONGS_TO]-> networkprovider
+plan -[HAS_COINSURANCE]-> coinsurance
+urgentcare -[HAS_COST]-> $30 copay
+out-of-pocket limit -[AMOUNT]-> $2,500
+occupational therapy services -[COPAYMENT]-> $30
+primary care -[COPAY]-> 10%
+prescription -[COST]-> $300
+preferred brand drugs -[COPAY]-> $30
+non-preferred brand drugs -[COINSURANCE]-> 40%
+out-of-pocket limit -[COST]-> $2,500
+prescription drug coverage -[COPAYMENT]-> $10
+rehabilitation -[LIMITATION]-> 20 visits
+outpatientsurgery -[COPAY]-> $100/day
+specialist visit -[COPAYMENT]-> $50
+outofnetworkprovider -[TYPE]-> out-of-network
+specialist -[COPAY]-> $50
+emergency room care -[COPAYMENT]-> $20
+maternity care -[COINSURANCE]-> 20%
+children's glasses -[LIMIT]-> one pair of glasses/year
+childbirthdelivery -[COINSURANCE]-> 20%
+primary care -[COPAYMENT]-> $35
+emergencytransportation -[COINSURANCE]-> 20%
+hospital stay -[COINSURANCE]-> 20%
+prescription drugs -[COST]-> $50
+hospice services -[REQUIREMENT]-> preauthorization
+durable medical equipment -[LIMITATION]-> 1 per year
+emergencyroom -[COINSURANCE]-> 20%
+homehealthcare -[COINSURANCE]-> 20%
+pregnancycare -[COINSURANCE]-> 20%
+preventive care -[COPAYMENT]-> $0
+diagnostic test -[COPAY]-> $10
+preventive care -[COST]-> $0
+copayment -[AMOUNT]-> $50
+specialtydrugs -[COINSURANCE]-> 50%
+occupational therapy -[COST]-> $300
+emergency room -[DEDUCTIBLE]-> $1000
+imaging -[COPAY]-> $50
+childbirth -[COPAY]-> 20%
+physicianfees -[COINSURANCE]-> 20%
+rehabilitation services -[LIMIT]-> 60 visits/calendar year
+hospitalstay -[COINSURANCE]-> 20%
+urgentcare -[COPAY]-> $30
+network provider -[COPAY]-> $35
+urgent care -[COPAYMENT]-> $30
+mentalhealthservices -[COPAY]-> $35/office visit
+generic drugs -[COPAY]-> $10
+coinsurance -[PERCENTAGE]-> 20%
+deductible -[COST]-> $500
+deductible -[AMOUNT]-> $500
+skilled nursing care -[LIMIT]-> 60 visits/calendar year
+prenatal care -[COST]-> $500
+primary care -[COPAY]-> $35
+children's eye exam -[LIMIT]-> one exam/year
+mental health services -[COPAYMENT]-> $35
+out-of-network provider -[COINSURANCE]-> 40%
+networkprovider -[TYPE]-> in-network
+non-preferred brand drugs -[BELONGS_TO]-> plan
+infertility treatment -[BELONGS_TO]-> excluded services
+deductible -[HAS_COST]-> $500
+specialist visit -[BELONGS_TO]-> prenatal care
+deductible -[HAS_COST]-> $300
+imaging -[BELONGS_TO]-> plan
+preferred brand drugs -[BELONGS_TO]-> plan
+emergencytransportation -[HAS_COST]-> 20% coinsurance
+hospitalstay -[HAS_COST]-> 20% coinsurance
+long term care -[BELONGS_TO]-> excluded services
+pregnancycare -[HAS_COST]-> 20% coinsurance
+emergencyroom -[BELONGS_TO]-> networkprovider
+durable medical equipment -[HAS_COST]-> 20% coinsurance
+primary care services -[BELONGS_TO]-> plan
+network provider -[BELONGS_TO]-> plan
+prenatal care -[BELONGS_TO]-> childbirth
+deductible -[HAS_COST]-> $2,300
+durable medical equipment -[BELONGS_TO]-> wellness program
+out-of-network provider -[BELONGS_TO]-> plan
+occupational therapy -[BELONGS_TO]-> plan
+plan -[HAS_DEDUCTIBLE]-> deductible
+specialtydrugs -[BELONGS_TO]-> networkprovider
+plan -[HAS_COINSURANCE]-> coinsurance
+emergencytransportation -[BELONGS_TO]-> networkprovider
+homehealthcare -[BELONGS_TO]-> networkprovider
+hospice services -[HAS_COST]-> 20% coinsurance
+prescription drugs -[HAS_LIMITATION]-> durable medical equipment
+mentalhealthservices -[HAS_COST]-> $35 copay/office visit
+deductible -[HAS_COST]-> $60
+rehabilitation -[HAS_COST]-> copay
+plan -[HAS_LIMITATION]-> out-of-pocket limit
+specialtydrugs -[HAS_COST]-> 50% coinsurance
+pregnancycare -[BELONGS_TO]-> networkprovider
+primary care -[BELONGS_TO]-> prescription drugs
+hospitalstay -[BELONGS_TO]-> networkprovider
+children's eye exam -[HAS_COST]-> $35 copay/visit
+outpatientsurgery -[BELONGS_TO]-> networkprovider
+deductible -[HAS_COST]-> $700
+maternity care -[BELONGS_TO]-> plan
+children's glasses -[HAS_COST]-> 20% coinsurance
+preventive care -[BELONGS_TO]-> plan
+specialist -[BELONGS_TO]-> plan
+habilitation services -[HAS_COST]-> 20% coinsurance
+deductible -[HAS_COST]-> $3,160
+hospitalstay -[HAS_LIMITATION]-> preauthorization required
+childbirthdelivery -[HAS_COST]-> 20% coinsurance
+childbirth -[HAS_COST]-> deductible
+routine eye care -[BELONGS_TO]-> excluded services
+mentalhealthservices -[BELONGS_TO]-> networkprovider
+primary care -[BELONGS_TO]-> plan
+generic drugs -[BELONGS_TO]-> plan
+prescription -[BELONGS_TO]-> plan
+urgentcare -[HAS_COST]-> $30 copay
+children's dental check-up -[HAS_COST]-> no charge
+diagnostic test -[BELONGS_TO]-> plan
+physicianfees -[HAS_COST]-> 20% coinsurance
+hospital stay -[BELONGS_TO]-> plan
+emergency room care -[BELONGS_TO]-> plan
+urgent care -[BELONGS_TO]-> plan
+outpatientsurgery -[HAS_LIMITATION]-> preauthorization required
+rehabilitation services -[HAS_COST]-> 20% coinsurance
+plan -[HAS_COPAYMENT]-> copayment
+childbirthdelivery -[BELONGS_TO]-> networkprovider
+prescription drug coverage -[BELONGS_TO]-> plan
+mental health services -[BELONGS_TO]-> plan
+diagnostic test -[BELONGS_TO]-> prenatal care
+urgentcare -[BELONGS_TO]-> networkprovider
+homehealthcare -[HAS_COST]-> 20% coinsurance
+skilled nursing care -[HAS_COST]-> 20% coinsurance
+occupational therapy services -[BELONGS_TO]-> plan
+outpatientsurgery -[HAS_COST]-> $100/day copay
+physicianfees -[BELONGS_TO]-> networkprovider
+specialist visit -[BELONGS_TO]-> plan
+emergency room -[BELONGS_TO]-> rehabilitation
+emergencyroom -[HAS_COST]-> 20% coinsurance
+plan -[HAS_OUT_OF_POCKET_LIMIT]-> out-of-pocket limit
+out-of-pocket limit -[INDIVIDUAL_LIMIT]-> $2,500
+pregnancycare -[COINSURANCE]-> 20%
+emergencyroom -[COINSURANCE]-> 20%
+emergencytransportation -[COINSURANCE]-> 20%
+homehealthcare -[COINSURANCE]-> 20%
+durable medical equipment -[COST]-> $100
+deductible -[AMOUNT]-> $500
+coinsurance -[PERCENTAGE]-> 20%
+prescription -[DEDUCTIBLE]-> $300
+primary care -[COST]-> $200
+non-preferred brand drugs -[COINSURANCE]-> 40%
+hospitalstay -[COINSURANCE]-> 20%
+specialtydrugs -[COINSURANCE]-> 50%
+specialist -[COPAY]-> $50
+prescription drug coverage -[DEDUCTIBLE]-> $300
+children's glasses -[LIMIT]-> one pair of glasses/year
+diagnostic test -[LIMITATION]-> 2 per year
+copayment -[AMOUNT]-> $35
+preventive care -[COST]-> $0
+prenatal care -[COST]-> $500
+primary care services -[COPAYMENT]-> $35
+emergency room -[COST]-> $1000
+rehabilitation -[COPAY]-> 10%
+primary care -[COPAY]-> $35
+occupational therapy services -[DEDUCTIBLE]-> $300
+specialist visit -[COPAY]-> $50
+hospice services -[REQUIREMENT]-> preauthorization
+out-of-pocket limit -[FAMILY_LIMIT]-> $5,000
+preferred brand drugs -[COPAY]-> $30
+childbirthdelivery -[COINSURANCE]-> 20%
+prescription drugs -[LIMITATION]-> 30 day supply
+generic drugs -[COPAY]-> $10
+children's eye exam -[LIMIT]-> one exam/year
+urgent care -[COPAYMENT]-> $30
+maternity care -[COINSURANCE]-> 20%
+imaging -[COPAY]-> $50
+occupational therapy -[DEDUCTIBLE]-> $300
+physicianfees -[COINSURANCE]-> 20%
+diagnostic test -[COPAY]-> $10
+homehealthcare -[VISIT_LIMIT]-> 60 visits/calendar year
+hospital stay -[COINSURANCE]-> 20%
+emergency room care -[COINSURANCE]-> 20%
+skilled nursing care -[LIMIT]-> 60 visits/calendar year
+childbirth -[DEDUCTIBLE]-> 20%
+preventive care -[COST]-> No charge
+out-of-pocket limit -[AMOUNT]-> $2,500
+mentalhealthservices -[COPAY]-> $35/office visit
+urgentcare -[COPAY]-> $30
+outpatientsurgery -[COPAY]-> $100/day
+mental health services -[COPAYMENT]-> $35
+rehabilitation services -[LIMIT]-> 60 visits/calendar year
+specialist visit -[COPAYMENT]-> $50
+deductible -[COST]-> $500
+skilled nursing care -[HAS_COINSURANCE]-> 40%
+substance abuse services -[HAS_COPAY]-> $35
+home health care -[HAS_COINSURANCE]-> 20%
+mia's simple fracture -[INCLUDES]-> emergency room care
+acupuncture -[COVERS]-> plan
+facility fee -[REQUIRES]-> preauthorization
+physician/surgeon fees -[REQUIRES]-> preauthorization
+pregnancy -[INCLUDES]-> specialist office visits
+pregnancy -[INCLUDES]-> ultrasounds
+durable medical equipment -[NOT_COVERED]-> exercise equipment
+private duty nursing -[NOT_COVERED]-> plan
+durable medical equipment -[NOT_COVERED]-> vehicle modifications
+pregnancy -[INCLUDES]-> childbirth/delivery professional services
+rehabilitation services -[HAS_LIMIT]-> 60 visits/calendar year
+mia's simple fracture -[INCLUDES]-> durable medical equipment
+emergency room care -[HAS_COINSURANCE]-> 20%
+durable medical equipment -[HAS_COINSURANCE]-> 40%
+pregnancy -[INCLUDES]-> diagnostic tests
+mia's simple fracture -[INCLUDES]-> crutches
+primary care visit -[HAS_COPAY]-> $35
+mia's simple fracture -[INCLUDES]-> medical supplies
+joe's type 2 diabetes -[INCLUDES]-> prescription drugs
+physician/surgeon fees -[HAS_COINSURANCE]-> 20%
+facility fee -[HAS_COINSURANCE]-> 20%
+preferred brand drugs -[HAS_COPAY]-> $30
+rehabilitation services -[HAS_COINSURANCE]-> 40%
+specialist visit -[REQUIRES]-> preauthorization
+diagnostic test -[HAS_COPAY]-> $10
+specialty drugs (tier 4) -[HAS_COINSURANCE]-> 50%
+children's eye exam -[HAS_COPAY]-> $35
+home health care -[HAS_LIMIT]-> 60 visits/calendar year
+mental health services -[HAS_COPAY]-> $35
+routine foot care -[NOT_COVERED]-> plan
+children's glasses -[HAS_COINSURANCE]-> 20%
+hospice services -[HAS_COINSURANCE]-> 40%
+non-emergency care outside the u.s. -[NOT_COVERED]-> plan
+mental health, behavioral health, or substance abuse services -[HAS_COPAY]-> $35
+habilitation services -[HAS_COINSURANCE]-> 20%
+imaging -[HAS_COPAY]-> $50
+hospice services -[REDUCES_BENEFIT]-> 50%
+outpatient surgery -[REQUIRES]-> preauthorization
+non-preferred brand drugs -[HAS_COINSURANCE]-> 40%
+skilled nursing care -[HAS_LIMIT]-> 60 visits/calendar year
+network provider -[HAS_COINSURANCE]-> 20%
+skilled nursing care -[HAS_COINSURANCE]-> 20%
+pregnancy -[INCLUDES]-> anesthesia
+joe's type 2 diabetes -[INCLUDES]-> diagnostic tests
+mia's simple fracture -[INCLUDES]-> rehabilitation services
+out-of-network provider -[HAS_COINSURANCE]-> 40%
+outpatient surgery -[HAS_COPAY]-> $100/day
+preventive care -[HAS_COPAY]-> no charge
+infertility treatment -[NOT_COVERED]-> plan
+plan -[HAS_OUT_OF_POCKET_LIMIT]-> $4,000 individual / $8,000 family
+plan -[HAS_OUT_OF_POCKET_LIMIT]-> $2,500 individual / $5,000 family
+durable medical equipment -[HAS_COINSURANCE]-> 20%
+mia's simple fracture -[INCLUDES]-> follow up care
+wellness program -[REDUCES]-> costs
+specialist visit -[HAS_COPAY]-> $50
+childbirth/delivery professional services -[HAS_COINSURANCE]-> 20%
+urgent care -[HAS_COPAY]-> $30
+generic drugs -[HAS_COPAY]-> $10
+dental care -[NOT_COVERED]-> plan
+children's dental check-up -[HAS_COPAY]-> $0
+pregnancy -[INCLUDES]-> blood work
+pregnancy -[INCLUDES]-> childbirth/delivery facility services
+hospice services -[HAS_COINSURANCE]-> 20%
+mia's simple fracture -[INCLUDES]-> emergency room visit
+mia's simple fracture -[INCLUDES]-> x-ray
+office visits -[HAS_COINSURANCE]-> 20%
+hospital stay -[REQUIRES]-> preauthorization
+joe's type 2 diabetes -[INCLUDES]-> glucose meter
+childbirth/delivery facility services -[HAS_COINSURANCE]-> 20%
+joe's type 2 diabetes -[INCLUDES]-> primary care physician office visits
+mia's simple fracture -[INCLUDES]-> physical therapy
+children's glasses -[HAS_LIMIT]-> one pair of glasses/year
+hospice services -[REQUIRES]-> preauthorization
+plan -[HAS_DEDUCTIBLE]-> $500/individual or $1,000/family
+cosmetic surgery -[NOT_COVERED]-> plan
+rehabilitation services -[HAS_COINSURANCE]-> 20%
+hospital stay -[HAS_COINSURANCE]-> 20%
+chiropractic care -[COVERS]-> plan
+durable medical equipment -[NOT_COVERED]-> bathroom equipment
+long term care -[NOT_COVERED]-> plan
+weight loss programs -[COVERS]-> plan
+routine eye care (adult) -[NOT_COVERED]-> plan
+durable medical equipment -[NOT_COVERED]-> home modifications
+habilitation services -[HAS_COINSURANCE]-> 40%
+bariatric surgery -[COVERS]-> plan
+joe's type 2 diabetes -[INCLUDES]-> disease education
+mental health, behavioral health, or substance abuse services -[HAS_COINSURANCE]-> 20%
+specialty drugs -[HAS_COINSURANCE]-> 50%
+emergency medical transportation -[HAS_COINSURANCE]-> 20%
+coinsurance -[HOSPITAL_STAY]-> 20%
+coinsurance -[EMERGENCY_MEDICAL_TRANSPORTATION]-> 20%
+coinsurance -[OUTPATIENT_SURGERY]-> 40%
+out-of-pocket maximum -[INDIVIDUAL]-> $2,300
+deductible -[INDIVIDUAL]-> $500
+copay -[PRIMARY_CARE_VISIT]-> $35
+deductible -[FAMILY]-> $1,000
+coinsurance -[MENTAL_HEALTH__BEHAVIORAL_HEALTH__OR_SUBSTANCE_ABUSE_SERVICES]-> 20%
+out-of-pocket limit -[OUT_OF_NETWORK_INDIVIDUAL]-> $4,000
+rehabilitation services -[LIMIT]-> 60 visits/calendar year
+copay -[DIAGNOSTIC_TEST]-> $10
+coinsurance -[INDIVIDUAL]-> 20%
+habilitation services -[LIMIT]-> 60 visits/calendar year
+deductible -[INDIVIDUAL]-> $0
+copay -[SPECIALIST_VISIT]-> $50
+pregnancy -[DURATION]-> 9 months
+out-of-pocket limit -[INDIVIDUAL]-> $2,500
+occupational therapy services -[DEDUCTIBLE]-> $300
+out-of-pocket limit -[INDIVIDUAL]-> $4,000
+skilled nursing care -[LIMIT]-> 60 visits/calendar year
+copay -[SPECIALTY_DRUGS__TIER_4_]-> 50% coinsurance
+pregnancy -[LOCATION]-> in-network
+cost sharing -[INDIVIDUAL]-> $700
+copay -[GENERIC_DRUGS]-> $10
+joe's type 2 diabetes -[DURATION]-> 1 year
+coinsurance -[INDIVIDUAL]-> 40%
+out-of-pocket maximum -[FAMILY]-> $3,160
+coinsurance -[PHYSICIAN_SURGEON_FEES]-> 20%
+mia's simple fracture -[LOCATION]-> in-network
+coinsurance -[NETWORK_PROVIDER]-> 20%
+limit -[HOME_HEALTH_CARE]-> 60 visits/calendar year
+copay -[IMAGING]-> $50
+deductible -[FAMILY]-> $300
+prescription drug coverage -[DEDUCTIBLE]-> $300
+coinsurance -[CHILDBIRTH_DELIVERY_FACILITY_SERVICES]-> 20%
+coinsurance -[OFFICE_VISITS]-> 20%
+joe's type 2 diabetes -[LOCATION]-> in-network
+copay -[INDIVIDUAL]-> $60
+out-of-pocket limit -[FAMILY]-> $5,000
+copay -[MENTAL_HEALTH__BEHAVIORAL_HEALTH__OR_SUBSTANCE_ABUSE_SERVICES]-> $35
+copay -[OUTPATIENT_SURGERY]-> $100/day
+coinsurance -[CHILDBIRTH_DELIVERY_PROFESSIONAL_SERVICES]-> 20%
+copay -[PREFERRED_BRAND_DRUGS]-> $30
+coinsurance -[EMERGENCY_ROOM_CARE]-> 20%
+coinsurance -[FACILITY_FEE]-> 20%
+coinsurance -[OUT_OF_NETWORK_PROVIDER]-> 40%
+home health care -[LIMIT]-> 60 visits/calendar year
+coinsurance -[HOME_HEALTH_CARE]-> 20%
+out-of-pocket limit -[FAMILY]-> $8,000
+copay -[URGENT_CARE]-> $30
+out-of-pocket limit -[OUT_OF_NETWORK_FAMILY]-> $8,000
+chiropractic care -[COVERED]-> 
+emergency medical transportation -[HAS_COINSURANCE]-> 20%
+type 2 diabetes -[INCLUDES]-> primary care physician office visits
+preferred brand drugs -[HAS_COPAY]-> $30
+children's eye exam -[HAS_COPAY]-> $35
+childbirth/delivery facility services -[HAS_COINSURANCE]-> 20%
+home health care -[HAS_LIMIT]-> 60 visits/calendar year
+hospital stay -[HAS_COINSURANCE]-> 20%
+private duty nursing -[NOT_COVERED]-> 
+children's dental check-up -[NO_CHARGE]-> 
+plan -[HAS_OUT_OF_POCKET_LIMIT]-> $4,000 individual / $8,000 family
+hospice services -[REDUCES_BENEFIT]-> 50%
+dental care -[NOT_COVERED]-> 
+specialty drugs -[HAS_COINSURANCE]-> 50%
+long term care -[NOT_COVERED]-> 
+simple fracture -[INCLUDES]-> follow up care
+wellness program -[REDUCES]-> costs
+facility fee -[REQUIRES]-> preauthorization
+diagnostic test -[HAS_COPAY]-> $10
+durable medical equipment -[HAS_COINSURANCE]-> 20%
+children's dental check-up -[HAS_COPAY]-> $0
+physician/surgeon fees -[HAS_COINSURANCE]-> 20%
+primary care visit -[HAS_COPAY]-> $35
+hospice services -[HAS_COINSURANCE]-> 20%
+long term care -[NOT_COVERED]-> plan
+office visits -[HAS_COINSURANCE]-> 20%
+generic drugs -[HAS_COPAY]-> $10
+infertility treatment -[NOT_COVERED]-> 
+simple fracture -[INCLUDES]-> emergency room visit
+simple fracture -[INCLUDES]-> durable medical equipment
+specialist visit -[REQUIRES]-> preauthorization
+preventive care -[HAS_COPAY]-> no charge
+imaging -[HAS_COPAY]-> $50
+mental health services -[HAS_COPAY]-> $35
+rehabilitation services -[HAS_LIMIT]-> 60 visits/calendar year
+home health care -[HAS_COINSURANCE]-> 20%
+specialist visit -[HAS_COPAY]-> $50
+weight loss programs -[COVERED]-> 
+type 2 diabetes -[INCLUDES]-> prescription drugs
+hospital stay -[REQUIRES]-> preauthorization
+infertility treatment -[NOT_COVERED]-> plan
+non-emergency care outside the u.s. -[NOT_COVERED]-> 
+acupuncture -[COVERED]-> 
+skilled nursing care -[HAS_LIMIT]-> 60 visits/calendar year
+bariatric surgery -[COVERED]-> 
+type 2 diabetes -[INCLUDES]-> diagnostic tests
+pregnancy -[INCLUDES]-> childbirth/delivery facility services
+specialty drugs (tier 4) -[HAS_COINSURANCE]-> 50%
+substance abuse services -[HAS_COPAY]-> $35
+mental health, behavioral health, or substance abuse services -[HAS_COPAY]-> $35
+habilitation services -[HAS_COINSURANCE]-> 20%
+routine eye care (adult) -[NOT_COVERED]-> 
+emergency room care -[HAS_COINSURANCE]-> 20%
+urgent care -[HAS_COPAY]-> $30
+physician/surgeon fees -[REQUIRES]-> preauthorization
+plan -[HAS_OUT_OF_POCKET_LIMIT]-> $2,500 individual / $5,000 family
+cosmetic surgery -[NOT_COVERED]-> 
+hospice services -[REQUIRES]-> preauthorization
+plan -[HAS_DEDUCTIBLE]-> $500/individual or $1,000/family
+rehabilitation services -[HAS_COINSURANCE]-> 20%
+facility fee -[HAS_COINSURANCE]-> 20%
+type 2 diabetes -[INCLUDES]-> durable medical equipment
+outpatient surgery -[REQUIRES]-> preauthorization
+routine eye care (adult) -[NOT_COVERED]-> plan
+childbirth/delivery professional services -[HAS_COINSURANCE]-> 20%
+routine foot care -[NOT_COVERED]-> 
+children's glasses -[HAS_COINSURANCE]-> 20%
+skilled nursing care -[HAS_COINSURANCE]-> 20%
+children's glasses -[HAS_LIMIT]-> one pair of glasses/year
+pregnancy -[INCLUDES]-> childbirth/delivery professional services
+outpatient surgery -[HAS_COPAY]-> $100/day
+simple fracture -[INCLUDES]-> diagnostic test
+pregnancy -[INCLUDES]-> specialist office visits
+non-preferred brand drugs -[HAS_COINSURANCE]-> 40%
+no preauthorization -[REDUCES_BENEFIT]-> 50%
+pregnancy -[INCLUDES]-> diagnostic tests
+preauthorization -[REQUIRED]-> yes
+copay -[GENERIC_DRUGS]-> $10
+deductible -[INDIVIDUAL]-> $500
+pregnancy -[LOCATION]-> in-network
+copay -[IMAGING]-> $50
+limit -[REHABILITATION_SERVICES]-> 60 visits/calendar year
+coinsurance -[FACILITY_FEE]-> 20%
+type 2 diabetes -[DURATION]-> 1 year
+copay -[DIAGNOSTIC_TEST]-> $10
+out-of-pocket limit -[INDIVIDUAL]-> $2,500
+out-of-pocket limit -[FAMILY]-> $8,000
+preauthorization -[HOSPICE_SERVICES]-> required
+coinsurance -[HOSPITAL_STAY]-> 20%
+pregnancy -[DURATION]-> 9 months
+out-of-pocket limit -[OUT_OF_NETWORK_INDIVIDUAL]-> $4,000
+out-of-pocket limit -[FAMILY]-> $5,000
+out-of-pocket limit -[OUT_OF_NETWORK_FAMILY]-> $8,000
+deductible -[FAMILY]-> $1,000
+simple fracture -[LOCATION]-> in-network
+copay -[PRIMARY_CARE_VISIT]-> $35
+out-of-network -[COINSURANCE]-> 40%
+coinsurance -[REHABILITATION_SERVICES]-> 20%
+deductible -[INDIVIDUAL]-> $0
+coinsurance -[EMERGENCY_ROOM_CARE]-> 20%
+copay -[CHILDREN_S_EYE_EXAM]-> $35
+coinsurance -[SPECIALIST]-> 50%
+type 2 diabetes -[LOCATION]-> in-network
+copay -[PREFERRED_BRAND_DRUGS]-> $30
+failure to obtain preauthorization -[REDUCTION_IN_BENEFITS]-> 50%
+coinsurance -[NON_PREFERRED_BRAND_DRUGS]-> 40%
+out-of-pocket limit -[INDIVIDUAL]-> $4,000
+coinsurance -[PHYSICIAN_SURGEON_FEES]-> 20%
+copay -[SPECIALIST_VISIT]-> $50
+copay -[PRIMARY_CARE]-> $0
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_Copayments_for_certain_services
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_premiums
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_balance-billed_charges
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_and_health_care_this_plan_doesn't_cover.
+REL: HealthPlan -[OFFERS]-> Service_Primary_care_visit_to_treat_injury_or_illness_an
+REL: HealthPlan -[OFFERS]-> Service_Specialist_visit
+REL: Service_Specialist_visit -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Preventive_care/screening/immunization
+REL: HealthPlan -[OFFERS]-> Service_Diagnostic_test_work)_(x-ray,_blood
+REL: HealthPlan -[OFFERS]-> Service_Imaging_(CT/PET_scans,_MRIs)
+REL: HealthPlan -[OFFERS]-> Service_Generic_drugs_(Tier_1)
+REL: HealthPlan -[OFFERS]-> Service_Preferred_brand_drugs_(Tier_2)
+REL: HealthPlan -[OFFERS]-> Service_Non-preferred_brand_drugs_(Tier_3)
+REL: HealthPlan -[OFFERS]-> Service_Specialty_drugs_(Tier_4)
+REL: HealthPlan -[OFFERS]-> Service_Facility_fee_(e.g.,_surgery_center)_ambulatory
+REL: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Physician/surgeon_fees
+REL: HealthPlan -[OFFERS]-> Service_Emergency_room_care
+REL: HealthPlan -[OFFERS]-> Service_Emergency_medical_transportation
+REL: HealthPlan -[OFFERS]-> Service_Urgent_care
+REL: HealthPlan -[OFFERS]-> Service_Facility_fee_(e.g.,_hospital_room)
+REL: Service_Facility_fee_(e.g.,_hospital_room) -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_20%_coinsurance
+REL: HealthPlan -[OFFERS]-> Service_Outpatient_services
+REL: HealthPlan -[OFFERS]-> Service_Inpatient_services
+REL: HealthPlan -[OFFERS]-> Service_Office_visits
+REL: HealthPlan -[OFFERS]-> Service_Childbirth/delivery_professional_services
+REL: HealthPlan -[OFFERS]-> Service_Childbirth/delivery_facility_services
+REL: HealthPlan -[OFFERS]-> Service_Home_health_care
+REL: HealthPlan -[OFFERS]-> Service_Rehabilitation_services
+REL: HealthPlan -[OFFERS]-> Service_Habilitation_services
+REL: HealthPlan -[OFFERS]-> Service_Skilled_nursing_care
+REL: HealthPlan -[OFFERS]-> Service_Durable_medical_equipment
+REL: HealthPlan -[OFFERS]-> Service_Hospice_services
+REL: Service_Hospice_services -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Children's_eye_exam
+REL: HealthPlan -[OFFERS]-> Service_Children's_glasses
+REL: HealthPlan -[OFFERS]-> Service_Children's_dental_check-up
+REL: HealthPlan -[HAS_EXAMPLE]-> Example_Peg_is_Having_a_Baby
+REL: HealthPlan -[HAS_EXAMPLE]-> Example_Mia's_Simple_Fracture
+REL: HealthPlan -[HAS_EXAMPLE]-> Example_Managing_Joe's_type_2_Diabetes
+ATTR: HealthPlan.COVERAGE_FOR = Family
+ATTR: HealthPlan.DOCUMENT_TYPE = Summary of Benefits and Coverage (SBC)
+ATTR: OverallDeductible.VALUE = $500/Individual or $1,000/family
+ATTR: OverallDeductible.DESCRIPTION = Generally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met.
+ATTR: Question_iq_001.QUESTION = Are there services covered before you meet your deductible?
+ATTR: Question_iq_001.ANSWER = Yes. Preventive care and primary care services are covered before you meet your deductible.
+ATTR: SpecificDeductible.VALUE = Yes. $300 for prescription drug coverage and $300 for occupational therapy services.
+ATTR: OutOfPocketLimit.VALUE = For network providers $2,500 individual / $5,000 family; for out- of-network providers $4,000 individual / $8,000 family
+ATTR: OutOfPocketLimit.DESCRIPTION = The out-of-pocket limit is the most you could pay in a year for covered services. If family members in this plan, they have to meet their own out-of-pocket limits until family out-of-pocket limit has been met. you have other the overall
+ATTR: OutOfPocketLimit.VALUE = Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn't cover.
+ATTR: OutOfPocketLimit.DESCRIPTION = Even though you pay these expenses, they don't count toward the out-of-pocket limit.
+ATTR: Exclusion_Copayments_for_certain_services.NAME = Copayments for certain services
+ATTR: Exclusion_premiums.NAME = premiums
+ATTR: Exclusion_balance-billed_charges.NAME = balance-billed charges
+ATTR: Exclusion_and_health_care_this_plan_doesn't_cover..NAME = and health care this plan doesn't cover.
+ATTR: Question_iq_005.QUESTION = Will you pay less if you use a network provider?
+ATTR: Question_iq_005.ANSWER = Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers.
+ATTR: Question_iq_006.QUESTION = Do you need a referral see a specialist? to
+ATTR: Question_iq_006.ANSWER = Yes.
+ATTR: Service_Primary_care_visit_to_treat_injury_or_illness_an.NAME = Primary care visit to treat injury or illness an
+ATTR: Service_Primary_care_visit_to_treat_injury_or_illness_an.MEDICAL_EVENT = If you visit a health care provider's office or clinic
+ATTR: Service_Primary_care_visit_to_treat_injury_or_illness_an.NETWORK_COST = $35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply
+ATTR: Service_Primary_care_visit_to_treat_injury_or_illness_an.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Primary_care_visit_to_treat_injury_or_illness_an.LIMITATIONS = 
+ATTR: Service_Specialist_visit.NAME = Specialist visit
+ATTR: Service_Specialist_visit.MEDICAL_EVENT = If you visit a health care provider's office or clinic
+ATTR: Service_Specialist_visit.NETWORK_COST = $50 copay/visit
+ATTR: Service_Specialist_visit.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Specialist_visit.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_Preventive_care/screening/immunization.NAME = Preventive care/screening/immunization
+ATTR: Service_Preventive_care/screening/immunization.MEDICAL_EVENT = If you visit a health care provider's office or clinic
+ATTR: Service_Preventive_care/screening/immunization.NETWORK_COST = No charge for covered services
+ATTR: Service_Preventive_care/screening/immunization.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Preventive_care/screening/immunization.LIMITATIONS = You may have to pay for services that aren't preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.
+ATTR: Service_Diagnostic_test_work)_(x-ray,_blood.NAME = Diagnostic test work) (x-ray, blood
+ATTR: Service_Diagnostic_test_work)_(x-ray,_blood.MEDICAL_EVENT = If you have a test
+ATTR: Service_Diagnostic_test_work)_(x-ray,_blood.NETWORK_COST = $10 copay/test
+ATTR: Service_Diagnostic_test_work)_(x-ray,_blood.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Diagnostic_test_work)_(x-ray,_blood.LIMITATIONS = 
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).NAME = Imaging (CT/PET scans, MRIs)
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).MEDICAL_EVENT = If you have a test
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).NETWORK_COST = $50 copay/test
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).LIMITATIONS = 
+ATTR: Service_Generic_drugs_(Tier_1).NAME = Generic drugs (Tier 1)
+ATTR: Service_Generic_drugs_(Tier_1).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Generic_drugs_(Tier_1).NETWORK_COST = $10 copay/prescription (retail & mail order)
+ATTR: Service_Generic_drugs_(Tier_1).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Generic_drugs_(Tier_1).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail prescription). order
+ATTR: Service_Preferred_brand_drugs_(Tier_2).NAME = Preferred brand drugs (Tier 2)
+ATTR: Service_Preferred_brand_drugs_(Tier_2).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Preferred_brand_drugs_(Tier_2).NETWORK_COST = $30 copay/prescription (retail & mail order)
+ATTR: Service_Preferred_brand_drugs_(Tier_2).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Preferred_brand_drugs_(Tier_2).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail prescription). order
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).NAME = Non-preferred brand drugs (Tier 3)
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).NETWORK_COST = 40% coinsurance
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).OUT_OF_NETWORK_COST = 60% coinsurance
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail prescription). order
+ATTR: Service_Specialty_drugs_(Tier_4).NAME = Specialty drugs (Tier 4)
+ATTR: Service_Specialty_drugs_(Tier_4).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Specialty_drugs_(Tier_4).NETWORK_COST = 50% coinsurance
+ATTR: Service_Specialty_drugs_(Tier_4).OUT_OF_NETWORK_COST = 70% coinsurance
+ATTR: Service_Specialty_drugs_(Tier_4).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail prescription). order
+ATTR: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory.NAME = Facility fee (e.g., surgery center) ambulatory
+ATTR: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory.MEDICAL_EVENT = If you have outpatient surgery
+ATTR: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory.NETWORK_COST = $100/day copay
+ATTR: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory.OUT_OF_NETWORK_COST = 40%coinsurance
+ATTR: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_Physician/surgeon_fees.NAME = Physician/surgeon fees
+ATTR: Service_Physician/surgeon_fees.MEDICAL_EVENT = If you have outpatient surgery
+ATTR: Service_Physician/surgeon_fees.NETWORK_COST = 20% coinsurance
+ATTR: Service_Physician/surgeon_fees.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Physician/surgeon_fees.LIMITATIONS = 50% coinsurance for anesthesia.
+ATTR: Service_Emergency_room_care.NAME = Emergency room care
+ATTR: Service_Emergency_room_care.MEDICAL_EVENT = If you need immediate medical attention
+ATTR: Service_Emergency_room_care.NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_room_care.OUT_OF_NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_room_care.LIMITATIONS = 
+ATTR: Service_Emergency_medical_transportation.NAME = Emergency medical transportation
+ATTR: Service_Emergency_medical_transportation.MEDICAL_EVENT = If you need immediate medical attention
+ATTR: Service_Emergency_medical_transportation.NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_medical_transportation.OUT_OF_NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_medical_transportation.LIMITATIONS = 
+ATTR: Service_Urgent_care.NAME = Urgent care
+ATTR: Service_Urgent_care.MEDICAL_EVENT = If you need immediate medical attention
+ATTR: Service_Urgent_care.NETWORK_COST = $30 copay
+ATTR: Service_Urgent_care.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Urgent_care.LIMITATIONS = 
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).NAME = Facility fee (e.g., hospital room)
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).MEDICAL_EVENT = If you have a hospital stay
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).NETWORK_COST = 20% coinsurance
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_20%_coinsurance.NAME = 20% coinsurance
+ATTR: Service_20%_coinsurance.MEDICAL_EVENT = Physician/surgeon fees
+ATTR: Service_20%_coinsurance.NETWORK_COST = 40% coinsurance
+ATTR: Service_20%_coinsurance.OUT_OF_NETWORK_COST = 50% coinsurance for anesthesia.
+ATTR: Service_20%_coinsurance.LIMITATIONS = 
+ATTR: Service_Outpatient_services.NAME = Outpatient services
+ATTR: Service_Outpatient_services.MEDICAL_EVENT = If you need mental health, behavioral health, or substance abuse services
+ATTR: Service_Outpatient_services.NETWORK_COST = $35 copay/office visit and 20% coinsurance for other outpatient services
+ATTR: Service_Outpatient_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Outpatient_services.LIMITATIONS = 
+ATTR: Service_Inpatient_services.NAME = Inpatient services
+ATTR: Service_Inpatient_services.MEDICAL_EVENT = If you need mental health, behavioral health, or substance abuse services
+ATTR: Service_Inpatient_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Inpatient_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Inpatient_services.LIMITATIONS = 
+ATTR: Service_Office_visits.NAME = Office visits
+ATTR: Service_Office_visits.MEDICAL_EVENT = If you are pregnant
+ATTR: Service_Office_visits.NETWORK_COST = 20% coinsurance
+ATTR: Service_Office_visits.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Office_visits.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: Service_Childbirth/delivery_professional_services.NAME = Childbirth/delivery professional services
+ATTR: Service_Childbirth/delivery_professional_services.MEDICAL_EVENT = If you are pregnant
+ATTR: Service_Childbirth/delivery_professional_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Childbirth/delivery_professional_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Childbirth/delivery_professional_services.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: Service_Childbirth/delivery_facility_services.NAME = Childbirth/delivery facility services
+ATTR: Service_Childbirth/delivery_facility_services.MEDICAL_EVENT = If you are pregnant
+ATTR: Service_Childbirth/delivery_facility_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Childbirth/delivery_facility_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Childbirth/delivery_facility_services.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: Service_Home_health_care.NAME = Home health care
+ATTR: Service_Home_health_care.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Home_health_care.NETWORK_COST = 20% coinsurance
+ATTR: Service_Home_health_care.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Home_health_care.LIMITATIONS = 60 visits/calendar year
+ATTR: Service_Rehabilitation_services.NAME = Rehabilitation services
+ATTR: Service_Rehabilitation_services.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Rehabilitation_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Rehabilitation_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Rehabilitation_services.LIMITATIONS = 60 visits/calendar year. Includes physical
+ATTR: Service_Habilitation_services.NAME = Habilitation services
+ATTR: Service_Habilitation_services.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Habilitation_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Habilitation_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Habilitation_services.LIMITATIONS = therapy, speech therapy, and occupational therapy.
+ATTR: Service_Skilled_nursing_care.NAME = Skilled nursing care
+ATTR: Service_Skilled_nursing_care.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Skilled_nursing_care.NETWORK_COST = 20% coinsurance
+ATTR: Service_Skilled_nursing_care.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Skilled_nursing_care.LIMITATIONS = 60 visits/calendar year
+ATTR: Service_Durable_medical_equipment.NAME = Durable medical equipment
+ATTR: Service_Durable_medical_equipment.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Durable_medical_equipment.NETWORK_COST = 20% coinsurance
+ATTR: Service_Durable_medical_equipment.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Durable_medical_equipment.LIMITATIONS = Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.
+ATTR: Service_Hospice_services.NAME = Hospice services
+ATTR: Service_Hospice_services.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Hospice_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Hospice_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Hospice_services.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_Children's_eye_exam.NAME = Children's eye exam
+ATTR: Service_Children's_eye_exam.MEDICAL_EVENT = If your child needs dental or eye care
+ATTR: Service_Children's_eye_exam.NETWORK_COST = $35 copay/visit
+ATTR: Service_Children's_eye_exam.OUT_OF_NETWORK_COST = Not covered
+ATTR: Service_Children's_eye_exam.LIMITATIONS = Coverage limited to one exam/year.
+ATTR: Service_Children's_glasses.NAME = Children's glasses
+ATTR: Service_Children's_glasses.MEDICAL_EVENT = If your child needs dental or eye care
+ATTR: Service_Children's_glasses.NETWORK_COST = 20% coinsurance
+ATTR: Service_Children's_glasses.OUT_OF_NETWORK_COST = Not covered
+ATTR: Service_Children's_glasses.LIMITATIONS = Coverage limited to one pair of glasses/year.
+ATTR: Service_Children's_dental_check-up.NAME = Children's dental check-up
+ATTR: Service_Children's_dental_check-up.MEDICAL_EVENT = If your child needs dental or eye care
+ATTR: Service_Children's_dental_check-up.NETWORK_COST = No charge
+ATTR: Service_Children's_dental_check-up.OUT_OF_NETWORK_COST = Not covered
+ATTR: Service_Children's_dental_check-up.LIMITATIONS = 
+ATTR: Example_Peg_is_Having_a_Baby.NAME = Peg is Having a Baby
+ATTR: Example_Peg_is_Having_a_Baby.TOTAL_COST = $12,800
+ATTR: Example_Peg_is_Having_a_Baby.PATIENT_PAYS = $3,160
+ATTR: Example_Mia's_Simple_Fracture.NAME = Mia's Simple Fracture
+ATTR: Example_Mia's_Simple_Fracture.TOTAL_COST = $2,500
+ATTR: Example_Mia's_Simple_Fracture.PATIENT_PAYS = $1,300
+ATTR: Example_Managing_Joe's_type_2_Diabetes.NAME = Managing Joe's type 2 Diabetes
+ATTR: Example_Managing_Joe's_type_2_Diabetes.TOTAL_COST = $7,400
+ATTR: Example_Managing_Joe's_type_2_Diabetes.PATIENT_PAYS = $2,360
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_Copayments_for_certain_services
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_premiums
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_balance-billed_charges
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_and_health_care_this_plan_doesn't_cover.
+REL: HealthPlan -[OFFERS]-> Service_Primary_care_visit_to_treat_injury_or_illness_an
+REL: HealthPlan -[OFFERS]-> Service_Specialist_visit
+REL: Service_Specialist_visit -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Preventive_care/screening/immunization
+REL: HealthPlan -[OFFERS]-> Service_Diagnostic_test_work)_(x-ray,_blood
+REL: HealthPlan -[OFFERS]-> Service_Imaging_(CT/PET_scans,_MRIs)
+REL: HealthPlan -[OFFERS]-> Service_Generic_drugs_(Tier_1)
+REL: HealthPlan -[OFFERS]-> Service_Preferred_brand_drugs_(Tier_2)
+REL: HealthPlan -[OFFERS]-> Service_Non-preferred_brand_drugs_(Tier_3)
+REL: HealthPlan -[OFFERS]-> Service_Specialty_drugs_(Tier_4)
+REL: HealthPlan -[OFFERS]-> Service_Facility_fee_(e.g.,_surgery_center)_ambulatory
+REL: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Physician/surgeon_fees
+REL: HealthPlan -[OFFERS]-> Service_Emergency_room_care
+REL: HealthPlan -[OFFERS]-> Service_Emergency_medical_transportation
+REL: HealthPlan -[OFFERS]-> Service_Urgent_care
+REL: HealthPlan -[OFFERS]-> Service_Facility_fee_(e.g.,_hospital_room)
+REL: Service_Facility_fee_(e.g.,_hospital_room) -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_20%_coinsurance
+REL: HealthPlan -[OFFERS]-> Service_Outpatient_services
+REL: HealthPlan -[OFFERS]-> Service_Inpatient_services
+REL: HealthPlan -[OFFERS]-> Service_Office_visits
+REL: HealthPlan -[OFFERS]-> Service_Childbirth/delivery_professional_services
+REL: HealthPlan -[OFFERS]-> Service_Childbirth/delivery_facility_services
+REL: HealthPlan -[OFFERS]-> Service_Home_health_care
+REL: HealthPlan -[OFFERS]-> Service_Rehabilitation_services
+REL: HealthPlan -[OFFERS]-> Service_Habilitation_services
+REL: HealthPlan -[OFFERS]-> Service_Skilled_nursing_care
+REL: HealthPlan -[OFFERS]-> Service_Durable_medical_equipment
+REL: HealthPlan -[OFFERS]-> Service_Hospice_services
+REL: Service_Hospice_services -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Children's_eye_exam
+REL: HealthPlan -[OFFERS]-> Service_Children's_glasses
+REL: HealthPlan -[OFFERS]-> Service_Children's_dental_check-up
+REL: HealthPlan -[HAS_EXAMPLE]-> Example_Peg_is_Having_a_Baby
+REL: HealthPlan -[HAS_EXAMPLE]-> Example_Mia's_Simple_Fracture
+REL: HealthPlan -[HAS_EXAMPLE]-> Example_Managing_Joe's_type_2_Diabetes
+ATTR: HealthPlan.COVERAGE_FOR = Family
+ATTR: HealthPlan.DOCUMENT_TYPE = Summary of Benefits and Coverage (SBC)
+ATTR: OverallDeductible.VALUE = $500/Individual or $1,000/family
+ATTR: OverallDeductible.DESCRIPTION = Generally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met.
+ATTR: Question_iq_001.QUESTION = Are there services covered before you meet your deductible?
+ATTR: Question_iq_001.ANSWER = Yes. Preventive care and primary care services are covered before you meet your deductible.
+ATTR: SpecificDeductible.VALUE = Yes. $300 for prescription drug coverage and $300 for occupational therapy services.
+ATTR: OutOfPocketLimit.VALUE = For network providers $2,500 individual / $5,000 family; for out- of-network providers $4,000 individual / $8,000 family
+ATTR: OutOfPocketLimit.DESCRIPTION = The out-of-pocket limit is the most you could pay in a year for covered services. If family members in this plan, they have to meet their own out-of-pocket limits until family out-of-pocket limit has been met. you have other the overall
+ATTR: OutOfPocketLimit.VALUE = Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn't cover.
+ATTR: OutOfPocketLimit.DESCRIPTION = Even though you pay these expenses, they don't count toward the out-of-pocket limit.
+ATTR: Exclusion_Copayments_for_certain_services.NAME = Copayments for certain services
+ATTR: Exclusion_premiums.NAME = premiums
+ATTR: Exclusion_balance-billed_charges.NAME = balance-billed charges
+ATTR: Exclusion_and_health_care_this_plan_doesn't_cover..NAME = and health care this plan doesn't cover.
+ATTR: Question_iq_005.QUESTION = Will you pay less if you use a network provider?
+ATTR: Question_iq_005.ANSWER = Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers.
+ATTR: Question_iq_006.QUESTION = Do you need a referral see a specialist? to
+ATTR: Question_iq_006.ANSWER = Yes.
+ATTR: Service_Primary_care_visit_to_treat_injury_or_illness_an.NAME = Primary care visit to treat injury or illness an
+ATTR: Service_Primary_care_visit_to_treat_injury_or_illness_an.MEDICAL_EVENT = If you visit a health care provider's office or clinic
+ATTR: Service_Primary_care_visit_to_treat_injury_or_illness_an.NETWORK_COST = $35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply
+ATTR: Service_Primary_care_visit_to_treat_injury_or_illness_an.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Primary_care_visit_to_treat_injury_or_illness_an.LIMITATIONS = 
+ATTR: Service_Specialist_visit.NAME = Specialist visit
+ATTR: Service_Specialist_visit.MEDICAL_EVENT = If you visit a health care provider's office or clinic
+ATTR: Service_Specialist_visit.NETWORK_COST = $50 copay/visit
+ATTR: Service_Specialist_visit.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Specialist_visit.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_Preventive_care/screening/immunization.NAME = Preventive care/screening/immunization
+ATTR: Service_Preventive_care/screening/immunization.MEDICAL_EVENT = If you visit a health care provider's office or clinic
+ATTR: Service_Preventive_care/screening/immunization.NETWORK_COST = No charge for covered services
+ATTR: Service_Preventive_care/screening/immunization.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Preventive_care/screening/immunization.LIMITATIONS = You may have to pay for services that aren't preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.
+ATTR: Service_Diagnostic_test_work)_(x-ray,_blood.NAME = Diagnostic test work) (x-ray, blood
+ATTR: Service_Diagnostic_test_work)_(x-ray,_blood.MEDICAL_EVENT = If you have a test
+ATTR: Service_Diagnostic_test_work)_(x-ray,_blood.NETWORK_COST = $10 copay/test
+ATTR: Service_Diagnostic_test_work)_(x-ray,_blood.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Diagnostic_test_work)_(x-ray,_blood.LIMITATIONS = 
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).NAME = Imaging (CT/PET scans, MRIs)
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).MEDICAL_EVENT = If you have a test
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).NETWORK_COST = $50 copay/test
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).LIMITATIONS = 
+ATTR: Service_Generic_drugs_(Tier_1).NAME = Generic drugs (Tier 1)
+ATTR: Service_Generic_drugs_(Tier_1).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Generic_drugs_(Tier_1).NETWORK_COST = $10 copay/prescription (retail & mail order)
+ATTR: Service_Generic_drugs_(Tier_1).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Generic_drugs_(Tier_1).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail prescription). order
+ATTR: Service_Preferred_brand_drugs_(Tier_2).NAME = Preferred brand drugs (Tier 2)
+ATTR: Service_Preferred_brand_drugs_(Tier_2).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Preferred_brand_drugs_(Tier_2).NETWORK_COST = $30 copay/prescription (retail & mail order)
+ATTR: Service_Preferred_brand_drugs_(Tier_2).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Preferred_brand_drugs_(Tier_2).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail prescription). order
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).NAME = Non-preferred brand drugs (Tier 3)
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).NETWORK_COST = 40% coinsurance
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).OUT_OF_NETWORK_COST = 60% coinsurance
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail prescription). order
+ATTR: Service_Specialty_drugs_(Tier_4).NAME = Specialty drugs (Tier 4)
+ATTR: Service_Specialty_drugs_(Tier_4).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Specialty_drugs_(Tier_4).NETWORK_COST = 50% coinsurance
+ATTR: Service_Specialty_drugs_(Tier_4).OUT_OF_NETWORK_COST = 70% coinsurance
+ATTR: Service_Specialty_drugs_(Tier_4).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail prescription). order
+ATTR: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory.NAME = Facility fee (e.g., surgery center) ambulatory
+ATTR: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory.MEDICAL_EVENT = If you have outpatient surgery
+ATTR: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory.NETWORK_COST = $100/day copay
+ATTR: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory.OUT_OF_NETWORK_COST = 40%coinsurance
+ATTR: Service_Facility_fee_(e.g.,_surgery_center)_ambulatory.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_Physician/surgeon_fees.NAME = Physician/surgeon fees
+ATTR: Service_Physician/surgeon_fees.MEDICAL_EVENT = If you have outpatient surgery
+ATTR: Service_Physician/surgeon_fees.NETWORK_COST = 20% coinsurance
+ATTR: Service_Physician/surgeon_fees.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Physician/surgeon_fees.LIMITATIONS = 50% coinsurance for anesthesia.
+ATTR: Service_Emergency_room_care.NAME = Emergency room care
+ATTR: Service_Emergency_room_care.MEDICAL_EVENT = If you need immediate medical attention
+ATTR: Service_Emergency_room_care.NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_room_care.OUT_OF_NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_room_care.LIMITATIONS = 
+ATTR: Service_Emergency_medical_transportation.NAME = Emergency medical transportation
+ATTR: Service_Emergency_medical_transportation.MEDICAL_EVENT = If you need immediate medical attention
+ATTR: Service_Emergency_medical_transportation.NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_medical_transportation.OUT_OF_NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_medical_transportation.LIMITATIONS = 
+ATTR: Service_Urgent_care.NAME = Urgent care
+ATTR: Service_Urgent_care.MEDICAL_EVENT = If you need immediate medical attention
+ATTR: Service_Urgent_care.NETWORK_COST = $30 copay
+ATTR: Service_Urgent_care.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Urgent_care.LIMITATIONS = 
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).NAME = Facility fee (e.g., hospital room)
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).MEDICAL_EVENT = If you have a hospital stay
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).NETWORK_COST = 20% coinsurance
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_20%_coinsurance.NAME = 20% coinsurance
+ATTR: Service_20%_coinsurance.MEDICAL_EVENT = Physician/surgeon fees
+ATTR: Service_20%_coinsurance.NETWORK_COST = 40% coinsurance
+ATTR: Service_20%_coinsurance.OUT_OF_NETWORK_COST = 50% coinsurance for anesthesia.
+ATTR: Service_20%_coinsurance.LIMITATIONS = 
+ATTR: Service_Outpatient_services.NAME = Outpatient services
+ATTR: Service_Outpatient_services.MEDICAL_EVENT = If you need mental health, behavioral health, or substance abuse services
+ATTR: Service_Outpatient_services.NETWORK_COST = $35 copay/office visit and 20% coinsurance for other outpatient services
+ATTR: Service_Outpatient_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Outpatient_services.LIMITATIONS = 
+ATTR: Service_Inpatient_services.NAME = Inpatient services
+ATTR: Service_Inpatient_services.MEDICAL_EVENT = If you need mental health, behavioral health, or substance abuse services
+ATTR: Service_Inpatient_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Inpatient_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Inpatient_services.LIMITATIONS = 
+ATTR: Service_Office_visits.NAME = Office visits
+ATTR: Service_Office_visits.MEDICAL_EVENT = If you are pregnant
+ATTR: Service_Office_visits.NETWORK_COST = 20% coinsurance
+ATTR: Service_Office_visits.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Office_visits.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: Service_Childbirth/delivery_professional_services.NAME = Childbirth/delivery professional services
+ATTR: Service_Childbirth/delivery_professional_services.MEDICAL_EVENT = If you are pregnant
+ATTR: Service_Childbirth/delivery_professional_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Childbirth/delivery_professional_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Childbirth/delivery_professional_services.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: Service_Childbirth/delivery_facility_services.NAME = Childbirth/delivery facility services
+ATTR: Service_Childbirth/delivery_facility_services.MEDICAL_EVENT = If you are pregnant
+ATTR: Service_Childbirth/delivery_facility_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Childbirth/delivery_facility_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Childbirth/delivery_facility_services.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: Service_Home_health_care.NAME = Home health care
+ATTR: Service_Home_health_care.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Home_health_care.NETWORK_COST = 20% coinsurance
+ATTR: Service_Home_health_care.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Home_health_care.LIMITATIONS = 60 visits/calendar year
+ATTR: Service_Rehabilitation_services.NAME = Rehabilitation services
+ATTR: Service_Rehabilitation_services.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Rehabilitation_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Rehabilitation_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Rehabilitation_services.LIMITATIONS = 60 visits/calendar year. Includes physical
+ATTR: Service_Habilitation_services.NAME = Habilitation services
+ATTR: Service_Habilitation_services.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Habilitation_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Habilitation_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Habilitation_services.LIMITATIONS = therapy, speech therapy, and occupational therapy.
+ATTR: Service_Skilled_nursing_care.NAME = Skilled nursing care
+ATTR: Service_Skilled_nursing_care.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Skilled_nursing_care.NETWORK_COST = 20% coinsurance
+ATTR: Service_Skilled_nursing_care.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Skilled_nursing_care.LIMITATIONS = 60 visits/calendar year
+ATTR: Service_Durable_medical_equipment.NAME = Durable medical equipment
+ATTR: Service_Durable_medical_equipment.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Durable_medical_equipment.NETWORK_COST = 20% coinsurance
+ATTR: Service_Durable_medical_equipment.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Durable_medical_equipment.LIMITATIONS = Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.
+ATTR: Service_Hospice_services.NAME = Hospice services
+ATTR: Service_Hospice_services.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Hospice_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Hospice_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Hospice_services.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_Children's_eye_exam.NAME = Children's eye exam
+ATTR: Service_Children's_eye_exam.MEDICAL_EVENT = If your child needs dental or eye care
+ATTR: Service_Children's_eye_exam.NETWORK_COST = $35 copay/visit
+ATTR: Service_Children's_eye_exam.OUT_OF_NETWORK_COST = Not covered
+ATTR: Service_Children's_eye_exam.LIMITATIONS = Coverage limited to one exam/year.
+ATTR: Service_Children's_glasses.NAME = Children's glasses
+ATTR: Service_Children's_glasses.MEDICAL_EVENT = If your child needs dental or eye care
+ATTR: Service_Children's_glasses.NETWORK_COST = 20% coinsurance
+ATTR: Service_Children's_glasses.OUT_OF_NETWORK_COST = Not covered
+ATTR: Service_Children's_glasses.LIMITATIONS = Coverage limited to one pair of glasses/year.
+ATTR: Service_Children's_dental_check-up.NAME = Children's dental check-up
+ATTR: Service_Children's_dental_check-up.MEDICAL_EVENT = If your child needs dental or eye care
+ATTR: Service_Children's_dental_check-up.NETWORK_COST = No charge
+ATTR: Service_Children's_dental_check-up.OUT_OF_NETWORK_COST = Not covered
+ATTR: Service_Children's_dental_check-up.LIMITATIONS = 
+ATTR: Example_Peg_is_Having_a_Baby.NAME = Peg is Having a Baby
+ATTR: Example_Peg_is_Having_a_Baby.TOTAL_COST = $12,800
+ATTR: Example_Peg_is_Having_a_Baby.PATIENT_PAYS = $3,160
+ATTR: Example_Mia's_Simple_Fracture.NAME = Mia's Simple Fracture
+ATTR: Example_Mia's_Simple_Fracture.TOTAL_COST = $2,500
+ATTR: Example_Mia's_Simple_Fracture.PATIENT_PAYS = $1,300
+ATTR: Example_Managing_Joe's_type_2_Diabetes.NAME = Managing Joe's type 2 Diabetes
+ATTR: Example_Managing_Joe's_type_2_Diabetes.TOTAL_COST = $7,400
+ATTR: Example_Managing_Joe's_type_2_Diabetes.PATIENT_PAYS = $2,360
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_Copayments_for_certain_services
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_premiums
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_balance-billed_charges
+REL: OutOfPocketLimit -[EXCLUDES]-> Exclusion_and_health_care_this_plan_doesn’t_cover.
+REL: HealthPlan -[OFFERS]-> Service_Primary_care_visit_to_treat_an_injury_or_illness
+REL: HealthPlan -[OFFERS]-> Service_Specialist_visit
+REL: Service_Specialist_visit -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Preventive_care/screening/immunization
+REL: HealthPlan -[OFFERS]-> Service_Diagnostic_test_(x-ray,_blood_work)
+REL: HealthPlan -[OFFERS]-> Service_Imaging_(CT/PET_scans,_MRIs)
+REL: HealthPlan -[OFFERS]-> Service_Generic_drugs_(Tier_1)_(retail_&_mail_order)
+REL: HealthPlan -[OFFERS]-> Service_Preferred_brand_drugs_(Tier_2)_(retail_&_mail_order)
+REL: HealthPlan -[OFFERS]-> Service_Non-preferred_brand_drugs_(Tier_3)
+REL: HealthPlan -[OFFERS]-> Service_Specialty_drugs_(Tier_4)
+REL: HealthPlan -[OFFERS]-> Service_Facility_fee_(e.g.,_ambulatory_surgery_center)
+REL: Service_Facility_fee_(e.g.,_ambulatory_surgery_center) -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Physician/surgeon_fees
+REL: Service_Physician/surgeon_fees -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Emergency_room_care
+REL: HealthPlan -[OFFERS]-> Service_Emergency_medical_transportation
+REL: HealthPlan -[OFFERS]-> Service_Urgent_care
+REL: HealthPlan -[OFFERS]-> Service_Facility_fee_(e.g.,_hospital_room)
+REL: Service_Facility_fee_(e.g.,_hospital_room) -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_20%_coinsurance
+REL: HealthPlan -[OFFERS]-> Service_Outpatient_services
+REL: HealthPlan -[OFFERS]-> Service_Inpatient_services
+REL: HealthPlan -[OFFERS]-> Service_Office_visits
+REL: HealthPlan -[OFFERS]-> Service_Childbirth/delivery_professional_services
+REL: HealthPlan -[OFFERS]-> Service_Childbirth/delivery_facility_services
+REL: HealthPlan -[OFFERS]-> Service_Home_health_care
+REL: HealthPlan -[OFFERS]-> Service_Rehabilitation_services
+REL: HealthPlan -[OFFERS]-> Service_Habilitation_services
+REL: HealthPlan -[OFFERS]-> Service_Skilled_nursing_care
+REL: HealthPlan -[OFFERS]-> Service_Durable_medical_equipment
+REL: HealthPlan -[OFFERS]-> Service_Hospice_services
+REL: Service_Hospice_services -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Children's_eye_exam
+REL: HealthPlan -[OFFERS]-> Service_Children's_glasses
+REL: HealthPlan -[OFFERS]-> Service_Children's_dental_check-up
+ATTR: HealthPlan.COVERAGE_FOR = Family
+ATTR: HealthPlan.DOCUMENT_TYPE = Summary of Benefits and Coverage (SBC)
+ATTR: OverallDeductible.VALUE = $500/Individual or $1,000/family
+ATTR: OverallDeductible.DESCRIPTION = Generally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met.
+ATTR: Question_iq_001.QUESTION = Are there services covered before you meet your deductible?
+ATTR: Question_iq_001.ANSWER = Yes. Preventive care and primary care services are covered before you meet your deductible.
+ATTR: SpecificDeductible.VALUE = Yes. $300 for prescription drug coverage and $300 for occupational therapy services.
+ATTR: OutOfPocketLimit.VALUE = For network providers $2,500 individual / $5,000 family; for out-of-network providers $4,000 individual / $8,000 family
+ATTR: OutOfPocketLimit.DESCRIPTION = The out-of-pocket limit is the most you could pay in a year for covered services. If you have other family members in this plan, they have to meet their own out-of-pocket limits until the overall family out-of-pocket limit has been met.
+ATTR: OutOfPocketLimit.VALUE = Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn’t cover.
+ATTR: OutOfPocketLimit.DESCRIPTION = Even though you pay these expenses, they don’t count toward the out-of-pocket limit.
+ATTR: Exclusion_Copayments_for_certain_services.NAME = Copayments for certain services
+ATTR: Exclusion_premiums.NAME = premiums
+ATTR: Exclusion_balance-billed_charges.NAME = balance-billed charges
+ATTR: Exclusion_and_health_care_this_plan_doesn’t_cover..NAME = and health care this plan doesn’t cover.
+ATTR: Question_iq_005.QUESTION = Will you pay less if you use a network provider?
+ATTR: Question_iq_005.ANSWER = Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers.
+ATTR: Question_iq_006.QUESTION = Do you need a referral to see a specialist?
+ATTR: Question_iq_006.ANSWER = Yes.
+ATTR: Service_Primary_care_visit_to_treat_an_injury_or_illness.NAME = Primary care visit to treat an injury or illness
+ATTR: Service_Primary_care_visit_to_treat_an_injury_or_illness.MEDICAL_EVENT = If you visit a health care provider’s office or clinic
+ATTR: Service_Primary_care_visit_to_treat_an_injury_or_illness.NETWORK_COST = $35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply
+ATTR: Service_Primary_care_visit_to_treat_an_injury_or_illness.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Primary_care_visit_to_treat_an_injury_or_illness.LIMITATIONS = None
+ATTR: Service_Specialist_visit.NAME = Specialist visit
+ATTR: Service_Specialist_visit.MEDICAL_EVENT = If you visit a health care provider’s office or clinic
+ATTR: Service_Specialist_visit.NETWORK_COST = $50 copay/visit
+ATTR: Service_Specialist_visit.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Specialist_visit.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_Preventive_care/screening/immunization.NAME = Preventive care/screening/immunization
+ATTR: Service_Preventive_care/screening/immunization.MEDICAL_EVENT = If you visit a health care provider’s office or clinic
+ATTR: Service_Preventive_care/screening/immunization.NETWORK_COST = No charge for covered services
+ATTR: Service_Preventive_care/screening/immunization.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Preventive_care/screening/immunization.LIMITATIONS = You may have to pay for services that aren’t preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.
+ATTR: Service_Diagnostic_test_(x-ray,_blood_work).NAME = Diagnostic test (x-ray, blood work)
+ATTR: Service_Diagnostic_test_(x-ray,_blood_work).MEDICAL_EVENT = If you have a test
+ATTR: Service_Diagnostic_test_(x-ray,_blood_work).NETWORK_COST = $10 copay/test
+ATTR: Service_Diagnostic_test_(x-ray,_blood_work).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Diagnostic_test_(x-ray,_blood_work).LIMITATIONS = None
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).NAME = Imaging (CT/PET scans, MRIs)
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).MEDICAL_EVENT = If you have a test
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).NETWORK_COST = $50 copay/test
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).LIMITATIONS = 
+ATTR: Service_Generic_drugs_(Tier_1)_(retail_&_mail_order).NAME = Generic drugs (Tier 1) (retail & mail order)
+ATTR: Service_Generic_drugs_(Tier_1)_(retail_&_mail_order).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Generic_drugs_(Tier_1)_(retail_&_mail_order).NETWORK_COST = $10 copay/prescription
+ATTR: Service_Generic_drugs_(Tier_1)_(retail_&_mail_order).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Generic_drugs_(Tier_1)_(retail_&_mail_order).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+ATTR: Service_Preferred_brand_drugs_(Tier_2)_(retail_&_mail_order).NAME = Preferred brand drugs (Tier 2) (retail & mail order)
+ATTR: Service_Preferred_brand_drugs_(Tier_2)_(retail_&_mail_order).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Preferred_brand_drugs_(Tier_2)_(retail_&_mail_order).NETWORK_COST = $30 copay/prescription
+ATTR: Service_Preferred_brand_drugs_(Tier_2)_(retail_&_mail_order).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Preferred_brand_drugs_(Tier_2)_(retail_&_mail_order).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).NAME = Non-preferred brand drugs (Tier 3)
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).NETWORK_COST = 40% coinsurance
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).OUT_OF_NETWORK_COST = 60% coinsurance
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+ATTR: Service_Specialty_drugs_(Tier_4).NAME = Specialty drugs (Tier 4)
+ATTR: Service_Specialty_drugs_(Tier_4).MEDICAL_EVENT = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: Service_Specialty_drugs_(Tier_4).NETWORK_COST = 50% coinsurance
+ATTR: Service_Specialty_drugs_(Tier_4).OUT_OF_NETWORK_COST = 70% coinsurance
+ATTR: Service_Specialty_drugs_(Tier_4).LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+ATTR: Service_Facility_fee_(e.g.,_ambulatory_surgery_center).NAME = Facility fee (e.g., ambulatory surgery center)
+ATTR: Service_Facility_fee_(e.g.,_ambulatory_surgery_center).MEDICAL_EVENT = If you have outpatient surgery
+ATTR: Service_Facility_fee_(e.g.,_ambulatory_surgery_center).NETWORK_COST = $100/day copay
+ATTR: Service_Facility_fee_(e.g.,_ambulatory_surgery_center).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Facility_fee_(e.g.,_ambulatory_surgery_center).LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+ATTR: Service_Physician/surgeon_fees.NAME = Physician/surgeon fees
+ATTR: Service_Physician/surgeon_fees.MEDICAL_EVENT = If you have outpatient surgery
+ATTR: Service_Physician/surgeon_fees.NETWORK_COST = 20% coinsurance
+ATTR: Service_Physician/surgeon_fees.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Physician/surgeon_fees.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+ATTR: Service_Emergency_room_care.NAME = Emergency room care
+ATTR: Service_Emergency_room_care.MEDICAL_EVENT = If you need immediate medical attention
+ATTR: Service_Emergency_room_care.NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_room_care.OUT_OF_NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_room_care.LIMITATIONS = None
+ATTR: Service_Emergency_medical_transportation.NAME = Emergency medical transportation
+ATTR: Service_Emergency_medical_transportation.MEDICAL_EVENT = If you need immediate medical attention
+ATTR: Service_Emergency_medical_transportation.NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_medical_transportation.OUT_OF_NETWORK_COST = 20% coinsurance
+ATTR: Service_Emergency_medical_transportation.LIMITATIONS = None
+ATTR: Service_Urgent_care.NAME = Urgent care
+ATTR: Service_Urgent_care.MEDICAL_EVENT = If you need immediate medical attention
+ATTR: Service_Urgent_care.NETWORK_COST = $30 copay
+ATTR: Service_Urgent_care.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Urgent_care.LIMITATIONS = None
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).NAME = Facility fee (e.g., hospital room)
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).MEDICAL_EVENT = If you have a hospital stay
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).NETWORK_COST = 20% coinsurance
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_20%_coinsurance.NAME = 20% coinsurance
+ATTR: Service_20%_coinsurance.MEDICAL_EVENT = Physician/surgeon fees
+ATTR: Service_20%_coinsurance.NETWORK_COST = 40% coinsurance
+ATTR: Service_20%_coinsurance.OUT_OF_NETWORK_COST = 50% coinsurance for anesthesia.
+ATTR: Service_20%_coinsurance.LIMITATIONS = 
+ATTR: Service_Outpatient_services.NAME = Outpatient services
+ATTR: Service_Outpatient_services.MEDICAL_EVENT = If you need mental health, behavioral health, or substance abuse services
+ATTR: Service_Outpatient_services.NETWORK_COST = $35 copay/office visit and 20% coinsurance for other outpatient services
+ATTR: Service_Outpatient_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Outpatient_services.LIMITATIONS = 
+ATTR: Service_Inpatient_services.NAME = Inpatient services
+ATTR: Service_Inpatient_services.MEDICAL_EVENT = If you need mental health, behavioral health, or substance abuse services
+ATTR: Service_Inpatient_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Inpatient_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Inpatient_services.LIMITATIONS = 
+ATTR: Service_Office_visits.NAME = Office visits
+ATTR: Service_Office_visits.MEDICAL_EVENT = If you are pregnant
+ATTR: Service_Office_visits.NETWORK_COST = 20% coinsurance
+ATTR: Service_Office_visits.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Office_visits.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: Service_Childbirth/delivery_professional_services.NAME = Childbirth/delivery professional services
+ATTR: Service_Childbirth/delivery_professional_services.MEDICAL_EVENT = If you are pregnant
+ATTR: Service_Childbirth/delivery_professional_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Childbirth/delivery_professional_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Childbirth/delivery_professional_services.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: Service_Childbirth/delivery_facility_services.NAME = Childbirth/delivery facility services
+ATTR: Service_Childbirth/delivery_facility_services.MEDICAL_EVENT = If you are pregnant
+ATTR: Service_Childbirth/delivery_facility_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Childbirth/delivery_facility_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Childbirth/delivery_facility_services.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: Service_Home_health_care.NAME = Home health care
+ATTR: Service_Home_health_care.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Home_health_care.NETWORK_COST = 20% coinsurance
+ATTR: Service_Home_health_care.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Home_health_care.LIMITATIONS = 60 visits/calendar year
+ATTR: Service_Rehabilitation_services.NAME = Rehabilitation services
+ATTR: Service_Rehabilitation_services.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Rehabilitation_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Rehabilitation_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Rehabilitation_services.LIMITATIONS = 60 visits/calendar year. Includes physical therapy, speech therapy, and occupational therapy.
+ATTR: Service_Habilitation_services.NAME = Habilitation services
+ATTR: Service_Habilitation_services.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Habilitation_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Habilitation_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Habilitation_services.LIMITATIONS = 
+ATTR: Service_Skilled_nursing_care.NAME = Skilled nursing care
+ATTR: Service_Skilled_nursing_care.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Skilled_nursing_care.NETWORK_COST = 20% coinsurance
+ATTR: Service_Skilled_nursing_care.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Skilled_nursing_care.LIMITATIONS = 60 visits/calendar year
+ATTR: Service_Durable_medical_equipment.NAME = Durable medical equipment
+ATTR: Service_Durable_medical_equipment.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Durable_medical_equipment.NETWORK_COST = 20% coinsurance
+ATTR: Service_Durable_medical_equipment.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Durable_medical_equipment.LIMITATIONS = Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.
+ATTR: Service_Hospice_services.NAME = Hospice services
+ATTR: Service_Hospice_services.MEDICAL_EVENT = If you need help recovering or have other special health needs
+ATTR: Service_Hospice_services.NETWORK_COST = 20% coinsurance
+ATTR: Service_Hospice_services.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: Service_Hospice_services.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: Service_Children's_eye_exam.NAME = Children's eye exam
+ATTR: Service_Children's_eye_exam.MEDICAL_EVENT = If your child needs dental or eye care
+ATTR: Service_Children's_eye_exam.NETWORK_COST = $35 copay/visit
+ATTR: Service_Children's_eye_exam.OUT_OF_NETWORK_COST = Not covered
+ATTR: Service_Children's_eye_exam.LIMITATIONS = Coverage limited to one exam/year.
+ATTR: Service_Children's_glasses.NAME = Children's glasses
+ATTR: Service_Children's_glasses.MEDICAL_EVENT = If your child needs dental or eye care
+ATTR: Service_Children's_glasses.NETWORK_COST = 20% coinsurance
+ATTR: Service_Children's_glasses.OUT_OF_NETWORK_COST = Not covered
+ATTR: Service_Children's_glasses.LIMITATIONS = Coverage limited to one pair of glasses/year.
+ATTR: Service_Children's_dental_check-up.NAME = Children's dental check-up
+ATTR: Service_Children's_dental_check-up.MEDICAL_EVENT = If your child needs dental or eye care
+ATTR: Service_Children's_dental_check-up.NETWORK_COST = No charge
+ATTR: Service_Children's_dental_check-up.OUT_OF_NETWORK_COST = Not covered
+ATTR: Service_Children's_dental_check-up.LIMITATIONS = 
+REL: HealthPlan -[OFFERS]-> Service_Preferred_brand_drugs_(Tier_2)_(retail_&_mail_orde
+REL: Generic drugs -[HAS_COPAY]-> $10
+REL: HealthPlan -[OFFERS]-> Service_Facility_fee_(e.g.,_hospital_room)
+REL: Rehabilitation services -[HAS_LIMIT]-> 60 visits/calendar year
+REL: Prescription drugs -[COVERS]-> Non-preferred brand drugs
+REL: Out-of-pocket limit -[APPLIES_TO]-> Out-of-network provider
+REL: Primary care visit -[HAS_COPAY]-> $35
+REL: HealthPlan -[OFFERS]-> Service_Non-preferred_brand_drugs_(Tier_3)
+REL: Deductible -[APPLIES_TO]-> Prescription drugs
+REL: HealthPlan -[OFFERS]-> Service_Physician/surgeon_fees
+REL: HealthPlan -[OFFERS]-> Service_Children's_dental_check-up
+REL: HealthPlan -[OFFERS]-> Service_Inpatient_services
+REL: Skilled nursing care -[HAS_LIMIT]-> 60 visits/calendar year
+REL: HealthPlan -[OFFERS]-> Service_Hospice_services
+REL: Prescription drugs -[COVERS]-> Specialty drugs
+REL: HealthPlan -[OFFERS]-> Service_Primary_care_visit_to_treat_an_injury_or_illness
+REL: Dental care -[NOT_COVERED]-> Plan
+REL: Hospice services -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Diagnostic_test_(x-ray,_blood_work)
+REL: Preferred brand drugs -[HAS_COPAY]-> $30
+REL: Substance abuse services -[COVERS]-> Outpatient services
+REL: Pregnancy -[COVERS]-> Childbirth
+REL: HealthPlan -[OFFERS]-> Service_Emergency_medical_transportation
+REL: Specialist visit -[HAS_COPAY]-> $50
+REL: HealthPlan -[OFFERS]-> Service_Preventive_care/screening/immunization
+REL: HealthPlan -[OFFERS]-> Service_Urgent_care
+REL: HealthPlan -[OFFERS]-> Service_Office_visits
+REL: Mental health services -[COVERS]-> Outpatient services
+REL: Coinsurance -[APPLIES_TO]-> Emergency room care
+REL: HealthPlan -[OFFERS]-> Service_Children's_eye_exam
+REL: Emergency room care -[HAS_COINSURANCE]-> 20%
+REL: Durable medical equipment -[HAS_COINSURANCE]-> 20%
+REL: HealthPlan -[OFFERS]-> Service_Children's_glasses
+REL: Coinsurance -[APPLIES_TO]-> Hospital stay
+REL: HealthPlan -[OFFERS]-> Service_Childbirth/delivery_facility_services
+REL: Specialty drugs -[HAS_COINSURANCE]-> 50%
+REL: Copay -[APPLIES_TO]-> Primary care visit
+REL: Habilitation services -[HAS_COINSURANCE]-> 20%
+REL: Out-of-pocket limit -[APPLIES_TO]-> Network provider
+REL: HealthPlan -[OFFERS]-> Service_Imaging_(CT/PET_scans,_MRIs)
+REL: HealthPlan -[OFFERS]-> Service_Outpatient_services
+REL: HealthPlan -[OFFERS]-> Service_Generic_drugs_(Tier_1)_(retail_&_mail_order)
+REL: HealthPlan -[OFFERS]-> Service_Durable_medical_equipment
+REL: HealthPlan -[OFFERS]-> Service_Specialist_visit
+REL: Vision care -[NOT_COVERED]-> Plan
+REL: Prescription drugs -[COVERS]-> Preferred brand drugs
+REL: Prescription drugs -[COVERS]-> Generic drugs
+REL: Referral -[REQUIRES]-> Specialist visit
+REL: HealthPlan -[OFFERS]-> Service_Skilled_nursing_care
+REL: Substance abuse services -[COVERS]-> Inpatient services
+REL: Non-preferred brand drugs -[HAS_COINSURANCE]-> 40%
+REL: Preauthorization -[REQUIRES]-> Hospice services
+REL: Copay -[APPLIES_TO]-> Specialist visit
+REL: HealthPlan -[OFFERS]-> Service_Home_health_care
+REL: HealthPlan -[OFFERS]-> Service_Specialty_drugs_(Tier_4)
+REL: HealthPlan -[OFFERS]-> Service_Facility_fee_(e.g.,_ambulatory_surgery_center)
+REL: HealthPlan -[OFFERS]-> Service_Emergency_room_care
+REL: HealthPlan -[OFFERS]-> Service_Rehabilitation_services
+REL: HealthPlan -[OFFERS]-> Service_Habilitation_services
+REL: HealthPlan -[OFFERS]-> Service_Childbirth/delivery_professional_services
+REL: Hospital stay -[HAS_COINSURANCE]-> 20%
+REL: Pregnancy -[COVERS]-> Office visits
+REL: Mental health services -[COVERS]-> Inpatient services
+REL: HealthPlan -[OFFERS]-> Service_20%_coinsurance
+ATTR: Service_Urgent_care.NAME = Urgent care
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).NAME = Non-preferred brand drugs (Tier 3)
+ATTR: Deductible.INDIVIDUAL = $500
+ATTR: Service_Rehabilitation_services.NAME = Rehabilitation services
+ATTR: Coinsurance.EMERGENCY_ROOM_CARE = 20%
+ATTR: Occupational therapy services.DEDUCTIBLE = $300
+ATTR: Service_Preventive_care/screening/immunization.NAME = Preventive care/screening/immunization
+ATTR: Service_Preferred_brand_drugs_(Tier_2)_(retail_&_mail_orde.NAME = Preferred brand drugs (Tier 2) (retail & mail order)
+ATTR: Deductible.VALUE = $500/Individual or $1,000/family
+ATTR: Service_20%_coinsurance.NAME = 20% coinsurance
+ATTR: Service_Primary_care_visit_to_treat_an_injury_or_illness.NAME = Primary care visit to treat an injury or illness
+ATTR: Service_Outpatient_services.NAME = Outpatient services
+ATTR: Out-of-pocket limit.INDIVIDUAL = $2,500
+ATTR: Out-of-pocket limit.FAMILY = $5,000
+ATTR: Deductible.VALUE = Yes. $300 for prescription drug coverage and $300 for occupational therapy services.
+ATTR: Service_Durable_medical_equipment.NAME = Durable medical equipment
+ATTR: Service_Office_visits.NAME = Office visits
+ATTR: Deductible.VALUE = Yes. Preventive care and primary care services are covered before you meet your deductible.
+ATTR: Service_Home_health_care.NAME = Home health care
+ATTR: Deductible.FAMILY = $1,000
+ATTR: Coinsurance.HOSPITAL_STAY = 20%
+ATTR: Service_Emergency_room_care.NAME = Emergency room care
+ATTR: Service_Children's_dental_check-up.NAME = Children's dental check-up
+ATTR: Service_Hospice_services.NAME = Hospice services
+ATTR: Copay.PRIMARY_CARE_VISIT = $35
+ATTR: Service_Skilled_nursing_care.NAME = Skilled nursing care
+ATTR: OutOfPocketLimit.VALUE = Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn’t cover.
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).NAME = Imaging (CT/PET scans, MRIs)
+ATTR: Service_Facility_fee_(e.g.,_ambulatory_surgery_center).NAME = Facility fee (e.g., ambulatory surgery center)
+ATTR: HealthPlan.DOCUMENT_TYPE = SBC
+ATTR: Copay.SPECIALIST_VISIT = $50
+ATTR: Service_Emergency_medical_transportation.NAME = Emergency medical transportation
+ATTR: Service_Inpatient_services.NAME = Inpatient services
+ATTR: Service_Diagnostic_test_(x-ray,_blood_work).NAME = Diagnostic test (x-ray, blood work)
+ATTR: Service_Habilitation_services.NAME = Habilitation services
+ATTR: Service_Specialist_visit.NAME = Specialist visit
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).NAME = Facility fee (e.g., hospital room)
+ATTR: Service_Children's_eye_exam.NAME = Children's eye exam
+ATTR: Service_Childbirth/delivery_facility_services.NAME = Childbirth/delivery facility services
+ATTR: Prescription drug coverage.DEDUCTIBLE = $300
+ATTR: Service_Physician/surgeon_fees.NAME = Physician/surgeon fees
+ATTR: Service_Childbirth/delivery_professional_services.NAME = Childbirth/delivery professional services
+ATTR: Service_Generic_drugs_(Tier_1)_(retail_&_mail_order).NAME = Generic drugs (Tier 1) (retail & mail order)
+ATTR: Service_Specialty_drugs_(Tier_4).NAME = Specialty drugs (Tier 4)
+ATTR: Service_Children's_glasses.NAME = Children's glasses
+ATTR: OutOfPocketLimit.VALUE = For network providers $2,500 individual / $5,000 family; for out-of-network providers $4,000 individual / $8,000 family
+REL: outofpocketlimit -[EXCLUDES]-> oopexclusion_balance-billed_charges
+REL: medicalevent_event_004 -[INCLUDES_SERVICE]-> service_benefit_013
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_007
+REL: medicalevent_event_009 -[INCLUDES_SERVICE]-> service_benefit_025
+REL: medicalevent_event_000 -[INCLUDES_SERVICE]-> service_benefit_001
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_000
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_004
+REL: medicalevent_event_009 -[INCLUDES_SERVICE]-> service_benefit_022
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_010
+REL: medicalevent_event_008 -[INCLUDES_SERVICE]-> service_benefit_021
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_chiropractic_care
+REL: healthplan -[HAS_POLICY]-> predeductiblecoverage
+REL: medicalevent_event_009 -[INCLUDES_SERVICE]-> service_benefit_026
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_infertility_treatment
+REL: healthplan -[HAS_DEDUCTIBLE]-> specificdeductible
+REL: medicalevent_event_003 -[INCLUDES_SERVICE]-> service_benefit_010
+REL: medicalevent_event_001 -[INCLUDES_SERVICE]-> service_benefit_003
+REL: medicalevent_event_005 -[INCLUDES_SERVICE]-> service_benefit_014
+REL: medicalevent_event_010 -[INCLUDES_SERVICE]-> service_benefit_028
+REL: service_benefit_014 -[REQUIRES]-> preauthorizationrequirement
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_weight_loss_programs
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_non-emergency_care_outside_the_u.s.
+REL: pregnancy -[HAS_DEDUCTIBLE]-> $500
+REL: medicalevent_event_009 -[INCLUDES_SERVICE]-> service_benefit_027
+REL: hospital stay -[REQUIRES]-> preauthorization
+REL: service_benefit_009 -[REQUIRES]-> preauthorizationrequirement
+REL: healthplan -[HAS_POLICY]-> referralpolicy
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_private_duty_nursing
+REL: plan option 1 -[NOT_COVERED]-> cosmetic surgery
+REL: outofpocketlimit -[EXCLUDES]-> oopexclusion_copayments_for_certain_services
+REL: medicalevent_event_004 -[INCLUDES_SERVICE]-> service_benefit_012
+REL: healthplan -[HAS_DEDUCTIBLE]-> overalldeductible
+REL: medicalevent_event_009 -[INCLUDES_SERVICE]-> service_benefit_024
+REL: outofpocketlimit -[EXCLUDES]-> oopexclusion_and_health_care_this_plan_doesn’t_cover.
+REL: medicalevent_event_010 -[INCLUDES_SERVICE]-> service_benefit_029
+REL: medicalevent_event_007 -[INCLUDES_SERVICE]-> service_benefit_017
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_routine_foot_care
+REL: medicalevent_event_001 -[INCLUDES_SERVICE]-> service_benefit_004
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_001
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_006
+REL: plan option 1 -[COVERS]-> preventive care
+REL: medicalevent_event_002 -[INCLUDES_SERVICE]-> service_benefit_008
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_routine_eye_care_(adult)
+REL: medicalevent_event_007 -[INCLUDES_SERVICE]-> service_benefit_016
+REL: medicalevent_event_000 -[INCLUDES_SERVICE]-> service_benefit_002
+REL: medicalevent_event_002 -[INCLUDES_SERVICE]-> service_benefit_006
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_003
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_long_term_care
+REL: medicalevent_event_000 -[INCLUDES_SERVICE]-> service_benefit_000
+REL: primary care visit -[HAS_COPAY]-> $35
+REL: medicalevent_event_008 -[INCLUDES_SERVICE]-> service_benefit_019
+REL: medicalevent_event_008 -[INCLUDES_SERVICE]-> service_benefit_020
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_dental_care
+REL: medicalevent_event_002 -[INCLUDES_SERVICE]-> service_benefit_005
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_008
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_009
+REL: medicalevent_event_009 -[INCLUDES_SERVICE]-> service_benefit_023
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_002
+REL: healthplan -[HAS_OOP_LIMIT]-> outofpocketlimit
+REL: outofpocketlimit -[EXCLUDES]-> oopexclusion_premiums
+REL: medicalevent_event_002 -[INCLUDES_SERVICE]-> service_benefit_007
+REL: service_benefit_001 -[REQUIRES]-> preauthorizationrequirement
+REL: medicalevent_event_003 -[INCLUDES_SERVICE]-> service_benefit_009
+REL: service_benefit_010 -[REQUIRES]-> preauthorizationrequirement
+REL: healthplan -[COVERS_EVENT]-> medicalevent_event_005
+REL: medicalevent_event_004 -[INCLUDES_SERVICE]-> service_benefit_011
+REL: medicalevent_event_006 -[INCLUDES_SERVICE]-> service_benefit_015
+REL: service_benefit_027 -[REQUIRES]-> preauthorizationrequirement
+REL: medicalevent_event_010 -[INCLUDES_SERVICE]-> service_benefit_030
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_cosmetic_surgery
+REL: healthplan -[ALSO_COVERS]-> othercoveredservice_acupuncture_(if_prescribed_for_rehabilitation
+REL: emergency room care -[HAS_COINSURANCE]-> 40%
+REL: healthplan -[HAS_POLICY]-> networkproviderpolicy
+ATTR: specificdeductible.VALUE = Yes. $300 for prescription drug coverage and $300 for occupational therapy services.
+ATTR: service_benefit_000.LIMITATIONS = None
+ATTR: service_benefit_004.NETWORK_COST = $50 copay/test
+ATTR: service_benefit_022.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_007.NAME = Non-preferred brand drugs (Tier 3)
+ATTR: service_benefit_025.NETWORK_COST = 20% coinsurance
+ATTR: medicalevent_event_008.LABEL = If you are pregnant
+ATTR: service_benefit_012.LIMITATIONS = None
+ATTR: service_benefit_022.LIMITATIONS = 60 visits/calendar year
+ATTR: othercoveredservice_chiropractic_care.NAME = Chiropractic Care
+ATTR: service_benefit_011.LIMITATIONS = None
+ATTR: othercoveredservice_private_duty_nursing.NAME = Private Duty Nursing
+ATTR: service_benefit_024.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: othercoveredservice_acupuncture_(if_prescribed_for_rehabilitation.NAME = Acupuncture (if prescribed for rehabilitation
+ATTR: service_benefit_008.NAME = Specialty drugs (Tier 4)
+ATTR: service_benefit_016.LIMITATIONS = 
+ATTR: service_benefit_026.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_029.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_017.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_009.NETWORK_COST = $100/day copay
+ATTR: service_benefit_008.NETWORK_COST = 50% coinsurance
+ATTR: medicalevent_event_009.LABEL = If you need help recovering or have other special health needs
+ATTR: service_benefit_027.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_000.NETWORK_COST = $35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply
+ATTR: service_benefit_019.NAME = Office visits
+ATTR: service_benefit_005.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: othercoveredservice_cosmetic_surgery.NAME = Cosmetic Surgery
+ATTR: medicalevent_event_004.LABEL = If you need immediate medical attention
+ATTR: overalldeductible.VALUE = $500/Individual or $1,000/family
+ATTR: service_benefit_002.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_010.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_011.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_010.NAME = Physician/surgeon fees
+ATTR: service_benefit_024.LIMITATIONS = 
+ATTR: service_benefit_006.LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+ATTR: service_benefit_025.NAME = Skilled nursing care
+ATTR: othercoveredservice_non-emergency_care_outside_the_u.s..NAME = Non-emergency care outside the U.S.
+ATTR: service_benefit_028.OUT_OF_NETWORK_COST = Not covered
+ATTR: predeductiblecoverage.EXPLANATION = This plan covers some items and services even if you haven’t yet met the annual deductible amount. But a copayment or coinsurance may apply. For example, this plan covers certain preventive services without cost-sharing and before you meet your deductible. See a list of covered preventive services at https://www.healthcare.gov/coverage/preventive-care-benefits/.
+ATTR: service_benefit_030.NAME = Children's dental check-up
+ATTR: service_benefit_015.OUT_OF_NETWORK_COST = 50% coinsurance for anesthesia.
+ATTR: service_benefit_003.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: oopexclusion_and_health_care_this_plan_doesn’t_cover..NAME = and health care this plan doesn’t cover.
+ATTR: othercoveredservice_routine_foot_care.NAME = Routine Foot Care
+ATTR: service_benefit_019.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_012.OUT_OF_NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_009.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+ATTR: service_benefit_020.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_026.LIMITATIONS = Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.
+ATTR: networkproviderpolicy.ANSWER = Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers.
+ATTR: service_benefit_005.LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+ATTR: service_benefit_030.OUT_OF_NETWORK_COST = Not covered
+ATTR: copay.PRIMARY_CARE_VISIT = $35
+ATTR: coinsurance.EMERGENCY_ROOM_CARE = 40%
+ATTR: service_benefit_002.LIMITATIONS = You may have to pay for services that aren’t preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.
+ATTR: service_benefit_028.NAME = Children's eye exam
+ATTR: service_benefit_023.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_007.NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_009.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_024.NAME = Habilitation services
+ATTR: service_benefit_029.LIMITATIONS = Coverage limited to one pair of glasses/year.
+ATTR: service_benefit_017.NAME = Inpatient services
+ATTR: medicalevent_event_005.LABEL = If you have a hospital stay
+ATTR: service_benefit_021.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_023.LIMITATIONS = 60 visits/calendar year. Includes physical therapy, speech therapy, and occupational therapy.
+ATTR: service_benefit_020.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_001.NAME = Specialist visit
+ATTR: othercoveredservice_infertility_treatment.NAME = Infertility Treatment
+ATTR: outofpocketlimit.EXPLANATION = The out-of-pocket limit is the most you could pay in a year for covered services. If you have other family members in this plan, they have to meet their own out-of-pocket limits until the overall family out-of-pocket limit has been met.
+ATTR: service_benefit_015.NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_013.NETWORK_COST = $30 copay
+ATTR: service_benefit_017.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_014.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: service_benefit_025.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_027.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_001.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_023.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_015.NAME = 20% coinsurance
+ATTR: service_benefit_010.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+ATTR: service_benefit_004.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_025.LIMITATIONS = 60 visits/calendar year
+ATTR: healthplan.COVERAGE_FOR = Coverage for: Family | Plan Type: PPO
+ATTR: service_benefit_013.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: outofpocketlimit.VALUE = For network providers $2,500 individual / $5,000 family; for out-of-network providers $4,000 individual / $8,000 family
+ATTR: service_benefit_003.NAME = Diagnostic test (x-ray, blood work)
+ATTR: service_benefit_003.LIMITATIONS = None
+ATTR: othercoveredservice_routine_eye_care_(adult).NAME = Routine eye care (Adult)
+ATTR: service_benefit_000.NAME = Primary care visit to treat an injury or illness
+ATTR: service_benefit_014.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_009.NAME = Facility fee (e.g., ambulatory surgery center)
+ATTR: service_benefit_012.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_004.LIMITATIONS = 
+ATTR: service_benefit_007.OUT_OF_NETWORK_COST = 60% coinsurance
+ATTR: plan option 1.COVERAGE_PERIOD = 1/1/2017 - 12/31/2017
+ATTR: service_benefit_002.NAME = Preventive care/screening/immunization
+ATTR: service_benefit_028.LIMITATIONS = Coverage limited to one exam/year.
+ATTR: service_benefit_030.NETWORK_COST = No charge
+ATTR: service_benefit_027.NAME = Hospice services
+ATTR: medicalevent_event_006.LABEL = Physician/surgeon fees
+ATTR: specificdeductible.EXPLANATION = You must pay all of the costs for these services up to the specific deductible amount before this plan begins to pay for these services.
+ATTR: networkproviderpolicy.EXPLANATION = This plan uses a provider network. You will pay less if you use a provider in the plan’s network. You will pay the most if you use an out-of-network provider, and you might receive a bill from a provider for the difference between the provider’s charge and what your plan pays (a balance bill). Be aware, your network provider might use an out-of-network provider for some services (such as lab work). Check with your provider before you get services.
+ATTR: othercoveredservice_weight_loss_programs.NAME = Weight Loss Programs
+ATTR: oopexclusion_copayments_for_certain_services.NAME = Copayments for certain services
+ATTR: service_benefit_005.NAME = Generic drugs (Tier 1) (retail & mail order)
+ATTR: service_benefit_003.NETWORK_COST = $10 copay/test
+ATTR: service_benefit_005.NETWORK_COST = $10 copay/prescription
+ATTR: medicalevent_event_010.LABEL = If your child needs dental or eye care
+ATTR: service_benefit_026.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: medicalevent_event_002.LABEL = If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+ATTR: service_benefit_026.NAME = Durable medical equipment
+ATTR: medicalevent_event_007.LABEL = If you need mental health, behavioral health, or substance abuse services
+ATTR: service_benefit_008.LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+ATTR: service_benefit_013.LIMITATIONS = None
+ATTR: deductible.INDIVIDUAL = $500
+ATTR: service_benefit_016.NETWORK_COST = $35 copay/office visit and 20% coinsurance for other outpatient services
+ATTR: service_benefit_001.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: service_benefit_020.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: predeductiblecoverage.ANSWER = Yes. Preventive care and primary care services are covered before you meet your deductible.
+ATTR: service_benefit_002.NETWORK_COST = No charge for covered services
+ATTR: service_benefit_011.OUT_OF_NETWORK_COST = 20% coinsurance
+ATTR: medicalevent_event_000.LABEL = If you visit a health care provider’s office or clinic
+ATTR: service_benefit_017.LIMITATIONS = 
+ATTR: service_benefit_028.NETWORK_COST = $35 copay/visit
+ATTR: service_benefit_015.LIMITATIONS = 
+ATTR: service_benefit_029.OUT_OF_NETWORK_COST = Not covered
+ATTR: service_benefit_014.NAME = Facility fee (e.g., hospital room)
+ATTR: service_benefit_016.NAME = Outpatient services
+ATTR: service_benefit_024.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_001.NETWORK_COST = $50 copay/visit
+ATTR: service_benefit_006.NETWORK_COST = $30 copay/prescription
+ATTR: service_benefit_007.LIMITATIONS = Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+ATTR: service_benefit_012.NAME = Emergency medical transportation
+ATTR: service_benefit_027.LIMITATIONS = Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+ATTR: service_benefit_014.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: medicalevent_event_001.LABEL = If you have a test
+ATTR: service_benefit_030.LIMITATIONS = 
+ATTR: service_benefit_021.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: plan option 1.PLAN_TYPE = PPO
+ATTR: service_benefit_023.NAME = Rehabilitation services
+ATTR: othercoveredservice_long_term_care.NAME = Long Term Care
+ATTR: healthplan.PLAN_TYPE = Coverage for: Family | Plan Type: PPO
+ATTR: service_benefit_013.NAME = Urgent care
+ATTR: service_benefit_006.NAME = Preferred brand drugs (Tier 2) (retail & mail order)
+ATTR: medicalevent_event_003.LABEL = If you have outpatient surgery
+ATTR: othercoveredservice_dental_care.NAME = Dental Care
+ATTR: overalldeductible.EXPLANATION = Generally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met.
+ATTR: healthplan.DOCUMENT_TYPE = Summary of Benefits and Coverage (SBC)
+ATTR: service_benefit_010.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_019.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_004.NAME = Imaging (CT/PET scans, MRIs)
+ATTR: service_benefit_029.NAME = Children's glasses
+ATTR: service_benefit_008.OUT_OF_NETWORK_COST = 70% coinsurance
+ATTR: service_benefit_022.NAME = Home health care
+ATTR: oopexclusion_balance-billed_charges.NAME = balance-billed charges
+ATTR: referralpolicy.REQUIRED = Yes.
+ATTR: service_benefit_021.NAME = Childbirth/delivery facility services
+ATTR: service_benefit_011.NAME = Emergency room care
+ATTR: service_benefit_022.NETWORK_COST = 20% coinsurance
+ATTR: service_benefit_019.LIMITATIONS = Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+ATTR: oopexclusion_premiums.NAME = premiums
+ATTR: service_benefit_021.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_016.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_000.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: service_benefit_006.OUT_OF_NETWORK_COST = 40% coinsurance
+ATTR: referralpolicy.EXPLANATION = This plan will pay some or all of the costs to see a specialist for covered services but only if you have a referral before you see the specialist.
+ATTR: service_benefit_020.NAME = Childbirth/delivery professional services
+REL: Skilled nursing care -[HAS_COINSURANCE]-> 20%
+REL: Hospice services -[REQUIRES]-> Preauthorization
+REL: Hospital stay -[HAS_COINSURANCE]-> 20%
+REL: Children's glasses -[HAS_COINSURANCE]-> 20%
+REL: Cosmetic Surgery -[NOT_COVERED]-> Plan
+REL: Acupuncture -[NOT_COVERED]-> Plan
+REL: HealthPlan -[OFFERS]-> Service_Children's_eye_exam
+REL: HealthPlan -[OFFERS]-> Service_Primary_care_visit_to_treat_an_injury_or_illness
+REL: Routine eye care (Adult) -[NOT_COVERED]-> Plan
+REL: HealthPlan -[OFFERS]-> Service_Specialty_drugs_(Tier_4)
+REL: HealthPlan -[OFFERS]-> Service_Specialist_visit
+REL: HealthPlan -[OFFERS]-> Service_Generic_drugs_(Tier_1)_(retail_&_mail_order)
+REL: HealthPlan -[OFFERS]-> Service_Rehabilitation_services
+REL: Routine Foot Care -[NOT_COVERED]-> Plan
+REL: HealthPlan -[OFFERS]-> Service_Habilitation_services
+REL: Long Term Care -[NOT_COVERED]-> Plan
+REL: HealthPlan -[OFFERS]-> Service_Preventive_care/screening/immunization
+REL: HealthPlan -[OFFERS]-> Service_Facility_fee_(e.g.,_hospital_room)
+REL: Children's eye exam -[HAS_COPAY]-> $35
+REL: Non-preferred brand drugs -[HAS_COINSURANCE]-> 40%
+REL: Private Duty Nursing -[NOT_COVERED]-> Plan
+REL: Chiropractic Care -[NOT_COVERED]-> Plan
+REL: Physician/surgeon fees -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Diagnostic_test_(x-ray,_blood_work)
+REL: Primary care visit -[HAS_COPAY]-> $35
+REL: Generic drugs -[HAS_COPAY]-> $10
+REL: Non-emergency care outside the U.S. -[NOT_COVERED]-> Plan
+REL: Infertility Treatment -[NOT_COVERED]-> Plan
+REL: Facility fee (e.g., ambulatory surgery center) -[REQUIRES]-> Preauthorization
+REL: Preferred brand drugs -[HAS_COPAY]-> $30
+REL: HealthPlan -[OFFERS]-> Service_Facility_fee_(e.g.,_ambulatory_surgery_center)
+REL: HealthPlan -[OFFERS]-> Service_Hospice_services
+REL: HealthPlan -[OFFERS]-> Service_Inpatient_services
+REL: Specialty drugs -[HAS_COINSURANCE]-> 50%
+REL: Emergency room care -[HAS_COINSURANCE]-> 20%
+REL: HealthPlan -[OFFERS]-> Service_Skilled_nursing_care
+REL: Rehabilitation services -[HAS_COINSURANCE]-> 20%
+REL: HealthPlan -[OFFERS]-> Service_Childbirth/delivery_facility_services
+REL: HealthPlan -[OFFERS]-> Service_Preferred_brand_drugs_(Tier_2)_(retail_&_mail_orde
+REL: HealthPlan -[OFFERS]-> Service_Emergency_room_care
+REL: HealthPlan -[OFFERS]-> Service_Children's_glasses
+REL: Weight Loss Programs -[NOT_COVERED]-> Plan
+REL: HealthPlan -[OFFERS]-> Service_Home_health_care
+REL: HealthPlan -[OFFERS]-> Service_Office_visits
+REL: HealthPlan -[OFFERS]-> Service_Physician/surgeon_fees
+REL: Home health care -[HAS_COINSURANCE]-> 20%
+REL: HealthPlan -[OFFERS]-> Service_Outpatient_services
+REL: Specialist visit -[HAS_COPAY]-> $50
+REL: Hospice services -[HAS_COINSURANCE]-> 20%
+REL: Children's dental check-up -[HAS_COPAY]-> No charge
+REL: HealthPlan -[OFFERS]-> Service_Non-preferred_brand_drugs_(Tier_3)
+REL: HealthPlan -[OFFERS]-> Service_20%_coinsurance
+REL: HealthPlan -[OFFERS]-> Service_Imaging_(CT/PET_scans,_MRIs)
+REL: Durable medical equipment -[HAS_COINSURANCE]-> 20%
+REL: Specialist visit -[REQUIRES]-> Preauthorization
+REL: HealthPlan -[OFFERS]-> Service_Emergency_medical_transportation
+REL: Dental Care -[NOT_COVERED]-> Plan
+REL: HealthPlan -[OFFERS]-> Service_Children's_dental_check-up
+REL: HealthPlan -[OFFERS]-> Service_Childbirth/delivery_professional_services
+REL: HealthPlan -[OFFERS]-> Service_Durable_medical_equipment
+REL: HealthPlan -[OFFERS]-> Service_Urgent_care
+REL: Habilitation services -[HAS_COINSURANCE]-> 20%
+ATTR: Service_Imaging_(CT/PET_scans,_MRIs).NAME = Imaging (CT/PET scans, MRIs)
+ATTR: Service_Non-preferred_brand_drugs_(Tier_3).NAME = Non-preferred brand drugs (Tier 3)
+ATTR: Out-of-pocket limit.OUT_OF_NETWORK_INDIVIDUAL = $4,000
+ATTR: Coinsurance.REHABILITATION_SERVICES = 20%
+ATTR: Service_Preventive_care/screening/immunization.NAME = Preventive care/screening/immunization
+ATTR: Service_Office_visits.NAME = Office visits
+ATTR: Copay.CHILDREN_S_EYE_EXAM = $35
+ATTR: Service_Children's_eye_exam.NAME = Children's eye exam
+ATTR: Service_Hospice_services.NAME = Hospice services
+ATTR: Coinsurance.EMERGENCY_ROOM_CARE = 20%
+ATTR: Service_Durable_medical_equipment.NAME = Durable medical equipment
+ATTR: OutOfPocketLimit.VALUE = Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn’t cover.
+ATTR: Service_Home_health_care.NAME = Home health care
+ATTR: Copay.PRIMARY_CARE_VISIT = $35
+ATTR: Coinsurance.HOSPITAL_STAY = 20%
+ATTR: Service_Preferred_brand_drugs_(Tier_2)_(retail_&_mail_orde.NAME = Preferred brand drugs (Tier 2) (retail & mail order)
+ATTR: Service_Facility_fee_(e.g.,_hospital_room).NAME = Facility fee (e.g., hospital room)
+ATTR: Coinsurance.SKILLED_NURSING_CARE = 20%
+ATTR: Service_Emergency_medical_transportation.NAME = Emergency medical transportation
+ATTR: OutOfPocketLimit.VALUE = For network providers $2,500 individual / $5,000 family; for out-of-network providers $4,000 individual / $8,000 family
+ATTR: Service_Physician/surgeon_fees.NAME = Physician/surgeon fees
+ATTR: Service_Outpatient_services.NAME = Outpatient services
+ATTR: Coinsurance.HOSPICE_SERVICES = 20%
+ATTR: Service_Children's_dental_check-up.NAME = Children's dental check-up
+ATTR: Service_Inpatient_services.NAME = Inpatient services
+ATTR: Deductible.VALUE = Yes. Preventive care and primary care services are covered before you meet your deductible.
+ATTR: Deductible.FAMILY = $1,000
+ATTR: Out-of-pocket limit.FAMILY = $5,000
+ATTR: Coinsurance.DURABLE_MEDICAL_EQUIPMENT = 20%
+ATTR: Service_Rehabilitation_services.NAME = Rehabilitation services
+ATTR: Service_Skilled_nursing_care.NAME = Skilled nursing care
+ATTR: Out-of-pocket limit.OUT_OF_NETWORK_FAMILY = $8,000
+ATTR: Copay.SPECIALIST_VISIT = $50
+ATTR: Deductible.VALUE = $500/Individual or $1,000/family
+ATTR: Coinsurance.HABILITATION_SERVICES = 20%
+ATTR: Deductible.VALUE = Yes. $300 for prescription drug coverage and $300 for occupational therapy services.
+ATTR: Service_Diagnostic_test_(x-ray,_blood_work).NAME = Diagnostic test (x-ray, blood work)
+ATTR: Service_Childbirth/delivery_facility_services.NAME = Childbirth/delivery facility services
+ATTR: Service_20%_coinsurance.NAME = 20% coinsurance
+ATTR: Deductible.INDIVIDUAL = $500
+ATTR: Coinsurance.HOME_HEALTH_CARE = 20%
+ATTR: Service_Primary_care_visit_to_treat_an_injury_or_illness.NAME = Primary care visit to treat an injury or illness
+ATTR: Service_Generic_drugs_(Tier_1)_(retail_&_mail_order).NAME = Generic drugs (Tier 1) (retail & mail order)
+ATTR: Service_Habilitation_services.NAME = Habilitation services
+ATTR: Copay.GENERIC_DRUGS = $10
+ATTR: Coinsurance.NON_PREFERRED_BRAND_DRUGS = 40%
+ATTR: Service_Children's_glasses.NAME = Children's glasses
+ATTR: Copay.CHILDREN_S_DENTAL_CHECK_UP = No charge
+ATTR: Copay.PREFERRED_BRAND_DRUGS = $30
+ATTR: Service_Specialty_drugs_(Tier_4).NAME = Specialty drugs (Tier 4)
+ATTR: Service_Emergency_room_care.NAME = Emergency room care
+ATTR: Out-of-pocket limit.INDIVIDUAL = $2,500
+ATTR: Service_Facility_fee_(e.g.,_ambulatory_surgery_center).NAME = Facility fee (e.g., ambulatory surgery center)
+ATTR: Coinsurance.SPECIALTY_DRUGS = 50%
+ATTR: Service_Urgent_care.NAME = Urgent care
+ATTR: HealthPlan.DOCUMENT_TYPE = SBC
+ATTR: Service_Childbirth/delivery_professional_services.NAME = Childbirth/delivery professional services
+ATTR: Service_Specialist_visit.NAME = Specialist visit
+ATTR: Coinsurance.CHILDREN_S_GLASSES = 20%

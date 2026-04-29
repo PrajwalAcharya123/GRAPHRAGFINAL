@@ -7,3 +7,8 @@ langchain-text-splitters
 langchain-community
 langchain-core
 tiktoken
+openai
+python-dotenv
+pdf2image
+pillow
+tqdm
