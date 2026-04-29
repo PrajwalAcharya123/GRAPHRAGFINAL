@@ -104,7 +104,7 @@ def main():
     # ✅ STEP 3: Process graph
     print("🧠 Extracting Graph + Storing in Neo4j...")
     process_chunks(chunk_path, output_dir)
-    
+
     print("\n🎉 PIPELINE COMPLETED")
 
 

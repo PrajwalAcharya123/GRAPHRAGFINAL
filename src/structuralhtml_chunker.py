@@ -550,7 +550,6 @@
 import os, json, re
 from bs4 import BeautifulSoup, Tag
 
-
 # ══════════════════════════════════════════════════════════════════
 # UTILITIES
 # ══════════════════════════════════════════════════════════════════
@@ -727,7 +726,7 @@ def extract_benefit_chunks(tables):
 
     # Canonical column names (positional fallback)
     # Col 0 = Medical Event, 1 = Service, 2 = Network, 3 = OON, 4 = Limits
-    
+
     COL_EVENT   = col_lbls[0] if num_cols > 0 else "col_0"
     COL_SERVICE = col_lbls[1] if num_cols > 1 else "col_1"
     COL_NET     = col_lbls[2] if num_cols > 2 else "col_2"

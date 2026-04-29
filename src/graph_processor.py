@@ -190,7 +190,7 @@ def process_chunks(chunk_path, output_dir, batch_size=10):
     neo4j.close()
     print("✅ Done")
 
-    return final_graph
+    #return final_graph
 
 
 
