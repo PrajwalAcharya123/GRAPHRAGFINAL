@@ -1,0 +1,100 @@
+{
+  "entities": [
+    "Plan Option 1",
+    "Primary care visit",
+    "Emergency room care",
+    "Pregnancy",
+    "Hospital stay",
+    "Copay",
+    "Coinsurance",
+    "Deductible",
+    "Preventive care",
+    "Out-of-network provider",
+    "Preauthorization",
+    "Specialist visit",
+    "Cosmetic surgery",
+    "Home health care",
+    "Minimum Essential Coverage",
+    "Minimum Value Standards",
+    "Language Access Services"
+  ],
+  "relationships": [
+    [
+      "Plan Option 1",
+      "COVERS",
+      "Primary care visit"
+    ],
+    [
+      "Plan Option 1",
+      "COVERS",
+      "Emergency room care"
+    ],
+    [
+      "Primary care visit",
+      "HAS_COPAY",
+      "$35"
+    ],
+    [
+      "Emergency room care",
+      "HAS_COINSURANCE",
+      "40%"
+    ],
+    [
+      "Specialist visit",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "Cosmetic surgery",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Home health care",
+      "HAS_LIMIT",
+      "60 visits/year"
+    ],
+    [
+      "Plan Option 1",
+      "MEETS",
+      "Minimum Essential Coverage"
+    ],
+    [
+      "Plan Option 1",
+      "MEETS",
+      "Minimum Value Standards"
+    ]
+  ],
+  "attributes": [
+    [
+      "Deductible",
+      "individual",
+      "$500"
+    ],
+    [
+      "Copay",
+      "Primary care visit",
+      "$35"
+    ],
+    [
+      "Coinsurance",
+      "Emergency room care",
+      "40%"
+    ],
+    [
+      "Limit",
+      "Home health care",
+      "60 visits/year"
+    ],
+    [
+      "Minimum Essential Coverage",
+      "status",
+      "Yes"
+    ],
+    [
+      "Minimum Value Standards",
+      "status",
+      "Yes"
+    ]
+  ]
+}

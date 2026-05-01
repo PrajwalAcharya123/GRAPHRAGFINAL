@@ -108,82 +108,82 @@
 
 
 
-from neo4j import GraphDatabase
-import os
-import re
-from dotenv import load_dotenv
+                                                                        # from neo4j import GraphDatabase
+                                                                        # import os
+                                                                        # import re
+                                                                        # from dotenv import load_dotenv
 
-load_dotenv()
+                                                                        # load_dotenv()
 
-class Neo4jHandler:
-    def __init__(self):
-        self.driver = GraphDatabase.driver(
-            os.getenv("NEO4J_URI"),
-            auth=(os.getenv("NEO4J_USER"), os.getenv("NEO4J_PASSWORD"))
-        )
-        print("✅ Connected to Neo4j")
+                                                                        # class Neo4jHandler:
+                                                                        #     def __init__(self):
+                                                                        #         self.driver = GraphDatabase.driver(
+                                                                        #             os.getenv("NEO4J_URI"),
+                                                                        #             auth=(os.getenv("NEO4J_USER"), os.getenv("NEO4J_PASSWORD"))
+                                                                        #         )
+                                                                        #         print("✅ Connected to Neo4j")
 
-        # output dir for logs
-        self.base_dir = os.path.dirname(os.path.abspath(__file__))
-        self.output_dir = os.path.join(self.base_dir, "output")
-        os.makedirs(self.output_dir, exist_ok=True)
-        self.log_path = os.path.join(self.output_dir, "neo4j_log.txt")
+                                                                        #         # output dir for logs
+                                                                        #         self.base_dir = os.path.dirname(os.path.abspath(__file__))
+                                                                        #         self.output_dir = os.path.join(self.base_dir, "output")
+                                                                        #         os.makedirs(self.output_dir, exist_ok=True)
+                                                                        #         self.log_path = os.path.join(self.output_dir, "neo4j_log.txt")
 
-    def close(self):
-        self.driver.close()
+                                                                        #     def close(self):
+                                                                        #         self.driver.close()
 
-    # 🔹 Clean relationship/attribute name
-    def clean_rel_type(self, text):
-        return re.sub(r'[^A-Z0-9]', '_', text.upper())
+                                                                        #     # 🔹 Clean relationship/attribute name
+                                                                        #     def clean_rel_type(self, text):
+                                                                        #         return re.sub(r'[^A-Z0-9]', '_', text.upper())
 
-    # 🔹 Insert full graph
-    def insert_graph_data(self, graph_data):
-        entities = graph_data.get("entities", [])
-        relationships = graph_data.get("relationships", [])
-        attributes = graph_data.get("attributes", [])
+                                                                        #     # 🔹 Insert full graph
+                                                                        #     def insert_graph_data(self, graph_data):
+                                                                        #         entities = graph_data.get("entities", [])
+                                                                        #         relationships = graph_data.get("relationships", [])
+                                                                        #         attributes = graph_data.get("attributes", [])
 
-        with self.driver.session() as session:
+                                                                        #         with self.driver.session() as session:
 
-            # 🔹 Nodes
-            for e in entities:
-                session.run(
-                    "MERGE (n:Entity {name: $name})",
-                    name=e
-                )
+                                                                        #             # 🔹 Nodes
+                                                                        #             for e in entities:
+                                                                        #                 session.run(
+                                                                        #                     "MERGE (n:Entity {name: $name})",
+                                                                        #                     name=e
+                                                                        #                 )
 
-            # 🔹 Relationships
-            for e1, rel, e2 in relationships:
-                rel_clean = self.clean_rel_type(rel)
+                                                                        #             # 🔹 Relationships
+                                                                        #             for e1, rel, e2 in relationships:
+                                                                        #                 rel_clean = self.clean_rel_type(rel)
 
-                session.run(f"""
-                    MERGE (a:Entity {{name: $e1}})
-                    MERGE (b:Entity {{name: $e2}})
-                    MERGE (a)-[:{rel_clean}]->(b)
-                """, e1=e1, e2=e2)
+                                                                        #                 session.run(f"""
+                                                                        #                     MERGE (a:Entity {{name: $e1}})
+                                                                        #                     MERGE (b:Entity {{name: $e2}})
+                                                                        #                     MERGE (a)-[:{rel_clean}]->(b)
+                                                                        #                 """, e1=e1, e2=e2)
 
-                with open(self.log_path, "a", encoding="utf-8") as f:
-                    f.write(f"{e1} -[{rel_clean}]-> {e2}\n")
+                                                                        #                 with open(self.log_path, "a", encoding="utf-8") as f:
+                                                                        #                     f.write(f"{e1} -[{rel_clean}]-> {e2}\n")
 
-            # 🔹 Attributes
-            for entity, key, value in attributes:
-                key_clean = self.clean_rel_type(key)
+                                                                        #             # 🔹 Attributes
+                                                                        #             for entity, key, value in attributes:
+                                                                        #                 key_clean = self.clean_rel_type(key)
 
-                session.run(f"""
-                    MERGE (e:Entity {{name: $entity}})
-                    MERGE (v:Value {{name: $value}})
-                    MERGE (e)-[:{key_clean}]->(v)
-                """, entity=entity, value=value)
+                                                                        #                 session.run(f"""
+                                                                        #                     MERGE (e:Entity {{name: $entity}})
+                                                                        #                     MERGE (v:Value {{name: $value}})
+                                                                        #                     MERGE (e)-[:{key_clean}]->(v)
+                                                                        #                 """, entity=entity, value=value)
 
-                with open(self.log_path, "a", encoding="utf-8") as f:
-                    f.write(f"{entity} -[{key_clean}]-> {value}\n")
+                                                                        #                 with open(self.log_path, "a", encoding="utf-8") as f:
+                                                                        #                     f.write(f"{entity} -[{key_clean}]-> {value}\n")
 
-        print("✅ Data inserted into Neo4j")
+                                                                        #         print("✅ Data inserted into Neo4j")
 
-    def run_query(self, query):
-        with self.driver.session() as session:
-            result = session.run(query)
-            return [r.data() for r in result]
-        
+                                                                        #     def run_query(self, query):
+                                                                        #         with self.driver.session() as session:
+                                                                        #             result = session.run(query)
+                                                                        #             return [r.data() for r in result]
+                                                                                
 
 
 
@@ -296,3 +296,146 @@ class Neo4jHandler:
 #             session.run("MATCH (n) DETACH DELETE n")
 #         print("🗑️ Database cleared")
 
+
+
+
+
+from neo4j import GraphDatabase
+import os
+import re
+import json
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+class Neo4jHandler:
+    def __init__(self):
+        self.driver = GraphDatabase.driver(
+            os.getenv("NEO4J_URI"),
+            auth=(os.getenv("NEO4J_USER"), os.getenv("NEO4J_PASSWORD"))
+        )
+        print("✅ Connected to Neo4j")
+
+        # output dir for logs
+        self.base_dir = os.path.dirname(os.path.abspath(__file__))
+        self.output_dir = os.path.join(self.base_dir, "output")
+        os.makedirs(self.output_dir, exist_ok=True)
+        self.log_path = os.path.join(self.output_dir, "neo4j_log.txt")
+
+    def close(self):
+        self.driver.close()
+
+    # 🔹 Clean relationship/attribute name
+    def clean_rel_type(self, text):
+        text = text.upper().replace(" ", "_")
+        return re.sub(r'[^A-Z0-9_]', '', text)
+
+    # 🔹 Insert full graph
+    def insert_graph_data(self, graph_data):
+        entities = graph_data.get("entities", [])
+        relationships = graph_data.get("relationships", [])
+        attributes = graph_data.get("attributes", [])
+
+        inserted_data = {
+            "entities": [],
+            "relationships": [],
+            "attributes": []
+        }
+
+        try:
+            with self.driver.session() as session:
+
+                # 🔹 Nodes
+                for e in entities:
+                    session.run(
+                        "MERGE (n:Entity {name: $name})",
+                        name=e
+                    )
+                    inserted_data["entities"].append(e)
+
+                # 🔹 Relationships
+                for e1, rel, e2 in relationships:
+                    rel_clean = self.clean_rel_type(rel)
+
+                    session.run(f"""
+                        MERGE (a:Entity {{name: $e1}})
+                        MERGE (b:Entity {{name: $e2}})
+                        MERGE (a)-[:{rel_clean}]->(b)
+                    """, e1=e1, e2=e2)
+
+                    inserted_data["relationships"].append({
+                        "from": e1,
+                        "relationship": rel_clean,
+                        "to": e2
+                    })
+
+                    with open(self.log_path, "a", encoding="utf-8") as f:
+                        f.write(json.dumps({
+                            "from": e1,
+                            "relationship": rel_clean,
+                            "to": e2
+                        }) + "\n")
+
+                # 🔹 Attributes
+                for entity, key, value in attributes:
+                    key_clean = self.clean_rel_type(key)
+
+                    session.run(f"""
+                        MERGE (e:Entity {{name: $entity}})
+                        MERGE (v:Value {{name: $value}})
+                        MERGE (e)-[:{key_clean}]->(v)
+                    """, entity=entity, value=value)
+
+                    inserted_data["attributes"].append({
+                        "entity": entity,
+                        "key": key_clean,
+                        "value": value
+                    })
+
+                    with open(self.log_path, "a", encoding="utf-8") as f:
+                        f.write(json.dumps({
+                            "entity": entity,
+                            "key": key_clean,
+                            "value": value
+                        }) + "\n")
+
+        except Exception as e:
+            print("❌ Neo4j Insert Error:", e)
+
+        print("✅ Data inserted into Neo4j")
+
+        return inserted_data  # 🔥 NOW RETURNS DATA
+
+    # 🔹 Run query
+    def run_query(self, query):
+        try:
+            with self.driver.session() as session:
+                result = session.run(query)
+                return [r.data() for r in result]
+        except Exception as e:
+            print("❌ Query Error:", e)
+            return []
+
+    # 🔹 Debug: print sample graph
+    def debug_print_graph(self, limit=20):
+        query = f"""
+        MATCH (a)-[r]->(b)
+        RETURN a.name AS from, type(r) AS rel, b.name AS to
+        LIMIT {limit}
+        """
+        data = self.run_query(query)
+
+        print("\n🔍 Graph Preview:\n")
+        for row in data:
+            print(f"{row['from']} -[{row['rel']}]-> {row['to']}")
+
+    # 🔹 Debug: count nodes + relationships
+    def get_counts(self):
+        nodes = self.run_query("MATCH (n) RETURN count(n) AS count")
+        rels = self.run_query("MATCH ()-[r]->() RETURN count(r) AS count")
+
+        node_count = nodes[0]["count"] if nodes else 0
+        rel_count = rels[0]["count"] if rels else 0
+
+        print(f"📊 Nodes: {node_count}, Relationships: {rel_count}")

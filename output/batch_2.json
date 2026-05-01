@@ -1,0 +1,245 @@
+{
+  "entities": [
+    "Emergency medical transportation",
+    "Urgent care",
+    "Facility fee (e.g., hospital room)",
+    "Physician/surgeon fees",
+    "Outpatient services",
+    "Inpatient services",
+    "Office visits",
+    "Childbirth/delivery professional services",
+    "Childbirth/delivery facility services",
+    "Preauthorization",
+    "Copay",
+    "Coinsurance",
+    "Deductible",
+    "Preventive care",
+    "Out-of-network provider",
+    "Hospital stay",
+    "Mental health services",
+    "Behavioral health services",
+    "Substance abuse services",
+    "Pregnancy",
+    "Maternity care",
+    "Ultrasound"
+  ],
+  "relationships": [
+    [
+      "Emergency medical transportation",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Urgent care",
+      "HAS_COPAY",
+      "$30"
+    ],
+    [
+      "Urgent care",
+      "HAS_COINSURANCE",
+      "40%"
+    ],
+    [
+      "Facility fee (e.g., hospital room)",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Facility fee (e.g., hospital room)",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "Facility fee (e.g., hospital room)",
+      "REDUCES_BENEFIT",
+      "50%"
+    ],
+    [
+      "Physician/surgeon fees",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Outpatient services",
+      "HAS_COPAY",
+      "$35"
+    ],
+    [
+      "Outpatient services",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Inpatient services",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Office visits",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Childbirth/delivery professional services",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Childbirth/delivery facility services",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Pregnancy",
+      "COVERS",
+      "Office visits"
+    ],
+    [
+      "Pregnancy",
+      "COVERS",
+      "Childbirth/delivery professional services"
+    ],
+    [
+      "Pregnancy",
+      "COVERS",
+      "Childbirth/delivery facility services"
+    ],
+    [
+      "Mental health services",
+      "COVERS",
+      "Outpatient services"
+    ],
+    [
+      "Mental health services",
+      "COVERS",
+      "Inpatient services"
+    ],
+    [
+      "Behavioral health services",
+      "COVERS",
+      "Outpatient services"
+    ],
+    [
+      "Behavioral health services",
+      "COVERS",
+      "Inpatient services"
+    ],
+    [
+      "Substance abuse services",
+      "COVERS",
+      "Outpatient services"
+    ],
+    [
+      "Substance abuse services",
+      "COVERS",
+      "Inpatient services"
+    ]
+  ],
+  "attributes": [
+    [
+      "Deductible",
+      "individual",
+      ""
+    ],
+    [
+      "Copay",
+      "Urgent care",
+      "$30"
+    ],
+    [
+      "Coinsurance",
+      "Emergency medical transportation",
+      "20%"
+    ],
+    [
+      "Coinsurance",
+      "Facility fee (e.g., hospital room)",
+      "20%"
+    ],
+    [
+      "Coinsurance",
+      "Physician/surgeon fees",
+      "20%"
+    ],
+    [
+      "Coinsurance",
+      "Outpatient services",
+      "20%"
+    ],
+    [
+      "Coinsurance",
+      "Inpatient services",
+      "20%"
+    ],
+    [
+      "Coinsurance",
+      "Office visits",
+      "20%"
+    ],
+    [
+      "Coinsurance",
+      "Childbirth/delivery professional services",
+      "20%"
+    ],
+    [
+      "Coinsurance",
+      "Childbirth/delivery facility services",
+      "20%"
+    ],
+    [
+      "Preauthorization",
+      "Facility fee (e.g., hospital room)",
+      "required"
+    ],
+    [
+      "Preventive care",
+      "Pregnancy",
+      "covered"
+    ],
+    [
+      "Out-of-network provider",
+      "Emergency medical transportation",
+      "20% coinsurance"
+    ],
+    [
+      "Out-of-network provider",
+      "Urgent care",
+      "40% coinsurance"
+    ],
+    [
+      "Out-of-network provider",
+      "Facility fee (e.g., hospital room)",
+      "40% coinsurance"
+    ],
+    [
+      "Out-of-network provider",
+      "Physician/surgeon fees",
+      "40% coinsurance"
+    ],
+    [
+      "Out-of-network provider",
+      "Outpatient services",
+      "40% coinsurance"
+    ],
+    [
+      "Out-of-network provider",
+      "Inpatient services",
+      "40% coinsurance"
+    ],
+    [
+      "Out-of-network provider",
+      "Office visits",
+      "40% coinsurance"
+    ],
+    [
+      "Out-of-network provider",
+      "Childbirth/delivery professional services",
+      "40% coinsurance"
+    ],
+    [
+      "Out-of-network provider",
+      "Childbirth/delivery facility services",
+      "40% coinsurance"
+    ]
+  ]
+}

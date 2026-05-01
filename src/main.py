@@ -61,6 +61,7 @@ from merge_html import merge_html_pages
 from structuralhtml_chunker import chunk_html
 from graph_processor import process_chunks
 
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 PDF_PATH = os.path.join(BASE_DIR, "data", "sbc.pdf")

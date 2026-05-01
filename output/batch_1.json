@@ -1,0 +1,195 @@
+{
+  "entities": [
+    "Preventive care/screening/immunization",
+    "Diagnostic test (x-ray, blood work)",
+    "Imaging (CT/PET scans, MRIs)",
+    "Generic drugs (Tier 1) (retail & mail order)",
+    "Preferred brand drugs (Tier 2) (retail & mail order)",
+    "Non-preferred brand drugs (Tier 3)",
+    "Specialty drugs (Tier 4)",
+    "Facility fee (e.g., ambulatory surgery center)",
+    "Physician/surgeon fees",
+    "Emergency room care",
+    "Outpatient surgery",
+    "Anesthesia"
+  ],
+  "relationships": [
+    [
+      "Preventive care/screening/immunization",
+      "HAS_COPAY",
+      "No charge"
+    ],
+    [
+      "Diagnostic test (x-ray, blood work)",
+      "HAS_COPAY",
+      "$10"
+    ],
+    [
+      "Imaging (CT/PET scans, MRIs)",
+      "HAS_COPAY",
+      "$50"
+    ],
+    [
+      "Generic drugs (Tier 1) (retail & mail order)",
+      "HAS_COPAY",
+      "$10"
+    ],
+    [
+      "Preferred brand drugs (Tier 2) (retail & mail order)",
+      "HAS_COPAY",
+      "$30"
+    ],
+    [
+      "Non-preferred brand drugs (Tier 3)",
+      "HAS_COINSURANCE",
+      "40%"
+    ],
+    [
+      "Specialty drugs (Tier 4)",
+      "HAS_COINSURANCE",
+      "50%"
+    ],
+    [
+      "Facility fee (e.g., ambulatory surgery center)",
+      "HAS_COPAY",
+      "$100"
+    ],
+    [
+      "Physician/surgeon fees",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Emergency room care",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Outpatient surgery",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "Outpatient surgery",
+      "REDUCES_BENEFIT",
+      "50%"
+    ],
+    [
+      "Anesthesia",
+      "HAS_COINSURANCE",
+      "50%"
+    ]
+  ],
+  "attributes": [
+    [
+      "Preventive care/screening/immunization",
+      "network_cost",
+      "No charge"
+    ],
+    [
+      "Preventive care/screening/immunization",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Diagnostic test (x-ray, blood work)",
+      "network_cost",
+      "$10 copay/test"
+    ],
+    [
+      "Diagnostic test (x-ray, blood work)",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Imaging (CT/PET scans, MRIs)",
+      "network_cost",
+      "$50 copay/test"
+    ],
+    [
+      "Imaging (CT/PET scans, MRIs)",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Generic drugs (Tier 1) (retail & mail order)",
+      "network_cost",
+      "$10 copay/prescription"
+    ],
+    [
+      "Generic drugs (Tier 1) (retail & mail order)",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Preferred brand drugs (Tier 2) (retail & mail order)",
+      "network_cost",
+      "$30 copay/prescription"
+    ],
+    [
+      "Preferred brand drugs (Tier 2) (retail & mail order)",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Non-preferred brand drugs (Tier 3)",
+      "network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Non-preferred brand drugs (Tier 3)",
+      "out_of_network_cost",
+      "60% coinsurance"
+    ],
+    [
+      "Specialty drugs (Tier 4)",
+      "network_cost",
+      "50% coinsurance"
+    ],
+    [
+      "Specialty drugs (Tier 4)",
+      "out_of_network_cost",
+      "70% coinsurance"
+    ],
+    [
+      "Facility fee (e.g., ambulatory surgery center)",
+      "network_cost",
+      "$100/day copay"
+    ],
+    [
+      "Facility fee (e.g., ambulatory surgery center)",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Physician/surgeon fees",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Physician/surgeon fees",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Emergency room care",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Emergency room care",
+      "out_of_network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Outpatient surgery",
+      "limitations",
+      "Preauthorization is required"
+    ],
+    [
+      "Anesthesia",
+      "limitations",
+      "50% coinsurance"
+    ]
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "entities": [
+    "Plan Option 1",
+    "Primary care visit",
+    "Specialist visit",
+    "Emergency room care",
+    "Pregnancy",
+    "Hospital stay",
+    "Copay",
+    "Coinsurance",
+    "Deductible",
+    "Preventive care",
+    "Out-of-network provider",
+    "Preauthorization",
+    "Family",
+    "PPO",
+    "Network provider",
+    "Out-of-network provider",
+    "Prescription drug coverage",
+    "Occupational therapy services"
+  ],
+  "relationships": [
+    [
+      "Primary care visit",
+      "HAS_COPAY",
+      "$35"
+    ],
+    [
+      "Primary care visit",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Specialist visit",
+      "HAS_COPAY",
+      "$50"
+    ],
+    [
+      "Specialist visit",
+      "HAS_COINSURANCE",
+      "40%"
+    ],
+    [
+      "Specialist visit",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "No preauthorization",
+      "REDUCES_BENEFIT",
+      "50%"
+    ],
+    [
+      "Preventive care",
+      "COVERS",
+      "Plan"
+    ],
+    [
+      "Out-of-network provider",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Prescription drug coverage",
+      "HAS_DEDUCTIBLE",
+      "$300"
+    ],
+    [
+      "Occupational therapy services",
+      "HAS_DEDUCTIBLE",
+      "$300"
+    ],
+    [
+      "Plan Option 1",
+      "APPLIES_TO",
+      "Family"
+    ],
+    [
+      "Network provider",
+      "HAS_LIMIT",
+      "None"
+    ],
+    [
+      "Out-of-network provider",
+      "HAS_LIMIT",
+      "None"
+    ]
+  ],
+  "attributes": [
+    [
+      "Deductible",
+      "individual",
+      "$500"
+    ],
+    [
+      "Deductible",
+      "family",
+      "$1,000"
+    ],
+    [
+      "Out-of-pocket limit",
+      "individual",
+      "$2,500"
+    ],
+    [
+      "Out-of-pocket limit",
+      "family",
+      "$5,000"
+    ],
+    [
+      "Out-of-pocket limit",
+      "out-of-network individual",
+      "$4,000"
+    ],
+    [
+      "Out-of-pocket limit",
+      "out-of-network family",
+      "$8,000"
+    ],
+    [
+      "Prescription drug coverage",
+      "deductible",
+      "$300"
+    ],
+    [
+      "Occupational therapy services",
+      "deductible",
+      "$300"
+    ],
+    [
+      "Primary care visit",
+      "network_cost",
+      "$35 copay"
+    ],
+    [
+      "Primary care visit",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Specialist visit",
+      "network_cost",
+      "$50 copay"
+    ],
+    [
+      "Specialist visit",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ]
+  ]
+}

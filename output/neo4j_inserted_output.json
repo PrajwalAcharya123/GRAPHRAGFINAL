@@ -1,0 +1,929 @@
+{
+  "entities": [
+    "Plan Option 1",
+    "Primary care visit",
+    "Specialist visit",
+    "Emergency room care",
+    "Pregnancy",
+    "Hospital stay",
+    "Copay",
+    "Coinsurance",
+    "Deductible",
+    "Preventive care",
+    "Out-of-network provider",
+    "Preauthorization",
+    "Family",
+    "PPO",
+    "Network providers",
+    "Out-of-network providers",
+    "Prescription drug coverage",
+    "Occupational therapy services",
+    "Preventive care/screening/immunization",
+    "Diagnostic test (x-ray, blood work)",
+    "Imaging (CT/PET scans, MRIs)",
+    "Generic drugs (Tier 1) (retail & mail order)",
+    "Preferred brand drugs (Tier 2) (retail & mail order)",
+    "Non-preferred brand drugs (Tier 3)",
+    "Specialty drugs (Tier 4)",
+    "Facility fee (e.g., ambulatory surgery center)",
+    "Physician/surgeon fees",
+    "Emergency medical transportation",
+    "Urgent care",
+    "Facility fee (e.g., hospital room)",
+    "Outpatient services",
+    "Inpatient services",
+    "Office visits",
+    "Childbirth/delivery professional services",
+    "Childbirth/delivery facility services",
+    "Mental health services",
+    "Behavioral health services",
+    "Substance abuse services",
+    "Maternity care",
+    "Ultrasound",
+    "Home health care",
+    "Rehabilitation services",
+    "Habilitation services",
+    "Skilled nursing care",
+    "Durable medical equipment",
+    "Hospice services",
+    "Children's eye exam",
+    "Children's glasses",
+    "Children's dental check-up",
+    "Cosmetic Surgery",
+    "Network",
+    "Out-of-network",
+    "Private Duty Nursing",
+    "Routine Foot Care",
+    "Dental Care",
+    "Non-emergency care outside the U.S.",
+    "Infertility Treatment",
+    "Long Term Care",
+    "Routine eye care (Adult)",
+    "Acupuncture",
+    "Chiropractic Care",
+    "Weight Loss Programs",
+    "Minimum Essential Coverage",
+    "Minimum Value Standards",
+    "Language Access Services",
+    "Mia's Simple Fracture",
+    "Inpatient hospital stay",
+    "Physician services",
+    "Lab tests",
+    "Imaging",
+    "Rehabilitation"
+  ],
+  "relationships": [
+    {
+      "from": "Primary care visit",
+      "relationship": "HAS_COPAY",
+      "to": "$35"
+    },
+    {
+      "from": "Primary care visit",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Specialist visit",
+      "relationship": "HAS_COPAY",
+      "to": "$50"
+    },
+    {
+      "from": "Specialist visit",
+      "relationship": "HAS_COINSURANCE",
+      "to": "40%"
+    },
+    {
+      "from": "Specialist visit",
+      "relationship": "REQUIRES",
+      "to": "Preauthorization"
+    },
+    {
+      "from": "No preauthorization",
+      "relationship": "REDUCES_BENEFIT",
+      "to": "50%"
+    },
+    {
+      "from": "Preventive care",
+      "relationship": "COVERS",
+      "to": "Certain preventive services"
+    },
+    {
+      "from": "Out-of-network provider",
+      "relationship": "NOT_COVERED",
+      "to": "Plan"
+    },
+    {
+      "from": "Prescription drug coverage",
+      "relationship": "HAS_DEDUCTIBLE",
+      "to": "$300"
+    },
+    {
+      "from": "Occupational therapy services",
+      "relationship": "HAS_DEDUCTIBLE",
+      "to": "$300"
+    },
+    {
+      "from": "Plan Option 1",
+      "relationship": "COVERS",
+      "to": "Primary care visit"
+    },
+    {
+      "from": "Plan Option 1",
+      "relationship": "COVERS",
+      "to": "Specialist visit"
+    },
+    {
+      "from": "Network providers",
+      "relationship": "APPLIES_TO",
+      "to": "Lower copayments and coinsurance"
+    },
+    {
+      "from": "Out-of-network providers",
+      "relationship": "APPLIES_TO",
+      "to": "Higher copayments and coinsurance"
+    },
+    {
+      "from": "Preventive care/screening/immunization",
+      "relationship": "HAS_COPAY",
+      "to": "No charge"
+    },
+    {
+      "from": "Diagnostic test (x-ray, blood work)",
+      "relationship": "HAS_COPAY",
+      "to": "$10"
+    },
+    {
+      "from": "Imaging (CT/PET scans, MRIs)",
+      "relationship": "HAS_COPAY",
+      "to": "$50"
+    },
+    {
+      "from": "Generic drugs (Tier 1) (retail & mail order)",
+      "relationship": "HAS_COPAY",
+      "to": "$10"
+    },
+    {
+      "from": "Preferred brand drugs (Tier 2) (retail & mail order)",
+      "relationship": "HAS_COPAY",
+      "to": "$30"
+    },
+    {
+      "from": "Non-preferred brand drugs (Tier 3)",
+      "relationship": "HAS_COINSURANCE",
+      "to": "40%"
+    },
+    {
+      "from": "Specialty drugs (Tier 4)",
+      "relationship": "HAS_COINSURANCE",
+      "to": "50%"
+    },
+    {
+      "from": "Facility fee (e.g., ambulatory surgery center)",
+      "relationship": "HAS_COPAY",
+      "to": "$100"
+    },
+    {
+      "from": "Physician/surgeon fees",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Emergency room care",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Facility fee (e.g., ambulatory surgery center)",
+      "relationship": "REQUIRES",
+      "to": "Preauthorization"
+    },
+    {
+      "from": "Physician/surgeon fees",
+      "relationship": "REQUIRES",
+      "to": "Preauthorization"
+    },
+    {
+      "from": "Emergency medical transportation",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Urgent care",
+      "relationship": "HAS_COPAY",
+      "to": "$30"
+    },
+    {
+      "from": "Urgent care",
+      "relationship": "HAS_COINSURANCE",
+      "to": "40%"
+    },
+    {
+      "from": "Facility fee (e.g., hospital room)",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Facility fee (e.g., hospital room)",
+      "relationship": "REQUIRES",
+      "to": "Preauthorization"
+    },
+    {
+      "from": "Facility fee (e.g., hospital room)",
+      "relationship": "REDUCES_BENEFIT",
+      "to": "50%"
+    },
+    {
+      "from": "Outpatient services",
+      "relationship": "HAS_COPAY",
+      "to": "$35"
+    },
+    {
+      "from": "Outpatient services",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Inpatient services",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Office visits",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Childbirth/delivery professional services",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Childbirth/delivery facility services",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Pregnancy",
+      "relationship": "COVERS",
+      "to": "Office visits"
+    },
+    {
+      "from": "Pregnancy",
+      "relationship": "COVERS",
+      "to": "Childbirth/delivery professional services"
+    },
+    {
+      "from": "Pregnancy",
+      "relationship": "COVERS",
+      "to": "Childbirth/delivery facility services"
+    },
+    {
+      "from": "Mental health services",
+      "relationship": "COVERS",
+      "to": "Outpatient services"
+    },
+    {
+      "from": "Mental health services",
+      "relationship": "COVERS",
+      "to": "Inpatient services"
+    },
+    {
+      "from": "Behavioral health services",
+      "relationship": "COVERS",
+      "to": "Outpatient services"
+    },
+    {
+      "from": "Behavioral health services",
+      "relationship": "COVERS",
+      "to": "Inpatient services"
+    },
+    {
+      "from": "Substance abuse services",
+      "relationship": "COVERS",
+      "to": "Outpatient services"
+    },
+    {
+      "from": "Substance abuse services",
+      "relationship": "COVERS",
+      "to": "Inpatient services"
+    },
+    {
+      "from": "Home health care",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Home health care",
+      "relationship": "HAS_COINSURANCE",
+      "to": "40%"
+    },
+    {
+      "from": "Home health care",
+      "relationship": "HAS_LIMIT",
+      "to": "60 visits/calendar year"
+    },
+    {
+      "from": "Rehabilitation services",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Rehabilitation services",
+      "relationship": "HAS_COINSURANCE",
+      "to": "40%"
+    },
+    {
+      "from": "Rehabilitation services",
+      "relationship": "HAS_LIMIT",
+      "to": "60 visits/calendar year"
+    },
+    {
+      "from": "Habilitation services",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Habilitation services",
+      "relationship": "HAS_COINSURANCE",
+      "to": "40%"
+    },
+    {
+      "from": "Skilled nursing care",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Skilled nursing care",
+      "relationship": "HAS_COINSURANCE",
+      "to": "40%"
+    },
+    {
+      "from": "Skilled nursing care",
+      "relationship": "HAS_LIMIT",
+      "to": "60 visits/calendar year"
+    },
+    {
+      "from": "Durable medical equipment",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Durable medical equipment",
+      "relationship": "HAS_COINSURANCE",
+      "to": "40%"
+    },
+    {
+      "from": "Durable medical equipment",
+      "relationship": "NOT_COVERED",
+      "to": "Vehicle modifications"
+    },
+    {
+      "from": "Durable medical equipment",
+      "relationship": "NOT_COVERED",
+      "to": "Home modifications"
+    },
+    {
+      "from": "Durable medical equipment",
+      "relationship": "NOT_COVERED",
+      "to": "Exercise equipment"
+    },
+    {
+      "from": "Durable medical equipment",
+      "relationship": "NOT_COVERED",
+      "to": "Bathroom equipment"
+    },
+    {
+      "from": "Hospice services",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Hospice services",
+      "relationship": "HAS_COINSURANCE",
+      "to": "40%"
+    },
+    {
+      "from": "Hospice services",
+      "relationship": "REQUIRES",
+      "to": "Preauthorization"
+    },
+    {
+      "from": "Hospice services",
+      "relationship": "REDUCES_BENEFIT",
+      "to": "50%"
+    },
+    {
+      "from": "Children's eye exam",
+      "relationship": "HAS_COPAY",
+      "to": "$35"
+    },
+    {
+      "from": "Children's eye exam",
+      "relationship": "NOT_COVERED",
+      "to": "Out-of-network"
+    },
+    {
+      "from": "Children's eye exam",
+      "relationship": "HAS_LIMIT",
+      "to": "One exam/year"
+    },
+    {
+      "from": "Children's glasses",
+      "relationship": "HAS_COINSURANCE",
+      "to": "20%"
+    },
+    {
+      "from": "Children's glasses",
+      "relationship": "NOT_COVERED",
+      "to": "Out-of-network"
+    },
+    {
+      "from": "Children's glasses",
+      "relationship": "HAS_LIMIT",
+      "to": "One pair/year"
+    },
+    {
+      "from": "Children's dental check-up",
+      "relationship": "NO_CHARGE",
+      "to": "Network"
+    },
+    {
+      "from": "Children's dental check-up",
+      "relationship": "NOT_COVERED",
+      "to": "Out-of-network"
+    },
+    {
+      "from": "Cosmetic Surgery",
+      "relationship": "NOT_COVERED",
+      "to": "Plan"
+    },
+    {
+      "from": "Private Duty Nursing",
+      "relationship": "NOT_COVERED",
+      "to": "Plan"
+    },
+    {
+      "from": "Routine Foot Care",
+      "relationship": "NOT_COVERED",
+      "to": "Plan"
+    },
+    {
+      "from": "Dental Care",
+      "relationship": "NOT_COVERED",
+      "to": "Plan"
+    },
+    {
+      "from": "Non-emergency care outside the U.S.",
+      "relationship": "NOT_COVERED",
+      "to": "Plan"
+    },
+    {
+      "from": "Infertility Treatment",
+      "relationship": "NOT_COVERED",
+      "to": "Plan"
+    },
+    {
+      "from": "Long Term Care",
+      "relationship": "NOT_COVERED",
+      "to": "Plan"
+    },
+    {
+      "from": "Routine eye care (Adult)",
+      "relationship": "NOT_COVERED",
+      "to": "Plan"
+    },
+    {
+      "from": "Acupuncture",
+      "relationship": "COVERS",
+      "to": "Rehabilitation"
+    },
+    {
+      "from": "Chiropractic Care",
+      "relationship": "COVERS",
+      "to": "Plan"
+    },
+    {
+      "from": "Weight Loss Programs",
+      "relationship": "NOT_COVERED",
+      "to": "Plan"
+    },
+    {
+      "from": "Plan Option 1",
+      "relationship": "COVERS",
+      "to": "Emergency room care"
+    },
+    {
+      "from": "Emergency room care",
+      "relationship": "HAS_COINSURANCE",
+      "to": "40%"
+    },
+    {
+      "from": "Home health care",
+      "relationship": "HAS_LIMIT",
+      "to": "60 visits/year"
+    },
+    {
+      "from": "Plan Option 1",
+      "relationship": "MEETS",
+      "to": "Minimum Essential Coverage"
+    },
+    {
+      "from": "Plan Option 1",
+      "relationship": "MEETS",
+      "to": "Minimum Value Standards"
+    },
+    {
+      "from": "Mia's Simple Fracture",
+      "relationship": "COVERS",
+      "to": "Inpatient hospital stay"
+    },
+    {
+      "from": "Mia's Simple Fracture",
+      "relationship": "COVERS",
+      "to": "Physician services"
+    },
+    {
+      "from": "Mia's Simple Fracture",
+      "relationship": "COVERS",
+      "to": "Lab tests"
+    },
+    {
+      "from": "Mia's Simple Fracture",
+      "relationship": "COVERS",
+      "to": "Imaging"
+    },
+    {
+      "from": "Mia's Simple Fracture",
+      "relationship": "COVERS",
+      "to": "Rehabilitation"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "Deductible",
+      "key": "INDIVIDUAL",
+      "value": "$500"
+    },
+    {
+      "entity": "Deductible",
+      "key": "FAMILY",
+      "value": "$1,000"
+    },
+    {
+      "entity": "Out-of-pocket limit",
+      "key": "INDIVIDUAL",
+      "value": "$2,500"
+    },
+    {
+      "entity": "Out-of-pocket limit",
+      "key": "FAMILY",
+      "value": "$5,000"
+    },
+    {
+      "entity": "Out-of-pocket limit",
+      "key": "OUTOFNETWORK_INDIVIDUAL",
+      "value": "$4,000"
+    },
+    {
+      "entity": "Out-of-pocket limit",
+      "key": "OUTOFNETWORK_FAMILY",
+      "value": "$8,000"
+    },
+    {
+      "entity": "Prescription drug coverage",
+      "key": "DEDUCTIBLE",
+      "value": "$300"
+    },
+    {
+      "entity": "Occupational therapy services",
+      "key": "DEDUCTIBLE",
+      "value": "$300"
+    },
+    {
+      "entity": "Primary care visit",
+      "key": "NETWORK_COST",
+      "value": "$35 copay"
+    },
+    {
+      "entity": "Primary care visit",
+      "key": "OUTOFNETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Specialist visit",
+      "key": "NETWORK_COST",
+      "value": "$50 copay"
+    },
+    {
+      "entity": "Specialist visit",
+      "key": "OUTOFNETWORK_COST",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Deductible",
+      "key": "INDIVIDUAL",
+      "value": "Not specified"
+    },
+    {
+      "entity": "Copay",
+      "key": "PREVENTIVE_CARESCREENINGIMMUNIZATION",
+      "value": "No charge"
+    },
+    {
+      "entity": "Copay",
+      "key": "DIAGNOSTIC_TEST_XRAY_BLOOD_WORK",
+      "value": "$10"
+    },
+    {
+      "entity": "Copay",
+      "key": "IMAGING_CTPET_SCANS_MRIS",
+      "value": "$50"
+    },
+    {
+      "entity": "Copay",
+      "key": "GENERIC_DRUGS_TIER_1_RETAIL__MAIL_ORDER",
+      "value": "$10"
+    },
+    {
+      "entity": "Copay",
+      "key": "PREFERRED_BRAND_DRUGS_TIER_2_RETAIL__MAIL_ORDER",
+      "value": "$30"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "NONPREFERRED_BRAND_DRUGS_TIER_3",
+      "value": "40%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "SPECIALTY_DRUGS_TIER_4",
+      "value": "50%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "FACILITY_FEE_EG_AMBULATORY_SURGERY_CENTER",
+      "value": "40%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "PHYSICIANSURGEON_FEES",
+      "value": "20%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "EMERGENCY_ROOM_CARE",
+      "value": "20%"
+    },
+    {
+      "entity": "Limitations",
+      "key": "GENERIC_DRUGS_TIER_1_RETAIL__MAIL_ORDER",
+      "value": "30-day supply (retail); 31-90 day supply (mail order)"
+    },
+    {
+      "entity": "Limitations",
+      "key": "PREFERRED_BRAND_DRUGS_TIER_2_RETAIL__MAIL_ORDER",
+      "value": "30-day supply (retail); 31-90 day supply (mail order)"
+    },
+    {
+      "entity": "Limitations",
+      "key": "NONPREFERRED_BRAND_DRUGS_TIER_3",
+      "value": "30-day supply (retail); 31-90 day supply (mail order)"
+    },
+    {
+      "entity": "Limitations",
+      "key": "SPECIALTY_DRUGS_TIER_4",
+      "value": "30-day supply (retail); 31-90 day supply (mail order)"
+    },
+    {
+      "entity": "Deductible",
+      "key": "INDIVIDUAL",
+      "value": ""
+    },
+    {
+      "entity": "Copay",
+      "key": "URGENT_CARE",
+      "value": "$30"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "EMERGENCY_MEDICAL_TRANSPORTATION",
+      "value": "20%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "FACILITY_FEE_EG_HOSPITAL_ROOM",
+      "value": "20%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "OUTPATIENT_SERVICES",
+      "value": "20%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "INPATIENT_SERVICES",
+      "value": "20%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "OFFICE_VISITS",
+      "value": "20%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "CHILDBIRTHDELIVERY_PROFESSIONAL_SERVICES",
+      "value": "20%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "CHILDBIRTHDELIVERY_FACILITY_SERVICES",
+      "value": "20%"
+    },
+    {
+      "entity": "Preauthorization",
+      "key": "FACILITY_FEE_EG_HOSPITAL_ROOM",
+      "value": "required"
+    },
+    {
+      "entity": "Preventive care",
+      "key": "PREGNANCY",
+      "value": "covered"
+    },
+    {
+      "entity": "Out-of-network provider",
+      "key": "EMERGENCY_MEDICAL_TRANSPORTATION",
+      "value": "20% coinsurance"
+    },
+    {
+      "entity": "Out-of-network provider",
+      "key": "URGENT_CARE",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Out-of-network provider",
+      "key": "FACILITY_FEE_EG_HOSPITAL_ROOM",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Out-of-network provider",
+      "key": "PHYSICIANSURGEON_FEES",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Out-of-network provider",
+      "key": "OUTPATIENT_SERVICES",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Out-of-network provider",
+      "key": "INPATIENT_SERVICES",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Out-of-network provider",
+      "key": "OFFICE_VISITS",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Out-of-network provider",
+      "key": "CHILDBIRTHDELIVERY_PROFESSIONAL_SERVICES",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Out-of-network provider",
+      "key": "CHILDBIRTHDELIVERY_FACILITY_SERVICES",
+      "value": "40% coinsurance"
+    },
+    {
+      "entity": "Copay",
+      "key": "NETWORK",
+      "value": "$35"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "NETWORK",
+      "value": "20%"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "OUTOFNETWORK",
+      "value": "40%"
+    },
+    {
+      "entity": "Limit",
+      "key": "HOME_HEALTH_CARE",
+      "value": "60 visits/calendar year"
+    },
+    {
+      "entity": "Limit",
+      "key": "REHABILITATION_SERVICES",
+      "value": "60 visits/calendar year"
+    },
+    {
+      "entity": "Limit",
+      "key": "SKILLED_NURSING_CARE",
+      "value": "60 visits/calendar year"
+    },
+    {
+      "entity": "Limit",
+      "key": "CHILDRENS_EYE_EXAM",
+      "value": "One exam/year"
+    },
+    {
+      "entity": "Limit",
+      "key": "CHILDRENS_GLASSES",
+      "value": "One pair/year"
+    },
+    {
+      "entity": "Private Duty Nursing",
+      "key": "TYPE",
+      "value": "other_covered_service"
+    },
+    {
+      "entity": "Routine Foot Care",
+      "key": "TYPE",
+      "value": "other_covered_service"
+    },
+    {
+      "entity": "Dental Care",
+      "key": "TYPE",
+      "value": "other_covered_service"
+    },
+    {
+      "entity": "Non-emergency care outside the U.S.",
+      "key": "TYPE",
+      "value": "other_covered_service"
+    },
+    {
+      "entity": "Infertility Treatment",
+      "key": "TYPE",
+      "value": "other_covered_service"
+    },
+    {
+      "entity": "Long Term Care",
+      "key": "TYPE",
+      "value": "other_covered_service"
+    },
+    {
+      "entity": "Routine eye care (Adult)",
+      "key": "TYPE",
+      "value": "other_covered_service"
+    },
+    {
+      "entity": "Acupuncture",
+      "key": "CONDITION",
+      "value": "if prescribed for rehabilitation"
+    },
+    {
+      "entity": "Chiropractic Care",
+      "key": "TYPE",
+      "value": "other_covered_service"
+    },
+    {
+      "entity": "Weight Loss Programs",
+      "key": "TYPE",
+      "value": "other_covered_service"
+    },
+    {
+      "entity": "Copay",
+      "key": "PRIMARY_CARE_VISIT",
+      "value": "$35"
+    },
+    {
+      "entity": "Coinsurance",
+      "key": "EMERGENCY_ROOM_CARE",
+      "value": "40%"
+    },
+    {
+      "entity": "Limit",
+      "key": "HOME_HEALTH_CARE",
+      "value": "60 visits/year"
+    },
+    {
+      "entity": "Minimum Essential Coverage",
+      "key": "STATUS",
+      "value": "Yes"
+    },
+    {
+      "entity": "Minimum Value Standards",
+      "key": "STATUS",
+      "value": "Yes"
+    },
+    {
+      "entity": "Mia's Simple Fracture",
+      "key": "EXAMPLE_EVENT",
+      "value": "includes services"
+    },
+    {
+      "entity": "Mia",
+      "key": "PAYS",
+      "value": "portion of costs"
+    },
+    {
+      "entity": "Plan",
+      "key": "RESPONSIBLE_FOR",
+      "value": "other costs"
+    }
+  ]
+}

@@ -26,25 +26,47 @@ def clean_llm_output(text):
 # =========================
 # 🔥 CONVERT CHUNK → TEXT
 # =========================
-def chunk_to_text(chunk):
-    if chunk["type"] == "table_row":
-        data = chunk["data"]
+# def chunk_to_text(chunk):
+#     if chunk["type"] == "table_row":
+#         data = chunk["data"]
 
-        # Convert structured row into readable sentence
+#         # Convert structured row into readable sentence
+#         parts = []
+#         for key, value in data.items():
+#             if value:
+#                 parts.append(f"{key}: {value}")
+
+#         return ". ".join(parts)
+
+#     elif chunk["type"] == "section":
+#         return f"{chunk.get('title', '')}. {chunk.get('content', '')}"
+
+#     elif chunk["type"] == "list":
+#         return " ".join(chunk.get("items", []))
+
+#     return ""
+
+def chunk_to_text(chunk):
+    if chunk.get("type") == "table_row":
+        data = chunk.get("data", {})
         parts = []
         for key, value in data.items():
             if value:
                 parts.append(f"{key}: {value}")
-
         return ". ".join(parts)
 
-    elif chunk["type"] == "section":
+    elif chunk.get("type") == "section":
         return f"{chunk.get('title', '')}. {chunk.get('content', '')}"
 
-    elif chunk["type"] == "list":
+    elif chunk.get("type") == "list":
         return " ".join(chunk.get("items", []))
 
-    return ""
+    # 🔥 ADD THIS (CRITICAL FIX)
+    elif chunk.get("type") in ["paragraph", "text"]:
+        return chunk.get("content", "")
+
+    # 🔥 fallback (VERY IMPORTANT)
+    return str(chunk)
 
 
 def extract_graph(text):
@@ -66,9 +88,7 @@ def extract_graph(text):
             {{
             "entities": [],
             "relationships": [],
-            "attributes": [],
-            "tables": [],
-            "rules": []
+            "attributes": []
             }}
 
             ----------------------
@@ -193,33 +213,33 @@ def extract_graph(text):
     return parsed
 
 
-# =========================
-# 🔥 MAIN DRIVER (IMPORTANT)
-# =========================
-def process_chunks(input_file, output_dir="output/llm_graph"):
-    with open(input_file, "r", encoding="utf-8") as f:
-        chunks = json.load(f)
+# # =========================
+# # 🔥 MAIN DRIVER (IMPORTANT)
+# # =========================
+# def process_chunks(input_file, output_dir="output/llm_graph"):
+#     with open(input_file, "r", encoding="utf-8") as f:
+#         chunks = json.load(f)
 
-    os.makedirs(output_dir, exist_ok=True)
+#     os.makedirs(output_dir, exist_ok=True)
 
-    for chunk in chunks:
-        chunk_id = chunk.get("chunk_id", "unknown")
+#     for chunk in chunks:
+#         chunk_id = chunk.get("chunk_id", "unknown")
 
-        text = chunk_to_text(chunk)
-        print(f"\n📄 Chunk {chunk_id} text:\n{text[:500]}...")  # Print first 500 chars
-        if not text.strip():
-            continue
+#         text = chunk_to_text(chunk)
+#         print(f"\n📄 Chunk {chunk_id} text:\n{text[:500]}...")  # Print first 500 chars
+#         if not text.strip():
+#             continue
 
-        print(f"\n🚀 Processing: {chunk_id}")
+#         print(f"\n🚀 Processing: {chunk_id}")
 
-        graph = extract_graph(text)
-        print(f"\n✅ Extracted graph for chunk {chunk_id}:\n{json.dumps(graph, indent=2)}") 
-        # Save per chunk
-        file_path = os.path.join(output_dir, f"{chunk_id}.json")
+#         graph = extract_graph(text)
+#         print(f"\n✅ Extracted graph for chunk {chunk_id}:\n{json.dumps(graph, indent=2)}") 
+#         # Save per chunk
+#         file_path = os.path.join(output_dir, f"{chunk_id}.json")
 
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(graph, f, indent=2)
+#         with open(file_path, "w", encoding="utf-8") as f:
+#             json.dump(graph, f, indent=2)
 
-        print(f"💾 Saved: {file_path}")
+#         print(f"💾 Saved: {file_path}")
 
 

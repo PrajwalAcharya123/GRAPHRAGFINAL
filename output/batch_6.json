@@ -1,0 +1,54 @@
+{
+  "entities": [
+    "Mia's Simple Fracture",
+    "Inpatient hospital stay",
+    "Physician services",
+    "Lab tests",
+    "Imaging",
+    "Rehabilitation"
+  ],
+  "relationships": [
+    [
+      "Mia's Simple Fracture",
+      "COVERS",
+      "Inpatient hospital stay"
+    ],
+    [
+      "Mia's Simple Fracture",
+      "COVERS",
+      "Physician services"
+    ],
+    [
+      "Mia's Simple Fracture",
+      "COVERS",
+      "Lab tests"
+    ],
+    [
+      "Mia's Simple Fracture",
+      "COVERS",
+      "Imaging"
+    ],
+    [
+      "Mia's Simple Fracture",
+      "COVERS",
+      "Rehabilitation"
+    ]
+  ],
+  "attributes": [
+    [
+      "Mia's Simple Fracture",
+      "example event",
+      "includes services"
+    ],
+    [
+      "Mia",
+      "pays",
+      "portion of costs"
+    ],
+    [
+      "Plan",
+      "responsible for",
+      "other costs"
+    ]
+  ]
+}

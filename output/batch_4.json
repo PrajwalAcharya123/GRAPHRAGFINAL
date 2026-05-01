@@ -1,0 +1,118 @@
+{
+  "entities": [
+    "Private Duty Nursing",
+    "Routine Foot Care",
+    "Dental Care",
+    "Non-emergency care outside the U.S.",
+    "Infertility Treatment",
+    "Long Term Care",
+    "Routine eye care (Adult)",
+    "Acupuncture",
+    "Chiropractic Care",
+    "Weight Loss Programs"
+  ],
+  "relationships": [
+    [
+      "Private Duty Nursing",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Routine Foot Care",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Dental Care",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Non-emergency care outside the U.S.",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Infertility Treatment",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Long Term Care",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Routine eye care (Adult)",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Acupuncture",
+      "COVERS",
+      "Rehabilitation"
+    ],
+    [
+      "Chiropractic Care",
+      "COVERS",
+      "Plan"
+    ],
+    [
+      "Weight Loss Programs",
+      "NOT_COVERED",
+      "Plan"
+    ]
+  ],
+  "attributes": [
+    [
+      "Private Duty Nursing",
+      "type",
+      "other_covered_service"
+    ],
+    [
+      "Routine Foot Care",
+      "type",
+      "other_covered_service"
+    ],
+    [
+      "Dental Care",
+      "type",
+      "other_covered_service"
+    ],
+    [
+      "Non-emergency care outside the U.S.",
+      "type",
+      "other_covered_service"
+    ],
+    [
+      "Infertility Treatment",
+      "type",
+      "other_covered_service"
+    ],
+    [
+      "Long Term Care",
+      "type",
+      "other_covered_service"
+    ],
+    [
+      "Routine eye care (Adult)",
+      "type",
+      "other_covered_service"
+    ],
+    [
+      "Acupuncture",
+      "condition",
+      "if prescribed for rehabilitation"
+    ],
+    [
+      "Chiropractic Care",
+      "type",
+      "other_covered_service"
+    ],
+    [
+      "Weight Loss Programs",
+      "type",
+      "other_covered_service"
+    ]
+  ]
+}
