@@ -36,12 +36,12 @@ def merge_html_pages(input_folder, output_file):
     html_files = get_sorted_html_files(input_folder)
 
     if not html_files:
-        print("❌ No HTML files found in:", input_folder)
+        print(" No HTML files found in:", input_folder)
         return
 
     for file in html_files:
         path = os.path.join(input_folder, file)
-        print(f"📄 Merging {file}...")
+        print(f" Merging {file}...")
 
         with open(path, "r", encoding="utf-8") as f:
             soup = BeautifulSoup(f, "html.parser")
@@ -70,4 +70,4 @@ def merge_html_pages(input_folder, output_file):
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(final_html)
 
-    print(f"\n✅ Combined HTML saved at: {output_file}")
+    print(f"\n Combined HTML saved at: {output_file}")

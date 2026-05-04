@@ -1,11 +1,395 @@
 {
   "entities": [
-    "Mia's Simple Fracture",
-    "Mia",
-    "Plan"
+    "Home health care",
+    "Rehabilitation services",
+    "Habilitation services",
+    "Skilled nursing care",
+    "Durable medical equipment",
+    "Hospice services",
+    "Children's eye exam",
+    "Children's glasses",
+    "Children's dental check-up",
+    "Cosmetic Surgery",
+    "Preauthorization"
   ],
-  "relationships": [],
-  "attributes": [],
-  "tables": [],
-  "rules": []
+  "relationships": [
+    [
+      "Home health care",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Home health care",
+      "HAS_COINSURANCE",
+      "40%"
+    ],
+    [
+      "Home health care",
+      "HAS_LIMIT",
+      "60 visits/calendar year"
+    ],
+    [
+      "Rehabilitation services",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Rehabilitation services",
+      "HAS_COINSURANCE",
+      "40%"
+    ],
+    [
+      "Rehabilitation services",
+      "HAS_LIMIT",
+      "60 visits/calendar year"
+    ],
+    [
+      "Habilitation services",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Habilitation services",
+      "HAS_COINSURANCE",
+      "40%"
+    ],
+    [
+      "Skilled nursing care",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Skilled nursing care",
+      "HAS_COINSURANCE",
+      "40%"
+    ],
+    [
+      "Skilled nursing care",
+      "HAS_LIMIT",
+      "60 visits/calendar year"
+    ],
+    [
+      "Durable medical equipment",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Durable medical equipment",
+      "HAS_COINSURANCE",
+      "40%"
+    ],
+    [
+      "Durable medical equipment",
+      "NOT_COVERED",
+      "vehicle modifications"
+    ],
+    [
+      "Durable medical equipment",
+      "NOT_COVERED",
+      "home modifications"
+    ],
+    [
+      "Durable medical equipment",
+      "NOT_COVERED",
+      "exercise equipment"
+    ],
+    [
+      "Durable medical equipment",
+      "NOT_COVERED",
+      "bathroom equipment"
+    ],
+    [
+      "Hospice services",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Hospice services",
+      "HAS_COINSURANCE",
+      "40%"
+    ],
+    [
+      "Hospice services",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "Hospice services",
+      "REDUCES_BENEFIT",
+      "50%"
+    ],
+    [
+      "Children's eye exam",
+      "HAS_COPAY",
+      "$35"
+    ],
+    [
+      "Children's eye exam",
+      "NOT_COVERED",
+      "out-of-network"
+    ],
+    [
+      "Children's eye exam",
+      "HAS_LIMIT",
+      "one exam/year"
+    ],
+    [
+      "Children's glasses",
+      "HAS_COINSURANCE",
+      "20%"
+    ],
+    [
+      "Children's glasses",
+      "NOT_COVERED",
+      "out-of-network"
+    ],
+    [
+      "Children's glasses",
+      "HAS_LIMIT",
+      "one pair/year"
+    ],
+    [
+      "Children's dental check-up",
+      "HAS_COPAY",
+      "$0"
+    ],
+    [
+      "Children's dental check-up",
+      "NOT_COVERED",
+      "out-of-network"
+    ],
+    [
+      "Cosmetic Surgery",
+      "NOT_COVERED",
+      "Plan"
+    ]
+  ],
+  "attributes": [
+    [
+      "Home health care",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Home health care",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Home health care",
+      "limitations",
+      "60 visits/calendar year"
+    ],
+    [
+      "Rehabilitation services",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Rehabilitation services",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Rehabilitation services",
+      "limitations",
+      "60 visits/calendar year"
+    ],
+    [
+      "Habilitation services",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Habilitation services",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Skilled nursing care",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Skilled nursing care",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Skilled nursing care",
+      "limitations",
+      "60 visits/calendar year"
+    ],
+    [
+      "Durable medical equipment",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Durable medical equipment",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Durable medical equipment",
+      "limitations",
+      "excludes vehicle modifications, home modifications, exercise equipment, and bathroom equipment"
+    ],
+    [
+      "Hospice services",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Hospice services",
+      "out_of_network_cost",
+      "40% coinsurance"
+    ],
+    [
+      "Hospice services",
+      "limitations",
+      "preauthorization required"
+    ],
+    [
+      "Children's eye exam",
+      "network_cost",
+      "$35 copay"
+    ],
+    [
+      "Children's eye exam",
+      "out_of_network_cost",
+      "not covered"
+    ],
+    [
+      "Children's eye exam",
+      "limitations",
+      "one exam/year"
+    ],
+    [
+      "Children's glasses",
+      "network_cost",
+      "20% coinsurance"
+    ],
+    [
+      "Children's glasses",
+      "out_of_network_cost",
+      "not covered"
+    ],
+    [
+      "Children's glasses",
+      "limitations",
+      "one pair/year"
+    ],
+    [
+      "Children's dental check-up",
+      "network_cost",
+      "no charge"
+    ],
+    [
+      "Children's dental check-up",
+      "out_of_network_cost",
+      "not covered"
+    ]
+  ],
+  "tables": [
+    {
+      "service": "Home health care",
+      "network_cost": "20% coinsurance",
+      "out_of_network_cost": "40% coinsurance",
+      "limitations": "60 visits/calendar year"
+    },
+    {
+      "service": "Rehabilitation services",
+      "network_cost": "20% coinsurance",
+      "out_of_network_cost": "40% coinsurance",
+      "limitations": "60 visits/calendar year"
+    },
+    {
+      "service": "Habilitation services",
+      "network_cost": "20% coinsurance",
+      "out_of_network_cost": "40% coinsurance"
+    },
+    {
+      "service": "Skilled nursing care",
+      "network_cost": "20% coinsurance",
+      "out_of_network_cost": "40% coinsurance",
+      "limitations": "60 visits/calendar year"
+    },
+    {
+      "service": "Durable medical equipment",
+      "network_cost": "20% coinsurance",
+      "out_of_network_cost": "40% coinsurance",
+      "limitations": "excludes vehicle modifications, home modifications, exercise equipment, and bathroom equipment"
+    },
+    {
+      "service": "Hospice services",
+      "network_cost": "20% coinsurance",
+      "out_of_network_cost": "40% coinsurance",
+      "limitations": "preauthorization required"
+    },
+    {
+      "service": "Children's eye exam",
+      "network_cost": "$35 copay",
+      "out_of_network_cost": "not covered",
+      "limitations": "one exam/year"
+    },
+    {
+      "service": "Children's glasses",
+      "network_cost": "20% coinsurance",
+      "out_of_network_cost": "not covered",
+      "limitations": "one pair/year"
+    },
+    {
+      "service": "Children's dental check-up",
+      "network_cost": "no charge",
+      "out_of_network_cost": "not covered"
+    }
+  ],
+  "rules": [
+    [
+      "Hospice services",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "Hospice services",
+      "REDUCES_BENEFIT",
+      "50%"
+    ],
+    [
+      "Children's eye exam",
+      "HAS_LIMIT",
+      "one exam/year"
+    ],
+    [
+      "Children's glasses",
+      "HAS_LIMIT",
+      "one pair/year"
+    ],
+    [
+      "Durable medical equipment",
+      "NOT_COVERED",
+      "vehicle modifications"
+    ],
+    [
+      "Durable medical equipment",
+      "NOT_COVERED",
+      "home modifications"
+    ],
+    [
+      "Durable medical equipment",
+      "NOT_COVERED",
+      "exercise equipment"
+    ],
+    [
+      "Durable medical equipment",
+      "NOT_COVERED",
+      "bathroom equipment"
+    ],
+    [
+      "Cosmetic Surgery",
+      "NOT_COVERED",
+      "Plan"
+    ]
+  ]
 }

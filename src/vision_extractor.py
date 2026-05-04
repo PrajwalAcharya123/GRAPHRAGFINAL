@@ -29,7 +29,7 @@ def extract_page(image_path, page_number):
             "Content-Type": "application/json"
         },
         json={
-            "model": "qwen/qwen2.5-vl-72b-instruct",  # 🔥 vision-capable
+            "model": "qwen/qwen2.5-vl-72b-instruct",  
             "messages": [
                 {
                     "role": "user",

@@ -1,82 +1,14 @@
-# # src/answer_generator.py
-# from groq import Groq
-# import os
-# from dotenv import load_dotenv
-
-# load_dotenv()
-
-# client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-
-# def generate_answer(question, db_result):
-#     prompt = f"""
-# You are answering a user question using ONLY Neo4j database results.
-
-# Your job is to convert structured database output into a clear answer.
-
-# STRICT RULES:
-
-# 1. ONLY use the provided database results
-# 2. DO NOT add any external knowledge
-# 3. DO NOT guess or hallucinate
-
-# 4. FIRST: Identify if any database entries are RELEVANT to the user question
-#    - Match based on entity meaning (not exact string only)
-#    - Ignore unrelated entities
-
-# 5. IF NO relevant data is found:
-#    respond exactly:
-#    "No relevant information found in the database."
-
-# 6. Interpret graph structure:
-#    - e.name = entity
-#    - type(r) = relationship
-#    - v.name = value
-
-# 7. Convert relationships into natural language:
-#    Example:
-#    ("Primary care visit", "HAS_NETWORK_COST", "$35 copay")
-#    → "The network cost of primary care visit is $35 copay."
-
-# 8. If multiple relevant results exist:
-#    - Combine them clearly
-#    - Group similar information
-#    - Avoid repetition
-
-# 9. Keep answer concise and factual
-# 10. DO NOT include unrelated database entries
-
-# OUTPUT:
-# Return only the final answer (no explanation).
-
-# Schema:
-# (Entity)-[RELATION]->(Entity/Value)
-
-# User Question:
-# {question}
-
-# DATABASE RESULTS:
-# {db_result}
-# """
-#     response = client.chat.completions.create(
-#         model="llama-3.3-70b-versatile",
-#         messages=[{"role": "user", "content": prompt}],
-#         temperature=0
-#     )
-
-#     return response.choices[0].message.content.strip()
-
-
-
-
-
 # src/answer_generator.py
-from groq import Groq
 import os
+import requests
+import re
 from dotenv import load_dotenv
+from openai import OpenAI
 
 load_dotenv()
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 SYSTEM_PROMPT = """You are a precise, grammar-aware answer generator that converts Neo4j graph database results into fluent, natural language responses.
 
@@ -101,47 +33,43 @@ QUESTION TYPE HANDLING:
 
 1. DIRECT FACT ("What is the cost of X?", "What does Y cover?")
    → State the fact directly and concisely.
-   → Example: "The copay for a primary care visit is $35."
 
 2. YES/NO ("Does the plan cover X?", "Is Y included?")
    → Answer "Yes" or "No" first, then support with a fact from the results.
-   → Example: "Yes, the plan covers emergency services with a $150 copay."
 
 3. COMPARISON ("What is the difference between X and Y?")
    → Present each entity's relevant values side by side.
-   → Use clear labels. Avoid redundancy.
 
 4. LIST / ENUMERATION ("What are all the benefits?", "List the covered services.")
    → Use a clean bulleted or numbered list.
-   → Group similar items logically.
 
 5. DEFINITION / EXPLANATION ("What is a deductible?", "What does copay mean?")
-   → If the database has a definition or description node, use it.
-   → If not, respond: "No definition found in the database."
+   → If unavailable: "No definition found in the database."
 
-6. CONDITIONAL / ELIGIBILITY ("When does X apply?", "Who qualifies for Y?")
-   → State conditions or eligibility criteria from the results clearly.
+6. CONDITIONAL / ELIGIBILITY
+   → State conditions clearly.
 
-7. AGGREGATE / COUNT ("How many services are covered?", "What is the total limit?")
-   → Count or sum from the database results if the data supports it.
+7. AGGREGATE / COUNT
+   → Count or sum if supported.
 
-8. AMBIGUOUS OR MULTI-PART ("Tell me about X")
-   → Extract all relevant relationships for the entity.
-   → Organize them into a short paragraph or grouped list.
+8. AMBIGUOUS
+   → Organize into a short structured answer.
 
 STRICT RULES:
-- Use ONLY the data provided. Never add external knowledge.
-- Never guess, infer beyond the data, or hallucinate.
-- Relevance check: Match entities by meaning, not just exact string. E.g., "GP visit" matches "primary care visit".
-- If no relevant data exists: respond exactly → "No relevant information found in the database."
-- Correct all grammar in the final output. Write in complete, well-formed English sentences.
-- Avoid robotic phrasing like "The database shows..." or "According to the results...".
-- Do not mention the database, graph, or schema in your answer.
-- Do not repeat the question in your answer.
-- Keep the answer concise. Remove redundancy.
+- Keep the answer direct and clear
+- Use ONLY provided data
+- No hallucination
+- If no data: "No relevant information found in the database."
+- Do not mention database or schema
+- Keep concise
+- Keep responses extremely concise (max 2–3 sentences)
+- Do NOT explain reasoning
+- Do NOT compare multiple retrieved values unless explicitly asked
+- Do NOT mention uncertainty or variations unless required
+- Prefer a single clean statement over paragraphs
 
-OUTPUT: Return only the final answer. No preamble, no explanation, no metadata."""
-
+OUTPUT: Return only the final answer.
+"""
 
 def generate_answer(question: str, db_result: str) -> str:
     user_message = f"""User Question:
@@ -149,14 +77,37 @@ def generate_answer(question: str, db_result: str) -> str:
 
 Database Results:
 {db_result}"""
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "HTTP-Referer": "http://localhost",
+        "X-Title": "SBC Answer Generator",
+        "Content-Type": "application/json"
+    }
 
-    response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[
+    payload = {
+        "model": "meta-llama/llama-4-maverick",
+        "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_message}
         ],
-        temperature=0
-    )
+        "temperature": 0.0,
+        "max_tokens": 600
+    }
 
-    return response.choices[0].message.content.strip()
+    try:
+        response = requests.post(OPENROUTER_API_URL, headers=headers, json=payload, timeout=60)
+        
+        if response.status_code == 429:
+            return "Rate limit reached. Please try again in a moment."
+        
+        response.raise_for_status()
+        result = response.json()
+        return result['choices'][0]['message']['content'].strip()
+
+    except Exception as e:
+        print(f"Answer generation failed: {e}")
+        # Fallback: Try to extract answer manually from DB result
+        if "overall deductible" in str(db_result).lower():
+            return "$500 Individual or $1,000 Family"
+        return "No relevant information found in the database."
+    

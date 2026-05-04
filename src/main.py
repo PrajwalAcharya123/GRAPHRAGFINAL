@@ -70,16 +70,16 @@ IMAGE_DIR = os.path.join(BASE_DIR, "output", "pages")
 HTML_DIR = os.path.join(BASE_DIR, "output", "html")
 COMBINED_HTML = os.path.join(BASE_DIR, "output", "combined.html")
 
-# ✅ FIXED PATHS
+#  FIXED PATHS
 output_dir = os.path.join(BASE_DIR, "output")
 chunk_path = os.path.join(output_dir, "chunksforllm.json")
 
 
 def main():
-    print("📄 Converting PDF to images...")
+    print(" Converting PDF to images...")
    # images = convert_pdf_to_images(PDF_PATH, IMAGE_DIR)
 
-    print("👁️ Extracting with Vision LLM...")
+    print(" Extracting with Vision LLM...")
     os.makedirs(HTML_DIR, exist_ok=True)
 
 #    # for i, img in enumerate(images):
@@ -90,22 +90,22 @@ def main():
 #         with open(html_path, "w", encoding="utf-8") as f:
 #             f.write(result)
 
-    print("🧠 Merging JSON output...")
+    print(" Merging JSON output...")
    # merge_pages(RAW_DIR, FINAL_JSON)
 
-    # ✅ STEP 1: Merge HTML
-    print("📚 Merging HTML pages...")
+    #  STEP 1: Merge HTML
+    print(" Merging HTML pages...")
    # merge_html_pages(HTML_DIR, COMBINED_HTML)
 
-    # ✅ STEP 2: Chunk combined HTML
-    print("🧩 Chunking HTML...")
-    #chunk_html(COMBINED_HTML, chunk_path)
+    #  STEP 2: Chunk combined HTML
+    print("Chunking HTML...")
+    # chunk_html(COMBINED_HTML, chunk_path)
 
-    # ✅ STEP 3: Process graph
-    print("🧠 Extracting Graph + Storing in Neo4j...")
+    #  STEP 3: Process graph
+    print(" Extracting Graph + Storing in Neo4j...")
     process_chunks(chunk_path, output_dir)
 
-    print("\n🎉 PIPELINE COMPLETED")
+    print("\n PIPELINE COMPLETED")
 
 
 if __name__ == "__main__":

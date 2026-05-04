@@ -2,19 +2,19 @@
 from query_pipeline import ask_question
 
 def main():
-    print("💬 Ask questions (type 'exit' to stop):")
+    print(" Ask questions (type 'exit' to stop):")
 
     while True:
         q = input("\nQuestion-> ")
 
         if q.lower() == "exit":
-            print("👋 Exiting...")
+            print(" Exiting...")
             break
 
         try:
             ask_question(q)
         except Exception as e:
-            print("❌ Error:", e)
+            print(" Error:", e)
 
 
 if __name__ == "__main__":

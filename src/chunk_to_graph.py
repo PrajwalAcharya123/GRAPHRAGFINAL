@@ -1,0 +1,497 @@
+# """
+# chunk_to_graph.py
+# ─────────────────
+# Transforms chunks produced by chunk_html() into the exact format
+# that the existing Neo4jHandler.insert_graph_data() expects:
+
+#   {
+#     "entities"      : ["name1", "name2", ...],
+#     "relationships" : [("src", "rel_type", "dst"), ...],
+#     "attributes"    : [("entity", "key", "value"), ...],
+#   }
+
+# Rules that match the existing handler:
+#   - entities   → MERGE (n:Entity {name: $name})
+#   - relationships → typed edge between two Entity nodes
+#   - attributes → Value node linked to Entity node via typed edge
+# """
+# from __future__ import annotations
+# from typing import Any
+
+# PLAN_NODE = "HealthPlan"
+
+
+# def _s(v: Any) -> str:
+#     return str(v).strip() if v else ""
+
+
+# # per-type transformers 
+
+# def _plan_metadata(chunk, E, R, A):
+#     E.add(PLAN_NODE)
+#     cov = _s(chunk.get("coverage_for"))
+#     pt  = _s(chunk.get("plan_type"))
+#     if cov:
+#         A.append((PLAN_NODE, "coverage_for", cov))
+#     if pt:
+#         A.append((PLAN_NODE, "plan_type", pt))
+
+
+# def _important_question(chunk, E, R, A):
+#     q = _s(chunk.get("question"))
+#     if not q:
+#         return
+
+#     node_name = f"ImportantQuestion: {q[:80]}..." if len(q) > 80 else q
+
+#     E.add(node_name)
+#     E.add(PLAN_NODE)
+
+#     R.append((PLAN_NODE, "HAS_IMPORTANT_QUESTION", node_name))
+
+#     A.append((node_name, "question", q))
+#     A.append((node_name, "answer", _s(chunk.get("answer"))))
+#     A.append((node_name, "why_it_matters", _s(chunk.get("why_it_matters"))))
+#     A.append((node_name, "chunk_id", chunk.get("chunk_id", "")))
+
+
+# def _benefit_service(chunk, E, R, A):
+#     event   = _s(chunk.get("medical_event"))
+#     service = _s(chunk.get("service"))
+#     net     = _s(chunk.get("network_cost"))
+#     oon     = _s(chunk.get("out_of_network_cost"))
+#     limits  = _s(chunk.get("limitations"))
+#     preauth = chunk.get("requires_preauth", False)
+#     copay = _s(chunk.get("copay"))
+#     coinsurance = _s(chunk.get("coinsurance"))
+
+#     if not service:
+#         return
+
+#     E.add(PLAN_NODE)
+
+#     if event:
+#         E.add(event)
+#         R.append((PLAN_NODE, "HAS_MEDICAL_EVENT", event))
+#         E.add(service)
+#         R.append((event, "INCLUDES_SERVICE", service))
+#     else:
+#         E.add(service)
+#         R.append((PLAN_NODE, "HAS_BENEFIT_SERVICE", service))
+
+#     if net:
+#         A.append((service, "network_cost", net))
+#     if oon:
+#         A.append((service, "out_of_network_cost", oon))
+#     if limits:
+#         A.append((service, "limitations", limits))
+#     if preauth:
+#         A.append((service, "requires_preauth", "true"))
+#     # if copay:
+#     #     A.append((service, "copay", copay))
+
+#     # if coinsurance:
+#     #     A.append((service, "coinsurance", coinsurance))
+#     if copay:
+#         A.append((service, "HAS_COPAY", copay))
+
+#     if coinsurance:
+#         A.append((service, "HAS_COINSURANCE", coinsurance))
+
+# def _excluded_service(chunk, E, R, A):
+#     svc = _s(chunk.get("service"))
+#     if not svc:
+#         return
+#     E.add(PLAN_NODE)
+#     E.add(svc)
+#     R.append((PLAN_NODE, "EXCLUDES_SERVICE", svc))          # Clear relationship
+#     if chunk.get("section"):
+#         A.append((svc, "section", chunk["section"]))
+
+
+# def _other_covered_service(chunk, E, R, A):
+#     svc = _s(chunk.get("service"))
+#     if not svc:
+#         return
+#     E.add(PLAN_NODE)
+#     E.add(svc)
+#     R.append((PLAN_NODE, "COVERS_ADDITIONAL_SERVICE", svc))   # Different relationship
+#     if chunk.get("section"):
+#         A.append((svc, "section", chunk["section"]))
+
+
+# def _coverage_example(chunk, E, R, A):
+#     name    = _s(chunk.get("name"))
+#     total   = _s(chunk.get("total_cost"))
+#     patient = _s(chunk.get("patient_total"))
+#     cid     = _s(chunk.get("chunk_id"))
+#     if not name:
+#         return
+
+#     E.add(PLAN_NODE)
+#     E.add(name)
+#     R.append((PLAN_NODE, "HAS_COVERAGE_EXAMPLE", name))
+
+#     if total:
+#         A.append((name, "total_example_cost", total))
+#     if patient:
+#         A.append((name, "patient_pays", patient))
+
+#     # Plan parameters (deductible, copay…)
+#     for k, v in (chunk.get("plan_parameters") or {}).items():
+#         k, v = _s(k), _s(v)
+#         if k and v:
+#             param = f"{name} | {k}"
+#             E.add(param)
+#             R.append((name, "HAS_PLAN_PARAM", param))
+#             A.append((param, "value", v))
+
+#     # Services included in the example
+#     for svc in (chunk.get("included_services") or []):
+#         svc = _s(svc)
+#         if svc:
+#             svc_node = f"{name} | {svc}"
+#             E.add(svc_node)
+#             R.append((name, "INCLUDES_SERVICE", svc_node))
+
+#     # Cost breakdown items
+#     for k, v in (chunk.get("cost_breakdown") or {}).items():
+#         k, v = _s(k), _s(v)
+#         if k and v:
+#             cb = f"{name} | {k}"
+#             E.add(cb)
+#             R.append((name, "HAS_COST_ITEM", cb))
+#             A.append((cb, "amount", v))
+
+
+# def _section(chunk, E, R, A):
+#     title   = _s(chunk.get("title")) or "Untitled Section"
+#     content = _s(chunk.get("content"))
+#     cid     = _s(chunk.get("chunk_id"))
+#     node    = f"Section: {title} [{cid}]"
+#     E.add(PLAN_NODE)
+#     E.add(node)
+#     R.append((PLAN_NODE, "HAS_SECTION", node))
+#     if content:
+#         A.append((node, "content", content))
+
+
+# def _preamble(chunk, E, R, A):
+#     content = _s(chunk.get("content"))
+#     E.add(PLAN_NODE)
+#     E.add("Preamble")
+#     R.append((PLAN_NODE, "HAS_PREAMBLE", "Preamble"))
+#     if content:
+#         A.append(("Preamble", "content", content))
+
+
+# def _footnote(chunk, E, R, A):
+#     content = _s(chunk.get("content"))
+#     cid     = _s(chunk.get("chunk_id"))
+#     node    = f"Footnote [{cid}]"
+#     E.add(PLAN_NODE)
+#     E.add(node)
+#     R.append((PLAN_NODE, "HAS_FOOTNOTE", node))
+#     if content:
+#         A.append((node, "content", content))
+
+
+# # ── dispatcher ───────────────────────────────────────────────────
+
+# _DISPATCH = {
+#     "plan_metadata"         : _plan_metadata,
+#     "important_question"    : _important_question,
+#     "benefit_service"       : _benefit_service,
+#     "excluded_service"      : _excluded_service,
+#     "other_covered_service" : _other_covered_service,
+#     "coverage_example"      : _coverage_example,
+#     "section"               : _section,
+#     "preamble"              : _preamble,
+#     "footnote"              : _footnote,
+# }
+
+
+# def chunks_to_graph_data(chunks: list[dict]) -> dict:
+#     """
+#     Convert chunker output into the dict Neo4jHandler.insert_graph_data() expects:
+#       {
+#         "entities"      : [str, ...],          # unique node names
+#         "relationships" : [(src, rel, dst)...], # typed edges
+#         "attributes"    : [(entity, key, val)], # node → value edges
+#       }
+#     """
+#     entities: set  = set()
+#     rels:     list = []
+#     attrs:    list = []
+
+#     for chunk in chunks:
+#         fn = _DISPATCH.get(chunk.get("type", ""))
+#         if fn:
+#             fn(chunk, entities, rels, attrs)
+
+#     return {
+#         "entities"      : sorted(entities),
+#         "relationships" : rels,
+#         "attributes"    : attrs,
+#     }
+
+"""
+chunk_to_graph.py (UPGRADED GRAPH SEMANTIC VERSION)
+─────────────────────────────────────────────────────
+Transforms chunks into a SEMANTIC GRAPH structure optimized for GraphRAG.
+
+Output:
+{
+  "entities": ["Node1", "Node2"],
+  "relationships": [("src", "REL_TYPE", "dst")],
+  "attributes": [("entity", "key", "value")]
+}
+
+UPGRADE PRINCIPLES:
+- IMPORTANT facts → nodes + relationships (NOT attributes)
+- Attributes only for display/metadata
+- Costs, limits, rules → first-class graph objects
+"""
+
+from __future__ import annotations
+from typing import Any
+
+PLAN_NODE = "HealthPlan"
+
+
+# ─────────────────────────────
+# helpers
+# ─────────────────────────────
+
+def _s(v: Any) -> str:
+    return str(v).strip() if v else ""
+
+
+def _add(E, R, src, rel, dst):
+    """safe relationship builder"""
+    if src and dst:
+        E.add(src)
+        E.add(dst)
+        R.append((src, rel, dst))
+
+
+def _add_attr(A, entity, key, value):
+    """safe attribute builder"""
+    if entity and value:
+        A.append((entity, key, value))
+
+
+# ─────────────────────────────
+# PLAN METADATA
+# ─────────────────────────────
+
+def _plan_metadata(chunk, E, R, A):
+    E.add(PLAN_NODE)
+
+    cov = _s(chunk.get("coverage_for"))
+    pt  = _s(chunk.get("plan_type"))
+
+    if cov:
+        _add(E, R, PLAN_NODE, "COVERS", cov)
+
+    if pt:
+        _add_attr(A, PLAN_NODE, "plan_type", pt)
+
+
+# ─────────────────────────────
+# IMPORTANT QUESTION
+# ─────────────────────────────
+
+def _important_question(chunk, E, R, A):
+    q = _s(chunk.get("question"))
+    if not q:
+        return
+
+    node = f"IQ: {q[:80]}" if len(q) > 80 else q
+
+    _add(E, R, PLAN_NODE, "HAS_IMPORTANT_QUESTION", node)
+
+    _add_attr(A, node, "question", q)
+    _add_attr(A, node, "answer", chunk.get("answer"))
+    _add_attr(A, node, "why_it_matters", chunk.get("why_it_matters"))
+
+
+# ─────────────────────────────
+# BENEFIT SERVICE (MAJOR UPGRADE)
+# ─────────────────────────────
+
+def _benefit_service(chunk, E, R, A):
+    event   = _s(chunk.get("medical_event"))
+    service = _s(chunk.get("service"))
+
+    net     = _s(chunk.get("network_cost"))
+    oon     = _s(chunk.get("out_of_network_cost"))
+    limits  = _s(chunk.get("limitations"))
+    preauth = chunk.get("requires_preauth", False)
+    copay   = _s(chunk.get("copay"))
+    coins   = _s(chunk.get("coinsurance"))
+
+    if not service:
+        return
+
+    E.add(PLAN_NODE)
+    E.add(service)
+
+    # ── EVENT STRUCTURE ─────────────────────────────
+    if event:
+        _add(E, R, PLAN_NODE, "HAS_MEDICAL_EVENT", event)
+        _add(E, R, event, "INCLUDES_SERVICE", service)
+    else:
+        _add(E, R, PLAN_NODE, "HAS_BENEFIT_SERVICE", service)
+
+    # ── COST → NODE (IMPORTANT UPGRADE) ─────────────
+    if net:
+        cost_node = f"{service} | NetworkCost"
+        _add(E, R, service, "HAS_COST", cost_node)
+        _add_attr(A, cost_node, "type", "network")
+        _add_attr(A, cost_node, "value", net)
+
+    if oon:
+        cost_node = f"{service} | OutOfNetworkCost"
+        _add(E, R, service, "HAS_COST", cost_node)
+        _add_attr(A, cost_node, "type", "out_of_network")
+        _add_attr(A, cost_node, "value", oon)
+
+    # ── LIMITATIONS → NODE ─────────────────────────
+    if limits:
+        lim_node = f"{service} | Limitation"
+        _add(E, R, service, "HAS_LIMITATION", lim_node)
+        _add_attr(A, lim_node, "text", limits)
+
+    # ── PREAUTH → NODE ─────────────────────────────
+    if preauth:
+        _add(E, R, service, "REQUIRES", "Preauthorization")
+
+    # ── COPAY / COINSURANCE → NODE ────────────────
+    if copay:
+        copay_node = f"{service} | Copay"
+        _add(E, R, service, "HAS_COPAY", copay_node)
+        _add_attr(A, copay_node, "value", copay)
+
+    if coins:
+        coin_node = f"{service} | Coinsurance"
+        _add(E, R, service, "HAS_COINSURANCE", coin_node)
+        _add_attr(A, coin_node, "value", coins)
+
+
+# ─────────────────────────────
+# EXCLUDED SERVICE
+# ─────────────────────────────
+
+def _excluded_service(chunk, E, R, A):
+    svc = _s(chunk.get("service"))
+    if svc:
+        _add(E, R, PLAN_NODE, "EXCLUDES_SERVICE", svc)
+
+
+# ─────────────────────────────
+# OTHER COVERED SERVICE
+# ─────────────────────────────
+
+def _other_covered_service(chunk, E, R, A):
+    svc = _s(chunk.get("service"))
+    if svc:
+        _add(E, R, PLAN_NODE, "COVERS_SERVICE", svc)
+
+
+# ─────────────────────────────
+# COVERAGE EXAMPLE (UPGRADED)
+# ─────────────────────────────
+
+def _coverage_example(chunk, E, R, A):
+    name = _s(chunk.get("name"))
+    if not name:
+        return
+
+    _add(E, R, PLAN_NODE, "HAS_EXAMPLE", name)
+
+    _add_attr(A, name, "total_cost", chunk.get("total_cost"))
+    _add_attr(A, name, "patient_pays", chunk.get("patient_total"))
+
+    # PLAN PARAMETERS → NODES
+    for k, v in (chunk.get("plan_parameters") or {}).items():
+        if k and v:
+            node = f"{name} | {k}"
+            _add(E, R, name, "HAS_PARAMETER", node)
+            _add_attr(A, node, "value", v)
+
+    # INCLUDED SERVICES → EDGES
+    for svc in (chunk.get("included_services") or []):
+        if svc:
+            _add(E, R, name, "INCLUDES_SERVICE", svc)
+
+    # COST BREAKDOWN → NODES
+    for k, v in (chunk.get("cost_breakdown") or {}).items():
+        if k and v:
+            node = f"{name} | {k}"
+            _add(E, R, name, "HAS_COST_ITEM", node)
+            _add_attr(A, node, "amount", v)
+
+
+# ─────────────────────────────
+# SECTION / PREAMBLE / FOOTNOTE
+# ─────────────────────────────
+
+def _section(chunk, E, R, A):
+    title = _s(chunk.get("title"))
+    cid   = _s(chunk.get("chunk_id"))
+    node  = f"Section: {title} [{cid}]"
+
+    _add(E, R, PLAN_NODE, "HAS_SECTION", node)
+    _add_attr(A, node, "content", chunk.get("content"))
+
+
+def _preamble(chunk, E, R, A):
+    _add(E, R, PLAN_NODE, "HAS_PREAMBLE", "Preamble")
+    _add_attr(A, "Preamble", "content", chunk.get("content"))
+
+
+def _footnote(chunk, E, R, A):
+    cid  = _s(chunk.get("chunk_id"))
+    node = f"Footnote [{cid}]"
+
+    _add(E, R, PLAN_NODE, "HAS_FOOTNOTE", node)
+    _add_attr(A, node, "content", chunk.get("content"))
+
+
+# ─────────────────────────────
+# DISPATCHER
+# ─────────────────────────────
+
+_DISPATCH = {
+    "plan_metadata": _plan_metadata,
+    "important_question": _important_question,
+    "benefit_service": _benefit_service,
+    "excluded_service": _excluded_service,
+    "other_covered_service": _other_covered_service,
+    "coverage_example": _coverage_example,
+    "section": _section,
+    "preamble": _preamble,
+    "footnote": _footnote,
+}
+
+
+# ─────────────────────────────
+# MAIN FUNCTION
+# ─────────────────────────────
+
+def chunks_to_graph_data(chunks: list[dict]) -> dict:
+    entities = set()
+    relationships = []
+    attributes = []
+
+    for chunk in chunks:
+        fn = _DISPATCH.get(chunk.get("type"))
+        if fn:
+            fn(chunk, entities, relationships, attributes)
+
+    return {
+        "entities": sorted(entities),
+        "relationships": relationships,
+        "attributes": attributes,
+    }

@@ -1,558 +1,8 @@
-# # src/structuralhtml_chunker.py
-
-# import os
-# import json
-# import re
-# from bs4 import BeautifulSoup
-
-
-# # ✅ Self-contained clean_text (no external dependency)
-# def clean_text(text):
-#     if not text:
-#         return ""
-#     return re.sub(r"\s+", " ", text).strip()
-
-
-# # ✅ TABLE EXTRACTION (robust)
-# def extract_tables(soup):
-#     chunks = []
-#     tables = soup.find_all("table")
-
-#     for t_idx, table in enumerate(tables):
-
-#         rows = table.find_all("tr")
-#         if not rows:
-#             continue
-
-#         header_grid = []
-
-#         # 🔹 Detect headers (th OR bold td)
-#         for row in rows:
-#             ths = row.find_all("th")
-
-#             # fallback: detect header inside td (common in PDF HTML)
-#             if not ths:
-#                 tds = row.find_all("td")
-#                 if all(td.find("b") or td.find("strong") for td in tds):
-#                     ths = tds
-#                 else:
-#                     break
-
-#             current_row = []
-
-#             for cell in ths:
-#                 text = clean_text(cell.get_text())
-#                 colspan = int(cell.get("colspan", 1))
-#                 rowspan = int(cell.get("rowspan", 1))
-
-#                 current_row.append({
-#                     "text": text,
-#                     "colspan": colspan,
-#                     "rowspan": rowspan
-#                 })
-
-#             header_grid.append(current_row)
-
-#         # 🔹 Expand header grid (handle rowspan/colspan)
-#         def expand_headers(header_grid):
-#             grid = []
-
-#             for r_idx, row in enumerate(header_grid):
-#                 col_idx = 0
-
-#                 while len(grid) <= r_idx:
-#                     grid.append([])
-
-#                 for cell in row:
-
-#                     while col_idx < len(grid[r_idx]) and grid[r_idx][col_idx] is not None:
-#                         col_idx += 1
-
-#                     for i in range(cell["colspan"]):
-#                         for j in range(cell["rowspan"]):
-
-#                             while len(grid) <= r_idx + j:
-#                                 grid.append([])
-
-#                             while len(grid[r_idx + j]) <= col_idx + i:
-#                                 grid[r_idx + j].append(None)
-
-#                             grid[r_idx + j][col_idx + i] = cell["text"]
-
-#                     col_idx += cell["colspan"]
-
-#             return grid
-
-#         expanded = expand_headers(header_grid)
-
-#         # 🔹 Safety check (fix crash)
-#         if not expanded or not expanded[-1]:
-#             continue
-
-#         # 🔹 Create final headers
-#         final_headers = []
-#         num_cols = len(expanded[-1])
-
-#         for col in range(num_cols):
-#             parts = []
-#             for row in expanded:
-#                 if col < len(row) and row[col]:
-#                     parts.append(row[col])
-#             final_headers.append(" | ".join(parts))
-
-#         # 🔹 Extract data rows
-#         data_rows = rows[len(header_grid):]
-
-#         for r_idx, row in enumerate(data_rows):
-#             cols = row.find_all("td")
-#             if not cols:
-#                 continue
-
-#             row_data = {}
-
-#             for i, td in enumerate(cols):
-#                 key = final_headers[i] if i < len(final_headers) else f"col_{i}"
-#                 row_data[key] = clean_text(td.get_text())
-
-#             chunks.append({
-#                 "chunk_id": f"table_{t_idx}_row_{r_idx}",
-#                 "type": "table_row",
-#                 "data": row_data
-#             })
-
-#     return chunks
-
-
-# # ✅ SECTION EXTRACTION (headings + paragraphs)
-# def extract_sections(soup):
-#     chunks = []
-
-#     current_section = None
-#     content_buffer = []
-
-#     for tag in soup.find_all(["h1", "h2", "h3", "p"]):
-
-#         if tag.name in ["h1", "h2", "h3"]:
-
-#             if current_section and content_buffer:
-#                 chunks.append({
-#                     "chunk_id": f"section_{len(chunks)}",
-#                     "type": "section",
-#                     "title": current_section,
-#                     "content": " ".join(content_buffer)
-#                 })
-#                 content_buffer = []
-
-#             current_section = clean_text(tag.get_text())
-
-#         elif tag.name == "p":
-#             text = clean_text(tag.get_text())
-#             if text:
-#                 content_buffer.append(text)
-
-#     if current_section and content_buffer:
-#         chunks.append({
-#             "chunk_id": f"section_{len(chunks)}",
-#             "type": "section",
-#             "title": current_section,
-#             "content": " ".join(content_buffer)
-#         })
-
-#     return chunks
-
-
-# # ✅ LIST EXTRACTION
-# def extract_lists(soup):
-#     chunks = []
-
-#     lists = soup.find_all("ul")
-
-#     for l_idx, ul in enumerate(lists):
-#         items = [clean_text(li.get_text()) for li in ul.find_all("li")]
-
-#         chunks.append({
-#             "chunk_id": f"list_{l_idx}",
-#             "type": "list",
-#             "items": items
-#         })
-
-#     return chunks
-
-
-# # ✅ MAIN CHUNK FUNCTION
-# def chunk_html(input_html_path, output_path):
-#     with open(input_html_path, "r", encoding="utf-8") as f:
-#         soup = BeautifulSoup(f, "html.parser")
-
-#     chunks = []
-
-#     try:
-#         chunks.extend(extract_tables(soup))
-#     except Exception as e:
-#         print(f"❌ Table extraction failed: {e}")
-
-#     try:
-#         chunks.extend(extract_sections(soup))
-#     except Exception as e:
-#         print(f"❌ Section extraction failed: {e}")
-
-#     try:
-#         chunks.extend(extract_lists(soup))
-#     except Exception as e:
-#         print(f"❌ List extraction failed: {e}")
-
-#     # 🔹 Save JSON
-#     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-
-#     with open(output_path, "w", encoding="utf-8") as f:
-#         json.dump(chunks, f, indent=2, ensure_ascii=False)
-
-#     print(f"✅ HTML chunks saved at: {output_path}")
-#     print(f"📦 Total chunks: {len(chunks)}")
-
-#     return chunks
-
-# # import os
-# # import json
-# # from bs4 import BeautifulSoup
-# # from html_to_json import clean_text
-
-# # # =========================
-# # # TABLE EXTRACTION (FIXED)
-# # # =========================
-# # def extract_tables(soup):
-# #     chunks = []
-# #     tables = soup.find_all("table")
-
-# #     for t_idx, table in enumerate(tables):
-# #         rows = table.find_all("tr")
-
-# #         if not rows:
-# #             continue
-
-# #         # STEP 1: Extract header rows
-# #         header_grid = []
-
-# #         for row in rows:
-# #             ths = row.find_all("th")
-# #             if not ths:
-# #                 break
-
-# #             current_row = []
-# #             for th in ths:
-# #                 current_row.append({
-# #                     "text": clean_text(th.get_text()),
-# #                     "colspan": int(th.get("colspan", 1)),
-# #                     "rowspan": int(th.get("rowspan", 1))
-# #                 })
-
-# #             header_grid.append(current_row)
-
-# #         # =========================
-# #         # STEP 2: Expand headers
-# #         # =========================
-# #         def expand_headers(header_grid):
-# #             grid = []
-
-# #             for r_idx, row in enumerate(header_grid):
-# #                 col_idx = 0
-
-# #                 if len(grid) <= r_idx:
-# #                     grid.append([])
-
-# #                 for cell in row:
-# #                     while col_idx < len(grid[r_idx]) and grid[r_idx][col_idx] is not None:
-# #                         col_idx += 1
-
-# #                     for i in range(cell["colspan"]):
-# #                         for j in range(cell["rowspan"]):
-# #                             while len(grid) <= r_idx + j:
-# #                                 grid.append([])
-
-# #                             while len(grid[r_idx + j]) <= col_idx + i:
-# #                                 grid[r_idx + j].append(None)
-
-# #                             grid[r_idx + j][col_idx + i] = cell["text"]
-
-# #                     col_idx += cell["colspan"]
-
-# #             return grid
-
-# #         expanded = expand_headers(header_grid)
-
-# #         # =========================
-# #         # STEP 3: Create headers safely
-# #         # =========================
-# #         if not expanded or not expanded[-1]:
-# #             # fallback: infer columns
-# #             first_row = None
-# #             for r in rows:
-# #                 tds = r.find_all("td")
-# #                 if tds:
-# #                     first_row = tds
-# #                     break
-
-# #             if not first_row:
-# #                 print(f"⚠️ Skipping empty table {t_idx}")
-# #                 continue
-
-# #             final_headers = [f"col_{i}" for i in range(len(first_row))]
-# #             data_start_idx = 0
-
-# #         else:
-# #             final_headers = []
-# #             num_cols = len(expanded[-1])
-
-# #             for col in range(num_cols):
-# #                 parts = []
-# #                 for row in expanded:
-# #                     if col < len(row) and row[col]:
-# #                         parts.append(row[col])
-
-# #                 # remove duplicates like "A | A | A"
-# #                 unique_parts = list(dict.fromkeys(parts))
-# #                 final_headers.append(" | ".join(unique_parts) if unique_parts else f"col_{col}")
-
-# #             data_start_idx = len(header_grid)
-
-# #         # =========================
-# #         # STEP 4: Merge broken rows (CRITICAL)
-# #         # =========================
-# #         data_rows = rows[data_start_idx:]
-
-# #         merged_rows = []
-# #         buffer = None
-
-# #         for row in data_rows:
-# #             cols = [clean_text(td.get_text()) for td in row.find_all("td")]
-
-# #             if not cols:
-# #                 continue
-
-# #             # new row starts
-# #             if cols[0]:
-# #                 if buffer:
-# #                     merged_rows.append(buffer)
-# #                 buffer = cols
-# #             else:
-# #                 # continuation row
-# #                 if buffer:
-# #                     for i in range(len(cols)):
-# #                         if i < len(buffer):
-# #                             buffer[i] += " " + cols[i]
-
-# #         if buffer:
-# #             merged_rows.append(buffer)
-
-# #         # =========================
-# #         # STEP 5: Convert to chunks
-# #         # =========================
-# #         for r_idx, cols in enumerate(merged_rows):
-# #             row_data = {}
-
-# #             for i, col in enumerate(cols):
-# #                 key = final_headers[i] if i < len(final_headers) else f"col_{i}"
-# #                 row_data[key] = col
-
-# #             chunks.append({
-# #                 "chunk_id": f"table_{t_idx}_row_{r_idx}",
-# #                 "type": "table_row",
-# #                 "data": row_data
-# #             })
-
-# #             return chunks
-# #         # STEP 2: Expand headers (safe)
-# #         def expand_headers(header_grid):
-# #             grid = []
-
-# #             for r_idx, row in enumerate(header_grid):
-# #                 col_idx = 0
-
-# #                 if len(grid) <= r_idx:
-# #                     grid.append([])
-
-# #                 for cell in row:
-# #                     while col_idx < len(grid[r_idx]) and grid[r_idx][col_idx] is not None:
-# #                         col_idx += 1
-
-# #                     for i in range(cell["colspan"]):
-# #                         for j in range(cell["rowspan"]):
-# #                             while len(grid) <= r_idx + j:
-# #                                 grid.append([])
-
-# #                             while len(grid[r_idx + j]) <= col_idx + i:
-# #                                 grid[r_idx + j].append(None)
-
-# #                             grid[r_idx + j][col_idx + i] = cell["text"]
-
-# #                     col_idx += cell["colspan"]
-
-# #             return grid
-
-# #         expanded = expand_headers(header_grid)
-
-# #         # =========================
-# #         # SAFE HEADER HANDLING
-# #         # =========================
-# #         if not expanded or len(expanded) == 0 or not expanded[-1]:
-# #             # fallback: use first valid row
-# #             first_row = None
-# #             for r in rows:
-# #                 tds = r.find_all("td")
-# #                 if tds:
-# #                     first_row = tds
-# #                     break
-
-# #             if not first_row:
-# #                 print(f"⚠️ Skipping empty table {t_idx}")
-# #                 continue
-
-# #             final_headers = [f"col_{i}" for i in range(len(first_row))]
-# #             data_start_idx = 0
-
-# #         else:
-# #             final_headers = []
-# #             num_cols = len(expanded[-1])
-
-# #             for col in range(num_cols):
-# #                 parts = []
-# #                 for row in expanded:
-# #                     if col < len(row) and row[col]:
-# #                         parts.append(row[col])
-
-# #                 final_headers.append(" | ".join(parts) if parts else f"col_{col}")
-
-# #             data_start_idx = len(header_grid)
-
-# #         # =========================
-# #         # EXTRACT DATA ROWS
-# #         # =========================
-# #         data_rows = rows[data_start_idx:]
-
-# #         for r_idx, row in enumerate(data_rows):
-# #             cols = row.find_all("td")
-
-# #             if not cols:
-# #                 continue
-
-# #             row_data = {}
-
-# #             for i, td in enumerate(cols):
-# #                 key = final_headers[i] if i < len(final_headers) else f"col_{i}"
-# #                 row_data[key] = clean_text(td.get_text())
-
-# #             chunks.append({
-# #                 "chunk_id": f"table_{t_idx}_row_{r_idx}",
-# #                 "type": "table_row",
-# #                 "data": row_data
-# #             })
-
-# #     return chunks
-
-
-# # # =========================
-# # # SECTION EXTRACTION
-# # # =========================
-# # def extract_sections(soup):
-# #     chunks = []
-# #     current_section = None
-# #     buffer = []
-
-# #     for tag in soup.find_all(["h1", "h2", "h3", "p"]):
-# #         if tag.name in ["h1", "h2", "h3"]:
-# #             if current_section and buffer:
-# #                 chunks.append({
-# #                     "chunk_id": f"section_{len(chunks)}",
-# #                     "type": "section",
-# #                     "title": current_section,
-# #                     "content": " ".join(buffer)
-# #                 })
-# #                 buffer = []
-
-# #             current_section = clean_text(tag.get_text())
-
-# #         elif tag.name == "p":
-# #             text = clean_text(tag.get_text())
-# #             if text:
-# #                 buffer.append(text)
-
-# #     if current_section and buffer:
-# #         chunks.append({
-# #             "chunk_id": f"section_{len(chunks)}",
-# #             "type": "section",
-# #             "title": current_section,
-# #             "content": " ".join(buffer)
-# #         })
-
-# #     return chunks
-
-
-# # # =========================
-# # # LIST EXTRACTION
-# # # =========================
-# # def extract_lists(soup):
-# #     chunks = []
-
-# #     for i, ul in enumerate(soup.find_all("ul")):
-# #         items = [clean_text(li.get_text()) for li in ul.find_all("li")]
-
-# #         chunks.append({
-# #             "chunk_id": f"list_{i}",
-# #             "type": "list",
-# #             "items": items
-# #         })
-
-# #     return chunks
-
-
-# # # =========================
-# # # MAIN CHUNK FUNCTION
-# # # =========================
-# # def chunk_html(input_html_path, output_path):
-# #     with open(input_html_path, "r", encoding="utf-8") as f:
-# #         soup = BeautifulSoup(f, "html.parser")
-
-# #     chunks = []
-
-# #     # Safe execution
-# #     try:
-# #         chunks.extend(extract_tables(soup))
-# #     except Exception as e:
-# #         print(f"❌ Table extraction failed: {e}")
-
-# #     try:
-# #         chunks.extend(extract_sections(soup))
-# #     except Exception as e:
-# #         print(f"❌ Section extraction failed: {e}")
-
-# #     try:
-# #         chunks.extend(extract_lists(soup))
-# #     except Exception as e:
-# #         print(f"❌ List extraction failed: {e}")
-
-# #     # Ensure output folder exists
-# #     output_dir = os.path.dirname(output_path)
-# #     if output_dir:
-# #         os.makedirs(output_dir, exist_ok=True)
-
-# #     # Save JSON
-# #     with open(output_path, "w", encoding="utf-8") as f:
-# #         json.dump(chunks, f, indent=2, ensure_ascii=False)
-
-# #     print(f"✅ HTML chunks saved at: {output_path}")
-# #     print(f"📦 Total chunks: {len(chunks)}")
-
-# #     return chunks
-
-
-
-
 import os, json, re
 from bs4 import BeautifulSoup, Tag
 
-# ══════════════════════════════════════════════════════════════════
 # UTILITIES
-# ══════════════════════════════════════════════════════════════════
+
 
 def clean(text):
     if not text:
@@ -590,11 +40,7 @@ def classify_table(table):
         return "total_cost"
     return "junk"
 
-
-# ══════════════════════════════════════════════════════════════════
 # GRID ENGINE  (rowspan / colspan → flat dict)
-# ══════════════════════════════════════════════════════════════════
-
 def build_grid(rows):
     grid, is_header, rowspan_src = {}, {}, {}
     for r_idx, row in enumerate(rows):
@@ -655,11 +101,7 @@ def parent_col_index(grid, rowspan_src, hrc, num_rows, num_cols):
     m = min(orig)
     return orig.index(m) if m < (num_rows - hrc) else 0
 
-
-# ══════════════════════════════════════════════════════════════════
 # CROSS-PAGE TABLE STITCHER
-# ══════════════════════════════════════════════════════════════════
-
 def stitch_benefit_tables(tables):
     """
     Docling splits the benefits table across page breaks.  Each fragment
@@ -700,10 +142,7 @@ def stitch_benefit_tables(tables):
 
     return merged_rows, orphan_limitations
 
-
-# ══════════════════════════════════════════════════════════════════
 # BENEFIT TABLE CHUNKER
-# ══════════════════════════════════════════════════════════════════
 
 NONE_PATTERN = re.compile(r"^-+None-+$")
 PREAUTH_PATTERN = re.compile(r"preauthorization", re.I)
@@ -743,7 +182,7 @@ def extract_benefit_chunks(tables):
         if not any(row_data.values()):
             continue
 
-        # ── parent entity tracking ────────────────────────────────
+        # parent entity tracking 
         if pcol is not None:
             pk      = col_lbls[pcol]
             src_row = rowspan_src.get((r, pcol), r)
@@ -767,18 +206,18 @@ def extract_benefit_chunks(tables):
         chunks.append({
             "chunk_id"        : f"benefit_{len(chunks):03d}",
             "type"            : "benefit_service",
-            # ── relationship ──────────────────────────────────────
+            # relationship 
             "medical_event"   : entity_label,
             "medical_event_id": entity_id,
-            # ── service identity ──────────────────────────────────
+            # service identity 
             "service"         : service,
-            # ── cost data ─────────────────────────────────────────
+            # cost data 
             "network_cost"    : net_cost,
             "out_of_network_cost": oon_cost,
-            # ── policy detail ─────────────────────────────────────
+            # policy detail 
             "limitations"     : limits,
             "requires_preauth": bool(PREAUTH_PATTERN.search(limits)),
-            # ── full row for completeness ─────────────────────────
+            # full row for completeness 
             "raw": row_data,
         })
 
@@ -793,11 +232,7 @@ def extract_benefit_chunks(tables):
 
     return chunks
 
-
-# ══════════════════════════════════════════════════════════════════
 # IMPORTANT QUESTIONS CHUNKER
-# ══════════════════════════════════════════════════════════════════
-
 def extract_important_questions(table):
     rows  = table.find_all("tr")
     grid, _, _, num_cols = build_grid(rows)
@@ -818,11 +253,7 @@ def extract_important_questions(table):
         })
     return chunks
 
-
-# ══════════════════════════════════════════════════════════════════
 # COVERAGE EXAMPLE ASSEMBLER
-# ══════════════════════════════════════════════════════════════════
-
 def assemble_coverage_examples(soup):
     """
     Each example has this DOM pattern:
@@ -949,53 +380,86 @@ def assemble_coverage_examples(soup):
             "patient_total"    : ex["patient_total"],
         })
     return chunks
-
-
-# ══════════════════════════════════════════════════════════════════
-# EXCLUDED / OTHER COVERED SERVICES
-# ══════════════════════════════════════════════════════════════════
-
 def extract_service_lists(soup):
-    chunks  = []
+    chunks = []
     current_heading = ""
+    current_type = None
 
-    for el in soup.find_all(["h2", "ul", "p"]):
-        if el.name == "h2":
-            current_heading = clean(el.get_text())
-        elif el.name == "ul":
-            is_excluded = "not cover" in current_heading.lower()
-            is_other    = "other covered" in current_heading.lower()
-            if not (is_excluded or is_other):
-                continue
+    # We process in document order
+    for el in soup.find_all(["h2", "h3", "p", "ul"]):
+
+        text = clean(el.get_text())
+        low = text.lower()
+
+        # ---------------------------------------------------
+        # 1. SECTION DETECTION (from <p>, NOT <h2>)
+        # ---------------------------------------------------
+        if el.name == "p":
+
+            if "does not cover" in low:
+                current_type = "excluded_service"
+                current_heading = text
+
+            elif "other covered services" in low:
+                current_type = "other_covered_service"
+                current_heading = text
+
+            continue
+
+        # ---------------------------------------------------
+        # 2. IGNORE <h2>/<h3> (they are NOT reliable here)
+        # ---------------------------------------------------
+        if el.name in ("h2", "h3"):
+            continue
+
+        # ---------------------------------------------------
+        # 3. EXTRACT SERVICES
+        # ---------------------------------------------------
+        if el.name == "ul" and current_type:
+
             for li in el.find_all("li"):
                 txt = clean(li.get_text())
+
                 if txt:
                     chunks.append({
                         "chunk_id": f"svc_list_{len(chunks):03d}",
-                        "type"    : "excluded_service" if is_excluded else "other_covered_service",
-                        "service" : txt,
-                        "section" : current_heading,
+                        "type": current_type,
+                        "service": txt,
+                        "section": current_heading,
                     })
-    # Also rescue the malformed table overflow (purposes / Hearing Aids / Bariatric)
+
+    # ---------------------------------------------------
+    # 4. RESCUE JUNK TABLES (unchanged but safer tagging)
+    # ---------------------------------------------------
     for table in soup.find_all("table"):
         if classify_table(table) == "junk":
-            rows = table.find_all("tr")
-            for row in rows:
-                for cell in row.find_all("td"):
-                    txt = clean(cell.get_text())
-                    if txt and txt.lower() not in ("purposes)", ""):
-                        chunks.append({
-                            "chunk_id": f"svc_list_{len(chunks):03d}",
-                            "type"    : "other_covered_service",
-                            "service" : txt,
-                            "section" : "Other Covered Services (rescued)",
-                        })
+
+            for cell in table.find_all("td"):
+                txt = clean(cell.get_text())
+
+                if not txt or len(txt) <= 5:
+                    continue
+
+                if txt.lower() in ("purposes)", ""):
+                    continue
+
+                nearby_text = table.get_text(" ").lower()
+
+                if "does not cover" in nearby_text or "exclud" in nearby_text:
+                    chunk_type = "excluded_service"
+                else:
+                    chunk_type = "other_covered_service"
+
+                chunks.append({
+                    "chunk_id": f"svc_list_{len(chunks):03d}",
+                    "type": chunk_type,
+                    "service": txt,
+                    "section": "Rescued from table",
+                })
+
     return chunks
 
-
-# ══════════════════════════════════════════════════════════════════
 # SECTION / PREAMBLE / FOOTNOTE CHUNKERS
-# ══════════════════════════════════════════════════════════════════
 
 _FOOTNOTE_RE = re.compile(
     r"^(note:|all copayment|this is only a summary|about these coverage|"
@@ -1068,10 +532,7 @@ def extract_prose(soup):
         })
     return chunks
 
-
-# ══════════════════════════════════════════════════════════════════
 # PLAN METADATA
-# ══════════════════════════════════════════════════════════════════
 
 def extract_plan_metadata(soup):
     """Pull coverage type and period from the top of the document."""
@@ -1095,10 +556,7 @@ def extract_plan_metadata(soup):
         "raw_header_texts": texts[:5],
     }]
 
-
-# ══════════════════════════════════════════════════════════════════
 # MAIN ENTRY POINT
-# ══════════════════════════════════════════════════════════════════
 
 def chunk_html(input_html_path, output_path):
     with open(input_html_path, "r", encoding="utf-8") as f:
