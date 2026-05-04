@@ -255,6 +255,7 @@ UPGRADE PRINCIPLES:
 
 from __future__ import annotations
 from typing import Any
+import re
 
 PLAN_NODE = "HealthPlan"
 
@@ -319,64 +320,168 @@ def _important_question(chunk, E, R, A):
 # ─────────────────────────────
 # BENEFIT SERVICE (MAJOR UPGRADE)
 # ─────────────────────────────
+import re
+
+def parse_cost_string(cost_str: str) -> dict:
+    """Smart parser for cost descriptions"""
+    if not cost_str or cost_str.strip() == "":
+        return {}
+    
+    cost_str = cost_str.lower().strip()
+    result = {
+        "raw": cost_str,
+        "copay": None,
+        "coinsurance": None,
+        "deductible_applies": True,
+        "notes": []
+    }
+    
+    # Extract copay
+    copay_match = re.search(r'(\$\d+[\s-]?(?:copay|per visit|per test|per day|office visit))', cost_str)
+    if copay_match:
+        result["copay"] = copay_match.group(1).strip()
+    
+    # Extract coinsurance
+    coin_match = re.search(r'(\d+%)[\s-]?coinsurance', cost_str)
+    if coin_match:
+        result["coinsurance"] = coin_match.group(1)
+    
+    # Deductible note
+    if "deductible does not apply" in cost_str or "before deductible" in cost_str:
+        result["deductible_applies"] = False
+        result["notes"].append("deductible does not apply")
+    
+    # Preauth in cost field (sometimes it's mixed)
+    if "preauthorization" in cost_str:
+        result["notes"].append("preauthorization required")
+    
+    return result
+
 
 def _benefit_service(chunk, E, R, A):
-    event   = _s(chunk.get("medical_event"))
+    event = _s(chunk.get("medical_event"))
     service = _s(chunk.get("service"))
-
-    net     = _s(chunk.get("network_cost"))
-    oon     = _s(chunk.get("out_of_network_cost"))
-    limits  = _s(chunk.get("limitations"))
-    preauth = chunk.get("requires_preauth", False)
-    copay   = _s(chunk.get("copay"))
-    coins   = _s(chunk.get("coinsurance"))
-
     if not service:
         return
+
+    net_raw = _s(chunk.get("network_cost"))
+    oon_raw = _s(chunk.get("out_of_network_cost"))
+    limitations = _s(chunk.get("limitations"))
+    requires_preauth = chunk.get("requires_preauth", False)
 
     E.add(PLAN_NODE)
     E.add(service)
 
-    # ── EVENT STRUCTURE ─────────────────────────────
+    # Medical Event relationship
     if event:
         _add(E, R, PLAN_NODE, "HAS_MEDICAL_EVENT", event)
         _add(E, R, event, "INCLUDES_SERVICE", service)
     else:
         _add(E, R, PLAN_NODE, "HAS_BENEFIT_SERVICE", service)
 
-    # ── COST → NODE (IMPORTANT UPGRADE) ─────────────
-    if net:
-        cost_node = f"{service} | NetworkCost"
-        _add(E, R, service, "HAS_COST", cost_node)
-        _add_attr(A, cost_node, "type", "network")
-        _add_attr(A, cost_node, "value", net)
+    # === NETWORK COST ===
+    if net_raw:
+        net_node = f"{service} | Network"
+        _add(E, R, service, "HAS_NETWORK_COST", net_node)
+        _add_attr(A, net_node, "raw", net_raw)
 
-    if oon:
-        cost_node = f"{service} | OutOfNetworkCost"
-        _add(E, R, service, "HAS_COST", cost_node)
-        _add_attr(A, cost_node, "type", "out_of_network")
-        _add_attr(A, cost_node, "value", oon)
+        parsed_net = parse_cost_string(net_raw)
+        
+        if parsed_net["copay"]:
+            copay_node = f"{service} | Network | Copay"
+            _add(E, R, net_node, "HAS_COPAY", copay_node)
+            _add_attr(A, copay_node, "value", parsed_net["copay"])
+        
+        if parsed_net["coinsurance"]:
+            coin_node = f"{service} | Network | Coinsurance"
+            _add(E, R, net_node, "HAS_COINSURANCE", coin_node)
+            _add_attr(A, coin_node, "value", parsed_net["coinsurance"])
 
-    # ── LIMITATIONS → NODE ─────────────────────────
-    if limits:
+        if not parsed_net["deductible_applies"]:
+            _add(E, R, net_node, "DEDUCTIBLE_DOES_NOT_APPLY", "true")
+
+    # === OUT-OF-NETWORK COST ===
+    if oon_raw:
+        oon_node = f"{service} | OutOfNetwork"
+        _add(E, R, service, "HAS_OUT_OF_NETWORK_COST", oon_node)
+        _add_attr(A, oon_node, "raw", oon_raw)
+
+        parsed_oon = parse_cost_string(oon_raw)
+        
+        if parsed_oon["copay"]:
+            _add(E, R, oon_node, "HAS_COPAY", f"{service} | OON | Copay")
+        if parsed_oon["coinsurance"]:
+            coin_node = f"{service} | OutOfNetwork | Coinsurance"
+            _add(E, R, oon_node, "HAS_COINSURANCE", coin_node)
+            _add_attr(A, coin_node, "value", parsed_oon["coinsurance"])
+
+    # === LIMITATIONS ===
+    if limitations and limitations.lower() not in ["none", "---------none---------", ""]:
         lim_node = f"{service} | Limitation"
         _add(E, R, service, "HAS_LIMITATION", lim_node)
-        _add_attr(A, lim_node, "text", limits)
+        _add_attr(A, lim_node, "text", limitations)
 
-    # ── PREAUTH → NODE ─────────────────────────────
-    if preauth:
+    # === PREAUTH ===
+    if requires_preauth or "preauthorization" in (net_raw + oon_raw + limitations).lower():
         _add(E, R, service, "REQUIRES", "Preauthorization")
 
-    # ── COPAY / COINSURANCE → NODE ────────────────
-    if copay:
-        copay_node = f"{service} | Copay"
-        _add(E, R, service, "HAS_COPAY", copay_node)
-        _add_attr(A, copay_node, "value", copay)
+# def _benefit_service(chunk, E, R, A):
+#     event   = _s(chunk.get("medical_event"))
+#     service = _s(chunk.get("service"))
 
-    if coins:
-        coin_node = f"{service} | Coinsurance"
-        _add(E, R, service, "HAS_COINSURANCE", coin_node)
-        _add_attr(A, coin_node, "value", coins)
+#     net     = _s(chunk.get("network_cost"))
+#     oon     = _s(chunk.get("out_of_network_cost"))
+#     limits  = _s(chunk.get("limitations"))
+#     preauth = chunk.get("requires_preauth", False)
+#     copay   = _s(chunk.get("copay"))
+#     coins   = _s(chunk.get("coinsurance"))
+
+#     if not service:
+#         return
+
+#     E.add(PLAN_NODE)
+#     E.add(service)
+
+#     # ── EVENT STRUCTURE ─────────────────────────────
+#     if event:
+#         _add(E, R, PLAN_NODE, "HAS_MEDICAL_EVENT", event)
+#         _add(E, R, event, "INCLUDES_SERVICE", service)
+#     else:
+#         _add(E, R, PLAN_NODE, "HAS_BENEFIT_SERVICE", service)
+
+#     # ── COST → NODE (IMPORTANT UPGRADE) ─────────────
+#     if net:
+#         cost_node = f"{service} | NetworkCost"
+#         _add(E, R, service, "HAS_COST", cost_node)
+#         _add_attr(A, cost_node, "type", "network")
+#         _add_attr(A, cost_node, "value", net)
+
+#     if oon:
+#         cost_node = f"{service} | OutOfNetworkCost"
+#         _add(E, R, service, "HAS_COST", cost_node)
+#         _add_attr(A, cost_node, "type", "out_of_network")
+#         _add_attr(A, cost_node, "value", oon)
+
+#     # ── LIMITATIONS → NODE ─────────────────────────
+#     if limits:
+#         lim_node = f"{service} | Limitation"
+#         _add(E, R, service, "HAS_LIMITATION", lim_node)
+#         _add_attr(A, lim_node, "text", limits)
+
+#     # ── PREAUTH → NODE ─────────────────────────────
+#     if preauth:
+#         _add(E, R, service, "REQUIRES", "Preauthorization")
+
+#     # ── COPAY / COINSURANCE → NODE ────────────────
+#     if copay:
+#         copay_node = f"{service} | Copay"
+#         _add(E, R, service, "HAS_COPAY", copay_node)
+#         _add_attr(A, copay_node, "value", copay)
+
+#     if coins:
+#         coin_node = f"{service} | Coinsurance"
+#         _add(E, R, service, "HAS_COINSURANCE", coin_node)
+#         _add_attr(A, coin_node, "value", coins)
 
 
 # ─────────────────────────────

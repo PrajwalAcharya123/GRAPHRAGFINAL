@@ -382,40 +382,59 @@ def assemble_coverage_examples(soup):
     return chunks
 def extract_service_lists(soup):
     chunks = []
-    current_heading = ""
-    current_type = None
 
-    # We process in document order
-    for el in soup.find_all(["h2", "h3", "p", "ul"]):
+    # ---------------------------------------------------
+    # 1. BUILD SECTION MAP FROM h2 HEADERS
+    # ---------------------------------------------------
+    sections = {}
+
+    current_section = None
+
+    for el in soup.find_all(["h2", "p", "ul"]):
 
         text = clean(el.get_text())
         low = text.lower()
 
-        # ---------------------------------------------------
-        # 1. SECTION DETECTION (from <p>, NOT <h2>)
-        # ---------------------------------------------------
-        if el.name == "p":
+        # Detect SECTION STARTS (IMPORTANT FIX)
+        if el.name == "h2":
+            current_section = None
 
-            if "does not cover" in low:
-                current_type = "excluded_service"
-                current_heading = text
+            if "excluded services" in low:
+                current_section = "excluded_service"
 
             elif "other covered services" in low:
-                current_type = "other_covered_service"
-                current_heading = text
+                current_section = "other_covered_service"
 
             continue
 
-        # ---------------------------------------------------
-        # 2. IGNORE <h2>/<h3> (they are NOT reliable here)
-        # ---------------------------------------------------
-        if el.name in ("h2", "h3"):
+        # refine section type using paragraph context
+        if el.name == "p" and current_section:
+            # attach description but do NOT change type
+            sections[current_section] = text
             continue
 
         # ---------------------------------------------------
-        # 3. EXTRACT SERVICES
+        # 2. PROCESS UL USING NEAREST h2 CONTEXT
         # ---------------------------------------------------
-        if el.name == "ul" and current_type:
+        if el.name == "ul":
+
+            # find nearest preceding h2
+            prev_h2 = el.find_previous("h2")
+            if not prev_h2:
+                continue
+
+            prev_text = clean(prev_h2.get_text()).lower()
+
+            if "excluded services" in prev_text:
+                chunk_type = "excluded_service"
+                section_name = clean(prev_h2.get_text())
+
+            elif "other covered services" in prev_text:
+                chunk_type = "other_covered_service"
+                section_name = clean(prev_h2.get_text())
+
+            else:
+                continue
 
             for li in el.find_all("li"):
                 txt = clean(li.get_text())
@@ -423,39 +442,37 @@ def extract_service_lists(soup):
                 if txt:
                     chunks.append({
                         "chunk_id": f"svc_list_{len(chunks):03d}",
-                        "type": current_type,
+                        "type": chunk_type,
                         "service": txt,
-                        "section": current_heading,
+                        "section": section_name,
                     })
 
     # ---------------------------------------------------
-    # 4. RESCUE JUNK TABLES (unchanged but safer tagging)
+    # 3. TABLE FALLBACK (FIXED: no per-cell guessing)
     # ---------------------------------------------------
     for table in soup.find_all("table"):
-        if classify_table(table) == "junk":
 
-            for cell in table.find_all("td"):
-                txt = clean(cell.get_text())
+        table_text = table.get_text(" ").lower()
 
-                if not txt or len(txt) <= 5:
-                    continue
+        if "excluded services" in table_text:
+            chunk_type = "excluded_service"
+        elif "other covered services" in table_text:
+            chunk_type = "other_covered_service"
+        else:
+            continue
 
-                if txt.lower() in ("purposes)", ""):
-                    continue
+        for cell in table.find_all("td"):
+            txt = clean(cell.get_text())
 
-                nearby_text = table.get_text(" ").lower()
+            if not txt or len(txt) < 3:
+                continue
 
-                if "does not cover" in nearby_text or "exclud" in nearby_text:
-                    chunk_type = "excluded_service"
-                else:
-                    chunk_type = "other_covered_service"
-
-                chunks.append({
-                    "chunk_id": f"svc_list_{len(chunks):03d}",
-                    "type": chunk_type,
-                    "service": txt,
-                    "section": "Rescued from table",
-                })
+            chunks.append({
+                "chunk_id": f"svc_list_{len(chunks):03d}",
+                "type": chunk_type,
+                "service": txt,
+                "section": "Table Extracted",
+            })
 
     return chunks
 

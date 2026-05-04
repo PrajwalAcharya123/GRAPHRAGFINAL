@@ -72,7 +72,7 @@ COMBINED_HTML = os.path.join(BASE_DIR, "output", "combined.html")
 
 #  FIXED PATHS
 output_dir = os.path.join(BASE_DIR, "output")
-chunk_path = os.path.join(output_dir, "chunksforllm.json")
+chunk_path = os.path.join(output_dir, "chunksforllm2.json")
 
 
 def main():

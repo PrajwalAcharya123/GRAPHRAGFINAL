@@ -2501,3 +2501,1631 @@ Section: Language Access Services: [section_007] -[CONTENT]-> [Spanish (Español
 Section: About these Coverage Examples: [section_008] -[CONTENT]-> This is not a cost estimator. Treatments shown are just examples of how this plan might cover medical care. Your actual costs will be different depending on the actual care you receive, the prices your providers charge, and many other factors. Focus on the cost sharing amounts (deductibles, copayments and coinsurance) and excluded services under the plan. Use this information to compare the portion of costs you might pay under different health plans. Please note these coverage examples are based on self-only coverage. This EXAMPLE event includes services like: In this example, Peg would pay: This EXAMPLE event includes services like: In this example, Joe would pay:
 Footnote [footnote_009] -[CONTENT]-> Note: These numbers assume the patient does not participate in the plan’s wellness program. If you participate in the plan’s wellness program, you may be able to reduce your costs. For more information about the wellness program, please contact: [insert].
 Section: Mia’s Simple Fracture [section_010] -[CONTENT]-> This EXAMPLE event includes services like: In this example, Mia would pay: The plan would be responsible for the other costs of these EXA
+HealthPlan -[COVERS]-> Coverage for: Family | Plan Type: PPO
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is the overall deductible?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Are there services covered before you meet your deductible?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Are there other deductibles for specific services?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is the out-of-pocket limit for this plan?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is not included in the out-of-pocket limit?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Will you pay less if you use a network provider?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Do you need a referral to see a specialist?
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Primary care visit to treat an injury or illness
+Primary care visit to treat an injury or illness -[HAS_NETWORK_COST]-> Primary care visit to treat an injury or illness | Network
+Primary care visit to treat an injury or illness | Network -[HAS_COPAY]-> Primary care visit to treat an injury or illness | Network | Copay
+Primary care visit to treat an injury or illness | Network -[HAS_COINSURANCE]-> Primary care visit to treat an injury or illness | Network | Coinsurance
+Primary care visit to treat an injury or illness | Network -[DEDUCTIBLE_DOES_NOT_APPLY]-> true
+Primary care visit to treat an injury or illness -[HAS_OUT_OF_NETWORK_COST]-> Primary care visit to treat an injury or illness | OutOfNetwork
+Primary care visit to treat an injury or illness | OutOfNetwork -[HAS_COINSURANCE]-> Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Specialist visit
+Specialist visit -[HAS_NETWORK_COST]-> Specialist visit | Network
+Specialist visit | Network -[HAS_COPAY]-> Specialist visit | Network | Copay
+Specialist visit -[HAS_OUT_OF_NETWORK_COST]-> Specialist visit | OutOfNetwork
+Specialist visit | OutOfNetwork -[HAS_COINSURANCE]-> Specialist visit | OutOfNetwork | Coinsurance
+Specialist visit -[HAS_LIMITATION]-> Specialist visit | Limitation
+Specialist visit -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Preventive care/screening/immunization
+Preventive care/screening/immunization -[HAS_NETWORK_COST]-> Preventive care/screening/immunization | Network
+Preventive care/screening/immunization -[HAS_OUT_OF_NETWORK_COST]-> Preventive care/screening/immunization | OutOfNetwork
+Preventive care/screening/immunization | OutOfNetwork -[HAS_COINSURANCE]-> Preventive care/screening/immunization | OutOfNetwork | Coinsurance
+Preventive care/screening/immunization -[HAS_LIMITATION]-> Preventive care/screening/immunization | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a test
+If you have a test -[INCLUDES_SERVICE]-> Diagnostic test (x-ray, blood work)
+Diagnostic test (x-ray, blood work) -[HAS_NETWORK_COST]-> Diagnostic test (x-ray, blood work) | Network
+Diagnostic test (x-ray, blood work) | Network -[HAS_COPAY]-> Diagnostic test (x-ray, blood work) | Network | Copay
+Diagnostic test (x-ray, blood work) -[HAS_OUT_OF_NETWORK_COST]-> Diagnostic test (x-ray, blood work) | OutOfNetwork
+Diagnostic test (x-ray, blood work) | OutOfNetwork -[HAS_COINSURANCE]-> Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a test
+If you have a test -[INCLUDES_SERVICE]-> Imaging (CT/PET scans, MRIs)
+Imaging (CT/PET scans, MRIs) -[HAS_NETWORK_COST]-> Imaging (CT/PET scans, MRIs) | Network
+Imaging (CT/PET scans, MRIs) | Network -[HAS_COPAY]-> Imaging (CT/PET scans, MRIs) | Network | Copay
+Imaging (CT/PET scans, MRIs) -[HAS_OUT_OF_NETWORK_COST]-> Imaging (CT/PET scans, MRIs) | OutOfNetwork
+Imaging (CT/PET scans, MRIs) | OutOfNetwork -[HAS_COINSURANCE]-> Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Generic drugs (Tier 1) (retail & mail order)
+Generic drugs (Tier 1) (retail & mail order) -[HAS_NETWORK_COST]-> Generic drugs (Tier 1) (retail & mail order) | Network
+Generic drugs (Tier 1) (retail & mail order) | Network -[HAS_COPAY]-> Generic drugs (Tier 1) (retail & mail order) | Network | Copay
+Generic drugs (Tier 1) (retail & mail order) -[HAS_OUT_OF_NETWORK_COST]-> Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork -[HAS_COINSURANCE]-> Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance
+Generic drugs (Tier 1) (retail & mail order) -[HAS_LIMITATION]-> Generic drugs (Tier 1) (retail & mail order) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Preferred brand drugs (Tier 2) (retail & mail order)
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_NETWORK_COST]-> Preferred brand drugs (Tier 2) (retail & mail order) | Network
+Preferred brand drugs (Tier 2) (retail & mail order) | Network -[HAS_COPAY]-> Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_OUT_OF_NETWORK_COST]-> Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork -[HAS_COINSURANCE]-> Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_LIMITATION]-> Preferred brand drugs (Tier 2) (retail & mail order) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Non-preferred brand drugs (Tier 3)
+Non-preferred brand drugs (Tier 3) -[HAS_NETWORK_COST]-> Non-preferred brand drugs (Tier 3) | Network
+Non-preferred brand drugs (Tier 3) | Network -[HAS_COINSURANCE]-> Non-preferred brand drugs (Tier 3) | Network | Coinsurance
+Non-preferred brand drugs (Tier 3) -[HAS_OUT_OF_NETWORK_COST]-> Non-preferred brand drugs (Tier 3) | OutOfNetwork
+Non-preferred brand drugs (Tier 3) | OutOfNetwork -[HAS_COINSURANCE]-> Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance
+Non-preferred brand drugs (Tier 3) -[HAS_LIMITATION]-> Non-preferred brand drugs (Tier 3) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Specialty drugs (Tier 4)
+Specialty drugs (Tier 4) -[HAS_NETWORK_COST]-> Specialty drugs (Tier 4) | Network
+Specialty drugs (Tier 4) | Network -[HAS_COINSURANCE]-> Specialty drugs (Tier 4) | Network | Coinsurance
+Specialty drugs (Tier 4) -[HAS_OUT_OF_NETWORK_COST]-> Specialty drugs (Tier 4) | OutOfNetwork
+Specialty drugs (Tier 4) | OutOfNetwork -[HAS_COINSURANCE]-> Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance
+Specialty drugs (Tier 4) -[HAS_LIMITATION]-> Specialty drugs (Tier 4) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have outpatient surgery
+If you have outpatient surgery -[INCLUDES_SERVICE]-> Facility fee (e.g., ambulatory surgery center)
+Facility fee (e.g., ambulatory surgery center) -[HAS_NETWORK_COST]-> Facility fee (e.g., ambulatory surgery center) | Network
+Facility fee (e.g., ambulatory surgery center) -[HAS_OUT_OF_NETWORK_COST]-> Facility fee (e.g., ambulatory surgery center) | OutOfNetwork
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork -[HAS_COINSURANCE]-> Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance
+Facility fee (e.g., ambulatory surgery center) -[HAS_LIMITATION]-> Facility fee (e.g., ambulatory surgery center) | Limitation
+Facility fee (e.g., ambulatory surgery center) -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have outpatient surgery
+If you have outpatient surgery -[INCLUDES_SERVICE]-> Physician/surgeon fees
+Physician/surgeon fees -[HAS_NETWORK_COST]-> Physician/surgeon fees | Network
+Physician/surgeon fees | Network -[HAS_COINSURANCE]-> Physician/surgeon fees | Network | Coinsurance
+Physician/surgeon fees -[HAS_OUT_OF_NETWORK_COST]-> Physician/surgeon fees | OutOfNetwork
+Physician/surgeon fees | OutOfNetwork -[HAS_COINSURANCE]-> Physician/surgeon fees | OutOfNetwork | Coinsurance
+Physician/surgeon fees -[HAS_LIMITATION]-> Physician/surgeon fees | Limitation
+Physician/surgeon fees -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Emergency room care
+Emergency room care -[HAS_NETWORK_COST]-> Emergency room care | Network
+Emergency room care | Network -[HAS_COINSURANCE]-> Emergency room care | Network | Coinsurance
+Emergency room care -[HAS_OUT_OF_NETWORK_COST]-> Emergency room care | OutOfNetwork
+Emergency room care | OutOfNetwork -[HAS_COINSURANCE]-> Emergency room care | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Emergency medical transportation
+Emergency medical transportation -[HAS_NETWORK_COST]-> Emergency medical transportation | Network
+Emergency medical transportation | Network -[HAS_COINSURANCE]-> Emergency medical transportation | Network | Coinsurance
+Emergency medical transportation -[HAS_OUT_OF_NETWORK_COST]-> Emergency medical transportation | OutOfNetwork
+Emergency medical transportation | OutOfNetwork -[HAS_COINSURANCE]-> Emergency medical transportation | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Urgent care
+Urgent care -[HAS_NETWORK_COST]-> Urgent care | Network
+Urgent care | Network -[HAS_COPAY]-> Urgent care | Network | Copay
+Urgent care -[HAS_OUT_OF_NETWORK_COST]-> Urgent care | OutOfNetwork
+Urgent care | OutOfNetwork -[HAS_COINSURANCE]-> Urgent care | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a hospital stay
+If you have a hospital stay -[INCLUDES_SERVICE]-> Facility fee (e.g., hospital room)
+Facility fee (e.g., hospital room) -[HAS_NETWORK_COST]-> Facility fee (e.g., hospital room) | Network
+Facility fee (e.g., hospital room) | Network -[HAS_COINSURANCE]-> Facility fee (e.g., hospital room) | Network | Coinsurance
+Facility fee (e.g., hospital room) -[HAS_OUT_OF_NETWORK_COST]-> Facility fee (e.g., hospital room) | OutOfNetwork
+Facility fee (e.g., hospital room) | OutOfNetwork -[HAS_COINSURANCE]-> Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance
+Facility fee (e.g., hospital room) -[HAS_LIMITATION]-> Facility fee (e.g., hospital room) | Limitation
+Facility fee (e.g., hospital room) -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> Physician/surgeon fees
+Physician/surgeon fees -[INCLUDES_SERVICE]-> 20% coinsurance
+20% coinsurance -[HAS_NETWORK_COST]-> 20% coinsurance | Network
+20% coinsurance | Network -[HAS_COINSURANCE]-> 20% coinsurance | Network | Coinsurance
+20% coinsurance -[HAS_OUT_OF_NETWORK_COST]-> 20% coinsurance | OutOfNetwork
+20% coinsurance | OutOfNetwork -[HAS_COINSURANCE]-> 20% coinsurance | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need mental health, behavioral health, or substance abuse services
+If you need mental health, behavioral health, or substance abuse services -[INCLUDES_SERVICE]-> Outpatient services
+Outpatient services -[HAS_NETWORK_COST]-> Outpatient services | Network
+Outpatient services | Network -[HAS_COPAY]-> Outpatient services | Network | Copay
+Outpatient services | Network -[HAS_COINSURANCE]-> Outpatient services | Network | Coinsurance
+Outpatient services -[HAS_OUT_OF_NETWORK_COST]-> Outpatient services | OutOfNetwork
+Outpatient services | OutOfNetwork -[HAS_COINSURANCE]-> Outpatient services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need mental health, behavioral health, or substance abuse services
+If you need mental health, behavioral health, or substance abuse services -[INCLUDES_SERVICE]-> Inpatient services
+Inpatient services -[HAS_NETWORK_COST]-> Inpatient services | Network
+Inpatient services | Network -[HAS_COINSURANCE]-> Inpatient services | Network | Coinsurance
+Inpatient services -[HAS_OUT_OF_NETWORK_COST]-> Inpatient services | OutOfNetwork
+Inpatient services | OutOfNetwork -[HAS_COINSURANCE]-> Inpatient services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Office visits
+Office visits -[HAS_NETWORK_COST]-> Office visits | Network
+Office visits | Network -[HAS_COINSURANCE]-> Office visits | Network | Coinsurance
+Office visits -[HAS_OUT_OF_NETWORK_COST]-> Office visits | OutOfNetwork
+Office visits | OutOfNetwork -[HAS_COINSURANCE]-> Office visits | OutOfNetwork | Coinsurance
+Office visits -[HAS_LIMITATION]-> Office visits | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Childbirth/delivery professional services
+Childbirth/delivery professional services -[HAS_NETWORK_COST]-> Childbirth/delivery professional services | Network
+Childbirth/delivery professional services | Network -[HAS_COINSURANCE]-> Childbirth/delivery professional services | Network | Coinsurance
+Childbirth/delivery professional services -[HAS_OUT_OF_NETWORK_COST]-> Childbirth/delivery professional services | OutOfNetwork
+Childbirth/delivery professional services | OutOfNetwork -[HAS_COINSURANCE]-> Childbirth/delivery professional services | OutOfNetwork | Coinsurance
+Childbirth/delivery professional services -[HAS_LIMITATION]-> Childbirth/delivery professional services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Childbirth/delivery facility services
+Childbirth/delivery facility services -[HAS_NETWORK_COST]-> Childbirth/delivery facility services | Network
+Childbirth/delivery facility services | Network -[HAS_COINSURANCE]-> Childbirth/delivery facility services | Network | Coinsurance
+Childbirth/delivery facility services -[HAS_OUT_OF_NETWORK_COST]-> Childbirth/delivery facility services | OutOfNetwork
+Childbirth/delivery facility services | OutOfNetwork -[HAS_COINSURANCE]-> Childbirth/delivery facility services | OutOfNetwork | Coinsurance
+Childbirth/delivery facility services -[HAS_LIMITATION]-> Childbirth/delivery facility services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Home health care
+Home health care -[HAS_NETWORK_COST]-> Home health care | Network
+Home health care | Network -[HAS_COINSURANCE]-> Home health care | Network | Coinsurance
+Home health care -[HAS_OUT_OF_NETWORK_COST]-> Home health care | OutOfNetwork
+Home health care | OutOfNetwork -[HAS_COINSURANCE]-> Home health care | OutOfNetwork | Coinsurance
+Home health care -[HAS_LIMITATION]-> Home health care | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Rehabilitation services
+Rehabilitation services -[HAS_NETWORK_COST]-> Rehabilitation services | Network
+Rehabilitation services | Network -[HAS_COINSURANCE]-> Rehabilitation services | Network | Coinsurance
+Rehabilitation services -[HAS_OUT_OF_NETWORK_COST]-> Rehabilitation services | OutOfNetwork
+Rehabilitation services | OutOfNetwork -[HAS_COINSURANCE]-> Rehabilitation services | OutOfNetwork | Coinsurance
+Rehabilitation services -[HAS_LIMITATION]-> Rehabilitation services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Habilitation services
+Habilitation services -[HAS_NETWORK_COST]-> Habilitation services | Network
+Habilitation services | Network -[HAS_COINSURANCE]-> Habilitation services | Network | Coinsurance
+Habilitation services -[HAS_OUT_OF_NETWORK_COST]-> Habilitation services | OutOfNetwork
+Habilitation services | OutOfNetwork -[HAS_COINSURANCE]-> Habilitation services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Skilled nursing care
+Skilled nursing care -[HAS_NETWORK_COST]-> Skilled nursing care | Network
+Skilled nursing care | Network -[HAS_COINSURANCE]-> Skilled nursing care | Network | Coinsurance
+Skilled nursing care -[HAS_OUT_OF_NETWORK_COST]-> Skilled nursing care | OutOfNetwork
+Skilled nursing care | OutOfNetwork -[HAS_COINSURANCE]-> Skilled nursing care | OutOfNetwork | Coinsurance
+Skilled nursing care -[HAS_LIMITATION]-> Skilled nursing care | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Durable medical equipment
+Durable medical equipment -[HAS_NETWORK_COST]-> Durable medical equipment | Network
+Durable medical equipment | Network -[HAS_COINSURANCE]-> Durable medical equipment | Network | Coinsurance
+Durable medical equipment -[HAS_OUT_OF_NETWORK_COST]-> Durable medical equipment | OutOfNetwork
+Durable medical equipment | OutOfNetwork -[HAS_COINSURANCE]-> Durable medical equipment | OutOfNetwork | Coinsurance
+Durable medical equipment -[HAS_LIMITATION]-> Durable medical equipment | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Hospice services
+Hospice services -[HAS_NETWORK_COST]-> Hospice services | Network
+Hospice services | Network -[HAS_COINSURANCE]-> Hospice services | Network | Coinsurance
+Hospice services -[HAS_OUT_OF_NETWORK_COST]-> Hospice services | OutOfNetwork
+Hospice services | OutOfNetwork -[HAS_COINSURANCE]-> Hospice services | OutOfNetwork | Coinsurance
+Hospice services -[HAS_LIMITATION]-> Hospice services | Limitation
+Hospice services -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's eye exam
+Children's eye exam -[HAS_NETWORK_COST]-> Children's eye exam | Network
+Children's eye exam | Network -[HAS_COPAY]-> Children's eye exam | Network | Copay
+Children's eye exam -[HAS_OUT_OF_NETWORK_COST]-> Children's eye exam | OutOfNetwork
+Children's eye exam -[HAS_LIMITATION]-> Children's eye exam | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's glasses
+Children's glasses -[HAS_NETWORK_COST]-> Children's glasses | Network
+Children's glasses | Network -[HAS_COINSURANCE]-> Children's glasses | Network | Coinsurance
+Children's glasses -[HAS_OUT_OF_NETWORK_COST]-> Children's glasses | OutOfNetwork
+Children's glasses -[HAS_LIMITATION]-> Children's glasses | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's dental check-up
+Children's dental check-up -[HAS_NETWORK_COST]-> Children's dental check-up | Network
+Children's dental check-up -[HAS_OUT_OF_NETWORK_COST]-> Children's dental check-up | OutOfNetwork
+HealthPlan -[EXCLUDES_SERVICE]-> Cosmetic Surgery
+HealthPlan -[EXCLUDES_SERVICE]-> Private Duty Nursing
+HealthPlan -[EXCLUDES_SERVICE]-> Routine Foot Care
+HealthPlan -[EXCLUDES_SERVICE]-> Dental Care
+HealthPlan -[EXCLUDES_SERVICE]-> Non-emergency care outside the U.S.
+HealthPlan -[EXCLUDES_SERVICE]-> Infertility Treatment
+HealthPlan -[EXCLUDES_SERVICE]-> Long Term Care
+HealthPlan -[EXCLUDES_SERVICE]-> Routine eye care (Adult)
+HealthPlan -[COVERS_SERVICE]-> Acupuncture (if prescribed for rehabilitation
+HealthPlan -[COVERS_SERVICE]-> Chiropractic Care
+HealthPlan -[COVERS_SERVICE]-> Weight Loss Programs
+HealthPlan -[COVERS_SERVICE]-> Bariatric Surgery
+HealthPlan -[COVERS_SERVICE]-> Hearing Aids
+HealthPlan -[COVERS_SERVICE]-> Specialist office visits (prenatal care)
+HealthPlan -[COVERS_SERVICE]-> Childbirth/Delivery Professional Services
+HealthPlan -[COVERS_SERVICE]-> Childbirth/Delivery Facility Services
+HealthPlan -[COVERS_SERVICE]-> Diagnostic tests (ultrasounds and blood work)
+HealthPlan -[COVERS_SERVICE]-> Specialist visit (anesthesia)
+HealthPlan -[COVERS_SERVICE]-> Primary care physician office visits (including disease education)
+HealthPlan -[COVERS_SERVICE]-> Diagnostic tests (blood work)
+HealthPlan -[COVERS_SERVICE]-> Prescription drugs
+HealthPlan -[COVERS_SERVICE]-> Durable medical equipment (glucose meter)
+HealthPlan -[COVERS_SERVICE]-> Emergency room care (including medical supplies)
+HealthPlan -[COVERS_SERVICE]-> Diagnostic test (x-ray)
+HealthPlan -[COVERS_SERVICE]-> Durable medical equipment (crutches)
+HealthPlan -[COVERS_SERVICE]-> Rehabilitation services (physical therapy)
+HealthPlan -[HAS_SECTION]-> Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_001]
+HealthPlan -[HAS_SECTION]-> Section: page_3.html [section_002]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_003]
+HealthPlan -[HAS_SECTION]-> Section: page_4.html [section_004]
+HealthPlan -[HAS_SECTION]-> Section: Does this plan provide Minimum Essential Coverage? [section_005]
+HealthPlan -[HAS_SECTION]-> Section: Does this plan meet Minimum Value Standards? [section_006]
+HealthPlan -[HAS_SECTION]-> Section: Language Access Services: [section_007]
+HealthPlan -[HAS_SECTION]-> Section: About these Coverage Examples: [section_008]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_009]
+HealthPlan -[HAS_SECTION]-> Section: Mia’s Simple Fracture [section_010]
+HealthPlan -[PLAN_TYPE]-> Coverage for: Family | Plan Type: PPO
+What is the overall deductible? -[QUESTION]-> What is the overall deductible?
+What is the overall deductible? -[ANSWER]-> $500/Individual or $1,000/family
+What is the overall deductible? -[WHY_IT_MATTERS]-> Generally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met.
+Are there services covered before you meet your deductible? -[QUESTION]-> Are there services covered before you meet your deductible?
+Are there services covered before you meet your deductible? -[ANSWER]-> Yes. Preventive care and primary care services are covered before you meet your deductible.
+Are there services covered before you meet your deductible? -[WHY_IT_MATTERS]-> This plan covers some items and services even if you haven’t yet met the annual deductible amount. But a copayment or coinsurance may apply. For example, this plan covers certain preventive services without cost-sharing and before you meet your deductible. See a list of covered preventive services at https://www.healthcare.gov/coverage/preventive-care-benefits/.
+Are there other deductibles for specific services? -[QUESTION]-> Are there other deductibles for specific services?
+Are there other deductibles for specific services? -[ANSWER]-> Yes. $300 for prescription drug coverage and $300 for occupational therapy services.
+Are there other deductibles for specific services? -[WHY_IT_MATTERS]-> You must pay all of the costs for these services up to the specific deductible amount before this plan begins to pay for these services.
+What is the out-of-pocket limit for this plan? -[QUESTION]-> What is the out-of-pocket limit for this plan?
+What is the out-of-pocket limit for this plan? -[ANSWER]-> For network providers $2,500 individual / $5,000 family; for out-of-network providers $4,000 individual / $8,000 family
+What is the out-of-pocket limit for this plan? -[WHY_IT_MATTERS]-> The out-of-pocket limit is the most you could pay in a year for covered services. If you have other family members in this plan, they have to meet their own out-of-pocket limits until the overall family out-of-pocket limit has been met.
+What is not included in the out-of-pocket limit? -[QUESTION]-> What is not included in the out-of-pocket limit?
+What is not included in the out-of-pocket limit? -[ANSWER]-> Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn’t cover.
+What is not included in the out-of-pocket limit? -[WHY_IT_MATTERS]-> Even though you pay these expenses, they don’t count toward the out-of-pocket limit.
+Will you pay less if you use a network provider? -[QUESTION]-> Will you pay less if you use a network provider?
+Will you pay less if you use a network provider? -[ANSWER]-> Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers.
+Will you pay less if you use a network provider? -[WHY_IT_MATTERS]-> This plan uses a provider network. You will pay less if you use a provider in the plan’s network. You will pay the most if you use an out-of-network provider, and you might receive a bill from a provider for the difference between the provider’s charge and what your plan pays (a balance bill). Be aware, your network provider might use an out-of-network provider for some services (such as lab work). Check with your provider before you get services.
+Do you need a referral to see a specialist? -[QUESTION]-> Do you need a referral to see a specialist?
+Do you need a referral to see a specialist? -[ANSWER]-> Yes.
+Do you need a referral to see a specialist? -[WHY_IT_MATTERS]-> This plan will pay some or all of the costs to see a specialist for covered services but only if you have a referral before you see the specialist.
+Primary care visit to treat an injury or illness | Network -[RAW]-> $35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply
+Primary care visit to treat an injury or illness | Network | Copay -[VALUE]-> $35 copay
+Primary care visit to treat an injury or illness | Network | Coinsurance -[VALUE]-> 20%
+Primary care visit to treat an injury or illness | OutOfNetwork -[RAW]-> 40% coinsurance
+Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Specialist visit | Network -[RAW]-> $50 copay/visit
+Specialist visit | Network | Copay -[VALUE]-> $50 copay
+Specialist visit | OutOfNetwork -[RAW]-> 40% coinsurance
+Specialist visit | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Specialist visit | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+Preventive care/screening/immunization | Network -[RAW]-> No charge for covered services
+Preventive care/screening/immunization | OutOfNetwork -[RAW]-> 40% coinsurance
+Preventive care/screening/immunization | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Preventive care/screening/immunization | Limitation -[TEXT]-> You may have to pay for services that aren’t preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.
+Diagnostic test (x-ray, blood work) | Network -[RAW]-> $10 copay/test
+Diagnostic test (x-ray, blood work) | Network | Copay -[VALUE]-> $10 copay
+Diagnostic test (x-ray, blood work) | OutOfNetwork -[RAW]-> 40% coinsurance
+Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Imaging (CT/PET scans, MRIs) | Network -[RAW]-> $50 copay/test
+Imaging (CT/PET scans, MRIs) | Network | Copay -[VALUE]-> $50 copay
+Imaging (CT/PET scans, MRIs) | OutOfNetwork -[RAW]-> 40% coinsurance
+Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Generic drugs (Tier 1) (retail & mail order) | Network -[RAW]-> $10 copay/prescription
+Generic drugs (Tier 1) (retail & mail order) | Network | Copay -[VALUE]-> $10 copay
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork -[RAW]-> 40% coinsurance
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Generic drugs (Tier 1) (retail & mail order) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Preferred brand drugs (Tier 2) (retail & mail order) | Network -[RAW]-> $30 copay/prescription
+Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay -[VALUE]-> $30 copay
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork -[RAW]-> 40% coinsurance
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Preferred brand drugs (Tier 2) (retail & mail order) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Non-preferred brand drugs (Tier 3) | Network -[RAW]-> 40% coinsurance
+Non-preferred brand drugs (Tier 3) | Network | Coinsurance -[VALUE]-> 40%
+Non-preferred brand drugs (Tier 3) | OutOfNetwork -[RAW]-> 60% coinsurance
+Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance -[VALUE]-> 60%
+Non-preferred brand drugs (Tier 3) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Specialty drugs (Tier 4) | Network -[RAW]-> 50% coinsurance
+Specialty drugs (Tier 4) | Network | Coinsurance -[VALUE]-> 50%
+Specialty drugs (Tier 4) | OutOfNetwork -[RAW]-> 70% coinsurance
+Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance -[VALUE]-> 70%
+Specialty drugs (Tier 4) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Facility fee (e.g., ambulatory surgery center) | Network -[RAW]-> $100/day copay
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork -[RAW]-> 40% coinsurance
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., ambulatory surgery center) | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+Physician/surgeon fees | Network -[RAW]-> 20% coinsurance
+Physician/surgeon fees | Network | Coinsurance -[VALUE]-> 20%
+Physician/surgeon fees | OutOfNetwork -[RAW]-> 40% coinsurance
+Physician/surgeon fees | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Physician/surgeon fees | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+Emergency room care | Network -[RAW]-> 20% coinsurance
+Emergency room care | Network | Coinsurance -[VALUE]-> 20%
+Emergency room care | OutOfNetwork -[RAW]-> 20% coinsurance
+Emergency room care | OutOfNetwork | Coinsurance -[VALUE]-> 20%
+Emergency medical transportation | Network -[RAW]-> 20% coinsurance
+Emergency medical transportation | Network | Coinsurance -[VALUE]-> 20%
+Emergency medical transportation | OutOfNetwork -[RAW]-> 20% coinsurance
+Emergency medical transportation | OutOfNetwork | Coinsurance -[VALUE]-> 20%
+Urgent care | Network -[RAW]-> $30 copay
+Urgent care | Network | Copay -[VALUE]-> $30 copay
+Urgent care | OutOfNetwork -[RAW]-> 40% coinsurance
+Urgent care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., hospital room) | Network -[RAW]-> 20% coinsurance
+Facility fee (e.g., hospital room) | Network | Coinsurance -[VALUE]-> 20%
+Facility fee (e.g., hospital room) | OutOfNetwork -[RAW]-> 40% coinsurance
+Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., hospital room) | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+20% coinsurance | Network -[RAW]-> 40% coinsurance
+20% coinsurance | Network | Coinsurance -[VALUE]-> 40%
+20% coinsurance | OutOfNetwork -[RAW]-> 50% coinsurance for anesthesia.
+20% coinsurance | OutOfNetwork | Coinsurance -[VALUE]-> 50%
+Outpatient services | Network -[RAW]-> $35 copay/office visit and 20% coinsurance for other outpatient services
+Outpatient services | Network | Copay -[VALUE]-> $35 copay
+Outpatient services | Network | Coinsurance -[VALUE]-> 20%
+Outpatient services | OutOfNetwork -[RAW]-> 40% coinsurance
+Outpatient services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Inpatient services | Network -[RAW]-> 20% coinsurance
+Inpatient services | Network | Coinsurance -[VALUE]-> 20%
+Inpatient services | OutOfNetwork -[RAW]-> 40% coinsurance
+Inpatient services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Office visits | Network -[RAW]-> 20% coinsurance
+Office visits | Network | Coinsurance -[VALUE]-> 20%
+Office visits | OutOfNetwork -[RAW]-> 40% coinsurance
+Office visits | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Office visits | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Childbirth/delivery professional services | Network -[RAW]-> 20% coinsurance
+Childbirth/delivery professional services | Network | Coinsurance -[VALUE]-> 20%
+Childbirth/delivery professional services | OutOfNetwork -[RAW]-> 40% coinsurance
+Childbirth/delivery professional services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Childbirth/delivery professional services | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Childbirth/delivery facility services | Network -[RAW]-> 20% coinsurance
+Childbirth/delivery facility services | Network | Coinsurance -[VALUE]-> 20%
+Childbirth/delivery facility services | OutOfNetwork -[RAW]-> 40% coinsurance
+Childbirth/delivery facility services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Childbirth/delivery facility services | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Home health care | Network -[RAW]-> 20% coinsurance
+Home health care | Network | Coinsurance -[VALUE]-> 20%
+Home health care | OutOfNetwork -[RAW]-> 40% coinsurance
+Home health care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Home health care | Limitation -[TEXT]-> 60 visits/calendar year
+Rehabilitation services | Network -[RAW]-> 20% coinsurance
+Rehabilitation services | Network | Coinsurance -[VALUE]-> 20%
+Rehabilitation services | OutOfNetwork -[RAW]-> 40% coinsurance
+Rehabilitation services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Rehabilitation services | Limitation -[TEXT]-> 60 visits/calendar year. Includes physical therapy, speech therapy, and occupational therapy.
+Habilitation services | Network -[RAW]-> 20% coinsurance
+Habilitation services | Network | Coinsurance -[VALUE]-> 20%
+Habilitation services | OutOfNetwork -[RAW]-> 40% coinsurance
+Habilitation services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Skilled nursing care | Network -[RAW]-> 20% coinsurance
+Skilled nursing care | Network | Coinsurance -[VALUE]-> 20%
+Skilled nursing care | OutOfNetwork -[RAW]-> 40% coinsurance
+Skilled nursing care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Skilled nursing care | Limitation -[TEXT]-> 60 visits/calendar year
+Durable medical equipment | Network -[RAW]-> 20% coinsurance
+Durable medical equipment | Network | Coinsurance -[VALUE]-> 20%
+Durable medical equipment | OutOfNetwork -[RAW]-> 40% coinsurance
+Durable medical equipment | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Durable medical equipment | Limitation -[TEXT]-> Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.
+Hospice services | Network -[RAW]-> 20% coinsurance
+Hospice services | Network | Coinsurance -[VALUE]-> 20%
+Hospice services | OutOfNetwork -[RAW]-> 40% coinsurance
+Hospice services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Hospice services | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+Children's eye exam | Network -[RAW]-> $35 copay/visit
+Children's eye exam | Network | Copay -[VALUE]-> $35 copay
+Children's eye exam | OutOfNetwork -[RAW]-> Not covered
+Children's eye exam | Limitation -[TEXT]-> Coverage limited to one exam/year.
+Children's glasses | Network -[RAW]-> 20% coinsurance
+Children's glasses | Network | Coinsurance -[VALUE]-> 20%
+Children's glasses | OutOfNetwork -[RAW]-> Not covered
+Children's glasses | Limitation -[TEXT]-> Coverage limited to one pair of glasses/year.
+Children's dental check-up | Network -[RAW]-> No charge
+Children's dental check-up | OutOfNetwork -[RAW]-> Not covered
+Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000] -[CONTENT]-> Insurance Company 1: Plan Option 1 Coverage Period: 1/1/2017 – 12/31/2017 Coverage for: Family | Plan Type: PPO
+Footnote [footnote_001] -[CONTENT]-> All copayment and coinsurance costs shown in this chart are after your overall deductible has been met, if a deductible applies.
+Section: page_3.html [section_002] -[CONTENT]-> Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.) Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)
+Footnote [footnote_003] -[CONTENT]-> Your Rights to Continue Coverage: There are agencies that can help if you want to continue your coverage after it ends. The contact information for those agencies is: [insert State, HHS, DOL, and/or other applicable agency contact information]. Other options to continue coverage are available to you too, including buying individual insurance coverage through the Health Insurance Marketplace. For more information about the Marketplace, visit www.HealthCare.gov or call 1-800-318-2596.
+Section: page_4.html [section_004] -[CONTENT]-> Your Grievance and Appeals Rights: There are agencies that can help if you have a complaint against your plan for a denial of a claim. This complaint is called a grievance or appeal. For more information about your rights, look at the explanation of benefits you will receive for that medical claim. Your plan documents also provide complete information to submit a claim appeal or a grievance for any reason to your plan. For more information about your rights, this notice, or assistance, contact: [insert applicable contact information from instructions].
+Section: Does this plan provide Minimum Essential Coverage? [section_005] -[CONTENT]-> Yes. If you don't have Minimum Essential Coverage for a month under this plan or under other coverage, you'll have to make a payment when you file your tax return unless you qualify for an exemption from the requirement that you have health coverage for that month.
+Section: Does this plan meet Minimum Value Standards? [section_006] -[CONTENT]-> Yes. If your plan doesn't meet the Minimum Value Standards, you may be eligible for a premium tax credit to help you pay for a plan through the Marketplace.
+Section: Language Access Services: [section_007] -[CONTENT]-> [Spanish (Español): Para obtener asistencia en Español, llame al [insert telephone number].] [Tagalog (Tagalog): Kung kailangan ninyo ang tulong sa Tagalog tumawag sa [insert telephone number].] [Chinese (中文): 如果需要中文的帮助，请拨打这个号码 [insert telephone number].] [Navajo (Dine): Dinek'ehgo shika at'ohwol ninisingo, kwijjigo holne' [insert telephone number].] —To see examples of how this plan might cover costs for a sample medical situation, see the next section.—
+Section: About these Coverage Examples: [section_008] -[CONTENT]-> This is not a cost estimator. Treatments shown are just examples of how this plan might cover medical care. Your actual costs will be different depending on the actual care you receive, the prices your providers charge, and many other factors. Focus on the cost sharing amounts (deductibles, copayments and coinsurance) and excluded services under the plan. Use this information to compare the portion of costs you might pay under different health plans. Please note these coverage examples are based on self-only coverage. This EXAMPLE event includes services like: In this example, Peg would pay: This EXAMPLE event includes services like: In this example, Joe would pay:
+Footnote [footnote_009] -[CONTENT]-> Note: These numbers assume the patient does not participate in the plan’s wellness program. If you participate in the plan’s wellness program, you may be able to reduce your costs. For more information about the wellness program, please contact: [insert].
+Section: Mia’s Simple Fracture [section_010] -[CONTENT]-> This EXAMPLE event includes services like: In this example, Mia would pay: The plan would be responsible for the other costs of these EXA
+HealthPlan -[COVERS]-> Coverage for: Family | Plan Type: PPO
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is the overall deductible?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Are there services covered before you meet your deductible?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Are there other deductibles for specific services?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is the out-of-pocket limit for this plan?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is not included in the out-of-pocket limit?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Will you pay less if you use a network provider?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Do you need a referral to see a specialist?
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Primary care visit to treat an injury or illness
+Primary care visit to treat an injury or illness -[HAS_NETWORK_COST]-> Primary care visit to treat an injury or illness | Network
+Primary care visit to treat an injury or illness | Network -[HAS_COPAY]-> Primary care visit to treat an injury or illness | Network | Copay
+Primary care visit to treat an injury or illness | Network -[HAS_COINSURANCE]-> Primary care visit to treat an injury or illness | Network | Coinsurance
+Primary care visit to treat an injury or illness | Network -[DEDUCTIBLE_DOES_NOT_APPLY]-> true
+Primary care visit to treat an injury or illness -[HAS_OUT_OF_NETWORK_COST]-> Primary care visit to treat an injury or illness | OutOfNetwork
+Primary care visit to treat an injury or illness | OutOfNetwork -[HAS_COINSURANCE]-> Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Specialist visit
+Specialist visit -[HAS_NETWORK_COST]-> Specialist visit | Network
+Specialist visit | Network -[HAS_COPAY]-> Specialist visit | Network | Copay
+Specialist visit -[HAS_OUT_OF_NETWORK_COST]-> Specialist visit | OutOfNetwork
+Specialist visit | OutOfNetwork -[HAS_COINSURANCE]-> Specialist visit | OutOfNetwork | Coinsurance
+Specialist visit -[HAS_LIMITATION]-> Specialist visit | Limitation
+Specialist visit -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Preventive care/screening/immunization
+Preventive care/screening/immunization -[HAS_NETWORK_COST]-> Preventive care/screening/immunization | Network
+Preventive care/screening/immunization -[HAS_OUT_OF_NETWORK_COST]-> Preventive care/screening/immunization | OutOfNetwork
+Preventive care/screening/immunization | OutOfNetwork -[HAS_COINSURANCE]-> Preventive care/screening/immunization | OutOfNetwork | Coinsurance
+Preventive care/screening/immunization -[HAS_LIMITATION]-> Preventive care/screening/immunization | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a test
+If you have a test -[INCLUDES_SERVICE]-> Diagnostic test (x-ray, blood work)
+Diagnostic test (x-ray, blood work) -[HAS_NETWORK_COST]-> Diagnostic test (x-ray, blood work) | Network
+Diagnostic test (x-ray, blood work) | Network -[HAS_COPAY]-> Diagnostic test (x-ray, blood work) | Network | Copay
+Diagnostic test (x-ray, blood work) -[HAS_OUT_OF_NETWORK_COST]-> Diagnostic test (x-ray, blood work) | OutOfNetwork
+Diagnostic test (x-ray, blood work) | OutOfNetwork -[HAS_COINSURANCE]-> Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a test
+If you have a test -[INCLUDES_SERVICE]-> Imaging (CT/PET scans, MRIs)
+Imaging (CT/PET scans, MRIs) -[HAS_NETWORK_COST]-> Imaging (CT/PET scans, MRIs) | Network
+Imaging (CT/PET scans, MRIs) | Network -[HAS_COPAY]-> Imaging (CT/PET scans, MRIs) | Network | Copay
+Imaging (CT/PET scans, MRIs) -[HAS_OUT_OF_NETWORK_COST]-> Imaging (CT/PET scans, MRIs) | OutOfNetwork
+Imaging (CT/PET scans, MRIs) | OutOfNetwork -[HAS_COINSURANCE]-> Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Generic drugs (Tier 1) (retail & mail order)
+Generic drugs (Tier 1) (retail & mail order) -[HAS_NETWORK_COST]-> Generic drugs (Tier 1) (retail & mail order) | Network
+Generic drugs (Tier 1) (retail & mail order) | Network -[HAS_COPAY]-> Generic drugs (Tier 1) (retail & mail order) | Network | Copay
+Generic drugs (Tier 1) (retail & mail order) -[HAS_OUT_OF_NETWORK_COST]-> Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork -[HAS_COINSURANCE]-> Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance
+Generic drugs (Tier 1) (retail & mail order) -[HAS_LIMITATION]-> Generic drugs (Tier 1) (retail & mail order) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Preferred brand drugs (Tier 2) (retail & mail order)
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_NETWORK_COST]-> Preferred brand drugs (Tier 2) (retail & mail order) | Network
+Preferred brand drugs (Tier 2) (retail & mail order) | Network -[HAS_COPAY]-> Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_OUT_OF_NETWORK_COST]-> Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork -[HAS_COINSURANCE]-> Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_LIMITATION]-> Preferred brand drugs (Tier 2) (retail & mail order) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Non-preferred brand drugs (Tier 3)
+Non-preferred brand drugs (Tier 3) -[HAS_NETWORK_COST]-> Non-preferred brand drugs (Tier 3) | Network
+Non-preferred brand drugs (Tier 3) | Network -[HAS_COINSURANCE]-> Non-preferred brand drugs (Tier 3) | Network | Coinsurance
+Non-preferred brand drugs (Tier 3) -[HAS_OUT_OF_NETWORK_COST]-> Non-preferred brand drugs (Tier 3) | OutOfNetwork
+Non-preferred brand drugs (Tier 3) | OutOfNetwork -[HAS_COINSURANCE]-> Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance
+Non-preferred brand drugs (Tier 3) -[HAS_LIMITATION]-> Non-preferred brand drugs (Tier 3) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Specialty drugs (Tier 4)
+Specialty drugs (Tier 4) -[HAS_NETWORK_COST]-> Specialty drugs (Tier 4) | Network
+Specialty drugs (Tier 4) | Network -[HAS_COINSURANCE]-> Specialty drugs (Tier 4) | Network | Coinsurance
+Specialty drugs (Tier 4) -[HAS_OUT_OF_NETWORK_COST]-> Specialty drugs (Tier 4) | OutOfNetwork
+Specialty drugs (Tier 4) | OutOfNetwork -[HAS_COINSURANCE]-> Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance
+Specialty drugs (Tier 4) -[HAS_LIMITATION]-> Specialty drugs (Tier 4) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have outpatient surgery
+If you have outpatient surgery -[INCLUDES_SERVICE]-> Facility fee (e.g., ambulatory surgery center)
+Facility fee (e.g., ambulatory surgery center) -[HAS_NETWORK_COST]-> Facility fee (e.g., ambulatory surgery center) | Network
+Facility fee (e.g., ambulatory surgery center) -[HAS_OUT_OF_NETWORK_COST]-> Facility fee (e.g., ambulatory surgery center) | OutOfNetwork
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork -[HAS_COINSURANCE]-> Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance
+Facility fee (e.g., ambulatory surgery center) -[HAS_LIMITATION]-> Facility fee (e.g., ambulatory surgery center) | Limitation
+Facility fee (e.g., ambulatory surgery center) -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have outpatient surgery
+If you have outpatient surgery -[INCLUDES_SERVICE]-> Physician/surgeon fees
+Physician/surgeon fees -[HAS_NETWORK_COST]-> Physician/surgeon fees | Network
+Physician/surgeon fees | Network -[HAS_COINSURANCE]-> Physician/surgeon fees | Network | Coinsurance
+Physician/surgeon fees -[HAS_OUT_OF_NETWORK_COST]-> Physician/surgeon fees | OutOfNetwork
+Physician/surgeon fees | OutOfNetwork -[HAS_COINSURANCE]-> Physician/surgeon fees | OutOfNetwork | Coinsurance
+Physician/surgeon fees -[HAS_LIMITATION]-> Physician/surgeon fees | Limitation
+Physician/surgeon fees -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Emergency room care
+Emergency room care -[HAS_NETWORK_COST]-> Emergency room care | Network
+Emergency room care | Network -[HAS_COINSURANCE]-> Emergency room care | Network | Coinsurance
+Emergency room care -[HAS_OUT_OF_NETWORK_COST]-> Emergency room care | OutOfNetwork
+Emergency room care | OutOfNetwork -[HAS_COINSURANCE]-> Emergency room care | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Emergency medical transportation
+Emergency medical transportation -[HAS_NETWORK_COST]-> Emergency medical transportation | Network
+Emergency medical transportation | Network -[HAS_COINSURANCE]-> Emergency medical transportation | Network | Coinsurance
+Emergency medical transportation -[HAS_OUT_OF_NETWORK_COST]-> Emergency medical transportation | OutOfNetwork
+Emergency medical transportation | OutOfNetwork -[HAS_COINSURANCE]-> Emergency medical transportation | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Urgent care
+Urgent care -[HAS_NETWORK_COST]-> Urgent care | Network
+Urgent care | Network -[HAS_COPAY]-> Urgent care | Network | Copay
+Urgent care -[HAS_OUT_OF_NETWORK_COST]-> Urgent care | OutOfNetwork
+Urgent care | OutOfNetwork -[HAS_COINSURANCE]-> Urgent care | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a hospital stay
+If you have a hospital stay -[INCLUDES_SERVICE]-> Facility fee (e.g., hospital room)
+Facility fee (e.g., hospital room) -[HAS_NETWORK_COST]-> Facility fee (e.g., hospital room) | Network
+Facility fee (e.g., hospital room) | Network -[HAS_COINSURANCE]-> Facility fee (e.g., hospital room) | Network | Coinsurance
+Facility fee (e.g., hospital room) -[HAS_OUT_OF_NETWORK_COST]-> Facility fee (e.g., hospital room) | OutOfNetwork
+Facility fee (e.g., hospital room) | OutOfNetwork -[HAS_COINSURANCE]-> Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance
+Facility fee (e.g., hospital room) -[HAS_LIMITATION]-> Facility fee (e.g., hospital room) | Limitation
+Facility fee (e.g., hospital room) -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> Physician/surgeon fees
+Physician/surgeon fees -[INCLUDES_SERVICE]-> 20% coinsurance
+20% coinsurance -[HAS_NETWORK_COST]-> 20% coinsurance | Network
+20% coinsurance | Network -[HAS_COINSURANCE]-> 20% coinsurance | Network | Coinsurance
+20% coinsurance -[HAS_OUT_OF_NETWORK_COST]-> 20% coinsurance | OutOfNetwork
+20% coinsurance | OutOfNetwork -[HAS_COINSURANCE]-> 20% coinsurance | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need mental health, behavioral health, or substance abuse services
+If you need mental health, behavioral health, or substance abuse services -[INCLUDES_SERVICE]-> Outpatient services
+Outpatient services -[HAS_NETWORK_COST]-> Outpatient services | Network
+Outpatient services | Network -[HAS_COPAY]-> Outpatient services | Network | Copay
+Outpatient services | Network -[HAS_COINSURANCE]-> Outpatient services | Network | Coinsurance
+Outpatient services -[HAS_OUT_OF_NETWORK_COST]-> Outpatient services | OutOfNetwork
+Outpatient services | OutOfNetwork -[HAS_COINSURANCE]-> Outpatient services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need mental health, behavioral health, or substance abuse services
+If you need mental health, behavioral health, or substance abuse services -[INCLUDES_SERVICE]-> Inpatient services
+Inpatient services -[HAS_NETWORK_COST]-> Inpatient services | Network
+Inpatient services | Network -[HAS_COINSURANCE]-> Inpatient services | Network | Coinsurance
+Inpatient services -[HAS_OUT_OF_NETWORK_COST]-> Inpatient services | OutOfNetwork
+Inpatient services | OutOfNetwork -[HAS_COINSURANCE]-> Inpatient services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Office visits
+Office visits -[HAS_NETWORK_COST]-> Office visits | Network
+Office visits | Network -[HAS_COINSURANCE]-> Office visits | Network | Coinsurance
+Office visits -[HAS_OUT_OF_NETWORK_COST]-> Office visits | OutOfNetwork
+Office visits | OutOfNetwork -[HAS_COINSURANCE]-> Office visits | OutOfNetwork | Coinsurance
+Office visits -[HAS_LIMITATION]-> Office visits | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Childbirth/delivery professional services
+Childbirth/delivery professional services -[HAS_NETWORK_COST]-> Childbirth/delivery professional services | Network
+Childbirth/delivery professional services | Network -[HAS_COINSURANCE]-> Childbirth/delivery professional services | Network | Coinsurance
+Childbirth/delivery professional services -[HAS_OUT_OF_NETWORK_COST]-> Childbirth/delivery professional services | OutOfNetwork
+Childbirth/delivery professional services | OutOfNetwork -[HAS_COINSURANCE]-> Childbirth/delivery professional services | OutOfNetwork | Coinsurance
+Childbirth/delivery professional services -[HAS_LIMITATION]-> Childbirth/delivery professional services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Childbirth/delivery facility services
+Childbirth/delivery facility services -[HAS_NETWORK_COST]-> Childbirth/delivery facility services | Network
+Childbirth/delivery facility services | Network -[HAS_COINSURANCE]-> Childbirth/delivery facility services | Network | Coinsurance
+Childbirth/delivery facility services -[HAS_OUT_OF_NETWORK_COST]-> Childbirth/delivery facility services | OutOfNetwork
+Childbirth/delivery facility services | OutOfNetwork -[HAS_COINSURANCE]-> Childbirth/delivery facility services | OutOfNetwork | Coinsurance
+Childbirth/delivery facility services -[HAS_LIMITATION]-> Childbirth/delivery facility services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Home health care
+Home health care -[HAS_NETWORK_COST]-> Home health care | Network
+Home health care | Network -[HAS_COINSURANCE]-> Home health care | Network | Coinsurance
+Home health care -[HAS_OUT_OF_NETWORK_COST]-> Home health care | OutOfNetwork
+Home health care | OutOfNetwork -[HAS_COINSURANCE]-> Home health care | OutOfNetwork | Coinsurance
+Home health care -[HAS_LIMITATION]-> Home health care | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Rehabilitation services
+Rehabilitation services -[HAS_NETWORK_COST]-> Rehabilitation services | Network
+Rehabilitation services | Network -[HAS_COINSURANCE]-> Rehabilitation services | Network | Coinsurance
+Rehabilitation services -[HAS_OUT_OF_NETWORK_COST]-> Rehabilitation services | OutOfNetwork
+Rehabilitation services | OutOfNetwork -[HAS_COINSURANCE]-> Rehabilitation services | OutOfNetwork | Coinsurance
+Rehabilitation services -[HAS_LIMITATION]-> Rehabilitation services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Habilitation services
+Habilitation services -[HAS_NETWORK_COST]-> Habilitation services | Network
+Habilitation services | Network -[HAS_COINSURANCE]-> Habilitation services | Network | Coinsurance
+Habilitation services -[HAS_OUT_OF_NETWORK_COST]-> Habilitation services | OutOfNetwork
+Habilitation services | OutOfNetwork -[HAS_COINSURANCE]-> Habilitation services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Skilled nursing care
+Skilled nursing care -[HAS_NETWORK_COST]-> Skilled nursing care | Network
+Skilled nursing care | Network -[HAS_COINSURANCE]-> Skilled nursing care | Network | Coinsurance
+Skilled nursing care -[HAS_OUT_OF_NETWORK_COST]-> Skilled nursing care | OutOfNetwork
+Skilled nursing care | OutOfNetwork -[HAS_COINSURANCE]-> Skilled nursing care | OutOfNetwork | Coinsurance
+Skilled nursing care -[HAS_LIMITATION]-> Skilled nursing care | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Durable medical equipment
+Durable medical equipment -[HAS_NETWORK_COST]-> Durable medical equipment | Network
+Durable medical equipment | Network -[HAS_COINSURANCE]-> Durable medical equipment | Network | Coinsurance
+Durable medical equipment -[HAS_OUT_OF_NETWORK_COST]-> Durable medical equipment | OutOfNetwork
+Durable medical equipment | OutOfNetwork -[HAS_COINSURANCE]-> Durable medical equipment | OutOfNetwork | Coinsurance
+Durable medical equipment -[HAS_LIMITATION]-> Durable medical equipment | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Hospice services
+Hospice services -[HAS_NETWORK_COST]-> Hospice services | Network
+Hospice services | Network -[HAS_COINSURANCE]-> Hospice services | Network | Coinsurance
+Hospice services -[HAS_OUT_OF_NETWORK_COST]-> Hospice services | OutOfNetwork
+Hospice services | OutOfNetwork -[HAS_COINSURANCE]-> Hospice services | OutOfNetwork | Coinsurance
+Hospice services -[HAS_LIMITATION]-> Hospice services | Limitation
+Hospice services -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's eye exam
+Children's eye exam -[HAS_NETWORK_COST]-> Children's eye exam | Network
+Children's eye exam | Network -[HAS_COPAY]-> Children's eye exam | Network | Copay
+Children's eye exam -[HAS_OUT_OF_NETWORK_COST]-> Children's eye exam | OutOfNetwork
+Children's eye exam -[HAS_LIMITATION]-> Children's eye exam | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's glasses
+Children's glasses -[HAS_NETWORK_COST]-> Children's glasses | Network
+Children's glasses | Network -[HAS_COINSURANCE]-> Children's glasses | Network | Coinsurance
+Children's glasses -[HAS_OUT_OF_NETWORK_COST]-> Children's glasses | OutOfNetwork
+Children's glasses -[HAS_LIMITATION]-> Children's glasses | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's dental check-up
+Children's dental check-up -[HAS_NETWORK_COST]-> Children's dental check-up | Network
+Children's dental check-up -[HAS_OUT_OF_NETWORK_COST]-> Children's dental check-up | OutOfNetwork
+HealthPlan -[EXCLUDES_SERVICE]-> Cosmetic Surgery
+HealthPlan -[EXCLUDES_SERVICE]-> Private Duty Nursing
+HealthPlan -[EXCLUDES_SERVICE]-> Routine Foot Care
+HealthPlan -[EXCLUDES_SERVICE]-> Dental Care
+HealthPlan -[EXCLUDES_SERVICE]-> Non-emergency care outside the U.S.
+HealthPlan -[EXCLUDES_SERVICE]-> Infertility Treatment
+HealthPlan -[EXCLUDES_SERVICE]-> Long Term Care
+HealthPlan -[EXCLUDES_SERVICE]-> Routine eye care (Adult)
+HealthPlan -[COVERS_SERVICE]-> Acupuncture (if prescribed for rehabilitation
+HealthPlan -[COVERS_SERVICE]-> Chiropractic Care
+HealthPlan -[COVERS_SERVICE]-> Weight Loss Programs
+HealthPlan -[COVERS_SERVICE]-> Bariatric Surgery
+HealthPlan -[COVERS_SERVICE]-> Hearing Aids
+HealthPlan -[COVERS_SERVICE]-> Specialist office visits (prenatal care)
+HealthPlan -[COVERS_SERVICE]-> Childbirth/Delivery Professional Services
+HealthPlan -[COVERS_SERVICE]-> Childbirth/Delivery Facility Services
+HealthPlan -[COVERS_SERVICE]-> Diagnostic tests (ultrasounds and blood work)
+HealthPlan -[COVERS_SERVICE]-> Specialist visit (anesthesia)
+HealthPlan -[COVERS_SERVICE]-> Primary care physician office visits (including disease education)
+HealthPlan -[COVERS_SERVICE]-> Diagnostic tests (blood work)
+HealthPlan -[COVERS_SERVICE]-> Prescription drugs
+HealthPlan -[COVERS_SERVICE]-> Durable medical equipment (glucose meter)
+HealthPlan -[COVERS_SERVICE]-> Emergency room care (including medical supplies)
+HealthPlan -[COVERS_SERVICE]-> Diagnostic test (x-ray)
+HealthPlan -[COVERS_SERVICE]-> Durable medical equipment (crutches)
+HealthPlan -[COVERS_SERVICE]-> Rehabilitation services (physical therapy)
+HealthPlan -[HAS_SECTION]-> Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_001]
+HealthPlan -[HAS_SECTION]-> Section: page_3.html [section_002]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_003]
+HealthPlan -[HAS_SECTION]-> Section: page_4.html [section_004]
+HealthPlan -[HAS_SECTION]-> Section: Does this plan provide Minimum Essential Coverage? [section_005]
+HealthPlan -[HAS_SECTION]-> Section: Does this plan meet Minimum Value Standards? [section_006]
+HealthPlan -[HAS_SECTION]-> Section: Language Access Services: [section_007]
+HealthPlan -[HAS_SECTION]-> Section: About these Coverage Examples: [section_008]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_009]
+HealthPlan -[HAS_SECTION]-> Section: Mia’s Simple Fracture [section_010]
+HealthPlan -[PLAN_TYPE]-> Coverage for: Family | Plan Type: PPO
+What is the overall deductible? -[QUESTION]-> What is the overall deductible?
+What is the overall deductible? -[ANSWER]-> $500/Individual or $1,000/family
+What is the overall deductible? -[WHY_IT_MATTERS]-> Generally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met.
+Are there services covered before you meet your deductible? -[QUESTION]-> Are there services covered before you meet your deductible?
+Are there services covered before you meet your deductible? -[ANSWER]-> Yes. Preventive care and primary care services are covered before you meet your deductible.
+Are there services covered before you meet your deductible? -[WHY_IT_MATTERS]-> This plan covers some items and services even if you haven’t yet met the annual deductible amount. But a copayment or coinsurance may apply. For example, this plan covers certain preventive services without cost-sharing and before you meet your deductible. See a list of covered preventive services at https://www.healthcare.gov/coverage/preventive-care-benefits/.
+Are there other deductibles for specific services? -[QUESTION]-> Are there other deductibles for specific services?
+Are there other deductibles for specific services? -[ANSWER]-> Yes. $300 for prescription drug coverage and $300 for occupational therapy services.
+Are there other deductibles for specific services? -[WHY_IT_MATTERS]-> You must pay all of the costs for these services up to the specific deductible amount before this plan begins to pay for these services.
+What is the out-of-pocket limit for this plan? -[QUESTION]-> What is the out-of-pocket limit for this plan?
+What is the out-of-pocket limit for this plan? -[ANSWER]-> For network providers $2,500 individual / $5,000 family; for out-of-network providers $4,000 individual / $8,000 family
+What is the out-of-pocket limit for this plan? -[WHY_IT_MATTERS]-> The out-of-pocket limit is the most you could pay in a year for covered services. If you have other family members in this plan, they have to meet their own out-of-pocket limits until the overall family out-of-pocket limit has been met.
+What is not included in the out-of-pocket limit? -[QUESTION]-> What is not included in the out-of-pocket limit?
+What is not included in the out-of-pocket limit? -[ANSWER]-> Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn’t cover.
+What is not included in the out-of-pocket limit? -[WHY_IT_MATTERS]-> Even though you pay these expenses, they don’t count toward the out-of-pocket limit.
+Will you pay less if you use a network provider? -[QUESTION]-> Will you pay less if you use a network provider?
+Will you pay less if you use a network provider? -[ANSWER]-> Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers.
+Will you pay less if you use a network provider? -[WHY_IT_MATTERS]-> This plan uses a provider network. You will pay less if you use a provider in the plan’s network. You will pay the most if you use an out-of-network provider, and you might receive a bill from a provider for the difference between the provider’s charge and what your plan pays (a balance bill). Be aware, your network provider might use an out-of-network provider for some services (such as lab work). Check with your provider before you get services.
+Do you need a referral to see a specialist? -[QUESTION]-> Do you need a referral to see a specialist?
+Do you need a referral to see a specialist? -[ANSWER]-> Yes.
+Do you need a referral to see a specialist? -[WHY_IT_MATTERS]-> This plan will pay some or all of the costs to see a specialist for covered services but only if you have a referral before you see the specialist.
+Primary care visit to treat an injury or illness | Network -[RAW]-> $35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply
+Primary care visit to treat an injury or illness | Network | Copay -[VALUE]-> $35 copay
+Primary care visit to treat an injury or illness | Network | Coinsurance -[VALUE]-> 20%
+Primary care visit to treat an injury or illness | OutOfNetwork -[RAW]-> 40% coinsurance
+Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Specialist visit | Network -[RAW]-> $50 copay/visit
+Specialist visit | Network | Copay -[VALUE]-> $50 copay
+Specialist visit | OutOfNetwork -[RAW]-> 40% coinsurance
+Specialist visit | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Specialist visit | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+Preventive care/screening/immunization | Network -[RAW]-> No charge for covered services
+Preventive care/screening/immunization | OutOfNetwork -[RAW]-> 40% coinsurance
+Preventive care/screening/immunization | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Preventive care/screening/immunization | Limitation -[TEXT]-> You may have to pay for services that aren’t preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.
+Diagnostic test (x-ray, blood work) | Network -[RAW]-> $10 copay/test
+Diagnostic test (x-ray, blood work) | Network | Copay -[VALUE]-> $10 copay
+Diagnostic test (x-ray, blood work) | OutOfNetwork -[RAW]-> 40% coinsurance
+Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Imaging (CT/PET scans, MRIs) | Network -[RAW]-> $50 copay/test
+Imaging (CT/PET scans, MRIs) | Network | Copay -[VALUE]-> $50 copay
+Imaging (CT/PET scans, MRIs) | OutOfNetwork -[RAW]-> 40% coinsurance
+Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Generic drugs (Tier 1) (retail & mail order) | Network -[RAW]-> $10 copay/prescription
+Generic drugs (Tier 1) (retail & mail order) | Network | Copay -[VALUE]-> $10 copay
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork -[RAW]-> 40% coinsurance
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Generic drugs (Tier 1) (retail & mail order) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Preferred brand drugs (Tier 2) (retail & mail order) | Network -[RAW]-> $30 copay/prescription
+Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay -[VALUE]-> $30 copay
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork -[RAW]-> 40% coinsurance
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Preferred brand drugs (Tier 2) (retail & mail order) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Non-preferred brand drugs (Tier 3) | Network -[RAW]-> 40% coinsurance
+Non-preferred brand drugs (Tier 3) | Network | Coinsurance -[VALUE]-> 40%
+Non-preferred brand drugs (Tier 3) | OutOfNetwork -[RAW]-> 60% coinsurance
+Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance -[VALUE]-> 60%
+Non-preferred brand drugs (Tier 3) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Specialty drugs (Tier 4) | Network -[RAW]-> 50% coinsurance
+Specialty drugs (Tier 4) | Network | Coinsurance -[VALUE]-> 50%
+Specialty drugs (Tier 4) | OutOfNetwork -[RAW]-> 70% coinsurance
+Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance -[VALUE]-> 70%
+Specialty drugs (Tier 4) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Facility fee (e.g., ambulatory surgery center) | Network -[RAW]-> $100/day copay
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork -[RAW]-> 40% coinsurance
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., ambulatory surgery center) | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+Physician/surgeon fees | Network -[RAW]-> 20% coinsurance
+Physician/surgeon fees | Network | Coinsurance -[VALUE]-> 20%
+Physician/surgeon fees | OutOfNetwork -[RAW]-> 40% coinsurance
+Physician/surgeon fees | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Physician/surgeon fees | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+Emergency room care | Network -[RAW]-> 20% coinsurance
+Emergency room care | Network | Coinsurance -[VALUE]-> 20%
+Emergency room care | OutOfNetwork -[RAW]-> 20% coinsurance
+Emergency room care | OutOfNetwork | Coinsurance -[VALUE]-> 20%
+Emergency medical transportation | Network -[RAW]-> 20% coinsurance
+Emergency medical transportation | Network | Coinsurance -[VALUE]-> 20%
+Emergency medical transportation | OutOfNetwork -[RAW]-> 20% coinsurance
+Emergency medical transportation | OutOfNetwork | Coinsurance -[VALUE]-> 20%
+Urgent care | Network -[RAW]-> $30 copay
+Urgent care | Network | Copay -[VALUE]-> $30 copay
+Urgent care | OutOfNetwork -[RAW]-> 40% coinsurance
+Urgent care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., hospital room) | Network -[RAW]-> 20% coinsurance
+Facility fee (e.g., hospital room) | Network | Coinsurance -[VALUE]-> 20%
+Facility fee (e.g., hospital room) | OutOfNetwork -[RAW]-> 40% coinsurance
+Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., hospital room) | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+20% coinsurance | Network -[RAW]-> 40% coinsurance
+20% coinsurance | Network | Coinsurance -[VALUE]-> 40%
+20% coinsurance | OutOfNetwork -[RAW]-> 50% coinsurance for anesthesia.
+20% coinsurance | OutOfNetwork | Coinsurance -[VALUE]-> 50%
+Outpatient services | Network -[RAW]-> $35 copay/office visit and 20% coinsurance for other outpatient services
+Outpatient services | Network | Copay -[VALUE]-> $35 copay
+Outpatient services | Network | Coinsurance -[VALUE]-> 20%
+Outpatient services | OutOfNetwork -[RAW]-> 40% coinsurance
+Outpatient services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Inpatient services | Network -[RAW]-> 20% coinsurance
+Inpatient services | Network | Coinsurance -[VALUE]-> 20%
+Inpatient services | OutOfNetwork -[RAW]-> 40% coinsurance
+Inpatient services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Office visits | Network -[RAW]-> 20% coinsurance
+Office visits | Network | Coinsurance -[VALUE]-> 20%
+Office visits | OutOfNetwork -[RAW]-> 40% coinsurance
+Office visits | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Office visits | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Childbirth/delivery professional services | Network -[RAW]-> 20% coinsurance
+Childbirth/delivery professional services | Network | Coinsurance -[VALUE]-> 20%
+Childbirth/delivery professional services | OutOfNetwork -[RAW]-> 40% coinsurance
+Childbirth/delivery professional services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Childbirth/delivery professional services | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Childbirth/delivery facility services | Network -[RAW]-> 20% coinsurance
+Childbirth/delivery facility services | Network | Coinsurance -[VALUE]-> 20%
+Childbirth/delivery facility services | OutOfNetwork -[RAW]-> 40% coinsurance
+Childbirth/delivery facility services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Childbirth/delivery facility services | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Home health care | Network -[RAW]-> 20% coinsurance
+Home health care | Network | Coinsurance -[VALUE]-> 20%
+Home health care | OutOfNetwork -[RAW]-> 40% coinsurance
+Home health care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Home health care | Limitation -[TEXT]-> 60 visits/calendar year
+Rehabilitation services | Network -[RAW]-> 20% coinsurance
+Rehabilitation services | Network | Coinsurance -[VALUE]-> 20%
+Rehabilitation services | OutOfNetwork -[RAW]-> 40% coinsurance
+Rehabilitation services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Rehabilitation services | Limitation -[TEXT]-> 60 visits/calendar year. Includes physical therapy, speech therapy, and occupational therapy.
+Habilitation services | Network -[RAW]-> 20% coinsurance
+Habilitation services | Network | Coinsurance -[VALUE]-> 20%
+Habilitation services | OutOfNetwork -[RAW]-> 40% coinsurance
+Habilitation services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Skilled nursing care | Network -[RAW]-> 20% coinsurance
+Skilled nursing care | Network | Coinsurance -[VALUE]-> 20%
+Skilled nursing care | OutOfNetwork -[RAW]-> 40% coinsurance
+Skilled nursing care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Skilled nursing care | Limitation -[TEXT]-> 60 visits/calendar year
+Durable medical equipment | Network -[RAW]-> 20% coinsurance
+Durable medical equipment | Network | Coinsurance -[VALUE]-> 20%
+Durable medical equipment | OutOfNetwork -[RAW]-> 40% coinsurance
+Durable medical equipment | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Durable medical equipment | Limitation -[TEXT]-> Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.
+Hospice services | Network -[RAW]-> 20% coinsurance
+Hospice services | Network | Coinsurance -[VALUE]-> 20%
+Hospice services | OutOfNetwork -[RAW]-> 40% coinsurance
+Hospice services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Hospice services | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+Children's eye exam | Network -[RAW]-> $35 copay/visit
+Children's eye exam | Network | Copay -[VALUE]-> $35 copay
+Children's eye exam | OutOfNetwork -[RAW]-> Not covered
+Children's eye exam | Limitation -[TEXT]-> Coverage limited to one exam/year.
+Children's glasses | Network -[RAW]-> 20% coinsurance
+Children's glasses | Network | Coinsurance -[VALUE]-> 20%
+Children's glasses | OutOfNetwork -[RAW]-> Not covered
+Children's glasses | Limitation -[TEXT]-> Coverage limited to one pair of glasses/year.
+Children's dental check-up | Network -[RAW]-> No charge
+Children's dental check-up | OutOfNetwork -[RAW]-> Not covered
+Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000] -[CONTENT]-> Insurance Company 1: Plan Option 1 Coverage Period: 1/1/2017 – 12/31/2017 Coverage for: Family | Plan Type: PPO
+Footnote [footnote_001] -[CONTENT]-> All copayment and coinsurance costs shown in this chart are after your overall deductible has been met, if a deductible applies.
+Section: page_3.html [section_002] -[CONTENT]-> Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.) Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)
+Footnote [footnote_003] -[CONTENT]-> Your Rights to Continue Coverage: There are agencies that can help if you want to continue your coverage after it ends. The contact information for those agencies is: [insert State, HHS, DOL, and/or other applicable agency contact information]. Other options to continue coverage are available to you too, including buying individual insurance coverage through the Health Insurance Marketplace. For more information about the Marketplace, visit www.HealthCare.gov or call 1-800-318-2596.
+Section: page_4.html [section_004] -[CONTENT]-> Your Grievance and Appeals Rights: There are agencies that can help if you have a complaint against your plan for a denial of a claim. This complaint is called a grievance or appeal. For more information about your rights, look at the explanation of benefits you will receive for that medical claim. Your plan documents also provide complete information to submit a claim appeal or a grievance for any reason to your plan. For more information about your rights, this notice, or assistance, contact: [insert applicable contact information from instructions].
+Section: Does this plan provide Minimum Essential Coverage? [section_005] -[CONTENT]-> Yes. If you don't have Minimum Essential Coverage for a month under this plan or under other coverage, you'll have to make a payment when you file your tax return unless you qualify for an exemption from the requirement that you have health coverage for that month.
+Section: Does this plan meet Minimum Value Standards? [section_006] -[CONTENT]-> Yes. If your plan doesn't meet the Minimum Value Standards, you may be eligible for a premium tax credit to help you pay for a plan through the Marketplace.
+Section: Language Access Services: [section_007] -[CONTENT]-> [Spanish (Español): Para obtener asistencia en Español, llame al [insert telephone number].] [Tagalog (Tagalog): Kung kailangan ninyo ang tulong sa Tagalog tumawag sa [insert telephone number].] [Chinese (中文): 如果需要中文的帮助，请拨打这个号码 [insert telephone number].] [Navajo (Dine): Dinek'ehgo shika at'ohwol ninisingo, kwijjigo holne' [insert telephone number].] —To see examples of how this plan might cover costs for a sample medical situation, see the next section.—
+Section: About these Coverage Examples: [section_008] -[CONTENT]-> This is not a cost estimator. Treatments shown are just examples of how this plan might cover medical care. Your actual costs will be different depending on the actual care you receive, the prices your providers charge, and many other factors. Focus on the cost sharing amounts (deductibles, copayments and coinsurance) and excluded services under the plan. Use this information to compare the portion of costs you might pay under different health plans. Please note these coverage examples are based on self-only coverage. This EXAMPLE event includes services like: In this example, Peg would pay: This EXAMPLE event includes services like: In this example, Joe would pay:
+Footnote [footnote_009] -[CONTENT]-> Note: These numbers assume the patient does not participate in the plan’s wellness program. If you participate in the plan’s wellness program, you may be able to reduce your costs. For more information about the wellness program, please contact: [insert].
+Section: Mia’s Simple Fracture [section_010] -[CONTENT]-> This EXAMPLE event includes services like: In this example, Mia would pay: The plan would be responsible for the other costs of these EXA
+HealthPlan -[COVERS]-> Coverage for: Family | Plan Type: PPO
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is the overall deductible?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Are there services covered before you meet your deductible?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Are there other deductibles for specific services?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is the out-of-pocket limit for this plan?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is not included in the out-of-pocket limit?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Will you pay less if you use a network provider?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Do you need a referral to see a specialist?
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Primary care visit to treat an injury or illness
+Primary care visit to treat an injury or illness -[HAS_NETWORK_COST]-> Primary care visit to treat an injury or illness | Network
+Primary care visit to treat an injury or illness | Network -[HAS_COPAY]-> Primary care visit to treat an injury or illness | Network | Copay
+Primary care visit to treat an injury or illness | Network -[HAS_COINSURANCE]-> Primary care visit to treat an injury or illness | Network | Coinsurance
+Primary care visit to treat an injury or illness | Network -[DEDUCTIBLE_DOES_NOT_APPLY]-> true
+Primary care visit to treat an injury or illness -[HAS_OUT_OF_NETWORK_COST]-> Primary care visit to treat an injury or illness | OutOfNetwork
+Primary care visit to treat an injury or illness | OutOfNetwork -[HAS_COINSURANCE]-> Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Specialist visit
+Specialist visit -[HAS_NETWORK_COST]-> Specialist visit | Network
+Specialist visit | Network -[HAS_COPAY]-> Specialist visit | Network | Copay
+Specialist visit -[HAS_OUT_OF_NETWORK_COST]-> Specialist visit | OutOfNetwork
+Specialist visit | OutOfNetwork -[HAS_COINSURANCE]-> Specialist visit | OutOfNetwork | Coinsurance
+Specialist visit -[HAS_LIMITATION]-> Specialist visit | Limitation
+Specialist visit -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Preventive care/screening/immunization
+Preventive care/screening/immunization -[HAS_NETWORK_COST]-> Preventive care/screening/immunization | Network
+Preventive care/screening/immunization -[HAS_OUT_OF_NETWORK_COST]-> Preventive care/screening/immunization | OutOfNetwork
+Preventive care/screening/immunization | OutOfNetwork -[HAS_COINSURANCE]-> Preventive care/screening/immunization | OutOfNetwork | Coinsurance
+Preventive care/screening/immunization -[HAS_LIMITATION]-> Preventive care/screening/immunization | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a test
+If you have a test -[INCLUDES_SERVICE]-> Diagnostic test (x-ray, blood work)
+Diagnostic test (x-ray, blood work) -[HAS_NETWORK_COST]-> Diagnostic test (x-ray, blood work) | Network
+Diagnostic test (x-ray, blood work) | Network -[HAS_COPAY]-> Diagnostic test (x-ray, blood work) | Network | Copay
+Diagnostic test (x-ray, blood work) -[HAS_OUT_OF_NETWORK_COST]-> Diagnostic test (x-ray, blood work) | OutOfNetwork
+Diagnostic test (x-ray, blood work) | OutOfNetwork -[HAS_COINSURANCE]-> Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a test
+If you have a test -[INCLUDES_SERVICE]-> Imaging (CT/PET scans, MRIs)
+Imaging (CT/PET scans, MRIs) -[HAS_NETWORK_COST]-> Imaging (CT/PET scans, MRIs) | Network
+Imaging (CT/PET scans, MRIs) | Network -[HAS_COPAY]-> Imaging (CT/PET scans, MRIs) | Network | Copay
+Imaging (CT/PET scans, MRIs) -[HAS_OUT_OF_NETWORK_COST]-> Imaging (CT/PET scans, MRIs) | OutOfNetwork
+Imaging (CT/PET scans, MRIs) | OutOfNetwork -[HAS_COINSURANCE]-> Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Generic drugs (Tier 1) (retail & mail order)
+Generic drugs (Tier 1) (retail & mail order) -[HAS_NETWORK_COST]-> Generic drugs (Tier 1) (retail & mail order) | Network
+Generic drugs (Tier 1) (retail & mail order) | Network -[HAS_COPAY]-> Generic drugs (Tier 1) (retail & mail order) | Network | Copay
+Generic drugs (Tier 1) (retail & mail order) -[HAS_OUT_OF_NETWORK_COST]-> Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork -[HAS_COINSURANCE]-> Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance
+Generic drugs (Tier 1) (retail & mail order) -[HAS_LIMITATION]-> Generic drugs (Tier 1) (retail & mail order) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Preferred brand drugs (Tier 2) (retail & mail order)
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_NETWORK_COST]-> Preferred brand drugs (Tier 2) (retail & mail order) | Network
+Preferred brand drugs (Tier 2) (retail & mail order) | Network -[HAS_COPAY]-> Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_OUT_OF_NETWORK_COST]-> Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork -[HAS_COINSURANCE]-> Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_LIMITATION]-> Preferred brand drugs (Tier 2) (retail & mail order) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Non-preferred brand drugs (Tier 3)
+Non-preferred brand drugs (Tier 3) -[HAS_NETWORK_COST]-> Non-preferred brand drugs (Tier 3) | Network
+Non-preferred brand drugs (Tier 3) | Network -[HAS_COINSURANCE]-> Non-preferred brand drugs (Tier 3) | Network | Coinsurance
+Non-preferred brand drugs (Tier 3) -[HAS_OUT_OF_NETWORK_COST]-> Non-preferred brand drugs (Tier 3) | OutOfNetwork
+Non-preferred brand drugs (Tier 3) | OutOfNetwork -[HAS_COINSURANCE]-> Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance
+Non-preferred brand drugs (Tier 3) -[HAS_LIMITATION]-> Non-preferred brand drugs (Tier 3) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Specialty drugs (Tier 4)
+Specialty drugs (Tier 4) -[HAS_NETWORK_COST]-> Specialty drugs (Tier 4) | Network
+Specialty drugs (Tier 4) | Network -[HAS_COINSURANCE]-> Specialty drugs (Tier 4) | Network | Coinsurance
+Specialty drugs (Tier 4) -[HAS_OUT_OF_NETWORK_COST]-> Specialty drugs (Tier 4) | OutOfNetwork
+Specialty drugs (Tier 4) | OutOfNetwork -[HAS_COINSURANCE]-> Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance
+Specialty drugs (Tier 4) -[HAS_LIMITATION]-> Specialty drugs (Tier 4) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have outpatient surgery
+If you have outpatient surgery -[INCLUDES_SERVICE]-> Facility fee (e.g., ambulatory surgery center)
+Facility fee (e.g., ambulatory surgery center) -[HAS_NETWORK_COST]-> Facility fee (e.g., ambulatory surgery center) | Network
+Facility fee (e.g., ambulatory surgery center) -[HAS_OUT_OF_NETWORK_COST]-> Facility fee (e.g., ambulatory surgery center) | OutOfNetwork
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork -[HAS_COINSURANCE]-> Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance
+Facility fee (e.g., ambulatory surgery center) -[HAS_LIMITATION]-> Facility fee (e.g., ambulatory surgery center) | Limitation
+Facility fee (e.g., ambulatory surgery center) -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have outpatient surgery
+If you have outpatient surgery -[INCLUDES_SERVICE]-> Physician/surgeon fees
+Physician/surgeon fees -[HAS_NETWORK_COST]-> Physician/surgeon fees | Network
+Physician/surgeon fees | Network -[HAS_COINSURANCE]-> Physician/surgeon fees | Network | Coinsurance
+Physician/surgeon fees -[HAS_OUT_OF_NETWORK_COST]-> Physician/surgeon fees | OutOfNetwork
+Physician/surgeon fees | OutOfNetwork -[HAS_COINSURANCE]-> Physician/surgeon fees | OutOfNetwork | Coinsurance
+Physician/surgeon fees -[HAS_LIMITATION]-> Physician/surgeon fees | Limitation
+Physician/surgeon fees -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Emergency room care
+Emergency room care -[HAS_NETWORK_COST]-> Emergency room care | Network
+Emergency room care | Network -[HAS_COINSURANCE]-> Emergency room care | Network | Coinsurance
+Emergency room care -[HAS_OUT_OF_NETWORK_COST]-> Emergency room care | OutOfNetwork
+Emergency room care | OutOfNetwork -[HAS_COINSURANCE]-> Emergency room care | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Emergency medical transportation
+Emergency medical transportation -[HAS_NETWORK_COST]-> Emergency medical transportation | Network
+Emergency medical transportation | Network -[HAS_COINSURANCE]-> Emergency medical transportation | Network | Coinsurance
+Emergency medical transportation -[HAS_OUT_OF_NETWORK_COST]-> Emergency medical transportation | OutOfNetwork
+Emergency medical transportation | OutOfNetwork -[HAS_COINSURANCE]-> Emergency medical transportation | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Urgent care
+Urgent care -[HAS_NETWORK_COST]-> Urgent care | Network
+Urgent care | Network -[HAS_COPAY]-> Urgent care | Network | Copay
+Urgent care -[HAS_OUT_OF_NETWORK_COST]-> Urgent care | OutOfNetwork
+Urgent care | OutOfNetwork -[HAS_COINSURANCE]-> Urgent care | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a hospital stay
+If you have a hospital stay -[INCLUDES_SERVICE]-> Facility fee (e.g., hospital room)
+Facility fee (e.g., hospital room) -[HAS_NETWORK_COST]-> Facility fee (e.g., hospital room) | Network
+Facility fee (e.g., hospital room) | Network -[HAS_COINSURANCE]-> Facility fee (e.g., hospital room) | Network | Coinsurance
+Facility fee (e.g., hospital room) -[HAS_OUT_OF_NETWORK_COST]-> Facility fee (e.g., hospital room) | OutOfNetwork
+Facility fee (e.g., hospital room) | OutOfNetwork -[HAS_COINSURANCE]-> Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance
+Facility fee (e.g., hospital room) -[HAS_LIMITATION]-> Facility fee (e.g., hospital room) | Limitation
+Facility fee (e.g., hospital room) -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> Physician/surgeon fees
+Physician/surgeon fees -[INCLUDES_SERVICE]-> 20% coinsurance
+20% coinsurance -[HAS_NETWORK_COST]-> 20% coinsurance | Network
+20% coinsurance | Network -[HAS_COINSURANCE]-> 20% coinsurance | Network | Coinsurance
+20% coinsurance -[HAS_OUT_OF_NETWORK_COST]-> 20% coinsurance | OutOfNetwork
+20% coinsurance | OutOfNetwork -[HAS_COINSURANCE]-> 20% coinsurance | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need mental health, behavioral health, or substance abuse services
+If you need mental health, behavioral health, or substance abuse services -[INCLUDES_SERVICE]-> Outpatient services
+Outpatient services -[HAS_NETWORK_COST]-> Outpatient services | Network
+Outpatient services | Network -[HAS_COPAY]-> Outpatient services | Network | Copay
+Outpatient services | Network -[HAS_COINSURANCE]-> Outpatient services | Network | Coinsurance
+Outpatient services -[HAS_OUT_OF_NETWORK_COST]-> Outpatient services | OutOfNetwork
+Outpatient services | OutOfNetwork -[HAS_COINSURANCE]-> Outpatient services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need mental health, behavioral health, or substance abuse services
+If you need mental health, behavioral health, or substance abuse services -[INCLUDES_SERVICE]-> Inpatient services
+Inpatient services -[HAS_NETWORK_COST]-> Inpatient services | Network
+Inpatient services | Network -[HAS_COINSURANCE]-> Inpatient services | Network | Coinsurance
+Inpatient services -[HAS_OUT_OF_NETWORK_COST]-> Inpatient services | OutOfNetwork
+Inpatient services | OutOfNetwork -[HAS_COINSURANCE]-> Inpatient services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Office visits
+Office visits -[HAS_NETWORK_COST]-> Office visits | Network
+Office visits | Network -[HAS_COINSURANCE]-> Office visits | Network | Coinsurance
+Office visits -[HAS_OUT_OF_NETWORK_COST]-> Office visits | OutOfNetwork
+Office visits | OutOfNetwork -[HAS_COINSURANCE]-> Office visits | OutOfNetwork | Coinsurance
+Office visits -[HAS_LIMITATION]-> Office visits | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Childbirth/delivery professional services
+Childbirth/delivery professional services -[HAS_NETWORK_COST]-> Childbirth/delivery professional services | Network
+Childbirth/delivery professional services | Network -[HAS_COINSURANCE]-> Childbirth/delivery professional services | Network | Coinsurance
+Childbirth/delivery professional services -[HAS_OUT_OF_NETWORK_COST]-> Childbirth/delivery professional services | OutOfNetwork
+Childbirth/delivery professional services | OutOfNetwork -[HAS_COINSURANCE]-> Childbirth/delivery professional services | OutOfNetwork | Coinsurance
+Childbirth/delivery professional services -[HAS_LIMITATION]-> Childbirth/delivery professional services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Childbirth/delivery facility services
+Childbirth/delivery facility services -[HAS_NETWORK_COST]-> Childbirth/delivery facility services | Network
+Childbirth/delivery facility services | Network -[HAS_COINSURANCE]-> Childbirth/delivery facility services | Network | Coinsurance
+Childbirth/delivery facility services -[HAS_OUT_OF_NETWORK_COST]-> Childbirth/delivery facility services | OutOfNetwork
+Childbirth/delivery facility services | OutOfNetwork -[HAS_COINSURANCE]-> Childbirth/delivery facility services | OutOfNetwork | Coinsurance
+Childbirth/delivery facility services -[HAS_LIMITATION]-> Childbirth/delivery facility services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Home health care
+Home health care -[HAS_NETWORK_COST]-> Home health care | Network
+Home health care | Network -[HAS_COINSURANCE]-> Home health care | Network | Coinsurance
+Home health care -[HAS_OUT_OF_NETWORK_COST]-> Home health care | OutOfNetwork
+Home health care | OutOfNetwork -[HAS_COINSURANCE]-> Home health care | OutOfNetwork | Coinsurance
+Home health care -[HAS_LIMITATION]-> Home health care | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Rehabilitation services
+Rehabilitation services -[HAS_NETWORK_COST]-> Rehabilitation services | Network
+Rehabilitation services | Network -[HAS_COINSURANCE]-> Rehabilitation services | Network | Coinsurance
+Rehabilitation services -[HAS_OUT_OF_NETWORK_COST]-> Rehabilitation services | OutOfNetwork
+Rehabilitation services | OutOfNetwork -[HAS_COINSURANCE]-> Rehabilitation services | OutOfNetwork | Coinsurance
+Rehabilitation services -[HAS_LIMITATION]-> Rehabilitation services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Habilitation services
+Habilitation services -[HAS_NETWORK_COST]-> Habilitation services | Network
+Habilitation services | Network -[HAS_COINSURANCE]-> Habilitation services | Network | Coinsurance
+Habilitation services -[HAS_OUT_OF_NETWORK_COST]-> Habilitation services | OutOfNetwork
+Habilitation services | OutOfNetwork -[HAS_COINSURANCE]-> Habilitation services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Skilled nursing care
+Skilled nursing care -[HAS_NETWORK_COST]-> Skilled nursing care | Network
+Skilled nursing care | Network -[HAS_COINSURANCE]-> Skilled nursing care | Network | Coinsurance
+Skilled nursing care -[HAS_OUT_OF_NETWORK_COST]-> Skilled nursing care | OutOfNetwork
+Skilled nursing care | OutOfNetwork -[HAS_COINSURANCE]-> Skilled nursing care | OutOfNetwork | Coinsurance
+Skilled nursing care -[HAS_LIMITATION]-> Skilled nursing care | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Durable medical equipment
+Durable medical equipment -[HAS_NETWORK_COST]-> Durable medical equipment | Network
+Durable medical equipment | Network -[HAS_COINSURANCE]-> Durable medical equipment | Network | Coinsurance
+Durable medical equipment -[HAS_OUT_OF_NETWORK_COST]-> Durable medical equipment | OutOfNetwork
+Durable medical equipment | OutOfNetwork -[HAS_COINSURANCE]-> Durable medical equipment | OutOfNetwork | Coinsurance
+Durable medical equipment -[HAS_LIMITATION]-> Durable medical equipment | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Hospice services
+Hospice services -[HAS_NETWORK_COST]-> Hospice services | Network
+Hospice services | Network -[HAS_COINSURANCE]-> Hospice services | Network | Coinsurance
+Hospice services -[HAS_OUT_OF_NETWORK_COST]-> Hospice services | OutOfNetwork
+Hospice services | OutOfNetwork -[HAS_COINSURANCE]-> Hospice services | OutOfNetwork | Coinsurance
+Hospice services -[HAS_LIMITATION]-> Hospice services | Limitation
+Hospice services -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's eye exam
+Children's eye exam -[HAS_NETWORK_COST]-> Children's eye exam | Network
+Children's eye exam | Network -[HAS_COPAY]-> Children's eye exam | Network | Copay
+Children's eye exam -[HAS_OUT_OF_NETWORK_COST]-> Children's eye exam | OutOfNetwork
+Children's eye exam -[HAS_LIMITATION]-> Children's eye exam | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's glasses
+Children's glasses -[HAS_NETWORK_COST]-> Children's glasses | Network
+Children's glasses | Network -[HAS_COINSURANCE]-> Children's glasses | Network | Coinsurance
+Children's glasses -[HAS_OUT_OF_NETWORK_COST]-> Children's glasses | OutOfNetwork
+Children's glasses -[HAS_LIMITATION]-> Children's glasses | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's dental check-up
+Children's dental check-up -[HAS_NETWORK_COST]-> Children's dental check-up | Network
+Children's dental check-up -[HAS_OUT_OF_NETWORK_COST]-> Children's dental check-up | OutOfNetwork
+HealthPlan -[EXCLUDES_SERVICE]-> Cosmetic Surgery
+HealthPlan -[EXCLUDES_SERVICE]-> Private Duty Nursing
+HealthPlan -[EXCLUDES_SERVICE]-> Routine Foot Care
+HealthPlan -[EXCLUDES_SERVICE]-> Dental Care
+HealthPlan -[EXCLUDES_SERVICE]-> Non-emergency care outside the U.S.
+HealthPlan -[EXCLUDES_SERVICE]-> Infertility Treatment
+HealthPlan -[EXCLUDES_SERVICE]-> Long Term Care
+HealthPlan -[EXCLUDES_SERVICE]-> Routine eye care (Adult)
+HealthPlan -[EXCLUDES_SERVICE]-> Acupuncture (if prescribed for rehabilitation
+HealthPlan -[EXCLUDES_SERVICE]-> Chiropractic Care
+HealthPlan -[EXCLUDES_SERVICE]-> Weight Loss Programs
+HealthPlan -[HAS_SECTION]-> Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_001]
+HealthPlan -[HAS_SECTION]-> Section: page_3.html [section_002]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_003]
+HealthPlan -[HAS_SECTION]-> Section: page_4.html [section_004]
+HealthPlan -[HAS_SECTION]-> Section: Does this plan provide Minimum Essential Coverage? [section_005]
+HealthPlan -[HAS_SECTION]-> Section: Does this plan meet Minimum Value Standards? [section_006]
+HealthPlan -[HAS_SECTION]-> Section: Language Access Services: [section_007]
+HealthPlan -[HAS_SECTION]-> Section: About these Coverage Examples: [section_008]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_009]
+HealthPlan -[HAS_SECTION]-> Section: Mia’s Simple Fracture [section_010]
+HealthPlan -[PLAN_TYPE]-> Coverage for: Family | Plan Type: PPO
+What is the overall deductible? -[QUESTION]-> What is the overall deductible?
+What is the overall deductible? -[ANSWER]-> $500/Individual or $1,000/family
+What is the overall deductible? -[WHY_IT_MATTERS]-> Generally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met.
+Are there services covered before you meet your deductible? -[QUESTION]-> Are there services covered before you meet your deductible?
+Are there services covered before you meet your deductible? -[ANSWER]-> Yes. Preventive care and primary care services are covered before you meet your deductible.
+Are there services covered before you meet your deductible? -[WHY_IT_MATTERS]-> This plan covers some items and services even if you haven’t yet met the annual deductible amount. But a copayment or coinsurance may apply. For example, this plan covers certain preventive services without cost-sharing and before you meet your deductible. See a list of covered preventive services at https://www.healthcare.gov/coverage/preventive-care-benefits/.
+Are there other deductibles for specific services? -[QUESTION]-> Are there other deductibles for specific services?
+Are there other deductibles for specific services? -[ANSWER]-> Yes. $300 for prescription drug coverage and $300 for occupational therapy services.
+Are there other deductibles for specific services? -[WHY_IT_MATTERS]-> You must pay all of the costs for these services up to the specific deductible amount before this plan begins to pay for these services.
+What is the out-of-pocket limit for this plan? -[QUESTION]-> What is the out-of-pocket limit for this plan?
+What is the out-of-pocket limit for this plan? -[ANSWER]-> For network providers $2,500 individual / $5,000 family; for out-of-network providers $4,000 individual / $8,000 family
+What is the out-of-pocket limit for this plan? -[WHY_IT_MATTERS]-> The out-of-pocket limit is the most you could pay in a year for covered services. If you have other family members in this plan, they have to meet their own out-of-pocket limits until the overall family out-of-pocket limit has been met.
+What is not included in the out-of-pocket limit? -[QUESTION]-> What is not included in the out-of-pocket limit?
+What is not included in the out-of-pocket limit? -[ANSWER]-> Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn’t cover.
+What is not included in the out-of-pocket limit? -[WHY_IT_MATTERS]-> Even though you pay these expenses, they don’t count toward the out-of-pocket limit.
+Will you pay less if you use a network provider? -[QUESTION]-> Will you pay less if you use a network provider?
+Will you pay less if you use a network provider? -[ANSWER]-> Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers.
+Will you pay less if you use a network provider? -[WHY_IT_MATTERS]-> This plan uses a provider network. You will pay less if you use a provider in the plan’s network. You will pay the most if you use an out-of-network provider, and you might receive a bill from a provider for the difference between the provider’s charge and what your plan pays (a balance bill). Be aware, your network provider might use an out-of-network provider for some services (such as lab work). Check with your provider before you get services.
+Do you need a referral to see a specialist? -[QUESTION]-> Do you need a referral to see a specialist?
+Do you need a referral to see a specialist? -[ANSWER]-> Yes.
+Do you need a referral to see a specialist? -[WHY_IT_MATTERS]-> This plan will pay some or all of the costs to see a specialist for covered services but only if you have a referral before you see the specialist.
+Primary care visit to treat an injury or illness | Network -[RAW]-> $35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply
+Primary care visit to treat an injury or illness | Network | Copay -[VALUE]-> $35 copay
+Primary care visit to treat an injury or illness | Network | Coinsurance -[VALUE]-> 20%
+Primary care visit to treat an injury or illness | OutOfNetwork -[RAW]-> 40% coinsurance
+Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Specialist visit | Network -[RAW]-> $50 copay/visit
+Specialist visit | Network | Copay -[VALUE]-> $50 copay
+Specialist visit | OutOfNetwork -[RAW]-> 40% coinsurance
+Specialist visit | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Specialist visit | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+Preventive care/screening/immunization | Network -[RAW]-> No charge for covered services
+Preventive care/screening/immunization | OutOfNetwork -[RAW]-> 40% coinsurance
+Preventive care/screening/immunization | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Preventive care/screening/immunization | Limitation -[TEXT]-> You may have to pay for services that aren’t preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.
+Diagnostic test (x-ray, blood work) | Network -[RAW]-> $10 copay/test
+Diagnostic test (x-ray, blood work) | Network | Copay -[VALUE]-> $10 copay
+Diagnostic test (x-ray, blood work) | OutOfNetwork -[RAW]-> 40% coinsurance
+Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Imaging (CT/PET scans, MRIs) | Network -[RAW]-> $50 copay/test
+Imaging (CT/PET scans, MRIs) | Network | Copay -[VALUE]-> $50 copay
+Imaging (CT/PET scans, MRIs) | OutOfNetwork -[RAW]-> 40% coinsurance
+Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Generic drugs (Tier 1) (retail & mail order) | Network -[RAW]-> $10 copay/prescription
+Generic drugs (Tier 1) (retail & mail order) | Network | Copay -[VALUE]-> $10 copay
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork -[RAW]-> 40% coinsurance
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Generic drugs (Tier 1) (retail & mail order) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Preferred brand drugs (Tier 2) (retail & mail order) | Network -[RAW]-> $30 copay/prescription
+Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay -[VALUE]-> $30 copay
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork -[RAW]-> 40% coinsurance
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Preferred brand drugs (Tier 2) (retail & mail order) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Non-preferred brand drugs (Tier 3) | Network -[RAW]-> 40% coinsurance
+Non-preferred brand drugs (Tier 3) | Network | Coinsurance -[VALUE]-> 40%
+Non-preferred brand drugs (Tier 3) | OutOfNetwork -[RAW]-> 60% coinsurance
+Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance -[VALUE]-> 60%
+Non-preferred brand drugs (Tier 3) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Specialty drugs (Tier 4) | Network -[RAW]-> 50% coinsurance
+Specialty drugs (Tier 4) | Network | Coinsurance -[VALUE]-> 50%
+Specialty drugs (Tier 4) | OutOfNetwork -[RAW]-> 70% coinsurance
+Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance -[VALUE]-> 70%
+Specialty drugs (Tier 4) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Facility fee (e.g., ambulatory surgery center) | Network -[RAW]-> $100/day copay
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork -[RAW]-> 40% coinsurance
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., ambulatory surgery center) | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+Physician/surgeon fees | Network -[RAW]-> 20% coinsurance
+Physician/surgeon fees | Network | Coinsurance -[VALUE]-> 20%
+Physician/surgeon fees | OutOfNetwork -[RAW]-> 40% coinsurance
+Physician/surgeon fees | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Physician/surgeon fees | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+Emergency room care | Network -[RAW]-> 20% coinsurance
+Emergency room care | Network | Coinsurance -[VALUE]-> 20%
+Emergency room care | OutOfNetwork -[RAW]-> 20% coinsurance
+Emergency room care | OutOfNetwork | Coinsurance -[VALUE]-> 20%
+Emergency medical transportation | Network -[RAW]-> 20% coinsurance
+Emergency medical transportation | Network | Coinsurance -[VALUE]-> 20%
+Emergency medical transportation | OutOfNetwork -[RAW]-> 20% coinsurance
+Emergency medical transportation | OutOfNetwork | Coinsurance -[VALUE]-> 20%
+Urgent care | Network -[RAW]-> $30 copay
+Urgent care | Network | Copay -[VALUE]-> $30 copay
+Urgent care | OutOfNetwork -[RAW]-> 40% coinsurance
+Urgent care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., hospital room) | Network -[RAW]-> 20% coinsurance
+Facility fee (e.g., hospital room) | Network | Coinsurance -[VALUE]-> 20%
+Facility fee (e.g., hospital room) | OutOfNetwork -[RAW]-> 40% coinsurance
+Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., hospital room) | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+20% coinsurance | Network -[RAW]-> 40% coinsurance
+20% coinsurance | Network | Coinsurance -[VALUE]-> 40%
+20% coinsurance | OutOfNetwork -[RAW]-> 50% coinsurance for anesthesia.
+20% coinsurance | OutOfNetwork | Coinsurance -[VALUE]-> 50%
+Outpatient services | Network -[RAW]-> $35 copay/office visit and 20% coinsurance for other outpatient services
+Outpatient services | Network | Copay -[VALUE]-> $35 copay
+Outpatient services | Network | Coinsurance -[VALUE]-> 20%
+Outpatient services | OutOfNetwork -[RAW]-> 40% coinsurance
+Outpatient services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Inpatient services | Network -[RAW]-> 20% coinsurance
+Inpatient services | Network | Coinsurance -[VALUE]-> 20%
+Inpatient services | OutOfNetwork -[RAW]-> 40% coinsurance
+Inpatient services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Office visits | Network -[RAW]-> 20% coinsurance
+Office visits | Network | Coinsurance -[VALUE]-> 20%
+Office visits | OutOfNetwork -[RAW]-> 40% coinsurance
+Office visits | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Office visits | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Childbirth/delivery professional services | Network -[RAW]-> 20% coinsurance
+Childbirth/delivery professional services | Network | Coinsurance -[VALUE]-> 20%
+Childbirth/delivery professional services | OutOfNetwork -[RAW]-> 40% coinsurance
+Childbirth/delivery professional services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Childbirth/delivery professional services | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Childbirth/delivery facility services | Network -[RAW]-> 20% coinsurance
+Childbirth/delivery facility services | Network | Coinsurance -[VALUE]-> 20%
+Childbirth/delivery facility services | OutOfNetwork -[RAW]-> 40% coinsurance
+Childbirth/delivery facility services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Childbirth/delivery facility services | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Home health care | Network -[RAW]-> 20% coinsurance
+Home health care | Network | Coinsurance -[VALUE]-> 20%
+Home health care | OutOfNetwork -[RAW]-> 40% coinsurance
+Home health care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Home health care | Limitation -[TEXT]-> 60 visits/calendar year
+Rehabilitation services | Network -[RAW]-> 20% coinsurance
+Rehabilitation services | Network | Coinsurance -[VALUE]-> 20%
+Rehabilitation services | OutOfNetwork -[RAW]-> 40% coinsurance
+Rehabilitation services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Rehabilitation services | Limitation -[TEXT]-> 60 visits/calendar year. Includes physical therapy, speech therapy, and occupational therapy.
+Habilitation services | Network -[RAW]-> 20% coinsurance
+Habilitation services | Network | Coinsurance -[VALUE]-> 20%
+Habilitation services | OutOfNetwork -[RAW]-> 40% coinsurance
+Habilitation services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Skilled nursing care | Network -[RAW]-> 20% coinsurance
+Skilled nursing care | Network | Coinsurance -[VALUE]-> 20%
+Skilled nursing care | OutOfNetwork -[RAW]-> 40% coinsurance
+Skilled nursing care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Skilled nursing care | Limitation -[TEXT]-> 60 visits/calendar year
+Durable medical equipment | Network -[RAW]-> 20% coinsurance
+Durable medical equipment | Network | Coinsurance -[VALUE]-> 20%
+Durable medical equipment | OutOfNetwork -[RAW]-> 40% coinsurance
+Durable medical equipment | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Durable medical equipment | Limitation -[TEXT]-> Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.
+Hospice services | Network -[RAW]-> 20% coinsurance
+Hospice services | Network | Coinsurance -[VALUE]-> 20%
+Hospice services | OutOfNetwork -[RAW]-> 40% coinsurance
+Hospice services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Hospice services | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+Children's eye exam | Network -[RAW]-> $35 copay/visit
+Children's eye exam | Network | Copay -[VALUE]-> $35 copay
+Children's eye exam | OutOfNetwork -[RAW]-> Not covered
+Children's eye exam | Limitation -[TEXT]-> Coverage limited to one exam/year.
+Children's glasses | Network -[RAW]-> 20% coinsurance
+Children's glasses | Network | Coinsurance -[VALUE]-> 20%
+Children's glasses | OutOfNetwork -[RAW]-> Not covered
+Children's glasses | Limitation -[TEXT]-> Coverage limited to one pair of glasses/year.
+Children's dental check-up | Network -[RAW]-> No charge
+Children's dental check-up | OutOfNetwork -[RAW]-> Not covered
+Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000] -[CONTENT]-> Insurance Company 1: Plan Option 1 Coverage Period: 1/1/2017 – 12/31/2017 Coverage for: Family | Plan Type: PPO
+Footnote [footnote_001] -[CONTENT]-> All copayment and coinsurance costs shown in this chart are after your overall deductible has been met, if a deductible applies.
+Section: page_3.html [section_002] -[CONTENT]-> Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.) Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)
+Footnote [footnote_003] -[CONTENT]-> Your Rights to Continue Coverage: There are agencies that can help if you want to continue your coverage after it ends. The contact information for those agencies is: [insert State, HHS, DOL, and/or other applicable agency contact information]. Other options to continue coverage are available to you too, including buying individual insurance coverage through the Health Insurance Marketplace. For more information about the Marketplace, visit www.HealthCare.gov or call 1-800-318-2596.
+Section: page_4.html [section_004] -[CONTENT]-> Your Grievance and Appeals Rights: There are agencies that can help if you have a complaint against your plan for a denial of a claim. This complaint is called a grievance or appeal. For more information about your rights, look at the explanation of benefits you will receive for that medical claim. Your plan documents also provide complete information to submit a claim appeal or a grievance for any reason to your plan. For more information about your rights, this notice, or assistance, contact: [insert applicable contact information from instructions].
+Section: Does this plan provide Minimum Essential Coverage? [section_005] -[CONTENT]-> Yes. If you don't have Minimum Essential Coverage for a month under this plan or under other coverage, you'll have to make a payment when you file your tax return unless you qualify for an exemption from the requirement that you have health coverage for that month.
+Section: Does this plan meet Minimum Value Standards? [section_006] -[CONTENT]-> Yes. If your plan doesn't meet the Minimum Value Standards, you may be eligible for a premium tax credit to help you pay for a plan through the Marketplace.
+Section: Language Access Services: [section_007] -[CONTENT]-> [Spanish (Español): Para obtener asistencia en Español, llame al [insert telephone number].] [Tagalog (Tagalog): Kung kailangan ninyo ang tulong sa Tagalog tumawag sa [insert telephone number].] [Chinese (中文): 如果需要中文的帮助，请拨打这个号码 [insert telephone number].] [Navajo (Dine): Dinek'ehgo shika at'ohwol ninisingo, kwijjigo holne' [insert telephone number].] —To see examples of how this plan might cover costs for a sample medical situation, see the next section.—
+Section: About these Coverage Examples: [section_008] -[CONTENT]-> This is not a cost estimator. Treatments shown are just examples of how this plan might cover medical care. Your actual costs will be different depending on the actual care you receive, the prices your providers charge, and many other factors. Focus on the cost sharing amounts (deductibles, copayments and coinsurance) and excluded services under the plan. Use this information to compare the portion of costs you might pay under different health plans. Please note these coverage examples are based on self-only coverage. This EXAMPLE event includes services like: In this example, Peg would pay: This EXAMPLE event includes services like: In this example, Joe would pay:
+Footnote [footnote_009] -[CONTENT]-> Note: These numbers assume the patient does not participate in the plan’s wellness program. If you participate in the plan’s wellness program, you may be able to reduce your costs. For more information about the wellness program, please contact: [insert].
+Section: Mia’s Simple Fracture [section_010] -[CONTENT]-> This EXAMPLE event includes services like: In this example, Mia would pay: The plan would be responsible for the other costs of these EXA
+HealthPlan -[COVERS]-> Coverage for: Family | Plan Type: PPO
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is the overall deductible?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Are there services covered before you meet your deductible?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Are there other deductibles for specific services?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is the out-of-pocket limit for this plan?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> What is not included in the out-of-pocket limit?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Will you pay less if you use a network provider?
+HealthPlan -[HAS_IMPORTANT_QUESTION]-> Do you need a referral to see a specialist?
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Primary care visit to treat an injury or illness
+Primary care visit to treat an injury or illness -[HAS_NETWORK_COST]-> Primary care visit to treat an injury or illness | Network
+Primary care visit to treat an injury or illness | Network -[HAS_COPAY]-> Primary care visit to treat an injury or illness | Network | Copay
+Primary care visit to treat an injury or illness | Network -[HAS_COINSURANCE]-> Primary care visit to treat an injury or illness | Network | Coinsurance
+Primary care visit to treat an injury or illness | Network -[DEDUCTIBLE_DOES_NOT_APPLY]-> true
+Primary care visit to treat an injury or illness -[HAS_OUT_OF_NETWORK_COST]-> Primary care visit to treat an injury or illness | OutOfNetwork
+Primary care visit to treat an injury or illness | OutOfNetwork -[HAS_COINSURANCE]-> Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Specialist visit
+Specialist visit -[HAS_NETWORK_COST]-> Specialist visit | Network
+Specialist visit | Network -[HAS_COPAY]-> Specialist visit | Network | Copay
+Specialist visit -[HAS_OUT_OF_NETWORK_COST]-> Specialist visit | OutOfNetwork
+Specialist visit | OutOfNetwork -[HAS_COINSURANCE]-> Specialist visit | OutOfNetwork | Coinsurance
+Specialist visit -[HAS_LIMITATION]-> Specialist visit | Limitation
+Specialist visit -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you visit a health care provider’s office or clinic
+If you visit a health care provider’s office or clinic -[INCLUDES_SERVICE]-> Preventive care/screening/immunization
+Preventive care/screening/immunization -[HAS_NETWORK_COST]-> Preventive care/screening/immunization | Network
+Preventive care/screening/immunization -[HAS_OUT_OF_NETWORK_COST]-> Preventive care/screening/immunization | OutOfNetwork
+Preventive care/screening/immunization | OutOfNetwork -[HAS_COINSURANCE]-> Preventive care/screening/immunization | OutOfNetwork | Coinsurance
+Preventive care/screening/immunization -[HAS_LIMITATION]-> Preventive care/screening/immunization | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a test
+If you have a test -[INCLUDES_SERVICE]-> Diagnostic test (x-ray, blood work)
+Diagnostic test (x-ray, blood work) -[HAS_NETWORK_COST]-> Diagnostic test (x-ray, blood work) | Network
+Diagnostic test (x-ray, blood work) | Network -[HAS_COPAY]-> Diagnostic test (x-ray, blood work) | Network | Copay
+Diagnostic test (x-ray, blood work) -[HAS_OUT_OF_NETWORK_COST]-> Diagnostic test (x-ray, blood work) | OutOfNetwork
+Diagnostic test (x-ray, blood work) | OutOfNetwork -[HAS_COINSURANCE]-> Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a test
+If you have a test -[INCLUDES_SERVICE]-> Imaging (CT/PET scans, MRIs)
+Imaging (CT/PET scans, MRIs) -[HAS_NETWORK_COST]-> Imaging (CT/PET scans, MRIs) | Network
+Imaging (CT/PET scans, MRIs) | Network -[HAS_COPAY]-> Imaging (CT/PET scans, MRIs) | Network | Copay
+Imaging (CT/PET scans, MRIs) -[HAS_OUT_OF_NETWORK_COST]-> Imaging (CT/PET scans, MRIs) | OutOfNetwork
+Imaging (CT/PET scans, MRIs) | OutOfNetwork -[HAS_COINSURANCE]-> Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Generic drugs (Tier 1) (retail & mail order)
+Generic drugs (Tier 1) (retail & mail order) -[HAS_NETWORK_COST]-> Generic drugs (Tier 1) (retail & mail order) | Network
+Generic drugs (Tier 1) (retail & mail order) | Network -[HAS_COPAY]-> Generic drugs (Tier 1) (retail & mail order) | Network | Copay
+Generic drugs (Tier 1) (retail & mail order) -[HAS_OUT_OF_NETWORK_COST]-> Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork -[HAS_COINSURANCE]-> Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance
+Generic drugs (Tier 1) (retail & mail order) -[HAS_LIMITATION]-> Generic drugs (Tier 1) (retail & mail order) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Preferred brand drugs (Tier 2) (retail & mail order)
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_NETWORK_COST]-> Preferred brand drugs (Tier 2) (retail & mail order) | Network
+Preferred brand drugs (Tier 2) (retail & mail order) | Network -[HAS_COPAY]-> Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_OUT_OF_NETWORK_COST]-> Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork -[HAS_COINSURANCE]-> Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance
+Preferred brand drugs (Tier 2) (retail & mail order) -[HAS_LIMITATION]-> Preferred brand drugs (Tier 2) (retail & mail order) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Non-preferred brand drugs (Tier 3)
+Non-preferred brand drugs (Tier 3) -[HAS_NETWORK_COST]-> Non-preferred brand drugs (Tier 3) | Network
+Non-preferred brand drugs (Tier 3) | Network -[HAS_COINSURANCE]-> Non-preferred brand drugs (Tier 3) | Network | Coinsurance
+Non-preferred brand drugs (Tier 3) -[HAS_OUT_OF_NETWORK_COST]-> Non-preferred brand drugs (Tier 3) | OutOfNetwork
+Non-preferred brand drugs (Tier 3) | OutOfNetwork -[HAS_COINSURANCE]-> Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance
+Non-preferred brand drugs (Tier 3) -[HAS_LIMITATION]-> Non-preferred brand drugs (Tier 3) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com
+If you need drugs to treat your illness or condition More information about prescription drug coverage is available at www.[insert].com -[INCLUDES_SERVICE]-> Specialty drugs (Tier 4)
+Specialty drugs (Tier 4) -[HAS_NETWORK_COST]-> Specialty drugs (Tier 4) | Network
+Specialty drugs (Tier 4) | Network -[HAS_COINSURANCE]-> Specialty drugs (Tier 4) | Network | Coinsurance
+Specialty drugs (Tier 4) -[HAS_OUT_OF_NETWORK_COST]-> Specialty drugs (Tier 4) | OutOfNetwork
+Specialty drugs (Tier 4) | OutOfNetwork -[HAS_COINSURANCE]-> Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance
+Specialty drugs (Tier 4) -[HAS_LIMITATION]-> Specialty drugs (Tier 4) | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have outpatient surgery
+If you have outpatient surgery -[INCLUDES_SERVICE]-> Facility fee (e.g., ambulatory surgery center)
+Facility fee (e.g., ambulatory surgery center) -[HAS_NETWORK_COST]-> Facility fee (e.g., ambulatory surgery center) | Network
+Facility fee (e.g., ambulatory surgery center) -[HAS_OUT_OF_NETWORK_COST]-> Facility fee (e.g., ambulatory surgery center) | OutOfNetwork
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork -[HAS_COINSURANCE]-> Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance
+Facility fee (e.g., ambulatory surgery center) -[HAS_LIMITATION]-> Facility fee (e.g., ambulatory surgery center) | Limitation
+Facility fee (e.g., ambulatory surgery center) -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have outpatient surgery
+If you have outpatient surgery -[INCLUDES_SERVICE]-> Physician/surgeon fees
+Physician/surgeon fees -[HAS_NETWORK_COST]-> Physician/surgeon fees | Network
+Physician/surgeon fees | Network -[HAS_COINSURANCE]-> Physician/surgeon fees | Network | Coinsurance
+Physician/surgeon fees -[HAS_OUT_OF_NETWORK_COST]-> Physician/surgeon fees | OutOfNetwork
+Physician/surgeon fees | OutOfNetwork -[HAS_COINSURANCE]-> Physician/surgeon fees | OutOfNetwork | Coinsurance
+Physician/surgeon fees -[HAS_LIMITATION]-> Physician/surgeon fees | Limitation
+Physician/surgeon fees -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Emergency room care
+Emergency room care -[HAS_NETWORK_COST]-> Emergency room care | Network
+Emergency room care | Network -[HAS_COINSURANCE]-> Emergency room care | Network | Coinsurance
+Emergency room care -[HAS_OUT_OF_NETWORK_COST]-> Emergency room care | OutOfNetwork
+Emergency room care | OutOfNetwork -[HAS_COINSURANCE]-> Emergency room care | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Emergency medical transportation
+Emergency medical transportation -[HAS_NETWORK_COST]-> Emergency medical transportation | Network
+Emergency medical transportation | Network -[HAS_COINSURANCE]-> Emergency medical transportation | Network | Coinsurance
+Emergency medical transportation -[HAS_OUT_OF_NETWORK_COST]-> Emergency medical transportation | OutOfNetwork
+Emergency medical transportation | OutOfNetwork -[HAS_COINSURANCE]-> Emergency medical transportation | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need immediate medical attention
+If you need immediate medical attention -[INCLUDES_SERVICE]-> Urgent care
+Urgent care -[HAS_NETWORK_COST]-> Urgent care | Network
+Urgent care | Network -[HAS_COPAY]-> Urgent care | Network | Copay
+Urgent care -[HAS_OUT_OF_NETWORK_COST]-> Urgent care | OutOfNetwork
+Urgent care | OutOfNetwork -[HAS_COINSURANCE]-> Urgent care | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you have a hospital stay
+If you have a hospital stay -[INCLUDES_SERVICE]-> Facility fee (e.g., hospital room)
+Facility fee (e.g., hospital room) -[HAS_NETWORK_COST]-> Facility fee (e.g., hospital room) | Network
+Facility fee (e.g., hospital room) | Network -[HAS_COINSURANCE]-> Facility fee (e.g., hospital room) | Network | Coinsurance
+Facility fee (e.g., hospital room) -[HAS_OUT_OF_NETWORK_COST]-> Facility fee (e.g., hospital room) | OutOfNetwork
+Facility fee (e.g., hospital room) | OutOfNetwork -[HAS_COINSURANCE]-> Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance
+Facility fee (e.g., hospital room) -[HAS_LIMITATION]-> Facility fee (e.g., hospital room) | Limitation
+Facility fee (e.g., hospital room) -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> Physician/surgeon fees
+Physician/surgeon fees -[INCLUDES_SERVICE]-> 20% coinsurance
+20% coinsurance -[HAS_NETWORK_COST]-> 20% coinsurance | Network
+20% coinsurance | Network -[HAS_COINSURANCE]-> 20% coinsurance | Network | Coinsurance
+20% coinsurance -[HAS_OUT_OF_NETWORK_COST]-> 20% coinsurance | OutOfNetwork
+20% coinsurance | OutOfNetwork -[HAS_COINSURANCE]-> 20% coinsurance | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need mental health, behavioral health, or substance abuse services
+If you need mental health, behavioral health, or substance abuse services -[INCLUDES_SERVICE]-> Outpatient services
+Outpatient services -[HAS_NETWORK_COST]-> Outpatient services | Network
+Outpatient services | Network -[HAS_COPAY]-> Outpatient services | Network | Copay
+Outpatient services | Network -[HAS_COINSURANCE]-> Outpatient services | Network | Coinsurance
+Outpatient services -[HAS_OUT_OF_NETWORK_COST]-> Outpatient services | OutOfNetwork
+Outpatient services | OutOfNetwork -[HAS_COINSURANCE]-> Outpatient services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need mental health, behavioral health, or substance abuse services
+If you need mental health, behavioral health, or substance abuse services -[INCLUDES_SERVICE]-> Inpatient services
+Inpatient services -[HAS_NETWORK_COST]-> Inpatient services | Network
+Inpatient services | Network -[HAS_COINSURANCE]-> Inpatient services | Network | Coinsurance
+Inpatient services -[HAS_OUT_OF_NETWORK_COST]-> Inpatient services | OutOfNetwork
+Inpatient services | OutOfNetwork -[HAS_COINSURANCE]-> Inpatient services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Office visits
+Office visits -[HAS_NETWORK_COST]-> Office visits | Network
+Office visits | Network -[HAS_COINSURANCE]-> Office visits | Network | Coinsurance
+Office visits -[HAS_OUT_OF_NETWORK_COST]-> Office visits | OutOfNetwork
+Office visits | OutOfNetwork -[HAS_COINSURANCE]-> Office visits | OutOfNetwork | Coinsurance
+Office visits -[HAS_LIMITATION]-> Office visits | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Childbirth/delivery professional services
+Childbirth/delivery professional services -[HAS_NETWORK_COST]-> Childbirth/delivery professional services | Network
+Childbirth/delivery professional services | Network -[HAS_COINSURANCE]-> Childbirth/delivery professional services | Network | Coinsurance
+Childbirth/delivery professional services -[HAS_OUT_OF_NETWORK_COST]-> Childbirth/delivery professional services | OutOfNetwork
+Childbirth/delivery professional services | OutOfNetwork -[HAS_COINSURANCE]-> Childbirth/delivery professional services | OutOfNetwork | Coinsurance
+Childbirth/delivery professional services -[HAS_LIMITATION]-> Childbirth/delivery professional services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you are pregnant
+If you are pregnant -[INCLUDES_SERVICE]-> Childbirth/delivery facility services
+Childbirth/delivery facility services -[HAS_NETWORK_COST]-> Childbirth/delivery facility services | Network
+Childbirth/delivery facility services | Network -[HAS_COINSURANCE]-> Childbirth/delivery facility services | Network | Coinsurance
+Childbirth/delivery facility services -[HAS_OUT_OF_NETWORK_COST]-> Childbirth/delivery facility services | OutOfNetwork
+Childbirth/delivery facility services | OutOfNetwork -[HAS_COINSURANCE]-> Childbirth/delivery facility services | OutOfNetwork | Coinsurance
+Childbirth/delivery facility services -[HAS_LIMITATION]-> Childbirth/delivery facility services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Home health care
+Home health care -[HAS_NETWORK_COST]-> Home health care | Network
+Home health care | Network -[HAS_COINSURANCE]-> Home health care | Network | Coinsurance
+Home health care -[HAS_OUT_OF_NETWORK_COST]-> Home health care | OutOfNetwork
+Home health care | OutOfNetwork -[HAS_COINSURANCE]-> Home health care | OutOfNetwork | Coinsurance
+Home health care -[HAS_LIMITATION]-> Home health care | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Rehabilitation services
+Rehabilitation services -[HAS_NETWORK_COST]-> Rehabilitation services | Network
+Rehabilitation services | Network -[HAS_COINSURANCE]-> Rehabilitation services | Network | Coinsurance
+Rehabilitation services -[HAS_OUT_OF_NETWORK_COST]-> Rehabilitation services | OutOfNetwork
+Rehabilitation services | OutOfNetwork -[HAS_COINSURANCE]-> Rehabilitation services | OutOfNetwork | Coinsurance
+Rehabilitation services -[HAS_LIMITATION]-> Rehabilitation services | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Habilitation services
+Habilitation services -[HAS_NETWORK_COST]-> Habilitation services | Network
+Habilitation services | Network -[HAS_COINSURANCE]-> Habilitation services | Network | Coinsurance
+Habilitation services -[HAS_OUT_OF_NETWORK_COST]-> Habilitation services | OutOfNetwork
+Habilitation services | OutOfNetwork -[HAS_COINSURANCE]-> Habilitation services | OutOfNetwork | Coinsurance
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Skilled nursing care
+Skilled nursing care -[HAS_NETWORK_COST]-> Skilled nursing care | Network
+Skilled nursing care | Network -[HAS_COINSURANCE]-> Skilled nursing care | Network | Coinsurance
+Skilled nursing care -[HAS_OUT_OF_NETWORK_COST]-> Skilled nursing care | OutOfNetwork
+Skilled nursing care | OutOfNetwork -[HAS_COINSURANCE]-> Skilled nursing care | OutOfNetwork | Coinsurance
+Skilled nursing care -[HAS_LIMITATION]-> Skilled nursing care | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Durable medical equipment
+Durable medical equipment -[HAS_NETWORK_COST]-> Durable medical equipment | Network
+Durable medical equipment | Network -[HAS_COINSURANCE]-> Durable medical equipment | Network | Coinsurance
+Durable medical equipment -[HAS_OUT_OF_NETWORK_COST]-> Durable medical equipment | OutOfNetwork
+Durable medical equipment | OutOfNetwork -[HAS_COINSURANCE]-> Durable medical equipment | OutOfNetwork | Coinsurance
+Durable medical equipment -[HAS_LIMITATION]-> Durable medical equipment | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If you need help recovering or have other special health needs
+If you need help recovering or have other special health needs -[INCLUDES_SERVICE]-> Hospice services
+Hospice services -[HAS_NETWORK_COST]-> Hospice services | Network
+Hospice services | Network -[HAS_COINSURANCE]-> Hospice services | Network | Coinsurance
+Hospice services -[HAS_OUT_OF_NETWORK_COST]-> Hospice services | OutOfNetwork
+Hospice services | OutOfNetwork -[HAS_COINSURANCE]-> Hospice services | OutOfNetwork | Coinsurance
+Hospice services -[HAS_LIMITATION]-> Hospice services | Limitation
+Hospice services -[REQUIRES]-> Preauthorization
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's eye exam
+Children's eye exam -[HAS_NETWORK_COST]-> Children's eye exam | Network
+Children's eye exam | Network -[HAS_COPAY]-> Children's eye exam | Network | Copay
+Children's eye exam -[HAS_OUT_OF_NETWORK_COST]-> Children's eye exam | OutOfNetwork
+Children's eye exam -[HAS_LIMITATION]-> Children's eye exam | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's glasses
+Children's glasses -[HAS_NETWORK_COST]-> Children's glasses | Network
+Children's glasses | Network -[HAS_COINSURANCE]-> Children's glasses | Network | Coinsurance
+Children's glasses -[HAS_OUT_OF_NETWORK_COST]-> Children's glasses | OutOfNetwork
+Children's glasses -[HAS_LIMITATION]-> Children's glasses | Limitation
+HealthPlan -[HAS_MEDICAL_EVENT]-> If your child needs dental or eye care
+If your child needs dental or eye care -[INCLUDES_SERVICE]-> Children's dental check-up
+Children's dental check-up -[HAS_NETWORK_COST]-> Children's dental check-up | Network
+Children's dental check-up -[HAS_OUT_OF_NETWORK_COST]-> Children's dental check-up | OutOfNetwork
+HealthPlan -[EXCLUDES_SERVICE]-> Cosmetic Surgery
+HealthPlan -[EXCLUDES_SERVICE]-> Private Duty Nursing
+HealthPlan -[EXCLUDES_SERVICE]-> Routine Foot Care
+HealthPlan -[EXCLUDES_SERVICE]-> Dental Care
+HealthPlan -[EXCLUDES_SERVICE]-> Non-emergency care outside the U.S.
+HealthPlan -[EXCLUDES_SERVICE]-> Infertility Treatment
+HealthPlan -[EXCLUDES_SERVICE]-> Long Term Care
+HealthPlan -[EXCLUDES_SERVICE]-> Routine eye care (Adult)
+HealthPlan -[COVERS_SERVICE]-> Acupuncture (if prescribed for rehabilitation
+HealthPlan -[COVERS_SERVICE]-> Chiropractic Care
+HealthPlan -[COVERS_SERVICE]-> Weight Loss Programs
+HealthPlan -[COVERS_SERVICE]-> Bariatric Surgery
+HealthPlan -[COVERS_SERVICE]-> Hearing Aids
+HealthPlan -[HAS_SECTION]-> Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_001]
+HealthPlan -[HAS_SECTION]-> Section: page_3.html [section_002]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_003]
+HealthPlan -[HAS_SECTION]-> Section: page_4.html [section_004]
+HealthPlan -[HAS_SECTION]-> Section: Does this plan provide Minimum Essential Coverage? [section_005]
+HealthPlan -[HAS_SECTION]-> Section: Does this plan meet Minimum Value Standards? [section_006]
+HealthPlan -[HAS_SECTION]-> Section: Language Access Services: [section_007]
+HealthPlan -[HAS_SECTION]-> Section: About these Coverage Examples: [section_008]
+HealthPlan -[HAS_FOOTNOTE]-> Footnote [footnote_009]
+HealthPlan -[HAS_SECTION]-> Section: Mia’s Simple Fracture [section_010]
+HealthPlan -[PLAN_TYPE]-> Coverage for: Family | Plan Type: PPO
+What is the overall deductible? -[QUESTION]-> What is the overall deductible?
+What is the overall deductible? -[ANSWER]-> $500/Individual or $1,000/family
+What is the overall deductible? -[WHY_IT_MATTERS]-> Generally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met.
+Are there services covered before you meet your deductible? -[QUESTION]-> Are there services covered before you meet your deductible?
+Are there services covered before you meet your deductible? -[ANSWER]-> Yes. Preventive care and primary care services are covered before you meet your deductible.
+Are there services covered before you meet your deductible? -[WHY_IT_MATTERS]-> This plan covers some items and services even if you haven’t yet met the annual deductible amount. But a copayment or coinsurance may apply. For example, this plan covers certain preventive services without cost-sharing and before you meet your deductible. See a list of covered preventive services at https://www.healthcare.gov/coverage/preventive-care-benefits/.
+Are there other deductibles for specific services? -[QUESTION]-> Are there other deductibles for specific services?
+Are there other deductibles for specific services? -[ANSWER]-> Yes. $300 for prescription drug coverage and $300 for occupational therapy services.
+Are there other deductibles for specific services? -[WHY_IT_MATTERS]-> You must pay all of the costs for these services up to the specific deductible amount before this plan begins to pay for these services.
+What is the out-of-pocket limit for this plan? -[QUESTION]-> What is the out-of-pocket limit for this plan?
+What is the out-of-pocket limit for this plan? -[ANSWER]-> For network providers $2,500 individual / $5,000 family; for out-of-network providers $4,000 individual / $8,000 family
+What is the out-of-pocket limit for this plan? -[WHY_IT_MATTERS]-> The out-of-pocket limit is the most you could pay in a year for covered services. If you have other family members in this plan, they have to meet their own out-of-pocket limits until the overall family out-of-pocket limit has been met.
+What is not included in the out-of-pocket limit? -[QUESTION]-> What is not included in the out-of-pocket limit?
+What is not included in the out-of-pocket limit? -[ANSWER]-> Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn’t cover.
+What is not included in the out-of-pocket limit? -[WHY_IT_MATTERS]-> Even though you pay these expenses, they don’t count toward the out-of-pocket limit.
+Will you pay less if you use a network provider? -[QUESTION]-> Will you pay less if you use a network provider?
+Will you pay less if you use a network provider? -[ANSWER]-> Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers.
+Will you pay less if you use a network provider? -[WHY_IT_MATTERS]-> This plan uses a provider network. You will pay less if you use a provider in the plan’s network. You will pay the most if you use an out-of-network provider, and you might receive a bill from a provider for the difference between the provider’s charge and what your plan pays (a balance bill). Be aware, your network provider might use an out-of-network provider for some services (such as lab work). Check with your provider before you get services.
+Do you need a referral to see a specialist? -[QUESTION]-> Do you need a referral to see a specialist?
+Do you need a referral to see a specialist? -[ANSWER]-> Yes.
+Do you need a referral to see a specialist? -[WHY_IT_MATTERS]-> This plan will pay some or all of the costs to see a specialist for covered services but only if you have a referral before you see the specialist.
+Primary care visit to treat an injury or illness | Network -[RAW]-> $35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply
+Primary care visit to treat an injury or illness | Network | Copay -[VALUE]-> $35 copay
+Primary care visit to treat an injury or illness | Network | Coinsurance -[VALUE]-> 20%
+Primary care visit to treat an injury or illness | OutOfNetwork -[RAW]-> 40% coinsurance
+Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Specialist visit | Network -[RAW]-> $50 copay/visit
+Specialist visit | Network | Copay -[VALUE]-> $50 copay
+Specialist visit | OutOfNetwork -[RAW]-> 40% coinsurance
+Specialist visit | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Specialist visit | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+Preventive care/screening/immunization | Network -[RAW]-> No charge for covered services
+Preventive care/screening/immunization | OutOfNetwork -[RAW]-> 40% coinsurance
+Preventive care/screening/immunization | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Preventive care/screening/immunization | Limitation -[TEXT]-> You may have to pay for services that aren’t preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.
+Diagnostic test (x-ray, blood work) | Network -[RAW]-> $10 copay/test
+Diagnostic test (x-ray, blood work) | Network | Copay -[VALUE]-> $10 copay
+Diagnostic test (x-ray, blood work) | OutOfNetwork -[RAW]-> 40% coinsurance
+Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Imaging (CT/PET scans, MRIs) | Network -[RAW]-> $50 copay/test
+Imaging (CT/PET scans, MRIs) | Network | Copay -[VALUE]-> $50 copay
+Imaging (CT/PET scans, MRIs) | OutOfNetwork -[RAW]-> 40% coinsurance
+Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Generic drugs (Tier 1) (retail & mail order) | Network -[RAW]-> $10 copay/prescription
+Generic drugs (Tier 1) (retail & mail order) | Network | Copay -[VALUE]-> $10 copay
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork -[RAW]-> 40% coinsurance
+Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Generic drugs (Tier 1) (retail & mail order) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Preferred brand drugs (Tier 2) (retail & mail order) | Network -[RAW]-> $30 copay/prescription
+Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay -[VALUE]-> $30 copay
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork -[RAW]-> 40% coinsurance
+Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Preferred brand drugs (Tier 2) (retail & mail order) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Non-preferred brand drugs (Tier 3) | Network -[RAW]-> 40% coinsurance
+Non-preferred brand drugs (Tier 3) | Network | Coinsurance -[VALUE]-> 40%
+Non-preferred brand drugs (Tier 3) | OutOfNetwork -[RAW]-> 60% coinsurance
+Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance -[VALUE]-> 60%
+Non-preferred brand drugs (Tier 3) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Specialty drugs (Tier 4) | Network -[RAW]-> 50% coinsurance
+Specialty drugs (Tier 4) | Network | Coinsurance -[VALUE]-> 50%
+Specialty drugs (Tier 4) | OutOfNetwork -[RAW]-> 70% coinsurance
+Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance -[VALUE]-> 70%
+Specialty drugs (Tier 4) | Limitation -[TEXT]-> Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).
+Facility fee (e.g., ambulatory surgery center) | Network -[RAW]-> $100/day copay
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork -[RAW]-> 40% coinsurance
+Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., ambulatory surgery center) | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+Physician/surgeon fees | Network -[RAW]-> 20% coinsurance
+Physician/surgeon fees | Network | Coinsurance -[VALUE]-> 20%
+Physician/surgeon fees | OutOfNetwork -[RAW]-> 40% coinsurance
+Physician/surgeon fees | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Physician/surgeon fees | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.
+Emergency room care | Network -[RAW]-> 20% coinsurance
+Emergency room care | Network | Coinsurance -[VALUE]-> 20%
+Emergency room care | OutOfNetwork -[RAW]-> 20% coinsurance
+Emergency room care | OutOfNetwork | Coinsurance -[VALUE]-> 20%
+Emergency medical transportation | Network -[RAW]-> 20% coinsurance
+Emergency medical transportation | Network | Coinsurance -[VALUE]-> 20%
+Emergency medical transportation | OutOfNetwork -[RAW]-> 20% coinsurance
+Emergency medical transportation | OutOfNetwork | Coinsurance -[VALUE]-> 20%
+Urgent care | Network -[RAW]-> $30 copay
+Urgent care | Network | Copay -[VALUE]-> $30 copay
+Urgent care | OutOfNetwork -[RAW]-> 40% coinsurance
+Urgent care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., hospital room) | Network -[RAW]-> 20% coinsurance
+Facility fee (e.g., hospital room) | Network | Coinsurance -[VALUE]-> 20%
+Facility fee (e.g., hospital room) | OutOfNetwork -[RAW]-> 40% coinsurance
+Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Facility fee (e.g., hospital room) | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+20% coinsurance | Network -[RAW]-> 40% coinsurance
+20% coinsurance | Network | Coinsurance -[VALUE]-> 40%
+20% coinsurance | OutOfNetwork -[RAW]-> 50% coinsurance for anesthesia.
+20% coinsurance | OutOfNetwork | Coinsurance -[VALUE]-> 50%
+Outpatient services | Network -[RAW]-> $35 copay/office visit and 20% coinsurance for other outpatient services
+Outpatient services | Network | Copay -[VALUE]-> $35 copay
+Outpatient services | Network | Coinsurance -[VALUE]-> 20%
+Outpatient services | OutOfNetwork -[RAW]-> 40% coinsurance
+Outpatient services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Inpatient services | Network -[RAW]-> 20% coinsurance
+Inpatient services | Network | Coinsurance -[VALUE]-> 20%
+Inpatient services | OutOfNetwork -[RAW]-> 40% coinsurance
+Inpatient services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Office visits | Network -[RAW]-> 20% coinsurance
+Office visits | Network | Coinsurance -[VALUE]-> 20%
+Office visits | OutOfNetwork -[RAW]-> 40% coinsurance
+Office visits | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Office visits | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Childbirth/delivery professional services | Network -[RAW]-> 20% coinsurance
+Childbirth/delivery professional services | Network | Coinsurance -[VALUE]-> 20%
+Childbirth/delivery professional services | OutOfNetwork -[RAW]-> 40% coinsurance
+Childbirth/delivery professional services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Childbirth/delivery professional services | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Childbirth/delivery facility services | Network -[RAW]-> 20% coinsurance
+Childbirth/delivery facility services | Network | Coinsurance -[VALUE]-> 20%
+Childbirth/delivery facility services | OutOfNetwork -[RAW]-> 40% coinsurance
+Childbirth/delivery facility services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Childbirth/delivery facility services | Limitation -[TEXT]-> Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).
+Home health care | Network -[RAW]-> 20% coinsurance
+Home health care | Network | Coinsurance -[VALUE]-> 20%
+Home health care | OutOfNetwork -[RAW]-> 40% coinsurance
+Home health care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Home health care | Limitation -[TEXT]-> 60 visits/calendar year
+Rehabilitation services | Network -[RAW]-> 20% coinsurance
+Rehabilitation services | Network | Coinsurance -[VALUE]-> 20%
+Rehabilitation services | OutOfNetwork -[RAW]-> 40% coinsurance
+Rehabilitation services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Rehabilitation services | Limitation -[TEXT]-> 60 visits/calendar year. Includes physical therapy, speech therapy, and occupational therapy.
+Habilitation services | Network -[RAW]-> 20% coinsurance
+Habilitation services | Network | Coinsurance -[VALUE]-> 20%
+Habilitation services | OutOfNetwork -[RAW]-> 40% coinsurance
+Habilitation services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Skilled nursing care | Network -[RAW]-> 20% coinsurance
+Skilled nursing care | Network | Coinsurance -[VALUE]-> 20%
+Skilled nursing care | OutOfNetwork -[RAW]-> 40% coinsurance
+Skilled nursing care | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Skilled nursing care | Limitation -[TEXT]-> 60 visits/calendar year
+Durable medical equipment | Network -[RAW]-> 20% coinsurance
+Durable medical equipment | Network | Coinsurance -[VALUE]-> 20%
+Durable medical equipment | OutOfNetwork -[RAW]-> 40% coinsurance
+Durable medical equipment | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Durable medical equipment | Limitation -[TEXT]-> Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.
+Hospice services | Network -[RAW]-> 20% coinsurance
+Hospice services | Network | Coinsurance -[VALUE]-> 20%
+Hospice services | OutOfNetwork -[RAW]-> 40% coinsurance
+Hospice services | OutOfNetwork | Coinsurance -[VALUE]-> 40%
+Hospice services | Limitation -[TEXT]-> Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.
+Children's eye exam | Network -[RAW]-> $35 copay/visit
+Children's eye exam | Network | Copay -[VALUE]-> $35 copay
+Children's eye exam | OutOfNetwork -[RAW]-> Not covered
+Children's eye exam | Limitation -[TEXT]-> Coverage limited to one exam/year.
+Children's glasses | Network -[RAW]-> 20% coinsurance
+Children's glasses | Network | Coinsurance -[VALUE]-> 20%
+Children's glasses | OutOfNetwork -[RAW]-> Not covered
+Children's glasses | Limitation -[TEXT]-> Coverage limited to one pair of glasses/year.
+Children's dental check-up | Network -[RAW]-> No charge
+Children's dental check-up | OutOfNetwork -[RAW]-> Not covered
+Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000] -[CONTENT]-> Insurance Company 1: Plan Option 1 Coverage Period: 1/1/2017 – 12/31/2017 Coverage for: Family | Plan Type: PPO
+Footnote [footnote_001] -[CONTENT]-> All copayment and coinsurance costs shown in this chart are after your overall deductible has been met, if a deductible applies.
+Section: page_3.html [section_002] -[CONTENT]-> Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.) Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)
+Footnote [footnote_003] -[CONTENT]-> Your Rights to Continue Coverage: There are agencies that can help if you want to continue your coverage after it ends. The contact information for those agencies is: [insert State, HHS, DOL, and/or other applicable agency contact information]. Other options to continue coverage are available to you too, including buying individual insurance coverage through the Health Insurance Marketplace. For more information about the Marketplace, visit www.HealthCare.gov or call 1-800-318-2596.
+Section: page_4.html [section_004] -[CONTENT]-> Your Grievance and Appeals Rights: There are agencies that can help if you have a complaint against your plan for a denial of a claim. This complaint is called a grievance or appeal. For more information about your rights, look at the explanation of benefits you will receive for that medical claim. Your plan documents also provide complete information to submit a claim appeal or a grievance for any reason to your plan. For more information about your rights, this notice, or assistance, contact: [insert applicable contact information from instructions].
+Section: Does this plan provide Minimum Essential Coverage? [section_005] -[CONTENT]-> Yes. If you don't have Minimum Essential Coverage for a month under this plan or under other coverage, you'll have to make a payment when you file your tax return unless you qualify for an exemption from the requirement that you have health coverage for that month.
+Section: Does this plan meet Minimum Value Standards? [section_006] -[CONTENT]-> Yes. If your plan doesn't meet the Minimum Value Standards, you may be eligible for a premium tax credit to help you pay for a plan through the Marketplace.
+Section: Language Access Services: [section_007] -[CONTENT]-> [Spanish (Español): Para obtener asistencia en Español, llame al [insert telephone number].] [Tagalog (Tagalog): Kung kailangan ninyo ang tulong sa Tagalog tumawag sa [insert telephone number].] [Chinese (中文): 如果需要中文的帮助，请拨打这个号码 [insert telephone number].] [Navajo (Dine): Dinek'ehgo shika at'ohwol ninisingo, kwijjigo holne' [insert telephone number].] —To see examples of how this plan might cover costs for a sample medical situation, see the next section.—
+Section: About these Coverage Examples: [section_008] -[CONTENT]-> This is not a cost estimator. Treatments shown are just examples of how this plan might cover medical care. Your actual costs will be different depending on the actual care you receive, the prices your providers charge, and many other factors. Focus on the cost sharing amounts (deductibles, copayments and coinsurance) and excluded services under the plan. Use this information to compare the portion of costs you might pay under different health plans. Please note these coverage examples are based on self-only coverage. This EXAMPLE event includes services like: In this example, Peg would pay: This EXAMPLE event includes services like: In this example, Joe would pay:
+Footnote [footnote_009] -[CONTENT]-> Note: These numbers assume the patient does not participate in the plan’s wellness program. If you participate in the plan’s wellness program, you may be able to reduce your costs. For more information about the wellness program, please contact: [insert].
+Section: Mia’s Simple Fracture [section_010] -[CONTENT]-> This EXAMPLE event includes services like: In this example, Mia would pay: The plan would be responsible for the other costs of these EXA
