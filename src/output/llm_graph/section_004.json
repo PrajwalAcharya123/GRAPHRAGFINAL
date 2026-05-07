@@ -1,0 +1,78 @@
+{
+  "entities": [
+    "Grievance",
+    "Appeal",
+    "Complaint",
+    "Plan",
+    "Claim",
+    "Explanation of benefits",
+    "Plan documents"
+  ],
+  "relationships": [
+    [
+      "Plan",
+      "HAS",
+      "Grievance process"
+    ],
+    [
+      "Claim",
+      "HAS",
+      "Appeal process"
+    ],
+    [
+      "Complaint",
+      "IS_A",
+      "Grievance"
+    ],
+    [
+      "Complaint",
+      "IS_A",
+      "Appeal"
+    ]
+  ],
+  "attributes": [
+    [
+      "Grievance process",
+      "description",
+      "process for submitting a complaint against the plan"
+    ],
+    [
+      "Appeal process",
+      "description",
+      "process for appealing a denied claim"
+    ],
+    [
+      "Explanation of benefits",
+      "description",
+      "document provided for each medical claim"
+    ],
+    [
+      "Plan documents",
+      "description",
+      "provide complete information for submitting a claim appeal or grievance"
+    ]
+  ],
+  "tables": [],
+  "rules": [
+    [
+      "Grievance",
+      "REQUIRES",
+      "complaint against the plan"
+    ],
+    [
+      "Appeal",
+      "REQUIRES",
+      "denied claim"
+    ],
+    [
+      "Complaint",
+      "APPLIES_TO",
+      "plan"
+    ],
+    [
+      "Claim appeal",
+      "APPLIES_TO",
+      "plan"
+    ]
+  ]
+}

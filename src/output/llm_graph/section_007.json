@@ -1,0 +1,39 @@
+{
+  "entities": [
+    "Language Access Services",
+    "Spanish",
+    "Tagalog",
+    "Chinese",
+    "Navajo"
+  ],
+  "relationships": [],
+  "attributes": [
+    [
+      "Language Access Services",
+      "telephone number",
+      "[insert telephone number]"
+    ],
+    [
+      "Spanish",
+      "language code",
+      "Espa\u00f1ol"
+    ],
+    [
+      "Tagalog",
+      "language code",
+      "Tagalog"
+    ],
+    [
+      "Chinese",
+      "language code",
+      "\u4e2d\u6587"
+    ],
+    [
+      "Navajo",
+      "language code",
+      "Dine"
+    ]
+  ],
+  "tables": [],
+  "rules": []
+}

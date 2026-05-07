@@ -1,0 +1,119 @@
+{
+  "entities": [
+    "Plan",
+    "Peg",
+    "Joe",
+    "Self-only coverage",
+    "Deductibles",
+    "Copayments",
+    "Coinsurance",
+    "Excluded services",
+    "Cost estimator",
+    "Treatments",
+    "Providers",
+    "Prices",
+    "Cost sharing amounts"
+  ],
+  "relationships": [
+    [
+      "Plan",
+      "HAS_DEDUCTIBLE",
+      "Deductibles"
+    ],
+    [
+      "Plan",
+      "HAS_COPAYMENT",
+      "Copayments"
+    ],
+    [
+      "Plan",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Plan",
+      "EXCLUDES",
+      "Excluded services"
+    ],
+    [
+      "Peg",
+      "HAS_COVERAGE",
+      "Plan"
+    ],
+    [
+      "Joe",
+      "HAS_COVERAGE",
+      "Plan"
+    ],
+    [
+      "Plan",
+      "APPLIES_TO",
+      "Self-only coverage"
+    ]
+  ],
+  "attributes": [
+    [
+      "Deductibles",
+      "type",
+      "cost sharing amount"
+    ],
+    [
+      "Copayments",
+      "type",
+      "cost sharing amount"
+    ],
+    [
+      "Coinsurance",
+      "type",
+      "cost sharing amount"
+    ],
+    [
+      "Excluded services",
+      "type",
+      "service"
+    ],
+    [
+      "Plan",
+      "type",
+      "health plan"
+    ],
+    [
+      "Peg",
+      "type",
+      "individual"
+    ],
+    [
+      "Joe",
+      "type",
+      "individual"
+    ],
+    [
+      "Self-only coverage",
+      "type",
+      "coverage type"
+    ]
+  ],
+  "tables": [],
+  "rules": [
+    [
+      "Plan",
+      "REQUIRES",
+      "cost sharing amounts"
+    ],
+    [
+      "Excluded services",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Peg",
+      "PAYS",
+      "cost sharing amounts"
+    ],
+    [
+      "Joe",
+      "PAYS",
+      "cost sharing amounts"
+    ]
+  ]
+}

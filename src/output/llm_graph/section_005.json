@@ -1,0 +1,71 @@
+{
+  "entities": [
+    "Minimum Essential Coverage",
+    "Plan",
+    "Tax return",
+    "Exemption",
+    "Health coverage"
+  ],
+  "relationships": [
+    [
+      "Plan",
+      "PROVIDES",
+      "Minimum Essential Coverage"
+    ],
+    [
+      "Individual",
+      "REQUIRES",
+      "Minimum Essential Coverage"
+    ],
+    [
+      "No Minimum Essential Coverage",
+      "REQUIRES",
+      "Payment"
+    ],
+    [
+      "Payment",
+      "APPLIES_TO",
+      "Tax return"
+    ],
+    [
+      "Exemption",
+      "EXEMPTS_FROM",
+      "Payment"
+    ]
+  ],
+  "attributes": [
+    [
+      "Minimum Essential Coverage",
+      "type",
+      "health coverage"
+    ],
+    [
+      "Payment",
+      "trigger",
+      "no health coverage"
+    ],
+    [
+      "Exemption",
+      "applies_to",
+      "individual"
+    ]
+  ],
+  "tables": [],
+  "rules": [
+    [
+      "No Minimum Essential Coverage",
+      "REQUIRES",
+      "Payment"
+    ],
+    [
+      "Exemption",
+      "EXEMPTS_FROM",
+      "Payment"
+    ],
+    [
+      "Plan",
+      "PROVIDES",
+      "Minimum Essential Coverage"
+    ]
+  ]
+}

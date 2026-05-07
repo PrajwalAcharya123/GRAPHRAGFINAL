@@ -256,130 +256,138 @@ def extract_important_questions(table):
 # COVERAGE EXAMPLE ASSEMBLER
 def assemble_coverage_examples(soup):
     """
-    Each example has this DOM pattern:
-      <h2>Name …</h2>
-      <p>(subtitle)</p>
-      <table>  plan params (deductible, copay…)  </table>
-      <h2>This EXAMPLE event includes services like:</h2>
-      <p>service1</p><p>service2</p>…
-      <table>  Total Example Cost | $X  </table>
-      <h2>In this example, Name would pay:</h2>
-      <table>  Cost Sharing breakdown  </table>
-
-    We walk the top-level elements and group them by example.
+    Robust extractor:
+    - Each <div> = one coverage example container
+    - No global state machine
+    - No cross-contamination between examples
     """
-    EXAMPLE_NAMES = re.compile(
-        r"^(Peg is Having|Mia'?s Simple|Managing Joe)", re.I
-    )
-    examples = []
-    current  = None
 
-    # Walk direct children of <body> (or outermost <p class="page">)
     body = soup.find("body")
-    # Docling wraps everything in a stray <p class="page"> — flatten it
-    container = body.find("p", class_="page") or body
+    if not body:
+        return []
 
-    def iter_elements(parent):
-        for child in parent.children:
-            if isinstance(child, Tag):
-                yield child
+    examples = []
 
-    for el in iter_elements(container):
-        if el.name in ("h1", "h2", "h3"):
-            heading = clean(el.get_text())
-            if EXAMPLE_NAMES.match(heading):
-                if current:
-                    examples.append(current)
-                current = {
-                    "name"           : heading,
-                    "subtitle"       : "",
-                    "plan_parameters": {},
-                    "included_services": [],
-                    "total_cost"     : "",
-                    "cost_breakdown" : {},
-                    "patient_total"  : "",
-                    "_state"         : "params",   # internal parse state
-                }
-                continue
-            if current:
-                if "example event includes" in heading.lower():
-                    current["_state"] = "services"
-                elif "would pay" in heading.lower():
-                    current["_state"] = "breakdown"
-                continue
+    # ---------------------------------------------------
+    # 1. EACH DIV IS A SELF-CONTAINED EXAMPLE
+    # ---------------------------------------------------
+    for div in body.find_all("div", recursive=False):
 
-        if current is None:
+        headers = div.find_all(["h2", "h3"])
+        if not headers:
             continue
 
-        state = current["_state"]
+        name = None
+        subtitle = ""
+        plan_params = {}
+        services = []
+        total_cost = ""
+        cost_breakdown = {}
+        patient_total = ""
 
-        if el.name == "p":
-            txt = clean(el.get_text())
-            if not txt:
+        state = None  # params | services | breakdown
+
+        # ---------------------------------------------------
+        # 2. WALK INSIDE DIV IN ORDER
+        # ---------------------------------------------------
+        for el in div.descendants:
+
+            if not isinstance(el, Tag):
                 continue
-            if state == "params" and not current["subtitle"]:
-                current["subtitle"] = txt
-            elif state == "services":
-                current["included_services"].append(txt)
 
-        elif el.name == "table":
-            ttype = classify_table(el)
+            text = clean(el.get_text(" ", strip=True))
+            low = text.lower()
 
-            if ttype == "plan_params" and state == "params":
+            # ---------------------------
+            # HEADERS
+            # ---------------------------
+            if el.name in ("h2", "h3"):
+
+                # Example name detection
+                if re.search(r"(peg|mia|joe)", text, re.I):
+                    name = text
+                    state = "params"
+                    continue
+
+                if "example includes" in low:
+                    state = "services"
+                    continue
+
+                if "would pay" in low:
+                    state = "breakdown"
+                    continue
+
+            # ---------------------------
+            # PARAGRAPHS
+            # ---------------------------
+            elif el.name == "p":
+                if not text:
+                    continue
+
+                if state == "params" and not subtitle:
+                    subtitle = text
+
+                elif state == "services":
+                    services.append(text)
+
+            # ---------------------------
+            # TABLES
+            # ---------------------------
+            elif el.name == "table":
                 rows = el.find_all("tr")
+
                 for row in rows:
-                    cells = row.find_all(["th", "td"])
-                    if len(cells) >= 2:
-                        k = clean(cells[0].get_text())
-                        v = clean(cells[1].get_text())
+                    cells = row.find_all(["td", "th"])
+                    if len(cells) < 2:
+                        continue
+
+                    k = clean(cells[0].get_text(" ", strip=True))
+                    v = clean(cells[1].get_text(" ", strip=True))
+
+                    kl = k.lower()
+
+                    # -------------------
+                    # PLAN PARAMETERS
+                    # -------------------
+                    if state == "params":
                         if k:
-                            current["plan_parameters"][k] = v
+                            plan_params[k] = v
 
-            elif ttype == "total_cost":
-                rows = el.find_all("tr")
-                for row in rows:
-                    cells = row.find_all(["th", "td"])
-                    if len(cells) >= 2:
-                        k = clean(cells[0].get_text())
-                        v = clean(cells[1].get_text())
-                        if "total example cost" in k.lower():
-                            current["total_cost"] = v
+                    # -------------------
+                    # TOTAL COST
+                    # -------------------
+                    if "total example cost" in kl:
+                        total_cost = v
 
-            elif ttype == "cost_share" and state == "breakdown":
-                rows = el.find_all("tr")
-                for row in rows:
-                    cells = row.find_all(["th", "td"])
-                    if len(cells) == 2:
-                        k = clean(cells[0].get_text())
-                        v = clean(cells[1].get_text())
-                        if not k:
-                            continue
-                        if "total" in k.lower() and "pay" in k.lower():
-                            current["patient_total"] = v
+                    # -------------------
+                    # BREAKDOWN
+                    # -------------------
+                    if state == "breakdown":
+
+                        if "total" in kl and "pay" in kl:
+                            patient_total = v
                         else:
-                            current["cost_breakdown"][k] = v
-                    elif len(cells) == 1:
-                        pass  # section header row ("Cost Sharing" / "What isn't covered")
+                            cost_breakdown[k] = v
 
-    if current:
-        examples.append(current)
+        # ---------------------------------------------------
+        # 3. VALIDATION (avoid empty junk nodes)
+        # ---------------------------------------------------
+        if not name:
+            continue
 
-    # Clean up internal state key and emit chunks
-    chunks = []
-    for i, ex in enumerate(examples):
-        ex.pop("_state", None)
-        chunks.append({
-            "chunk_id"         : f"example_{i:03d}",
-            "type"             : "coverage_example",
-            "name"             : ex["name"],
-            "subtitle"         : ex["subtitle"],
-            "plan_parameters"  : ex["plan_parameters"],
-            "included_services": ex["included_services"],
-            "total_cost"       : ex["total_cost"],
-            "cost_breakdown"   : ex["cost_breakdown"],
-            "patient_total"    : ex["patient_total"],
+        examples.append({
+            "chunk_id": f"example_{len(examples):03d}",
+            "type": "coverage_example",
+            "name": name,
+            "subtitle": subtitle,
+            "plan_parameters": plan_params,
+            "included_services": services,
+            "total_cost": total_cost,
+            "cost_breakdown": cost_breakdown,
+            "patient_total": patient_total,
         })
-    return chunks
+
+    return examples
 def extract_service_lists(soup):
     chunks = []
 

@@ -1,0 +1,82 @@
+{
+  "entities": [
+    "Plan",
+    "Services",
+    "Excluded Services",
+    "Other Covered Services",
+    "Policy",
+    "Plan Document"
+  ],
+  "relationships": [
+    [
+      "Excluded Services",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Other Covered Services",
+      "COVERS",
+      "Plan"
+    ],
+    [
+      "Plan",
+      "HAS_LIMIT",
+      "Other Covered Services"
+    ],
+    [
+      "Policy",
+      "APPLIES_TO",
+      "Plan"
+    ],
+    [
+      "Plan Document",
+      "APPLIES_TO",
+      "Plan"
+    ]
+  ],
+  "attributes": [
+    [
+      "Excluded Services",
+      "description",
+      "Services Your Plan Generally Does NOT Cover"
+    ],
+    [
+      "Other Covered Services",
+      "description",
+      "Other Covered Services"
+    ],
+    [
+      "Plan",
+      "attribute",
+      "Limitations may apply"
+    ],
+    [
+      "Plan Document",
+      "attribute",
+      "Check your policy or plan document for more information"
+    ]
+  ],
+  "tables": [],
+  "rules": [
+    [
+      "Excluded Services",
+      "NOT_COVERED",
+      "Plan"
+    ],
+    [
+      "Other Covered Services",
+      "COVERS",
+      "Plan"
+    ],
+    [
+      "Plan",
+      "REQUIRES",
+      "Check policy or plan document for more information"
+    ],
+    [
+      "Plan",
+      "HAS_LIMIT",
+      "Other Covered Services"
+    ]
+  ]
+}

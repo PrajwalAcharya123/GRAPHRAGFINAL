@@ -1,0 +1,67 @@
+{
+  "entities": [
+    "Plan Option 1",
+    "Family",
+    "PPO",
+    "Insurance Company 1",
+    "Coverage Period",
+    "Covered Services"
+  ],
+  "relationships": [
+    [
+      "Plan Option 1",
+      "COVERS",
+      "Covered Services"
+    ],
+    [
+      "Insurance Company 1",
+      "OFFERS",
+      "Plan Option 1"
+    ],
+    [
+      "Plan Option 1",
+      "APPLIES_TO",
+      "Family"
+    ],
+    [
+      "Plan Option 1",
+      "HAS_COVERAGE_PERIOD",
+      "1/1/2017 - 12/31/2017"
+    ]
+  ],
+  "attributes": [
+    [
+      "Coverage Period",
+      "start_date",
+      "1/1/2017"
+    ],
+    [
+      "Coverage Period",
+      "end_date",
+      "12/31/2017"
+    ],
+    [
+      "Plan Option 1",
+      "plan_type",
+      "PPO"
+    ],
+    [
+      "Plan Option 1",
+      "coverage_for",
+      "Family"
+    ]
+  ],
+  "tables": [],
+  "rules": [
+    [
+      "Plan Option 1",
+      "REQUIRES",
+      "Coverage Period"
+    ],
+    [
+      "Covered Services",
+      "COVERS",
+      "Plan Option 1"
+    ]
+  ]
+}

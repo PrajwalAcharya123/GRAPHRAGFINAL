@@ -1,0 +1,59 @@
+{
+  "entities": [
+    "Minimum Value Standards",
+    "Premium tax credit",
+    "Marketplace",
+    "Plan"
+  ],
+  "relationships": [
+    [
+      "Plan",
+      "MEETS",
+      "Minimum Value Standards"
+    ],
+    [
+      "Plan",
+      "ELIGIBLE_FOR",
+      "Premium tax credit"
+    ],
+    [
+      "Premium tax credit",
+      "APPLIES_TO",
+      "Marketplace"
+    ]
+  ],
+  "attributes": [
+    [
+      "Minimum Value Standards",
+      "description",
+      "standard for health plans"
+    ],
+    [
+      "Premium tax credit",
+      "purpose",
+      "help pay for a plan"
+    ],
+    [
+      "Marketplace",
+      "description",
+      "place to buy health plans"
+    ]
+  ],
+  "tables": [],
+  "rules": [
+    [
+      "Plan",
+      "MEETS",
+      "Minimum Value Standards",
+      "ELIGIBILITY",
+      "not eligible for premium tax credit"
+    ],
+    [
+      "Plan",
+      "DOES_NOT_MEET",
+      "Minimum Value Standards",
+      "ELIGIBILITY",
+      "eligible for premium tax credit"
+    ]
+  ]
+}
