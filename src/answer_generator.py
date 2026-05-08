@@ -62,11 +62,15 @@ STRICT RULES:
 - If no data: "No relevant information found in the database."
 - Do not mention database or schema
 - Keep concise
-- Keep responses extremely concise (max 2–3 sentences)
+- If multiple services exist in the result, you MUST preserve all of them in the answer.
+  Do not collapse multiple services into a single sentence.
 - Do NOT explain reasoning
 - Do NOT compare multiple retrieved values unless explicitly asked
 - Do NOT mention uncertainty or variations unless required
 - Prefer a single clean statement over paragraphs
+- MULTI-SERVICE RULE:
+  If database contains multiple services, return each service separately with its network and out-of-network values.
+  Do NOT omit any service.
 
 OUTPUT: Return only the final answer.
 """

@@ -517,6 +517,20 @@ def _add_attr(A, entity, key, value):
     if v == "":
         return
     A.append((entity, key, v))
+
+def extract_copay_value(text):
+    if not text:
+        return None
+
+    match = re.search(r"\$\s*\d+", text)
+    return match.group(0).replace(" ", "") if match else None
+
+def extract_coinsurance_value(text):
+    if not text:
+        return None
+
+    match = re.search(r"\d+\s*%", text)
+    return match.group(0).replace(" ", "") if match else None
 # ─────────────────────────────
 # PLAN METADATA
 # ─────────────────────────────
@@ -660,40 +674,50 @@ def _benefit_service(chunk, E, R, A):
         # LIGHT detection (no parsing, just tagging)
         net_lower = net.lower()
         if "copay" in net_lower:
+            copay_value = extract_copay_value(net)
             copay_node = f"{service} | Network | Copay"
             _add(E, R, net_node, "HAS_COPAY", copay_node)
-            _add(E, R, copay_node, "VALUE", net)
+            if copay_value:
+                _add_attr(A, copay_node, "copay_value", copay_value)
         if "coinsurance" in net_lower:
+            coin_value = extract_coinsurance_value(net)
             coin_node = f"{service} | Network | Coinsurance"
             _add(E, R, net_node, "HAS_COINSURANCE", coin_node)
-            _add(E, R, coin_node, "VALUE", net)
-    # ───────────────────────────────────────────────
+            # _add(E, R, coin_node, "VALUE", net)
+            if coin_value:
+                _add_attr(A, coin_node, "coinsurance_value", coin_value)
+
     # OUT-OF-NETWORK COST
-    # ───────────────────────────────────────────────
     if oon:
         oon_node = f"{service} | OutOfNetwork"
         _add(E, R, service, "HAS_OUT_OF_NETWORK_COST", oon_node)
-        # ✅ ALWAYS store exact SBC text
+        #  ALWAYS store exact SBC text
         _add(E, R, oon_node, "VALUE", oon)
         oon_lower = oon.lower()
         if "copay" in oon_lower:
+            copay_value = extract_copay_value(oon)
             copay_node = f"{service} | OutOfNetwork | Copay"
             _add(E, R, oon_node, "HAS_COPAY", copay_node)
-            _add(E, R, copay_node, "VALUE", oon)
+            # _add(E, R, copay_node, "VALUE", oon)
+            if copay_value:
+                _add_attr(A, copay_node, "copay_value", copay_value)
         if "coinsurance" in oon_lower:
+            coin_value = extract_coinsurance_value(oon)
             coin_node = f"{service} | OutOfNetwork | Coinsurance"
             _add(E, R, oon_node, "HAS_COINSURANCE", coin_node)
-            _add(E, R, coin_node, "VALUE", oon)
-    # ───────────────────────────────────────────────
-    # LIMITATIONS (STORE EXACT)
-    # ───────────────────────────────────────────────
+            # _add(E, R, coin_node, "VALUE", oon)
+            if coin_value:
+                _add_attr(A, coin_node, "coinsurance_value", coin_value)
+  
+    # LIMITATIONS 
+  
     if limits:
         lim_node = f"{service} | Limitation"
         _add(E, R, service, "HAS_LIMITATION", lim_node)
         _add(E, R, lim_node, "TEXT", limits)
-    # ───────────────────────────────────────────────
+
     # PREAUTH
-    # ───────────────────────────────────────────────
+
     combined_text = f"{net} {oon} {limits}".lower()
     if requires_preauth or "preauthorization" in combined_text:
         _add(E, R, service, "REQUIRES", "Preauthorization")
@@ -751,19 +775,15 @@ def _excluded_service(chunk, E, R, A):
     svc = _s(chunk.get("service"))
     if svc:
         _add(E, R, PLAN_NODE, "EXCLUDES_SERVICE", svc)
-# ─────────────────────────────
+
 # OTHER COVERED SERVICE
-# ─────────────────────────────
+
 def _other_covered_service(chunk, E, R, A):
     svc = _s(chunk.get("service"))
     if svc:
         _add(E, R, PLAN_NODE, "COVERS_SERVICE", svc)
-# ─────────────────────────────
-# COVERAGE EXAMPLE (SEMANTIC UPGRADE)
-# ─────────────────────────────
-# ─────────────────────────────
-# COVERAGE EXAMPLES (FINAL FIXED VERSION)
-# ─────────────────────────────
+
+# COVERAGE EXAMPLES 
 def _coverage_example(all_chunks, E, R, A):
     """
     Builds a rich semantic graph from normalized coverage example chunks.

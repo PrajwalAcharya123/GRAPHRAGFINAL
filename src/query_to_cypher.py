@@ -341,12 +341,17 @@ REAL GRAPH STRUCTURE (IMPORTANT)
 Service → HAS_NETWORK_COST → NetworkNode
 Service → HAS_OUT_OF_NETWORK_COST → OONNode
 
-NetworkNode → HAS_COPAY → CopayNode
-NetworkNode → HAS_COINSURANCE → CoinsNode
-
 NetworkNode → VALUE → ValueNode
-CopayNode → VALUE → ValueNode
-CoinsNode → VALUE → ValueNode
+OONNode → VALUE → ValueNode
+
+NetworkNode → HAS_COPAY → CopayNode
+NetworkNode → HAS_COINSURANCE → CoinsuranceNode
+
+OONNode → HAS_COPAY → CopayNode
+OONNode → HAS_COINSURANCE → CoinsuranceNode
+
+CopayNode → COPAY_VALUE → ValueNode
+CoinsuranceNode → COINSURANCE_VALUE → ValueNode
 
 Service → HAS_LIMITATION → LimitationNode
 LimitationNode → TEXT → ValueNode
@@ -366,17 +371,19 @@ CRITICAL RULES (DO NOT BREAK)
 
 4. ONLY use these variables:
    s, net, oon, detail, val
-
-5. VALUE can come from TWO places:
+5. VALUE can come from multiple places:
    - (net)-[:VALUE]->(val)
    - (detail)-[:VALUE]->(val)
+   - (copay)-[:COPAY_VALUE]->(val)
+   - (coinsurance)-[:COINSURANCE_VALUE]->(val)
 
 6. ALWAYS return EXACTLY:
    entity, relationship, result
 
 7. NO explanations. ONLY Cypher.
-8. USE the specialized patterns for related questions
+8. USE the specialized patterns for related questions.
 9. If the question mentions Peg, Joe or Mia, THEN ALWAYS USE the specialized COVERAGE EXAMPLE Cypher pattern.
+10. If the question matches the ones from EXAMPLES, USE THE SAME PATTERN.
 
 ---------------------------------
 SMART QUERY PATTERNS
@@ -390,25 +397,37 @@ WITH s, q, COALESCE(svc, s) AS target
 OPTIONAL MATCH (target)-[:VALUE]->(v:Value)
 
 OPTIONAL MATCH (target)-[:HAS_NETWORK_COST]->(net)
-OPTIONAL MATCH (net)-[:VALUE]->(net_val)
-OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+
+OPTIONAL MATCH (net)-[:HAS_COPAY]->(net_copay)
+OPTIONAL MATCH (net_copay)-[:COPAY_VALUE]->(net_copay_val)
+
+OPTIONAL MATCH (net)-[:HAS_COINSURANCE]->(net_coin)
+OPTIONAL MATCH (net_coin)-[:COINSURANCE_VALUE]->(net_coin_val)
 
 OPTIONAL MATCH (target)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
-OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
-OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+
+OPTIONAL MATCH (oon)-[:HAS_COPAY]->(oon_copay)
+OPTIONAL MATCH (oon_copay)-[:COPAY_VALUE]->(oon_copay_val)
+
+OPTIONAL MATCH (oon)-[:HAS_COINSURANCE]->(oon_coin)
+OPTIONAL MATCH (oon_coin)-[:COINSURANCE_VALUE]->(oon_coin_val)
 
 RETURN 
     s.name AS matched_entity,
     target.name AS service,
     "QUESTION_MATCH" AS relationship,
-
     v.value AS result,
 
-    net_val.name AS network_cost,
-    net_detail.name AS network_details,
+    q.value AS question,
 
-    oon_val.name AS out_of_network_cost,
-    oon_detail.name AS out_of_network_details
+    net.name AS network_cost,
+    net_copay_val.value AS network_copay,
+    net_coin_val.value AS network_coinsurance,
+
+    oon.name AS out_of_network_cost,
+    oon_copay_val.value AS out_of_network_copay,
+    oon_coin_val.value AS out_of_network_coinsurance
+
 
 ----------------------------------
 SPECIALIZED PATTERNS
@@ -419,27 +438,33 @@ MATCH (s:Entity)
 WHERE toLower(s.name) CONTAINS toLower("<keyword>")
 
 OPTIONAL MATCH (s)-[:INCLUDES_SERVICE]->(svc)
-
 WITH s, COALESCE(svc, s) AS target
 
 OPTIONAL MATCH (target)-[:HAS_NETWORK_COST]->(net)
-OPTIONAL MATCH (net)-[:VALUE]->(net_val)
-OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+
+OPTIONAL MATCH (net)-[:HAS_COPAY]->(net_copay)
+OPTIONAL MATCH (net_copay)-[:COPAY_VALUE]->(net_copay_val)
+
+OPTIONAL MATCH (net)-[:HAS_COINSURANCE]->(net_coin)
+OPTIONAL MATCH (net_coin)-[:COINSURANCE_VALUE]->(net_coin_val)
 
 OPTIONAL MATCH (target)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
-OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
-OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+
+OPTIONAL MATCH (oon)-[:HAS_COPAY]->(oon_copay)
+OPTIONAL MATCH (oon_copay)-[:COPAY_VALUE]->(oon_copay_val)
+
+OPTIONAL MATCH (oon)-[:HAS_COINSURANCE]->(oon_coin)
+OPTIONAL MATCH (oon_coin)-[:COINSURANCE_VALUE]->(oon_coin_val)
 
 RETURN 
     s.name AS matched_entity,
     target.name AS service,
-    
-    net_val.name AS network_cost,
-    net_detail.name AS network_details,
 
-    oon_val.name AS out_of_network_cost,
-    oon_detail.name AS out_of_network_details
+    net_copay_val.value AS network_copay,
+    net_coin_val.value AS network_coinsurance,
 
+    oon_copay_val.value AS out_of_network_copay,
+    oon_coin_val.value AS out_of_network_coinsurance
 ----------------------------------
 
 ### 2. DEDUCTIBLE
@@ -451,14 +476,12 @@ OPTIONAL MATCH (e)-[r]-(v)
 RETURN 
     e.name AS entity,
     type(r) AS relationship,
-    coalesce(
-        e.answer,
-        e.value,
-        e.network_cost,
-        e.out_of_network_cost,
-        v.value,
-        v.name
-    ) AS result
+    v.value AS values,
+    v.name AS value_names,
+    e.answer AS answers,
+    e.value AS direct_values,
+    e.network_cost AS network_cost,
+    e.out_of_network_cost AS out_of_network_cost
 ORDER BY relationship
 ------------------------------------------
 ### 3. OUT OF POCKET LIMIT
@@ -487,14 +510,19 @@ RETURN
 MATCH (s:Entity)
 WHERE toLower(s.name) CONTAINS toLower("<keyword>")
 
-OPTIONAL MATCH (s)-[:HAS_LIMITATION]->(lim)
+OPTIONAL MATCH (s)-[:INCLUDES_SERVICE]->(svc)
+
+WITH s, COALESCE(svc, s) AS target
+
+OPTIONAL MATCH (target)-[:HAS_LIMITATION]->(lim)
 OPTIONAL MATCH (lim)-[:TEXT]->(val)
 
 RETURN 
     s.name AS entity,
+    target.name AS service,
     "HAS_LIMITATION" AS relationship,
     val.name AS result
-ORDER BY entity
+ORDER BY service
 
 ----------------------------------
 
@@ -567,26 +595,36 @@ ORDER BY s.value IS NULL
 
 ### 11. IMPORTANT QUESTIONS
 MATCH (s:Entity)-[:QUESTION]->(q:Value)
-WHERE toLower(q.value) CONTAINS toLower("<keyword>")
+WHERE toLower(q.name) CONTAINS toLower("<keyword")
 
-OPTIONAL MATCH (s)-[:VALUE]->(v:Value)
+OPTIONAL MATCH (s)-[:INCLUDES_SERVICE]->(svc)
+WITH s, COALESCE(svc, s) AS target
 
-OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
-OPTIONAL MATCH (net)-[:VALUE]->(net_val)
-OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+OPTIONAL MATCH (target)-[:HAS_NETWORK_COST]->(net)
 
-OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
-OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
-OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+OPTIONAL MATCH (net)-[:HAS_COPAY]->(net_copay)
+OPTIONAL MATCH (net_copay)-[:COPAY_VALUE]->(net_copay_val)
+
+OPTIONAL MATCH (net)-[:HAS_COINSURANCE]->(net_coin)
+OPTIONAL MATCH (net_coin)-[:COINSURANCE_VALUE]->(net_coin_val)
+
+OPTIONAL MATCH (target)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+
+OPTIONAL MATCH (oon)-[:HAS_COPAY]->(oon_copay)
+OPTIONAL MATCH (oon_copay)-[:COPAY_VALUE]->(oon_copay_val)
+
+OPTIONAL MATCH (oon)-[:HAS_COINSURANCE]->(oon_coin)
+OPTIONAL MATCH (oon_coin)-[:COINSURANCE_VALUE]->(oon_coin_val)
 
 RETURN 
-    s.name AS entity,
-    "QUESTION_MATCH" AS relationship,
-    v.value AS result,
-    net_val.name AS network_cost,
-    net_detail.name AS network_details,
-    oon_val.name AS out_of_network_cost,
-    oon_detail.name AS out_of_network_details
+    s.name AS matched_entity,
+    target.name AS service,
+
+    net_copay_val.value AS network_copay,
+    net_coin_val.value AS network_coinsurance,
+
+    oon_copay_val.value AS out_of_network_copay,
+    oon_coin_val.value AS out_of_network_coinsurance
 
 --------------------------------------------------
 
@@ -628,7 +666,6 @@ RETURN
 ORDER BY entity
 
 ----------------------------------
-
 
 ### EXAMPLES
 
