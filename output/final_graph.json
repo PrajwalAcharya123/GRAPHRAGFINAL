@@ -1,25 +1,43 @@
 {
   "entities": [
-    "Are there other deductibles for specific services?",
-    "Are there services covered before you meet your deductible?",
+    "$10 copay/prescription",
+    "$10 copay/test",
+    "$100/day copay",
+    "$30 copay/prescription",
+    "$35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply",
+    "$50 copay/test",
+    "$50 copay/visit",
+    "20% coinsurance",
+    "40% coinsurance",
+    "50% coinsurance",
+    "60% coinsurance",
+    "70% coinsurance",
     "Coverage for: Family | Plan Type: PPO",
+    "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription).",
     "Diagnostic test (x-ray, blood work)",
     "Diagnostic test (x-ray, blood work) | Limitation",
-    "Diagnostic test (x-ray, blood work) | NetworkCost",
-    "Diagnostic test (x-ray, blood work) | OutOfNetworkCost",
-    "Do you need a referral to see a specialist?",
+    "Diagnostic test (x-ray, blood work) | Network",
+    "Diagnostic test (x-ray, blood work) | Network | Copay",
+    "Diagnostic test (x-ray, blood work) | OutOfNetwork",
+    "Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance",
     "Emergency room care",
     "Emergency room care | Limitation",
-    "Emergency room care | NetworkCost",
-    "Emergency room care | OutOfNetworkCost",
+    "Emergency room care | Network",
+    "Emergency room care | Network | Coinsurance",
+    "Emergency room care | OutOfNetwork",
+    "Emergency room care | OutOfNetwork | Coinsurance",
     "Facility fee (e.g., ambulatory surgery center)",
     "Facility fee (e.g., ambulatory surgery center) | Limitation",
-    "Facility fee (e.g., ambulatory surgery center) | NetworkCost",
-    "Facility fee (e.g., ambulatory surgery center) | OutOfNetworkCost",
+    "Facility fee (e.g., ambulatory surgery center) | Network",
+    "Facility fee (e.g., ambulatory surgery center) | Network | Copay",
+    "Facility fee (e.g., ambulatory surgery center) | OutOfNetwork",
+    "Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance",
     "Generic drugs (Tier 1) (retail & mail order)",
     "Generic drugs (Tier 1) (retail & mail order) | Limitation",
-    "Generic drugs (Tier 1) (retail & mail order) | NetworkCost",
-    "Generic drugs (Tier 1) (retail & mail order) | OutOfNetworkCost",
+    "Generic drugs (Tier 1) (retail & mail order) | Network",
+    "Generic drugs (Tier 1) (retail & mail order) | Network | Copay",
+    "Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork",
+    "Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance",
     "HealthPlan",
     "If you have a test",
     "If you have outpatient surgery",
@@ -27,150 +45,255 @@
     "If you need immediate medical attention",
     "If you visit a health care provider\u2019s office or clinic",
     "Imaging (CT/PET scans, MRIs)",
-    "Imaging (CT/PET scans, MRIs) | NetworkCost",
-    "Imaging (CT/PET scans, MRIs) | OutOfNetworkCost",
+    "Imaging (CT/PET scans, MRIs) | Network",
+    "Imaging (CT/PET scans, MRIs) | Network | Copay",
+    "Imaging (CT/PET scans, MRIs) | OutOfNetwork",
+    "Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance",
+    "Network Provider Benefit",
+    "No charge for covered services",
     "Non-preferred brand drugs (Tier 3)",
     "Non-preferred brand drugs (Tier 3) | Limitation",
-    "Non-preferred brand drugs (Tier 3) | NetworkCost",
-    "Non-preferred brand drugs (Tier 3) | OutOfNetworkCost",
+    "Non-preferred brand drugs (Tier 3) | Network",
+    "Non-preferred brand drugs (Tier 3) | Network | Coinsurance",
+    "Non-preferred brand drugs (Tier 3) | OutOfNetwork",
+    "Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance",
+    "None",
+    "Out-of-Pocket Exclusions",
+    "Out-of-Pocket Limit",
+    "Overall Deductible",
     "Physician/surgeon fees",
     "Physician/surgeon fees | Limitation",
-    "Physician/surgeon fees | NetworkCost",
-    "Physician/surgeon fees | OutOfNetworkCost",
+    "Physician/surgeon fees | Network",
+    "Physician/surgeon fees | Network | Coinsurance",
+    "Physician/surgeon fees | OutOfNetwork",
+    "Physician/surgeon fees | OutOfNetwork | Coinsurance",
     "Preauthorization",
+    "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service.",
+    "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia.",
     "Preferred brand drugs (Tier 2) (retail & mail order)",
     "Preferred brand drugs (Tier 2) (retail & mail order) | Limitation",
-    "Preferred brand drugs (Tier 2) (retail & mail order) | NetworkCost",
-    "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetworkCost",
+    "Preferred brand drugs (Tier 2) (retail & mail order) | Network",
+    "Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay",
+    "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork",
+    "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance",
     "Preventive care/screening/immunization",
     "Preventive care/screening/immunization | Limitation",
-    "Preventive care/screening/immunization | NetworkCost",
-    "Preventive care/screening/immunization | OutOfNetworkCost",
+    "Preventive care/screening/immunization | Network",
+    "Preventive care/screening/immunization | OutOfNetwork",
+    "Preventive care/screening/immunization | OutOfNetwork | Coinsurance",
     "Primary care visit to treat an injury or illness",
     "Primary care visit to treat an injury or illness | Limitation",
-    "Primary care visit to treat an injury or illness | NetworkCost",
-    "Primary care visit to treat an injury or illness | OutOfNetworkCost",
+    "Primary care visit to treat an injury or illness | Network",
+    "Primary care visit to treat an injury or illness | Network | Coinsurance",
+    "Primary care visit to treat an injury or illness | Network | Copay",
+    "Primary care visit to treat an injury or illness | OutOfNetwork",
+    "Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance",
+    "Service Specific Deductibles",
+    "Services Before Deductible",
+    "Specialist Referral Requirement",
     "Specialist visit",
     "Specialist visit | Limitation",
-    "Specialist visit | NetworkCost",
-    "Specialist visit | OutOfNetworkCost",
+    "Specialist visit | Network",
+    "Specialist visit | Network | Copay",
+    "Specialist visit | OutOfNetwork",
+    "Specialist visit | OutOfNetwork | Coinsurance",
     "Specialty drugs (Tier 4)",
     "Specialty drugs (Tier 4) | Limitation",
-    "Specialty drugs (Tier 4) | NetworkCost",
-    "Specialty drugs (Tier 4) | OutOfNetworkCost",
-    "What is not included in the out-of-pocket limit?",
-    "What is the out-of-pocket limit for this plan?",
-    "What is the overall deductible?",
-    "Will you pay less if you use a network provider?",
-    "20% coinsurance",
-    "20% coinsurance | NetworkCost",
-    "20% coinsurance | OutOfNetworkCost",
+    "Specialty drugs (Tier 4) | Network",
+    "Specialty drugs (Tier 4) | Network | Coinsurance",
+    "Specialty drugs (Tier 4) | OutOfNetwork",
+    "Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance",
+    "You may have to pay for services that aren\u2019t preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for.",
+    "$30 copay",
+    "$35 copay/office visit and 20% coinsurance for other outpatient services",
+    "$35 copay/visit",
+    "20% coinsurance | Network",
+    "20% coinsurance | Network | Coinsurance",
+    "20% coinsurance | OutOfNetwork",
+    "20% coinsurance | OutOfNetwork | Coinsurance",
+    "50% coinsurance for anesthesia.",
+    "60 visits/calendar year",
+    "60 visits/calendar year. Includes physical therapy, speech therapy, and occupational therapy.",
     "Childbirth/delivery facility services",
     "Childbirth/delivery facility services | Limitation",
-    "Childbirth/delivery facility services | NetworkCost",
-    "Childbirth/delivery facility services | OutOfNetworkCost",
+    "Childbirth/delivery facility services | Network",
+    "Childbirth/delivery facility services | Network | Coinsurance",
+    "Childbirth/delivery facility services | OutOfNetwork",
+    "Childbirth/delivery facility services | OutOfNetwork | Coinsurance",
     "Childbirth/delivery professional services",
     "Childbirth/delivery professional services | Limitation",
-    "Childbirth/delivery professional services | NetworkCost",
-    "Childbirth/delivery professional services | OutOfNetworkCost",
+    "Childbirth/delivery professional services | Network",
+    "Childbirth/delivery professional services | Network | Coinsurance",
+    "Childbirth/delivery professional services | OutOfNetwork",
+    "Childbirth/delivery professional services | OutOfNetwork | Coinsurance",
     "Children's dental check-up",
-    "Children's dental check-up | NetworkCost",
-    "Children's dental check-up | OutOfNetworkCost",
+    "Children's dental check-up | Network",
+    "Children's dental check-up | OutOfNetwork",
     "Children's eye exam",
     "Children's eye exam | Limitation",
-    "Children's eye exam | NetworkCost",
-    "Children's eye exam | OutOfNetworkCost",
+    "Children's eye exam | Network",
+    "Children's eye exam | Network | Copay",
+    "Children's eye exam | OutOfNetwork",
     "Children's glasses",
     "Children's glasses | Limitation",
-    "Children's glasses | NetworkCost",
-    "Children's glasses | OutOfNetworkCost",
+    "Children's glasses | Network",
+    "Children's glasses | Network | Coinsurance",
+    "Children's glasses | OutOfNetwork",
     "Cosmetic Surgery",
+    "Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound).",
+    "Coverage limited to one exam/year.",
+    "Coverage limited to one pair of glasses/year.",
     "Durable medical equipment",
     "Durable medical equipment | Limitation",
-    "Durable medical equipment | NetworkCost",
-    "Durable medical equipment | OutOfNetworkCost",
+    "Durable medical equipment | Network",
+    "Durable medical equipment | Network | Coinsurance",
+    "Durable medical equipment | OutOfNetwork",
+    "Durable medical equipment | OutOfNetwork | Coinsurance",
     "Emergency medical transportation",
     "Emergency medical transportation | Limitation",
-    "Emergency medical transportation | NetworkCost",
-    "Emergency medical transportation | OutOfNetworkCost",
+    "Emergency medical transportation | Network",
+    "Emergency medical transportation | Network | Coinsurance",
+    "Emergency medical transportation | OutOfNetwork",
+    "Emergency medical transportation | OutOfNetwork | Coinsurance",
+    "Excludes vehicle modifications, home modifications, exercise, and bathroom equipment.",
     "Facility fee (e.g., hospital room)",
     "Facility fee (e.g., hospital room) | Limitation",
-    "Facility fee (e.g., hospital room) | NetworkCost",
-    "Facility fee (e.g., hospital room) | OutOfNetworkCost",
+    "Facility fee (e.g., hospital room) | Network",
+    "Facility fee (e.g., hospital room) | Network | Coinsurance",
+    "Facility fee (e.g., hospital room) | OutOfNetwork",
+    "Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance",
     "Habilitation services",
-    "Habilitation services | NetworkCost",
-    "Habilitation services | OutOfNetworkCost",
+    "Habilitation services | Network",
+    "Habilitation services | Network | Coinsurance",
+    "Habilitation services | OutOfNetwork",
+    "Habilitation services | OutOfNetwork | Coinsurance",
     "Home health care",
     "Home health care | Limitation",
-    "Home health care | NetworkCost",
-    "Home health care | OutOfNetworkCost",
+    "Home health care | Network",
+    "Home health care | Network | Coinsurance",
+    "Home health care | OutOfNetwork",
+    "Home health care | OutOfNetwork | Coinsurance",
     "Hospice services",
     "Hospice services | Limitation",
-    "Hospice services | NetworkCost",
-    "Hospice services | OutOfNetworkCost",
+    "Hospice services | Network",
+    "Hospice services | Network | Coinsurance",
+    "Hospice services | OutOfNetwork",
+    "Hospice services | OutOfNetwork | Coinsurance",
     "If you are pregnant",
     "If you have a hospital stay",
     "If you need help recovering or have other special health needs",
     "If you need mental health, behavioral health, or substance abuse services",
     "If your child needs dental or eye care",
     "Inpatient services",
-    "Inpatient services | NetworkCost",
-    "Inpatient services | OutOfNetworkCost",
+    "Inpatient services | Network",
+    "Inpatient services | Network | Coinsurance",
+    "Inpatient services | OutOfNetwork",
+    "Inpatient services | OutOfNetwork | Coinsurance",
+    "No charge",
+    "Not covered",
     "Office visits",
     "Office visits | Limitation",
-    "Office visits | NetworkCost",
-    "Office visits | OutOfNetworkCost",
+    "Office visits | Network",
+    "Office visits | Network | Coinsurance",
+    "Office visits | OutOfNetwork",
+    "Office visits | OutOfNetwork | Coinsurance",
     "Outpatient services",
-    "Outpatient services | NetworkCost",
-    "Outpatient services | OutOfNetworkCost",
+    "Outpatient services | Network",
+    "Outpatient services | Network | Coinsurance",
+    "Outpatient services | Network | Copay",
+    "Outpatient services | OutOfNetwork",
+    "Outpatient services | OutOfNetwork | Coinsurance",
     "Rehabilitation services",
     "Rehabilitation services | Limitation",
-    "Rehabilitation services | NetworkCost",
-    "Rehabilitation services | OutOfNetworkCost",
+    "Rehabilitation services | Network",
+    "Rehabilitation services | Network | Coinsurance",
+    "Rehabilitation services | OutOfNetwork",
+    "Rehabilitation services | OutOfNetwork | Coinsurance",
     "Skilled nursing care",
     "Skilled nursing care | Limitation",
-    "Skilled nursing care | NetworkCost",
-    "Skilled nursing care | OutOfNetworkCost",
+    "Skilled nursing care | Network",
+    "Skilled nursing care | Network | Coinsurance",
+    "Skilled nursing care | OutOfNetwork",
+    "Skilled nursing care | OutOfNetwork | Coinsurance",
     "Urgent care",
     "Urgent care | Limitation",
-    "Urgent care | NetworkCost",
-    "Urgent care | OutOfNetworkCost",
+    "Urgent care | Network",
+    "Urgent care | Network | Copay",
+    "Urgent care | OutOfNetwork",
+    "Urgent care | OutOfNetwork | Coinsurance",
     "Acupuncture (if prescribed for rehabilitation",
-    "Bariatric Surgery",
-    "Childbirth/Delivery Facility Services",
-    "Childbirth/Delivery Professional Services",
     "Chiropractic Care",
     "Dental Care",
-    "Diagnostic tests (blood work)",
-    "Diagnostic tests (ultrasounds and blood work)",
-    "Hearing Aids",
+    "Grievance and Appeals Rights",
+    "Health Coverage Cost Examples",
     "Infertility Treatment",
+    "Language Assistance Services",
     "Long Term Care",
+    "Minimum Essential Coverage",
+    "Minimum Value Standards",
     "Non-emergency care outside the U.S.",
-    "Prescription drugs",
-    "Primary care physician office visits (including disease education)",
     "Private Duty Nursing",
     "Routine Foot Care",
     "Routine eye care (Adult)",
+    "Weight Loss Programs",
+    "Wellness Program Cost Reduction Notice",
+    "Childbirth/Delivery Facility Services",
+    "Childbirth/Delivery Professional Services",
+    "Coverage Example Scenarios",
+    "Diagnostic Services",
+    "Diagnostic tests (ultrasounds and blood work)",
+    "Pregnancy & Childbirth Scenario",
+    "Pregnancy & Childbirth Scenario | Coinsurance",
+    "Pregnancy & Childbirth Scenario | Copayments",
+    "Pregnancy & Childbirth Scenario | Cost Sharing",
+    "Pregnancy & Childbirth Scenario | Deductibles",
+    "Pregnancy & Childbirth Scenario | Hospital (facility) coinsurance",
+    "Pregnancy & Childbirth Scenario | Limits or exclusions",
+    "Pregnancy & Childbirth Scenario | Other coinsurance",
+    "Pregnancy & Childbirth Scenario | Specialist copayment",
+    "Pregnancy & Childbirth Scenario | The plan\u2019s overall deductible",
+    "Pregnancy & Childbirth Scenario | The total Peg would pay is",
+    "Pregnancy & Childbirth Scenario | Total Example Cost",
+    "Pregnancy & Childbirth Scenario | What isn\u2019t covered",
     "Specialist office visits (prenatal care)",
     "Specialist visit (anesthesia)",
-    "Weight Loss Programs",
+    "Chronic Disease Management Scenario",
+    "Chronic Disease Management Scenario | Coinsurance",
+    "Chronic Disease Management Scenario | Copayments",
+    "Chronic Disease Management Scenario | Cost Sharing",
+    "Chronic Disease Management Scenario | Deductibles",
+    "Chronic Disease Management Scenario | Hospital (facility) coinsurance",
+    "Chronic Disease Management Scenario | Limits or exclusions",
+    "Chronic Disease Management Scenario | Other coinsurance",
+    "Chronic Disease Management Scenario | Specialist copayment",
+    "Chronic Disease Management Scenario | The plan\u2019s overall deductible",
+    "Chronic Disease Management Scenario | The total Joe would pay is",
+    "Chronic Disease Management Scenario | Total Example Cost",
+    "Chronic Disease Management Scenario | What isn\u2019t covered",
+    "Diagnostic tests (blood work)",
+    "Durable medical equipment (glucose meter)",
+    "Emergency Care Scenario",
+    "Emergency Care Scenario | Specialist copayment",
+    "Emergency Care Scenario | The plan\u2019s overall deductible",
+    "Prescription Drug Coverage",
+    "Prescription drugs",
+    "Primary care physician office visits (including disease education)",
     "Diagnostic test (x-ray)",
     "Durable medical equipment (crutches)",
-    "Durable medical equipment (glucose meter)",
+    "Emergency Care Scenario | Coinsurance",
+    "Emergency Care Scenario | Copayments",
+    "Emergency Care Scenario | Cost Sharing",
+    "Emergency Care Scenario | Deductibles",
+    "Emergency Care Scenario | Hospital (facility) coinsurance",
+    "Emergency Care Scenario | Limits or exclusions",
+    "Emergency Care Scenario | Other coinsurance",
+    "Emergency Care Scenario | The total Mia would pay is",
+    "Emergency Care Scenario | Total Example Cost",
+    "Emergency Care Scenario | What isn\u2019t covered",
+    "Emergency Services",
     "Emergency room care (including medical supplies)",
-    "Footnote [footnote_001]",
-    "Footnote [footnote_003]",
-    "Footnote [footnote_009]",
-    "Rehabilitation services (physical therapy)",
-    "Section: About these Coverage Examples: [section_008]",
-    "Section: Does this plan meet Minimum Value Standards? [section_006]",
-    "Section: Does this plan provide Minimum Essential Coverage? [section_005]",
-    "Section: Language Access Services: [section_007]",
-    "Section: Mia\u2019s Simple Fracture [section_010]",
-    "Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000]",
-    "Section: page_3.html [section_002]",
-    "Section: page_4.html [section_004]"
+    "Rehabilitation Services",
+    "Rehabilitation services (physical therapy)"
   ],
   "relationships": [
     [
@@ -180,38 +303,38 @@
     ],
     [
       "HealthPlan",
-      "HAS_IMPORTANT_QUESTION",
-      "What is the overall deductible?"
+      "HAS_DEDUCTIBLE",
+      "Overall Deductible"
     ],
     [
       "HealthPlan",
-      "HAS_IMPORTANT_QUESTION",
-      "Are there services covered before you meet your deductible?"
+      "COVERS_BEFORE_DEDUCTIBLE",
+      "Services Before Deductible"
     ],
     [
       "HealthPlan",
-      "HAS_IMPORTANT_QUESTION",
-      "Are there other deductibles for specific services?"
+      "HAS_SERVICE_SPECIFIC_DEDUCTIBLE",
+      "Service Specific Deductibles"
     ],
     [
       "HealthPlan",
-      "HAS_IMPORTANT_QUESTION",
-      "What is the out-of-pocket limit for this plan?"
+      "HAS_OUT_OF_POCKET_LIMIT",
+      "Out-of-Pocket Limit"
     ],
     [
       "HealthPlan",
-      "HAS_IMPORTANT_QUESTION",
-      "What is not included in the out-of-pocket limit?"
+      "HAS_OUT_OF_POCKET_EXCLUSIONS",
+      "Out-of-Pocket Exclusions"
     ],
     [
       "HealthPlan",
-      "HAS_IMPORTANT_QUESTION",
-      "Will you pay less if you use a network provider?"
+      "HAS_NETWORK_ADVANTAGE",
+      "Network Provider Benefit"
     ],
     [
       "HealthPlan",
-      "HAS_IMPORTANT_QUESTION",
-      "Do you need a referral to see a specialist?"
+      "REQUIRES_REFERRAL",
+      "Specialist Referral Requirement"
     ],
     [
       "HealthPlan",
@@ -225,18 +348,63 @@
     ],
     [
       "Primary care visit to treat an injury or illness",
-      "HAS_COST",
-      "Primary care visit to treat an injury or illness | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Primary care visit to treat an injury or illness | Network"
+    ],
+    [
+      "Primary care visit to treat an injury or illness | Network",
+      "VALUE",
+      "$35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply"
+    ],
+    [
+      "Primary care visit to treat an injury or illness | Network",
+      "HAS_COPAY",
+      "Primary care visit to treat an injury or illness | Network | Copay"
+    ],
+    [
+      "Primary care visit to treat an injury or illness | Network | Copay",
+      "VALUE",
+      "$35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply"
+    ],
+    [
+      "Primary care visit to treat an injury or illness | Network",
+      "HAS_COINSURANCE",
+      "Primary care visit to treat an injury or illness | Network | Coinsurance"
+    ],
+    [
+      "Primary care visit to treat an injury or illness | Network | Coinsurance",
+      "VALUE",
+      "$35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply"
     ],
     [
       "Primary care visit to treat an injury or illness",
-      "HAS_COST",
-      "Primary care visit to treat an injury or illness | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Primary care visit to treat an injury or illness | OutOfNetwork"
+    ],
+    [
+      "Primary care visit to treat an injury or illness | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Primary care visit to treat an injury or illness | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Primary care visit to treat an injury or illness | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Primary care visit to treat an injury or illness",
       "HAS_LIMITATION",
       "Primary care visit to treat an injury or illness | Limitation"
+    ],
+    [
+      "Primary care visit to treat an injury or illness | Limitation",
+      "TEXT",
+      "None"
     ],
     [
       "HealthPlan",
@@ -250,18 +418,53 @@
     ],
     [
       "Specialist visit",
-      "HAS_COST",
-      "Specialist visit | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Specialist visit | Network"
+    ],
+    [
+      "Specialist visit | Network",
+      "VALUE",
+      "$50 copay/visit"
+    ],
+    [
+      "Specialist visit | Network",
+      "HAS_COPAY",
+      "Specialist visit | Network | Copay"
+    ],
+    [
+      "Specialist visit | Network | Copay",
+      "VALUE",
+      "$50 copay/visit"
     ],
     [
       "Specialist visit",
-      "HAS_COST",
-      "Specialist visit | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Specialist visit | OutOfNetwork"
+    ],
+    [
+      "Specialist visit | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Specialist visit | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Specialist visit | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Specialist visit | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Specialist visit",
       "HAS_LIMITATION",
       "Specialist visit | Limitation"
+    ],
+    [
+      "Specialist visit | Limitation",
+      "TEXT",
+      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service."
     ],
     [
       "Specialist visit",
@@ -280,18 +483,43 @@
     ],
     [
       "Preventive care/screening/immunization",
-      "HAS_COST",
-      "Preventive care/screening/immunization | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Preventive care/screening/immunization | Network"
+    ],
+    [
+      "Preventive care/screening/immunization | Network",
+      "VALUE",
+      "No charge for covered services"
     ],
     [
       "Preventive care/screening/immunization",
-      "HAS_COST",
-      "Preventive care/screening/immunization | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Preventive care/screening/immunization | OutOfNetwork"
+    ],
+    [
+      "Preventive care/screening/immunization | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Preventive care/screening/immunization | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Preventive care/screening/immunization | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Preventive care/screening/immunization | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Preventive care/screening/immunization",
       "HAS_LIMITATION",
       "Preventive care/screening/immunization | Limitation"
+    ],
+    [
+      "Preventive care/screening/immunization | Limitation",
+      "TEXT",
+      "You may have to pay for services that aren\u2019t preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for."
     ],
     [
       "HealthPlan",
@@ -305,18 +533,53 @@
     ],
     [
       "Diagnostic test (x-ray, blood work)",
-      "HAS_COST",
-      "Diagnostic test (x-ray, blood work) | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Diagnostic test (x-ray, blood work) | Network"
+    ],
+    [
+      "Diagnostic test (x-ray, blood work) | Network",
+      "VALUE",
+      "$10 copay/test"
+    ],
+    [
+      "Diagnostic test (x-ray, blood work) | Network",
+      "HAS_COPAY",
+      "Diagnostic test (x-ray, blood work) | Network | Copay"
+    ],
+    [
+      "Diagnostic test (x-ray, blood work) | Network | Copay",
+      "VALUE",
+      "$10 copay/test"
     ],
     [
       "Diagnostic test (x-ray, blood work)",
-      "HAS_COST",
-      "Diagnostic test (x-ray, blood work) | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Diagnostic test (x-ray, blood work) | OutOfNetwork"
+    ],
+    [
+      "Diagnostic test (x-ray, blood work) | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Diagnostic test (x-ray, blood work) | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Diagnostic test (x-ray, blood work) | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Diagnostic test (x-ray, blood work)",
       "HAS_LIMITATION",
       "Diagnostic test (x-ray, blood work) | Limitation"
+    ],
+    [
+      "Diagnostic test (x-ray, blood work) | Limitation",
+      "TEXT",
+      "None"
     ],
     [
       "HealthPlan",
@@ -330,13 +593,43 @@
     ],
     [
       "Imaging (CT/PET scans, MRIs)",
-      "HAS_COST",
-      "Imaging (CT/PET scans, MRIs) | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Imaging (CT/PET scans, MRIs) | Network"
+    ],
+    [
+      "Imaging (CT/PET scans, MRIs) | Network",
+      "VALUE",
+      "$50 copay/test"
+    ],
+    [
+      "Imaging (CT/PET scans, MRIs) | Network",
+      "HAS_COPAY",
+      "Imaging (CT/PET scans, MRIs) | Network | Copay"
+    ],
+    [
+      "Imaging (CT/PET scans, MRIs) | Network | Copay",
+      "VALUE",
+      "$50 copay/test"
     ],
     [
       "Imaging (CT/PET scans, MRIs)",
-      "HAS_COST",
-      "Imaging (CT/PET scans, MRIs) | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Imaging (CT/PET scans, MRIs) | OutOfNetwork"
+    ],
+    [
+      "Imaging (CT/PET scans, MRIs) | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Imaging (CT/PET scans, MRIs) | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Imaging (CT/PET scans, MRIs) | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "HealthPlan",
@@ -350,18 +643,53 @@
     ],
     [
       "Generic drugs (Tier 1) (retail & mail order)",
-      "HAS_COST",
-      "Generic drugs (Tier 1) (retail & mail order) | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Generic drugs (Tier 1) (retail & mail order) | Network"
+    ],
+    [
+      "Generic drugs (Tier 1) (retail & mail order) | Network",
+      "VALUE",
+      "$10 copay/prescription"
+    ],
+    [
+      "Generic drugs (Tier 1) (retail & mail order) | Network",
+      "HAS_COPAY",
+      "Generic drugs (Tier 1) (retail & mail order) | Network | Copay"
+    ],
+    [
+      "Generic drugs (Tier 1) (retail & mail order) | Network | Copay",
+      "VALUE",
+      "$10 copay/prescription"
     ],
     [
       "Generic drugs (Tier 1) (retail & mail order)",
-      "HAS_COST",
-      "Generic drugs (Tier 1) (retail & mail order) | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork"
+    ],
+    [
+      "Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Generic drugs (Tier 1) (retail & mail order) | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Generic drugs (Tier 1) (retail & mail order)",
       "HAS_LIMITATION",
       "Generic drugs (Tier 1) (retail & mail order) | Limitation"
+    ],
+    [
+      "Generic drugs (Tier 1) (retail & mail order) | Limitation",
+      "TEXT",
+      "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription)."
     ],
     [
       "HealthPlan",
@@ -375,18 +703,53 @@
     ],
     [
       "Preferred brand drugs (Tier 2) (retail & mail order)",
-      "HAS_COST",
-      "Preferred brand drugs (Tier 2) (retail & mail order) | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Preferred brand drugs (Tier 2) (retail & mail order) | Network"
+    ],
+    [
+      "Preferred brand drugs (Tier 2) (retail & mail order) | Network",
+      "VALUE",
+      "$30 copay/prescription"
+    ],
+    [
+      "Preferred brand drugs (Tier 2) (retail & mail order) | Network",
+      "HAS_COPAY",
+      "Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay"
+    ],
+    [
+      "Preferred brand drugs (Tier 2) (retail & mail order) | Network | Copay",
+      "VALUE",
+      "$30 copay/prescription"
     ],
     [
       "Preferred brand drugs (Tier 2) (retail & mail order)",
-      "HAS_COST",
-      "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork"
+    ],
+    [
+      "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Preferred brand drugs (Tier 2) (retail & mail order)",
       "HAS_LIMITATION",
       "Preferred brand drugs (Tier 2) (retail & mail order) | Limitation"
+    ],
+    [
+      "Preferred brand drugs (Tier 2) (retail & mail order) | Limitation",
+      "TEXT",
+      "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription)."
     ],
     [
       "HealthPlan",
@@ -400,18 +763,53 @@
     ],
     [
       "Non-preferred brand drugs (Tier 3)",
-      "HAS_COST",
-      "Non-preferred brand drugs (Tier 3) | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Non-preferred brand drugs (Tier 3) | Network"
+    ],
+    [
+      "Non-preferred brand drugs (Tier 3) | Network",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Non-preferred brand drugs (Tier 3) | Network",
+      "HAS_COINSURANCE",
+      "Non-preferred brand drugs (Tier 3) | Network | Coinsurance"
+    ],
+    [
+      "Non-preferred brand drugs (Tier 3) | Network | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Non-preferred brand drugs (Tier 3)",
-      "HAS_COST",
-      "Non-preferred brand drugs (Tier 3) | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Non-preferred brand drugs (Tier 3) | OutOfNetwork"
+    ],
+    [
+      "Non-preferred brand drugs (Tier 3) | OutOfNetwork",
+      "VALUE",
+      "60% coinsurance"
+    ],
+    [
+      "Non-preferred brand drugs (Tier 3) | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "60% coinsurance"
     ],
     [
       "Non-preferred brand drugs (Tier 3)",
       "HAS_LIMITATION",
       "Non-preferred brand drugs (Tier 3) | Limitation"
+    ],
+    [
+      "Non-preferred brand drugs (Tier 3) | Limitation",
+      "TEXT",
+      "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription)."
     ],
     [
       "HealthPlan",
@@ -425,18 +823,53 @@
     ],
     [
       "Specialty drugs (Tier 4)",
-      "HAS_COST",
-      "Specialty drugs (Tier 4) | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Specialty drugs (Tier 4) | Network"
+    ],
+    [
+      "Specialty drugs (Tier 4) | Network",
+      "VALUE",
+      "50% coinsurance"
+    ],
+    [
+      "Specialty drugs (Tier 4) | Network",
+      "HAS_COINSURANCE",
+      "Specialty drugs (Tier 4) | Network | Coinsurance"
+    ],
+    [
+      "Specialty drugs (Tier 4) | Network | Coinsurance",
+      "VALUE",
+      "50% coinsurance"
     ],
     [
       "Specialty drugs (Tier 4)",
-      "HAS_COST",
-      "Specialty drugs (Tier 4) | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Specialty drugs (Tier 4) | OutOfNetwork"
+    ],
+    [
+      "Specialty drugs (Tier 4) | OutOfNetwork",
+      "VALUE",
+      "70% coinsurance"
+    ],
+    [
+      "Specialty drugs (Tier 4) | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Specialty drugs (Tier 4) | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "70% coinsurance"
     ],
     [
       "Specialty drugs (Tier 4)",
       "HAS_LIMITATION",
       "Specialty drugs (Tier 4) | Limitation"
+    ],
+    [
+      "Specialty drugs (Tier 4) | Limitation",
+      "TEXT",
+      "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription)."
     ],
     [
       "HealthPlan",
@@ -450,18 +883,53 @@
     ],
     [
       "Facility fee (e.g., ambulatory surgery center)",
-      "HAS_COST",
-      "Facility fee (e.g., ambulatory surgery center) | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Facility fee (e.g., ambulatory surgery center) | Network"
+    ],
+    [
+      "Facility fee (e.g., ambulatory surgery center) | Network",
+      "VALUE",
+      "$100/day copay"
+    ],
+    [
+      "Facility fee (e.g., ambulatory surgery center) | Network",
+      "HAS_COPAY",
+      "Facility fee (e.g., ambulatory surgery center) | Network | Copay"
+    ],
+    [
+      "Facility fee (e.g., ambulatory surgery center) | Network | Copay",
+      "VALUE",
+      "$100/day copay"
     ],
     [
       "Facility fee (e.g., ambulatory surgery center)",
-      "HAS_COST",
-      "Facility fee (e.g., ambulatory surgery center) | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Facility fee (e.g., ambulatory surgery center) | OutOfNetwork"
+    ],
+    [
+      "Facility fee (e.g., ambulatory surgery center) | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Facility fee (e.g., ambulatory surgery center) | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Facility fee (e.g., ambulatory surgery center) | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Facility fee (e.g., ambulatory surgery center)",
       "HAS_LIMITATION",
       "Facility fee (e.g., ambulatory surgery center) | Limitation"
+    ],
+    [
+      "Facility fee (e.g., ambulatory surgery center) | Limitation",
+      "TEXT",
+      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia."
     ],
     [
       "Facility fee (e.g., ambulatory surgery center)",
@@ -480,18 +948,53 @@
     ],
     [
       "Physician/surgeon fees",
-      "HAS_COST",
-      "Physician/surgeon fees | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Physician/surgeon fees | Network"
+    ],
+    [
+      "Physician/surgeon fees | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Physician/surgeon fees | Network",
+      "HAS_COINSURANCE",
+      "Physician/surgeon fees | Network | Coinsurance"
+    ],
+    [
+      "Physician/surgeon fees | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Physician/surgeon fees",
-      "HAS_COST",
-      "Physician/surgeon fees | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Physician/surgeon fees | OutOfNetwork"
+    ],
+    [
+      "Physician/surgeon fees | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Physician/surgeon fees | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Physician/surgeon fees | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Physician/surgeon fees | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Physician/surgeon fees",
       "HAS_LIMITATION",
       "Physician/surgeon fees | Limitation"
+    ],
+    [
+      "Physician/surgeon fees | Limitation",
+      "TEXT",
+      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia."
     ],
     [
       "Physician/surgeon fees",
@@ -510,18 +1013,53 @@
     ],
     [
       "Emergency room care",
-      "HAS_COST",
-      "Emergency room care | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Emergency room care | Network"
+    ],
+    [
+      "Emergency room care | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Emergency room care | Network",
+      "HAS_COINSURANCE",
+      "Emergency room care | Network | Coinsurance"
+    ],
+    [
+      "Emergency room care | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Emergency room care",
-      "HAS_COST",
-      "Emergency room care | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Emergency room care | OutOfNetwork"
+    ],
+    [
+      "Emergency room care | OutOfNetwork",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Emergency room care | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Emergency room care | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Emergency room care | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Emergency room care",
       "HAS_LIMITATION",
       "Emergency room care | Limitation"
+    ],
+    [
+      "Emergency room care | Limitation",
+      "TEXT",
+      "None"
     ],
     [
       "HealthPlan",
@@ -535,18 +1073,53 @@
     ],
     [
       "Emergency medical transportation",
-      "HAS_COST",
-      "Emergency medical transportation | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Emergency medical transportation | Network"
+    ],
+    [
+      "Emergency medical transportation | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Emergency medical transportation | Network",
+      "HAS_COINSURANCE",
+      "Emergency medical transportation | Network | Coinsurance"
+    ],
+    [
+      "Emergency medical transportation | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Emergency medical transportation",
-      "HAS_COST",
-      "Emergency medical transportation | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Emergency medical transportation | OutOfNetwork"
+    ],
+    [
+      "Emergency medical transportation | OutOfNetwork",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Emergency medical transportation | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Emergency medical transportation | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Emergency medical transportation | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Emergency medical transportation",
       "HAS_LIMITATION",
       "Emergency medical transportation | Limitation"
+    ],
+    [
+      "Emergency medical transportation | Limitation",
+      "TEXT",
+      "None"
     ],
     [
       "HealthPlan",
@@ -560,18 +1133,53 @@
     ],
     [
       "Urgent care",
-      "HAS_COST",
-      "Urgent care | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Urgent care | Network"
+    ],
+    [
+      "Urgent care | Network",
+      "VALUE",
+      "$30 copay"
+    ],
+    [
+      "Urgent care | Network",
+      "HAS_COPAY",
+      "Urgent care | Network | Copay"
+    ],
+    [
+      "Urgent care | Network | Copay",
+      "VALUE",
+      "$30 copay"
     ],
     [
       "Urgent care",
-      "HAS_COST",
-      "Urgent care | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Urgent care | OutOfNetwork"
+    ],
+    [
+      "Urgent care | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Urgent care | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Urgent care | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Urgent care | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Urgent care",
       "HAS_LIMITATION",
       "Urgent care | Limitation"
+    ],
+    [
+      "Urgent care | Limitation",
+      "TEXT",
+      "None"
     ],
     [
       "HealthPlan",
@@ -585,18 +1193,53 @@
     ],
     [
       "Facility fee (e.g., hospital room)",
-      "HAS_COST",
-      "Facility fee (e.g., hospital room) | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Facility fee (e.g., hospital room) | Network"
+    ],
+    [
+      "Facility fee (e.g., hospital room) | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Facility fee (e.g., hospital room) | Network",
+      "HAS_COINSURANCE",
+      "Facility fee (e.g., hospital room) | Network | Coinsurance"
+    ],
+    [
+      "Facility fee (e.g., hospital room) | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Facility fee (e.g., hospital room)",
-      "HAS_COST",
-      "Facility fee (e.g., hospital room) | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Facility fee (e.g., hospital room) | OutOfNetwork"
+    ],
+    [
+      "Facility fee (e.g., hospital room) | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Facility fee (e.g., hospital room) | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Facility fee (e.g., hospital room)",
       "HAS_LIMITATION",
       "Facility fee (e.g., hospital room) | Limitation"
+    ],
+    [
+      "Facility fee (e.g., hospital room) | Limitation",
+      "TEXT",
+      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service."
     ],
     [
       "Facility fee (e.g., hospital room)",
@@ -615,13 +1258,43 @@
     ],
     [
       "20% coinsurance",
-      "HAS_COST",
-      "20% coinsurance | NetworkCost"
+      "HAS_NETWORK_COST",
+      "20% coinsurance | Network"
+    ],
+    [
+      "20% coinsurance | Network",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "20% coinsurance | Network",
+      "HAS_COINSURANCE",
+      "20% coinsurance | Network | Coinsurance"
+    ],
+    [
+      "20% coinsurance | Network | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "20% coinsurance",
-      "HAS_COST",
-      "20% coinsurance | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "20% coinsurance | OutOfNetwork"
+    ],
+    [
+      "20% coinsurance | OutOfNetwork",
+      "VALUE",
+      "50% coinsurance for anesthesia."
+    ],
+    [
+      "20% coinsurance | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "20% coinsurance | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "20% coinsurance | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "50% coinsurance for anesthesia."
     ],
     [
       "HealthPlan",
@@ -635,13 +1308,53 @@
     ],
     [
       "Outpatient services",
-      "HAS_COST",
-      "Outpatient services | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Outpatient services | Network"
+    ],
+    [
+      "Outpatient services | Network",
+      "VALUE",
+      "$35 copay/office visit and 20% coinsurance for other outpatient services"
+    ],
+    [
+      "Outpatient services | Network",
+      "HAS_COPAY",
+      "Outpatient services | Network | Copay"
+    ],
+    [
+      "Outpatient services | Network | Copay",
+      "VALUE",
+      "$35 copay/office visit and 20% coinsurance for other outpatient services"
+    ],
+    [
+      "Outpatient services | Network",
+      "HAS_COINSURANCE",
+      "Outpatient services | Network | Coinsurance"
+    ],
+    [
+      "Outpatient services | Network | Coinsurance",
+      "VALUE",
+      "$35 copay/office visit and 20% coinsurance for other outpatient services"
     ],
     [
       "Outpatient services",
-      "HAS_COST",
-      "Outpatient services | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Outpatient services | OutOfNetwork"
+    ],
+    [
+      "Outpatient services | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Outpatient services | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Outpatient services | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Outpatient services | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "HealthPlan",
@@ -655,13 +1368,43 @@
     ],
     [
       "Inpatient services",
-      "HAS_COST",
-      "Inpatient services | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Inpatient services | Network"
+    ],
+    [
+      "Inpatient services | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Inpatient services | Network",
+      "HAS_COINSURANCE",
+      "Inpatient services | Network | Coinsurance"
+    ],
+    [
+      "Inpatient services | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Inpatient services",
-      "HAS_COST",
-      "Inpatient services | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Inpatient services | OutOfNetwork"
+    ],
+    [
+      "Inpatient services | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Inpatient services | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Inpatient services | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Inpatient services | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "HealthPlan",
@@ -675,18 +1418,53 @@
     ],
     [
       "Office visits",
-      "HAS_COST",
-      "Office visits | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Office visits | Network"
+    ],
+    [
+      "Office visits | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Office visits | Network",
+      "HAS_COINSURANCE",
+      "Office visits | Network | Coinsurance"
+    ],
+    [
+      "Office visits | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Office visits",
-      "HAS_COST",
-      "Office visits | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Office visits | OutOfNetwork"
+    ],
+    [
+      "Office visits | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Office visits | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Office visits | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Office visits | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Office visits",
       "HAS_LIMITATION",
       "Office visits | Limitation"
+    ],
+    [
+      "Office visits | Limitation",
+      "TEXT",
+      "Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound)."
     ],
     [
       "HealthPlan",
@@ -700,18 +1478,53 @@
     ],
     [
       "Childbirth/delivery professional services",
-      "HAS_COST",
-      "Childbirth/delivery professional services | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Childbirth/delivery professional services | Network"
+    ],
+    [
+      "Childbirth/delivery professional services | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Childbirth/delivery professional services | Network",
+      "HAS_COINSURANCE",
+      "Childbirth/delivery professional services | Network | Coinsurance"
+    ],
+    [
+      "Childbirth/delivery professional services | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Childbirth/delivery professional services",
-      "HAS_COST",
-      "Childbirth/delivery professional services | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Childbirth/delivery professional services | OutOfNetwork"
+    ],
+    [
+      "Childbirth/delivery professional services | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Childbirth/delivery professional services | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Childbirth/delivery professional services | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Childbirth/delivery professional services | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Childbirth/delivery professional services",
       "HAS_LIMITATION",
       "Childbirth/delivery professional services | Limitation"
+    ],
+    [
+      "Childbirth/delivery professional services | Limitation",
+      "TEXT",
+      "Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound)."
     ],
     [
       "HealthPlan",
@@ -725,18 +1538,53 @@
     ],
     [
       "Childbirth/delivery facility services",
-      "HAS_COST",
-      "Childbirth/delivery facility services | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Childbirth/delivery facility services | Network"
+    ],
+    [
+      "Childbirth/delivery facility services | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Childbirth/delivery facility services | Network",
+      "HAS_COINSURANCE",
+      "Childbirth/delivery facility services | Network | Coinsurance"
+    ],
+    [
+      "Childbirth/delivery facility services | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Childbirth/delivery facility services",
-      "HAS_COST",
-      "Childbirth/delivery facility services | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Childbirth/delivery facility services | OutOfNetwork"
+    ],
+    [
+      "Childbirth/delivery facility services | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Childbirth/delivery facility services | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Childbirth/delivery facility services | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Childbirth/delivery facility services | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Childbirth/delivery facility services",
       "HAS_LIMITATION",
       "Childbirth/delivery facility services | Limitation"
+    ],
+    [
+      "Childbirth/delivery facility services | Limitation",
+      "TEXT",
+      "Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound)."
     ],
     [
       "HealthPlan",
@@ -750,18 +1598,53 @@
     ],
     [
       "Home health care",
-      "HAS_COST",
-      "Home health care | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Home health care | Network"
+    ],
+    [
+      "Home health care | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Home health care | Network",
+      "HAS_COINSURANCE",
+      "Home health care | Network | Coinsurance"
+    ],
+    [
+      "Home health care | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Home health care",
-      "HAS_COST",
-      "Home health care | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Home health care | OutOfNetwork"
+    ],
+    [
+      "Home health care | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Home health care | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Home health care | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Home health care | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Home health care",
       "HAS_LIMITATION",
       "Home health care | Limitation"
+    ],
+    [
+      "Home health care | Limitation",
+      "TEXT",
+      "60 visits/calendar year"
     ],
     [
       "HealthPlan",
@@ -775,18 +1658,53 @@
     ],
     [
       "Rehabilitation services",
-      "HAS_COST",
-      "Rehabilitation services | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Rehabilitation services | Network"
+    ],
+    [
+      "Rehabilitation services | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Rehabilitation services | Network",
+      "HAS_COINSURANCE",
+      "Rehabilitation services | Network | Coinsurance"
+    ],
+    [
+      "Rehabilitation services | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Rehabilitation services",
-      "HAS_COST",
-      "Rehabilitation services | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Rehabilitation services | OutOfNetwork"
+    ],
+    [
+      "Rehabilitation services | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Rehabilitation services | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Rehabilitation services | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Rehabilitation services | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Rehabilitation services",
       "HAS_LIMITATION",
       "Rehabilitation services | Limitation"
+    ],
+    [
+      "Rehabilitation services | Limitation",
+      "TEXT",
+      "60 visits/calendar year. Includes physical therapy, speech therapy, and occupational therapy."
     ],
     [
       "HealthPlan",
@@ -800,13 +1718,43 @@
     ],
     [
       "Habilitation services",
-      "HAS_COST",
-      "Habilitation services | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Habilitation services | Network"
+    ],
+    [
+      "Habilitation services | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Habilitation services | Network",
+      "HAS_COINSURANCE",
+      "Habilitation services | Network | Coinsurance"
+    ],
+    [
+      "Habilitation services | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Habilitation services",
-      "HAS_COST",
-      "Habilitation services | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Habilitation services | OutOfNetwork"
+    ],
+    [
+      "Habilitation services | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Habilitation services | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Habilitation services | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Habilitation services | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "HealthPlan",
@@ -820,18 +1768,53 @@
     ],
     [
       "Skilled nursing care",
-      "HAS_COST",
-      "Skilled nursing care | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Skilled nursing care | Network"
+    ],
+    [
+      "Skilled nursing care | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Skilled nursing care | Network",
+      "HAS_COINSURANCE",
+      "Skilled nursing care | Network | Coinsurance"
+    ],
+    [
+      "Skilled nursing care | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Skilled nursing care",
-      "HAS_COST",
-      "Skilled nursing care | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Skilled nursing care | OutOfNetwork"
+    ],
+    [
+      "Skilled nursing care | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Skilled nursing care | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Skilled nursing care | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Skilled nursing care | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Skilled nursing care",
       "HAS_LIMITATION",
       "Skilled nursing care | Limitation"
+    ],
+    [
+      "Skilled nursing care | Limitation",
+      "TEXT",
+      "60 visits/calendar year"
     ],
     [
       "HealthPlan",
@@ -845,18 +1828,53 @@
     ],
     [
       "Durable medical equipment",
-      "HAS_COST",
-      "Durable medical equipment | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Durable medical equipment | Network"
+    ],
+    [
+      "Durable medical equipment | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Durable medical equipment | Network",
+      "HAS_COINSURANCE",
+      "Durable medical equipment | Network | Coinsurance"
+    ],
+    [
+      "Durable medical equipment | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Durable medical equipment",
-      "HAS_COST",
-      "Durable medical equipment | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Durable medical equipment | OutOfNetwork"
+    ],
+    [
+      "Durable medical equipment | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Durable medical equipment | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Durable medical equipment | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Durable medical equipment | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Durable medical equipment",
       "HAS_LIMITATION",
       "Durable medical equipment | Limitation"
+    ],
+    [
+      "Durable medical equipment | Limitation",
+      "TEXT",
+      "Excludes vehicle modifications, home modifications, exercise, and bathroom equipment."
     ],
     [
       "HealthPlan",
@@ -870,18 +1888,53 @@
     ],
     [
       "Hospice services",
-      "HAS_COST",
-      "Hospice services | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Hospice services | Network"
+    ],
+    [
+      "Hospice services | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Hospice services | Network",
+      "HAS_COINSURANCE",
+      "Hospice services | Network | Coinsurance"
+    ],
+    [
+      "Hospice services | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Hospice services",
-      "HAS_COST",
-      "Hospice services | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Hospice services | OutOfNetwork"
+    ],
+    [
+      "Hospice services | OutOfNetwork",
+      "VALUE",
+      "40% coinsurance"
+    ],
+    [
+      "Hospice services | OutOfNetwork",
+      "HAS_COINSURANCE",
+      "Hospice services | OutOfNetwork | Coinsurance"
+    ],
+    [
+      "Hospice services | OutOfNetwork | Coinsurance",
+      "VALUE",
+      "40% coinsurance"
     ],
     [
       "Hospice services",
       "HAS_LIMITATION",
       "Hospice services | Limitation"
+    ],
+    [
+      "Hospice services | Limitation",
+      "TEXT",
+      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service."
     ],
     [
       "Hospice services",
@@ -900,18 +1953,43 @@
     ],
     [
       "Children's eye exam",
-      "HAS_COST",
-      "Children's eye exam | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Children's eye exam | Network"
+    ],
+    [
+      "Children's eye exam | Network",
+      "VALUE",
+      "$35 copay/visit"
+    ],
+    [
+      "Children's eye exam | Network",
+      "HAS_COPAY",
+      "Children's eye exam | Network | Copay"
+    ],
+    [
+      "Children's eye exam | Network | Copay",
+      "VALUE",
+      "$35 copay/visit"
     ],
     [
       "Children's eye exam",
-      "HAS_COST",
-      "Children's eye exam | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Children's eye exam | OutOfNetwork"
+    ],
+    [
+      "Children's eye exam | OutOfNetwork",
+      "VALUE",
+      "Not covered"
     ],
     [
       "Children's eye exam",
       "HAS_LIMITATION",
       "Children's eye exam | Limitation"
+    ],
+    [
+      "Children's eye exam | Limitation",
+      "TEXT",
+      "Coverage limited to one exam/year."
     ],
     [
       "HealthPlan",
@@ -925,18 +2003,43 @@
     ],
     [
       "Children's glasses",
-      "HAS_COST",
-      "Children's glasses | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Children's glasses | Network"
+    ],
+    [
+      "Children's glasses | Network",
+      "VALUE",
+      "20% coinsurance"
+    ],
+    [
+      "Children's glasses | Network",
+      "HAS_COINSURANCE",
+      "Children's glasses | Network | Coinsurance"
+    ],
+    [
+      "Children's glasses | Network | Coinsurance",
+      "VALUE",
+      "20% coinsurance"
     ],
     [
       "Children's glasses",
-      "HAS_COST",
-      "Children's glasses | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Children's glasses | OutOfNetwork"
+    ],
+    [
+      "Children's glasses | OutOfNetwork",
+      "VALUE",
+      "Not covered"
     ],
     [
       "Children's glasses",
       "HAS_LIMITATION",
       "Children's glasses | Limitation"
+    ],
+    [
+      "Children's glasses | Limitation",
+      "TEXT",
+      "Coverage limited to one pair of glasses/year."
     ],
     [
       "HealthPlan",
@@ -950,13 +2053,23 @@
     ],
     [
       "Children's dental check-up",
-      "HAS_COST",
-      "Children's dental check-up | NetworkCost"
+      "HAS_NETWORK_COST",
+      "Children's dental check-up | Network"
+    ],
+    [
+      "Children's dental check-up | Network",
+      "VALUE",
+      "No charge"
     ],
     [
       "Children's dental check-up",
-      "HAS_COST",
-      "Children's dental check-up | OutOfNetworkCost"
+      "HAS_OUT_OF_NETWORK_COST",
+      "Children's dental check-up | OutOfNetwork"
+    ],
+    [
+      "Children's dental check-up | OutOfNetwork",
+      "VALUE",
+      "Not covered"
     ],
     [
       "HealthPlan",
@@ -1000,148 +2113,438 @@
     ],
     [
       "HealthPlan",
-      "COVERS_SERVICE",
+      "EXCLUDES_SERVICE",
       "Acupuncture (if prescribed for rehabilitation"
     ],
     [
       "HealthPlan",
-      "COVERS_SERVICE",
+      "EXCLUDES_SERVICE",
       "Chiropractic Care"
     ],
     [
       "HealthPlan",
-      "COVERS_SERVICE",
+      "EXCLUDES_SERVICE",
       "Weight Loss Programs"
     ],
     [
       "HealthPlan",
-      "COVERS_SERVICE",
-      "Bariatric Surgery"
+      "PROVIDES_GRIEVANCE_AND_APPEAL_RIGHTS",
+      "Grievance and Appeals Rights"
     ],
     [
       "HealthPlan",
-      "COVERS_SERVICE",
-      "Hearing Aids"
+      "SATISFIES_MINIMUM_ESSENTIAL_COVERAGE_REQUIREMENT",
+      "Minimum Essential Coverage"
     ],
     [
       "HealthPlan",
+      "SATISFIES_MINIMUM_VALUE_STANDARD",
+      "Minimum Value Standards"
+    ],
+    [
+      "HealthPlan",
+      "PROVIDES_LANGUAGE_ASSISTANCE_SERVICES",
+      "Language Assistance Services"
+    ],
+    [
+      "HealthPlan",
+      "PROVIDES_HEALTH_COVERAGE_COST_EXAMPLES",
+      "Health Coverage Cost Examples"
+    ],
+    [
+      "HealthPlan",
+      "OFFERS_WELLNESS_PROGRAM_SAVINGS",
+      "Wellness Program Cost Reduction Notice"
+    ],
+    [
+      "HealthPlan",
+      "INCLUDES_COVERAGE_EXAMPLES",
+      "Coverage Example Scenarios"
+    ],
+    [
+      "Coverage Example Scenarios",
+      "HAS_SCENARIO",
+      "Pregnancy & Childbirth Scenario"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_DEDUCTIBLE",
+      "Pregnancy & Childbirth Scenario | The plan\u2019s overall deductible"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_COPAYMENT",
+      "Pregnancy & Childbirth Scenario | Specialist copayment"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_COINSURANCE",
+      "Pregnancy & Childbirth Scenario | Hospital (facility) coinsurance"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_COINSURANCE",
+      "Pregnancy & Childbirth Scenario | Other coinsurance"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
       "COVERS_SERVICE",
       "Specialist office visits (prenatal care)"
     ],
     [
-      "HealthPlan",
+      "Pregnancy & Childbirth Scenario",
       "COVERS_SERVICE",
       "Childbirth/Delivery Professional Services"
     ],
     [
-      "HealthPlan",
+      "Pregnancy & Childbirth Scenario",
       "COVERS_SERVICE",
       "Childbirth/Delivery Facility Services"
     ],
     [
-      "HealthPlan",
+      "Pregnancy & Childbirth Scenario",
       "COVERS_SERVICE",
       "Diagnostic tests (ultrasounds and blood work)"
     ],
     [
-      "HealthPlan",
+      "Diagnostic tests (ultrasounds and blood work)",
+      "SERVICE_CATEGORY",
+      "Diagnostic Services"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
       "COVERS_SERVICE",
       "Specialist visit (anesthesia)"
     ],
     [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_TOTAL_EXAMPLE_COST",
+      "Pregnancy & Childbirth Scenario | Total Example Cost"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_SECTION",
+      "Pregnancy & Childbirth Scenario | Cost Sharing"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_DEDUCTIBLE",
+      "Pregnancy & Childbirth Scenario | Deductibles"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Cost Sharing",
+      "CONTAINS_COMPONENT",
+      "Pregnancy & Childbirth Scenario | Deductibles"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_COPAYMENT",
+      "Pregnancy & Childbirth Scenario | Copayments"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Cost Sharing",
+      "CONTAINS_COMPONENT",
+      "Pregnancy & Childbirth Scenario | Copayments"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_COINSURANCE",
+      "Pregnancy & Childbirth Scenario | Coinsurance"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Cost Sharing",
+      "CONTAINS_COMPONENT",
+      "Pregnancy & Childbirth Scenario | Coinsurance"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_SECTION",
+      "Pregnancy & Childbirth Scenario | What isn\u2019t covered"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_LIMITATION",
+      "Pregnancy & Childbirth Scenario | Limits or exclusions"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | What isn\u2019t covered",
+      "CONTAINS_COMPONENT",
+      "Pregnancy & Childbirth Scenario | Limits or exclusions"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "HAS_PATIENT_RESPONSIBILITY",
+      "Pregnancy & Childbirth Scenario | The total Peg would pay is"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | What isn\u2019t covered",
+      "CONTAINS_COMPONENT",
+      "Pregnancy & Childbirth Scenario | The total Peg would pay is"
+    ],
+    [
       "HealthPlan",
+      "INCLUDES_COVERAGE_EXAMPLES",
+      "Coverage Example Scenarios"
+    ],
+    [
+      "Coverage Example Scenarios",
+      "HAS_SCENARIO",
+      "Chronic Disease Management Scenario"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_DEDUCTIBLE",
+      "Chronic Disease Management Scenario | The plan\u2019s overall deductible"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_COPAYMENT",
+      "Chronic Disease Management Scenario | Specialist copayment"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_COINSURANCE",
+      "Chronic Disease Management Scenario | Hospital (facility) coinsurance"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_COINSURANCE",
+      "Chronic Disease Management Scenario | Other coinsurance"
+    ],
+    [
+      "Chronic Disease Management Scenario",
       "COVERS_SERVICE",
       "Primary care physician office visits (including disease education)"
     ],
     [
-      "HealthPlan",
+      "Chronic Disease Management Scenario",
       "COVERS_SERVICE",
       "Diagnostic tests (blood work)"
     ],
     [
-      "HealthPlan",
+      "Diagnostic tests (blood work)",
+      "SERVICE_CATEGORY",
+      "Diagnostic Services"
+    ],
+    [
+      "Chronic Disease Management Scenario",
       "COVERS_SERVICE",
       "Prescription drugs"
     ],
     [
-      "HealthPlan",
+      "Prescription drugs",
+      "SERVICE_CATEGORY",
+      "Prescription Drug Coverage"
+    ],
+    [
+      "Chronic Disease Management Scenario",
       "COVERS_SERVICE",
       "Durable medical equipment (glucose meter)"
     ],
     [
+      "Chronic Disease Management Scenario",
+      "HAS_TOTAL_EXAMPLE_COST",
+      "Chronic Disease Management Scenario | Total Example Cost"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_SECTION",
+      "Chronic Disease Management Scenario | Cost Sharing"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_DEDUCTIBLE",
+      "Chronic Disease Management Scenario | Deductibles"
+    ],
+    [
+      "Chronic Disease Management Scenario | Cost Sharing",
+      "CONTAINS_COMPONENT",
+      "Chronic Disease Management Scenario | Deductibles"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_COPAYMENT",
+      "Chronic Disease Management Scenario | Copayments"
+    ],
+    [
+      "Chronic Disease Management Scenario | Cost Sharing",
+      "CONTAINS_COMPONENT",
+      "Chronic Disease Management Scenario | Copayments"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_COINSURANCE",
+      "Chronic Disease Management Scenario | Coinsurance"
+    ],
+    [
+      "Chronic Disease Management Scenario | Cost Sharing",
+      "CONTAINS_COMPONENT",
+      "Chronic Disease Management Scenario | Coinsurance"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_SECTION",
+      "Chronic Disease Management Scenario | What isn\u2019t covered"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_LIMITATION",
+      "Chronic Disease Management Scenario | Limits or exclusions"
+    ],
+    [
+      "Chronic Disease Management Scenario | What isn\u2019t covered",
+      "CONTAINS_COMPONENT",
+      "Chronic Disease Management Scenario | Limits or exclusions"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "HAS_PATIENT_RESPONSIBILITY",
+      "Chronic Disease Management Scenario | The total Joe would pay is"
+    ],
+    [
+      "Chronic Disease Management Scenario | What isn\u2019t covered",
+      "CONTAINS_COMPONENT",
+      "Chronic Disease Management Scenario | The total Joe would pay is"
+    ],
+    [
+      "Coverage Example Scenarios",
+      "HAS_SCENARIO",
+      "Emergency Care Scenario"
+    ],
+    [
+      "Emergency Care Scenario",
+      "HAS_DEDUCTIBLE",
+      "Emergency Care Scenario | The plan\u2019s overall deductible"
+    ],
+    [
+      "Emergency Care Scenario",
+      "HAS_COPAYMENT",
+      "Emergency Care Scenario | Specialist copayment"
+    ],
+    [
       "HealthPlan",
+      "INCLUDES_COVERAGE_EXAMPLES",
+      "Coverage Example Scenarios"
+    ],
+    [
+      "Coverage Example Scenarios",
+      "HAS_SCENARIO",
+      "Emergency Care Scenario"
+    ],
+    [
+      "Emergency Care Scenario",
+      "HAS_COINSURANCE",
+      "Emergency Care Scenario | Hospital (facility) coinsurance"
+    ],
+    [
+      "Emergency Care Scenario",
+      "HAS_COINSURANCE",
+      "Emergency Care Scenario | Other coinsurance"
+    ],
+    [
+      "Emergency Care Scenario",
       "COVERS_SERVICE",
       "Emergency room care (including medical supplies)"
     ],
     [
-      "HealthPlan",
+      "Emergency room care (including medical supplies)",
+      "SERVICE_CATEGORY",
+      "Emergency Services"
+    ],
+    [
+      "Emergency Care Scenario",
       "COVERS_SERVICE",
       "Diagnostic test (x-ray)"
     ],
     [
-      "HealthPlan",
+      "Diagnostic test (x-ray)",
+      "SERVICE_CATEGORY",
+      "Diagnostic Services"
+    ],
+    [
+      "Emergency Care Scenario",
       "COVERS_SERVICE",
       "Durable medical equipment (crutches)"
     ],
     [
-      "HealthPlan",
+      "Emergency Care Scenario",
       "COVERS_SERVICE",
       "Rehabilitation services (physical therapy)"
     ],
     [
-      "HealthPlan",
+      "Rehabilitation services (physical therapy)",
+      "SERVICE_CATEGORY",
+      "Rehabilitation Services"
+    ],
+    [
+      "Emergency Care Scenario",
+      "HAS_TOTAL_EXAMPLE_COST",
+      "Emergency Care Scenario | Total Example Cost"
+    ],
+    [
+      "Emergency Care Scenario",
       "HAS_SECTION",
-      "Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000]"
+      "Emergency Care Scenario | Cost Sharing"
     ],
     [
-      "HealthPlan",
-      "HAS_FOOTNOTE",
-      "Footnote [footnote_001]"
+      "Emergency Care Scenario",
+      "HAS_DEDUCTIBLE",
+      "Emergency Care Scenario | Deductibles"
     ],
     [
-      "HealthPlan",
+      "Emergency Care Scenario | Cost Sharing",
+      "CONTAINS_COMPONENT",
+      "Emergency Care Scenario | Deductibles"
+    ],
+    [
+      "Emergency Care Scenario",
+      "HAS_COPAYMENT",
+      "Emergency Care Scenario | Copayments"
+    ],
+    [
+      "Emergency Care Scenario | Cost Sharing",
+      "CONTAINS_COMPONENT",
+      "Emergency Care Scenario | Copayments"
+    ],
+    [
+      "Emergency Care Scenario",
+      "HAS_COINSURANCE",
+      "Emergency Care Scenario | Coinsurance"
+    ],
+    [
+      "Emergency Care Scenario | Cost Sharing",
+      "CONTAINS_COMPONENT",
+      "Emergency Care Scenario | Coinsurance"
+    ],
+    [
+      "Emergency Care Scenario",
       "HAS_SECTION",
-      "Section: page_3.html [section_002]"
+      "Emergency Care Scenario | What isn\u2019t covered"
+    ],
+    [
+      "Emergency Care Scenario",
+      "HAS_LIMITATION",
+      "Emergency Care Scenario | Limits or exclusions"
+    ],
+    [
+      "Emergency Care Scenario | What isn\u2019t covered",
+      "CONTAINS_COMPONENT",
+      "Emergency Care Scenario | Limits or exclusions"
+    ],
+    [
+      "Emergency Care Scenario",
+      "HAS_PATIENT_RESPONSIBILITY",
+      "Emergency Care Scenario | The total Mia would pay is"
+    ],
+    [
+      "Emergency Care Scenario | What isn\u2019t covered",
+      "CONTAINS_COMPONENT",
+      "Emergency Care Scenario | The total Mia would pay is"
     ],
     [
       "HealthPlan",
-      "HAS_FOOTNOTE",
-      "Footnote [footnote_003]"
-    ],
-    [
-      "HealthPlan",
-      "HAS_SECTION",
-      "Section: page_4.html [section_004]"
-    ],
-    [
-      "HealthPlan",
-      "HAS_SECTION",
-      "Section: Does this plan provide Minimum Essential Coverage? [section_005]"
-    ],
-    [
-      "HealthPlan",
-      "HAS_SECTION",
-      "Section: Does this plan meet Minimum Value Standards? [section_006]"
-    ],
-    [
-      "HealthPlan",
-      "HAS_SECTION",
-      "Section: Language Access Services: [section_007]"
-    ],
-    [
-      "HealthPlan",
-      "HAS_SECTION",
-      "Section: About these Coverage Examples: [section_008]"
-    ],
-    [
-      "HealthPlan",
-      "HAS_FOOTNOTE",
-      "Footnote [footnote_009]"
-    ],
-    [
-      "HealthPlan",
-      "HAS_SECTION",
-      "Section: Mia\u2019s Simple Fracture [section_010]"
+      "OFFERS_WELLNESS_PROGRAM_SAVINGS",
+      "Wellness Program Cost Reduction Notice"
     ]
   ],
   "attributes": [
@@ -1151,884 +2554,534 @@
       "Coverage for: Family | Plan Type: PPO"
     ],
     [
-      "What is the overall deductible?",
-      "question",
-      "What is the overall deductible?"
-    ],
-    [
-      "What is the overall deductible?",
-      "answer",
+      "Overall Deductible",
+      "value",
       "$500/Individual or $1,000/family"
     ],
     [
-      "What is the overall deductible?",
+      "Overall Deductible",
       "why_it_matters",
       "Generally, you must pay all of the costs from providers up to the deductible amount before this plan begins to pay. If you have other family members on the policy, they have to meet their own individual deductible until the overall family deductible amount has been met."
     ],
     [
-      "Are there services covered before you meet your deductible?",
+      "Overall Deductible",
       "question",
-      "Are there services covered before you meet your deductible?"
+      "What is the overall deductible?"
     ],
     [
-      "Are there services covered before you meet your deductible?",
-      "answer",
+      "Services Before Deductible",
+      "value",
       "Yes. Preventive care and primary care services are covered before you meet your deductible."
     ],
     [
-      "Are there services covered before you meet your deductible?",
+      "Services Before Deductible",
       "why_it_matters",
       "This plan covers some items and services even if you haven\u2019t yet met the annual deductible amount. But a copayment or coinsurance may apply. For example, this plan covers certain preventive services without cost-sharing and before you meet your deductible. See a list of covered preventive services at https://www.healthcare.gov/coverage/preventive-care-benefits/."
     ],
     [
-      "Are there other deductibles for specific services?",
+      "Services Before Deductible",
       "question",
-      "Are there other deductibles for specific services?"
+      "Are there services covered before you meet your deductible?"
     ],
     [
-      "Are there other deductibles for specific services?",
-      "answer",
+      "Service Specific Deductibles",
+      "value",
       "Yes. $300 for prescription drug coverage and $300 for occupational therapy services."
     ],
     [
-      "Are there other deductibles for specific services?",
+      "Service Specific Deductibles",
       "why_it_matters",
       "You must pay all of the costs for these services up to the specific deductible amount before this plan begins to pay for these services."
     ],
     [
-      "What is the out-of-pocket limit for this plan?",
+      "Service Specific Deductibles",
       "question",
-      "What is the out-of-pocket limit for this plan?"
+      "Are there other deductibles for specific services?"
     ],
     [
-      "What is the out-of-pocket limit for this plan?",
-      "answer",
+      "Out-of-Pocket Limit",
+      "value",
       "For network providers $2,500 individual / $5,000 family; for out-of-network providers $4,000 individual / $8,000 family"
     ],
     [
-      "What is the out-of-pocket limit for this plan?",
+      "Out-of-Pocket Limit",
       "why_it_matters",
       "The out-of-pocket limit is the most you could pay in a year for covered services. If you have other family members in this plan, they have to meet their own out-of-pocket limits until the overall family out-of-pocket limit has been met."
     ],
     [
-      "What is not included in the out-of-pocket limit?",
+      "Out-of-Pocket Limit",
       "question",
-      "What is not included in the out-of-pocket limit?"
+      "What is the out-of-pocket limit for this plan?"
     ],
     [
-      "What is not included in the out-of-pocket limit?",
-      "answer",
+      "Out-of-Pocket Exclusions",
+      "value",
       "Copayments for certain services, premiums, balance-billed charges, and health care this plan doesn\u2019t cover."
     ],
     [
-      "What is not included in the out-of-pocket limit?",
+      "Out-of-Pocket Exclusions",
       "why_it_matters",
       "Even though you pay these expenses, they don\u2019t count toward the out-of-pocket limit."
     ],
     [
-      "Will you pay less if you use a network provider?",
+      "Out-of-Pocket Exclusions",
       "question",
-      "Will you pay less if you use a network provider?"
+      "What is not included in the out-of-pocket limit?"
     ],
     [
-      "Will you pay less if you use a network provider?",
-      "answer",
+      "Network Provider Benefit",
+      "value",
       "Yes. See www.[insert].com or call 1-800-[insert] for a list of network providers."
     ],
     [
-      "Will you pay less if you use a network provider?",
+      "Network Provider Benefit",
       "why_it_matters",
       "This plan uses a provider network. You will pay less if you use a provider in the plan\u2019s network. You will pay the most if you use an out-of-network provider, and you might receive a bill from a provider for the difference between the provider\u2019s charge and what your plan pays (a balance bill). Be aware, your network provider might use an out-of-network provider for some services (such as lab work). Check with your provider before you get services."
     ],
     [
-      "Do you need a referral to see a specialist?",
+      "Network Provider Benefit",
       "question",
-      "Do you need a referral to see a specialist?"
+      "Will you pay less if you use a network provider?"
     ],
     [
-      "Do you need a referral to see a specialist?",
-      "answer",
+      "Specialist Referral Requirement",
+      "value",
       "Yes."
     ],
     [
-      "Do you need a referral to see a specialist?",
+      "Specialist Referral Requirement",
       "why_it_matters",
       "This plan will pay some or all of the costs to see a specialist for covered services but only if you have a referral before you see the specialist."
     ],
     [
-      "Primary care visit to treat an injury or illness | NetworkCost",
-      "type",
-      "network"
+      "Specialist Referral Requirement",
+      "question",
+      "Do you need a referral to see a specialist?"
     ],
     [
-      "Primary care visit to treat an injury or illness | NetworkCost",
-      "value",
-      "$35 copay/office visit and 20% coinsurance for other outpatient services; deductible does not apply"
-    ],
-    [
-      "Primary care visit to treat an injury or illness | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Primary care visit to treat an injury or illness | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Primary care visit to treat an injury or illness | Limitation",
-      "text",
-      "None"
-    ],
-    [
-      "Specialist visit | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Specialist visit | NetworkCost",
-      "value",
-      "$50 copay/visit"
-    ],
-    [
-      "Specialist visit | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Specialist visit | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Specialist visit | Limitation",
-      "text",
-      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service."
-    ],
-    [
-      "Preventive care/screening/immunization | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Preventive care/screening/immunization | NetworkCost",
-      "value",
-      "No charge for covered services"
-    ],
-    [
-      "Preventive care/screening/immunization | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Preventive care/screening/immunization | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Preventive care/screening/immunization | Limitation",
-      "text",
-      "You may have to pay for services that aren\u2019t preventive. Ask your provider if the services you need are preventive. Then check what your plan will pay for."
-    ],
-    [
-      "Diagnostic test (x-ray, blood work) | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Diagnostic test (x-ray, blood work) | NetworkCost",
-      "value",
-      "$10 copay/test"
-    ],
-    [
-      "Diagnostic test (x-ray, blood work) | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Diagnostic test (x-ray, blood work) | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Diagnostic test (x-ray, blood work) | Limitation",
-      "text",
-      "None"
-    ],
-    [
-      "Imaging (CT/PET scans, MRIs) | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Imaging (CT/PET scans, MRIs) | NetworkCost",
-      "value",
-      "$50 copay/test"
-    ],
-    [
-      "Imaging (CT/PET scans, MRIs) | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Imaging (CT/PET scans, MRIs) | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Generic drugs (Tier 1) (retail & mail order) | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Generic drugs (Tier 1) (retail & mail order) | NetworkCost",
-      "value",
-      "$10 copay/prescription"
-    ],
-    [
-      "Generic drugs (Tier 1) (retail & mail order) | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Generic drugs (Tier 1) (retail & mail order) | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Generic drugs (Tier 1) (retail & mail order) | Limitation",
-      "text",
-      "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription)."
-    ],
-    [
-      "Preferred brand drugs (Tier 2) (retail & mail order) | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Preferred brand drugs (Tier 2) (retail & mail order) | NetworkCost",
-      "value",
-      "$30 copay/prescription"
-    ],
-    [
-      "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Preferred brand drugs (Tier 2) (retail & mail order) | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Preferred brand drugs (Tier 2) (retail & mail order) | Limitation",
-      "text",
-      "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription)."
-    ],
-    [
-      "Non-preferred brand drugs (Tier 3) | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Non-preferred brand drugs (Tier 3) | NetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Non-preferred brand drugs (Tier 3) | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Non-preferred brand drugs (Tier 3) | OutOfNetworkCost",
-      "value",
-      "60% coinsurance"
-    ],
-    [
-      "Non-preferred brand drugs (Tier 3) | Limitation",
-      "text",
-      "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription)."
-    ],
-    [
-      "Specialty drugs (Tier 4) | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Specialty drugs (Tier 4) | NetworkCost",
-      "value",
-      "50% coinsurance"
-    ],
-    [
-      "Specialty drugs (Tier 4) | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Specialty drugs (Tier 4) | OutOfNetworkCost",
-      "value",
-      "70% coinsurance"
-    ],
-    [
-      "Specialty drugs (Tier 4) | Limitation",
-      "text",
-      "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription)."
-    ],
-    [
-      "Facility fee (e.g., ambulatory surgery center) | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Facility fee (e.g., ambulatory surgery center) | NetworkCost",
-      "value",
-      "$100/day copay"
-    ],
-    [
-      "Facility fee (e.g., ambulatory surgery center) | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Facility fee (e.g., ambulatory surgery center) | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Facility fee (e.g., ambulatory surgery center) | Limitation",
-      "text",
-      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia."
-    ],
-    [
-      "Physician/surgeon fees | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Physician/surgeon fees | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Physician/surgeon fees | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Physician/surgeon fees | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Physician/surgeon fees | Limitation",
-      "text",
-      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service. 50% coinsurance for anesthesia."
-    ],
-    [
-      "Emergency room care | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Emergency room care | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Emergency room care | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Emergency room care | OutOfNetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Emergency room care | Limitation",
-      "text",
-      "None"
-    ],
-    [
-      "Emergency medical transportation | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Emergency medical transportation | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Emergency medical transportation | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Emergency medical transportation | OutOfNetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Emergency medical transportation | Limitation",
-      "text",
-      "None"
-    ],
-    [
-      "Urgent care | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Urgent care | NetworkCost",
-      "value",
-      "$30 copay"
-    ],
-    [
-      "Urgent care | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Urgent care | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Urgent care | Limitation",
-      "text",
-      "None"
-    ],
-    [
-      "Facility fee (e.g., hospital room) | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Facility fee (e.g., hospital room) | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Facility fee (e.g., hospital room) | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Facility fee (e.g., hospital room) | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Facility fee (e.g., hospital room) | Limitation",
-      "text",
-      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service."
-    ],
-    [
-      "20% coinsurance | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "20% coinsurance | NetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "20% coinsurance | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "20% coinsurance | OutOfNetworkCost",
-      "value",
-      "50% coinsurance for anesthesia."
-    ],
-    [
-      "Outpatient services | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Outpatient services | NetworkCost",
-      "value",
-      "$35 copay/office visit and 20% coinsurance for other outpatient services"
-    ],
-    [
-      "Outpatient services | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Outpatient services | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Inpatient services | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Inpatient services | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Inpatient services | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Inpatient services | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Office visits | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Office visits | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Office visits | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Office visits | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Office visits | Limitation",
-      "text",
-      "Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound)."
-    ],
-    [
-      "Childbirth/delivery professional services | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Childbirth/delivery professional services | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Childbirth/delivery professional services | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Childbirth/delivery professional services | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Childbirth/delivery professional services | Limitation",
-      "text",
-      "Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound)."
-    ],
-    [
-      "Childbirth/delivery facility services | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Childbirth/delivery facility services | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Childbirth/delivery facility services | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Childbirth/delivery facility services | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Childbirth/delivery facility services | Limitation",
-      "text",
-      "Cost sharing does not apply to certain preventive services. Depending on the type of services, coinsurance may apply. Maternity care may include tests and services described elsewhere in the SBC (i.e. ultrasound)."
-    ],
-    [
-      "Home health care | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Home health care | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Home health care | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Home health care | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Home health care | Limitation",
-      "text",
-      "60 visits/calendar year"
-    ],
-    [
-      "Rehabilitation services | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Rehabilitation services | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Rehabilitation services | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Rehabilitation services | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Rehabilitation services | Limitation",
-      "text",
-      "60 visits/calendar year. Includes physical therapy, speech therapy, and occupational therapy."
-    ],
-    [
-      "Habilitation services | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Habilitation services | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Habilitation services | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Habilitation services | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Skilled nursing care | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Skilled nursing care | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Skilled nursing care | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Skilled nursing care | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Skilled nursing care | Limitation",
-      "text",
-      "60 visits/calendar year"
-    ],
-    [
-      "Durable medical equipment | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Durable medical equipment | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Durable medical equipment | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Durable medical equipment | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Durable medical equipment | Limitation",
-      "text",
-      "Excludes vehicle modifications, home modifications, exercise, and bathroom equipment."
-    ],
-    [
-      "Hospice services | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Hospice services | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Hospice services | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Hospice services | OutOfNetworkCost",
-      "value",
-      "40% coinsurance"
-    ],
-    [
-      "Hospice services | Limitation",
-      "text",
-      "Preauthorization is required. Failure to obtain preauthorization may result in a reduction in benefits by 50% of the total cost of the service."
-    ],
-    [
-      "Children's eye exam | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Children's eye exam | NetworkCost",
-      "value",
-      "$35 copay/visit"
-    ],
-    [
-      "Children's eye exam | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Children's eye exam | OutOfNetworkCost",
-      "value",
-      "Not covered"
-    ],
-    [
-      "Children's eye exam | Limitation",
-      "text",
-      "Coverage limited to one exam/year."
-    ],
-    [
-      "Children's glasses | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Children's glasses | NetworkCost",
-      "value",
-      "20% coinsurance"
-    ],
-    [
-      "Children's glasses | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Children's glasses | OutOfNetworkCost",
-      "value",
-      "Not covered"
-    ],
-    [
-      "Children's glasses | Limitation",
-      "text",
-      "Coverage limited to one pair of glasses/year."
-    ],
-    [
-      "Children's dental check-up | NetworkCost",
-      "type",
-      "network"
-    ],
-    [
-      "Children's dental check-up | NetworkCost",
-      "value",
-      "No charge"
-    ],
-    [
-      "Children's dental check-up | OutOfNetworkCost",
-      "type",
-      "out_of_network"
-    ],
-    [
-      "Children's dental check-up | OutOfNetworkCost",
-      "value",
-      "Not covered"
-    ],
-    [
-      "Section: Summary of Benefits and Coverage: What this Plan Covers & What You Pay For Covered Services [section_000]",
-      "content",
-      "Insurance Company 1: Plan Option 1 Coverage Period: 1/1/2017 \u2013 12/31/2017 Coverage for: Family | Plan Type: PPO"
-    ],
-    [
-      "Footnote [footnote_001]",
-      "content",
-      "All copayment and coinsurance costs shown in this chart are after your overall deductible has been met, if a deductible applies."
-    ],
-    [
-      "Section: page_3.html [section_002]",
-      "content",
-      "Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.) Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-    ],
-    [
-      "Footnote [footnote_003]",
-      "content",
-      "Your Rights to Continue Coverage: There are agencies that can help if you want to continue your coverage after it ends. The contact information for those agencies is: [insert State, HHS, DOL, and/or other applicable agency contact information]. Other options to continue coverage are available to you too, including buying individual insurance coverage through the Health Insurance Marketplace. For more information about the Marketplace, visit www.HealthCare.gov or call 1-800-318-2596."
-    ],
-    [
-      "Section: page_4.html [section_004]",
-      "content",
+      "Grievance and Appeals Rights",
+      "summary",
       "Your Grievance and Appeals Rights: There are agencies that can help if you have a complaint against your plan for a denial of a claim. This complaint is called a grievance or appeal. For more information about your rights, look at the explanation of benefits you will receive for that medical claim. Your plan documents also provide complete information to submit a claim appeal or a grievance for any reason to your plan. For more information about your rights, this notice, or assistance, contact: [insert applicable contact information from instructions]."
     ],
     [
-      "Section: Does this plan provide Minimum Essential Coverage? [section_005]",
-      "content",
+      "Minimum Essential Coverage",
+      "summary",
       "Yes. If you don't have Minimum Essential Coverage for a month under this plan or under other coverage, you'll have to make a payment when you file your tax return unless you qualify for an exemption from the requirement that you have health coverage for that month."
     ],
     [
-      "Section: Does this plan meet Minimum Value Standards? [section_006]",
-      "content",
+      "Minimum Value Standards",
+      "summary",
       "Yes. If your plan doesn't meet the Minimum Value Standards, you may be eligible for a premium tax credit to help you pay for a plan through the Marketplace."
     ],
     [
-      "Section: Language Access Services: [section_007]",
-      "content",
+      "Language Assistance Services",
+      "summary",
       "[Spanish (Espa\u00f1ol): Para obtener asistencia en Espa\u00f1ol, llame al [insert telephone number].] [Tagalog (Tagalog): Kung kailangan ninyo ang tulong sa Tagalog tumawag sa [insert telephone number].] [Chinese (\u4e2d\u6587): \u5982\u679c\u9700\u8981\u4e2d\u6587\u7684\u5e2e\u52a9\uff0c\u8bf7\u62e8\u6253\u8fd9\u4e2a\u53f7\u7801 [insert telephone number].] [Navajo (Dine): Dinek'ehgo shika at'ohwol ninisingo, kwijjigo holne' [insert telephone number].] \u2014To see examples of how this plan might cover costs for a sample medical situation, see the next section.\u2014"
     ],
     [
-      "Section: About these Coverage Examples: [section_008]",
-      "content",
+      "Health Coverage Cost Examples",
+      "summary",
       "This is not a cost estimator. Treatments shown are just examples of how this plan might cover medical care. Your actual costs will be different depending on the actual care you receive, the prices your providers charge, and many other factors. Focus on the cost sharing amounts (deductibles, copayments and coinsurance) and excluded services under the plan. Use this information to compare the portion of costs you might pay under different health plans. Please note these coverage examples are based on self-only coverage. This EXAMPLE event includes services like: In this example, Peg would pay: This EXAMPLE event includes services like: In this example, Joe would pay:"
     ],
     [
-      "Footnote [footnote_009]",
+      "Wellness Program Cost Reduction Notice",
       "content",
       "Note: These numbers assume the patient does not participate in the plan\u2019s wellness program. If you participate in the plan\u2019s wellness program, you may be able to reduce your costs. For more information about the wellness program, please contact: [insert]."
     ],
     [
-      "Section: Mia\u2019s Simple Fracture [section_010]",
+      "Coverage Example Scenarios",
+      "about_coverage_examples",
+      "This is not a cost estimator. Treatments shown are just examples of how this plan might cover medical care. Your actual costs will be different depending on the actual care you receive, the prices your providers charge, and many other factors. Focus on the cost sharing amounts (deductibles, copayments and coinsurance) and excluded services under the plan. Use this information to compare the portion of costs you might pay under different health plans. Please note these coverage examples are based on self-only coverage."
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "category",
+      "MATERNITY"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "display_name",
+      "Peg is Having a Baby"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "description",
+      "(9 months of in-network pre-natal care and a hospital delivery)"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | The plan\u2019s overall deductible",
+      "description",
+      "The plan\u2019s overall deductible"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | The plan\u2019s overall deductible",
+      "amount",
+      "$500"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Specialist copayment",
+      "description",
+      "Specialist copayment"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Specialist copayment",
+      "amount",
+      "$50"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Hospital (facility) coinsurance",
+      "description",
+      "Hospital (facility) coinsurance"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Hospital (facility) coinsurance",
+      "amount",
+      "20%"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Other coinsurance",
+      "description",
+      "Other coinsurance"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Other coinsurance",
+      "amount",
+      "20%"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Total Example Cost",
+      "amount",
+      "$12,800"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Cost Sharing",
+      "title",
+      "Cost Sharing"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Deductibles",
+      "description",
+      "Deductibles"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Deductibles",
+      "amount",
+      "$500"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Copayments",
+      "description",
+      "Copayments"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Copayments",
+      "amount",
+      "$300"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Coinsurance",
+      "description",
+      "Coinsurance"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Coinsurance",
+      "amount",
+      "$2,300"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | What isn\u2019t covered",
+      "title",
+      "What isn\u2019t covered"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Limits or exclusions",
+      "description",
+      "Limits or exclusions"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | Limits or exclusions",
+      "amount",
+      "$60"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario",
+      "patient_total",
+      "$3,160"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | The total Peg would pay is",
+      "description",
+      "The total Peg would pay is"
+    ],
+    [
+      "Pregnancy & Childbirth Scenario | The total Peg would pay is",
+      "amount",
+      "$3,160"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "category",
+      "CHRONIC_CARE"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "display_name",
+      "Managing Joe\u2019s type 2 Diabetes"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "description",
+      "(a year of routine in-network care of a well-controlled condition)"
+    ],
+    [
+      "Chronic Disease Management Scenario | The plan\u2019s overall deductible",
+      "description",
+      "The plan\u2019s overall deductible"
+    ],
+    [
+      "Chronic Disease Management Scenario | The plan\u2019s overall deductible",
+      "amount",
+      "$500"
+    ],
+    [
+      "Chronic Disease Management Scenario | Specialist copayment",
+      "description",
+      "Specialist copayment"
+    ],
+    [
+      "Chronic Disease Management Scenario | Specialist copayment",
+      "amount",
+      "$50"
+    ],
+    [
+      "Chronic Disease Management Scenario | Hospital (facility) coinsurance",
+      "description",
+      "Hospital (facility) coinsurance"
+    ],
+    [
+      "Chronic Disease Management Scenario | Hospital (facility) coinsurance",
+      "amount",
+      "20%"
+    ],
+    [
+      "Chronic Disease Management Scenario | Other coinsurance",
+      "description",
+      "Other coinsurance"
+    ],
+    [
+      "Chronic Disease Management Scenario | Other coinsurance",
+      "amount",
+      "20%"
+    ],
+    [
+      "Chronic Disease Management Scenario | Total Example Cost",
+      "amount",
+      "$7,400"
+    ],
+    [
+      "Chronic Disease Management Scenario | Cost Sharing",
+      "title",
+      "Cost Sharing"
+    ],
+    [
+      "Chronic Disease Management Scenario | Deductibles",
+      "description",
+      "Deductibles"
+    ],
+    [
+      "Chronic Disease Management Scenario | Deductibles",
+      "amount",
+      "$800"
+    ],
+    [
+      "Chronic Disease Management Scenario | Copayments",
+      "description",
+      "Copayments"
+    ],
+    [
+      "Chronic Disease Management Scenario | Copayments",
+      "amount",
+      "$1,200"
+    ],
+    [
+      "Chronic Disease Management Scenario | Coinsurance",
+      "description",
+      "Coinsurance"
+    ],
+    [
+      "Chronic Disease Management Scenario | Coinsurance",
+      "amount",
+      "$300"
+    ],
+    [
+      "Chronic Disease Management Scenario | What isn\u2019t covered",
+      "title",
+      "What isn\u2019t covered"
+    ],
+    [
+      "Chronic Disease Management Scenario | Limits or exclusions",
+      "description",
+      "Limits or exclusions"
+    ],
+    [
+      "Chronic Disease Management Scenario | Limits or exclusions",
+      "amount",
+      "$60"
+    ],
+    [
+      "Chronic Disease Management Scenario",
+      "patient_total",
+      "$2,360"
+    ],
+    [
+      "Chronic Disease Management Scenario | The total Joe would pay is",
+      "description",
+      "The total Joe would pay is"
+    ],
+    [
+      "Chronic Disease Management Scenario | The total Joe would pay is",
+      "amount",
+      "$2,360"
+    ],
+    [
+      "Emergency Care Scenario",
+      "category",
+      "EMERGENCY_CARE"
+    ],
+    [
+      "Emergency Care Scenario",
+      "display_name",
+      "Mia\u2019s Simple Fracture"
+    ],
+    [
+      "Emergency Care Scenario",
+      "description",
+      "(in-network emergency room visit and follow up care)"
+    ],
+    [
+      "Emergency Care Scenario | The plan\u2019s overall deductible",
+      "description",
+      "The plan\u2019s overall deductible"
+    ],
+    [
+      "Emergency Care Scenario | The plan\u2019s overall deductible",
+      "amount",
+      "$500"
+    ],
+    [
+      "Emergency Care Scenario | Specialist copayment",
+      "description",
+      "Specialist copayment"
+    ],
+    [
+      "Emergency Care Scenario | Specialist copayment",
+      "amount",
+      "$50"
+    ],
+    [
+      "Emergency Care Scenario",
+      "category",
+      "EMERGENCY_CARE"
+    ],
+    [
+      "Emergency Care Scenario",
+      "display_name",
+      "Mia\u2019s Simple Fracture"
+    ],
+    [
+      "Emergency Care Scenario | Hospital (facility) coinsurance",
+      "description",
+      "Hospital (facility) coinsurance"
+    ],
+    [
+      "Emergency Care Scenario | Hospital (facility) coinsurance",
+      "amount",
+      "20%"
+    ],
+    [
+      "Emergency Care Scenario | Other coinsurance",
+      "description",
+      "Other coinsurance"
+    ],
+    [
+      "Emergency Care Scenario | Other coinsurance",
+      "amount",
+      "20%"
+    ],
+    [
+      "Emergency Care Scenario | Total Example Cost",
+      "amount",
+      "$2,500"
+    ],
+    [
+      "Emergency Care Scenario | Cost Sharing",
+      "title",
+      "Cost Sharing"
+    ],
+    [
+      "Emergency Care Scenario | Deductibles",
+      "description",
+      "Deductibles"
+    ],
+    [
+      "Emergency Care Scenario | Deductibles",
+      "amount",
+      "$700"
+    ],
+    [
+      "Emergency Care Scenario | Copayments",
+      "description",
+      "Copayments"
+    ],
+    [
+      "Emergency Care Scenario | Copayments",
+      "amount",
+      "$200"
+    ],
+    [
+      "Emergency Care Scenario | Coinsurance",
+      "description",
+      "Coinsurance"
+    ],
+    [
+      "Emergency Care Scenario | Coinsurance",
+      "amount",
+      "$400"
+    ],
+    [
+      "Emergency Care Scenario | What isn\u2019t covered",
+      "title",
+      "What isn\u2019t covered"
+    ],
+    [
+      "Emergency Care Scenario | Limits or exclusions",
+      "description",
+      "Limits or exclusions"
+    ],
+    [
+      "Emergency Care Scenario | Limits or exclusions",
+      "amount",
+      "$0"
+    ],
+    [
+      "Emergency Care Scenario",
+      "patient_total",
+      "$1,300"
+    ],
+    [
+      "Emergency Care Scenario | The total Mia would pay is",
+      "description",
+      "The total Mia would pay is"
+    ],
+    [
+      "Emergency Care Scenario | The total Mia would pay is",
+      "amount",
+      "$1,300"
+    ],
+    [
+      "Wellness Program Cost Reduction Notice",
       "content",
-      "This EXAMPLE event includes services like: In this example, Mia would pay: The plan would be responsible for the other costs of these EXA"
+      "Note: These numbers assume the patient does not participate in the plan\u2019s wellness program. If you participate in the plan\u2019s wellness program, you may be able to reduce your costs. For more information about the wellness program, please contact: [insert]."
     ]
   ]
 }

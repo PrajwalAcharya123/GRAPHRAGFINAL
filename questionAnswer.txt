@@ -1,0 +1,833 @@
+d brand drugs (Tier 3) | OutOfNetwork', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Non-preferred brand drugs (Tier 3) | OutOfNetwork | Coinsurance', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 931
+Completion Tokens  : 30
+Total Tokens       : 961
+Remaining Tokens   : 127039
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000140
+Output Cost        : $0.000018
+Total Cost         : $0.000158
+
+This is the answer retrieved from the Neo4j database:
+The network cost for non-preferred brand drugs is 40% coinsurance, and the out-of-network cost is 60% coinsurance.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2686
+Total Completion Tokens  : 199
+Final Total Tokens       : 2885
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000522
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 10.16 seconds
+
+Question-> (Tier 3) what is the coinsurance amount for Hospics services?
+
+Question: (Tier 3) what is the coinsurance amount for Hospics services?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1832
+Completion Tokens  : 168
+Total Tokens       : 2000
+Remaining Tokens   : 126000
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000275
+Output Cost        : $0.000101
+Total Cost         : $0.000376
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("Hospics")
+
+OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (net)-[:VALUE]->(net_val)
+OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+
+RETURN 
+    s.name AS service,
+    net_val.name AS network_cost,
+    net_detail.name AS network_details,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details
+ Connected to Neo4j
+
+DB Result:
+[]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 625
+Completion Tokens  : 6
+Total Tokens       : 631
+Remaining Tokens   : 127369
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000094
+Output Cost        : $0.000004
+Total Cost         : $0.000097
+
+This is the answer retrieved from the Neo4j database:
+No relevant information found.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2457
+Total Completion Tokens  : 174
+Final Total Tokens       : 2631
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000473
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 7.27 seconds
+
+Question-> As a network provider what amount should i pay for children's dental check-up as a coinsurance?
+
+Question: As a network provider what amount should i pay for children's dental check-up as a coinsurance?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1835
+Completion Tokens  : 170
+Total Tokens       : 2005
+Remaining Tokens   : 125995
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000275
+Output Cost        : $0.000102
+Total Cost         : $0.000377
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("children's dental check-up")
+
+OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (net)-[:VALUE]->(net_val)
+OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+
+RETURN 
+    s.name AS service,
+    net_val.name AS network_cost,
+    net_detail.name AS network_details,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details
+ Connected to Neo4j
+
+DB Result:
+[{'service': "Children's dental check-up", 'network_cost': 'No charge', 'network_details': None, 'out_of_network_cost': 'Not covered', 'out_of_network_details': None}, {'service': "Children's dental check-up | Network", 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': "Children's dental check-up | OutOfNetwork", 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 752
+Completion Tokens  : 21
+Total Tokens       : 773
+Remaining Tokens   : 127227
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000113
+Output Cost        : $0.000013
+Total Cost         : $0.000125
+
+This is the answer retrieved from the Neo4j database:
+As a network provider, you should pay nothing for a children's dental check-up as it has no charge.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2587
+Total Completion Tokens  : 191
+Final Total Tokens       : 2778
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000503
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 10.85 seconds
+
+Question-> As a network provider what amount should i pay for children's glasses as a coinsurance?        
+
+Question: As a network provider what amount should i pay for children's glasses as a coinsurance?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1833
+Completion Tokens  : 114
+Total Tokens       : 1947
+Remaining Tokens   : 126053
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000275
+Output Cost        : $0.000068
+Total Cost         : $0.000343
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("children's glasses")
+
+OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (net)-[:VALUE]->(net_val)
+OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+OPTIONAL MATCH (net_detail)-[:VALUE]->(val)
+
+RETURN 
+    s.name AS service,
+    net_val.name AS network_cost,
+    net_detail.name AS network_details,
+    val.name AS result
+ Connected to Neo4j
+
+DB Result:
+[{'service': "Children's glasses", 'network_cost': '20% coinsurance', 'network_details': "Children's glasses | Network | Coinsurance", 'result': '20% coinsurance'}, {'service': "Children's glasses | Limitation", 'network_cost': None, 'network_details': None, 'result': None}, {'service': "Children's glasses | Network", 'network_cost': None, 'network_details': None, 'result': None}, {'service': "Children's glasses | Network | Coinsurance", 'network_cost': None, 'network_details': None, 'result': None}, {'service': "Children's glasses | OutOfNetwork", 'network_cost': None, 'network_details': None, 'result': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 781
+Completion Tokens  : 13
+Total Tokens       : 794
+Remaining Tokens   : 127206
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000117
+Output Cost        : $0.000008
+Total Cost         : $0.000125
+
+This is the answer retrieved from the Neo4j database:
+You should pay 20% coinsurance for children's glasses.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2614
+Total Completion Tokens  : 127
+Final Total Tokens       : 2741
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000468
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 10.70 seconds
+
+Question-> As a out-of-network provider what amount should i pay for children's glasses as a coinsurance?
+
+Question: As a out-of-network provider what amount should i pay for children's glasses as a coinsurance?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1835
+Completion Tokens  : 122
+Total Tokens       : 1957
+Remaining Tokens   : 126043
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000275
+Output Cost        : $0.000073
+Total Cost         : $0.000348
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("children's glasses")
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+OPTIONAL MATCH (oon_detail)-[:VALUE]->(val)
+
+RETURN 
+    s.name AS entity,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details,
+    val.name AS result
+ Connected to Neo4j
+
+DB Result:
+[{'entity': "Children's glasses", 'out_of_network_cost': 'Not covered', 'out_of_network_details': None, 'result': None}, {'entity': "Children's glasses | Limitation", 'out_of_network_cost': None, 'out_of_network_details': None, 'result': None}, {'entity': "Children's glasses | Network", 'out_of_network_cost': None, 'out_of_network_details': None, 'result': None}, {'entity': "Children's glasses | Network | Coinsurance", 'out_of_network_cost': None, 'out_of_network_details': None, 'result': None}, {'entity': "Children's glasses | OutOfNetwork", 'out_of_network_cost': None, 'out_of_network_details': None, 'result': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 789
+Completion Tokens  : 10
+Total Tokens       : 799
+Remaining Tokens   : 127201
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000118
+Output Cost        : $0.000006
+Total Cost         : $0.000124
+
+This is the answer retrieved from the Neo4j database:
+Children's glasses are not covered out-of-network.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2624
+Total Completion Tokens  : 132
+Final Total Tokens       : 2756
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000473
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 7.19 seconds
+
+Question-> As a out-of-network provider what amount should i pay for children's eye exam as a coinsurance?
+
+Question: As a out-of-network provider what amount should i pay for children's eye exam as a coinsurance?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1836
+Completion Tokens  : 123
+Total Tokens       : 1959
+Remaining Tokens   : 126041
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000275
+Output Cost        : $0.000074
+Total Cost         : $0.000349
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("children's eye exam")
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+OPTIONAL MATCH (oon_detail)-[:VALUE]->(val)
+
+RETURN 
+    s.name AS entity,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details,
+    val.name AS result
+ Connected to Neo4j
+
+DB Result:
+[{'entity': "Children's eye exam", 'out_of_network_cost': 'Not covered', 'out_of_network_details': None, 'result': None}, {'entity': "Children's eye exam | Limitation", 'out_of_network_cost': None, 'out_of_network_details': None, 'result': None}, {'entity': "Children's eye exam | Network", 'out_of_network_cost': None, 'out_of_network_details': None, 'result': None}, {'entity': "Children's eye exam | Network | Copay", 'out_of_network_cost': None, 'out_of_network_details': None, 'result': None}, {'entity': "Children's eye exam | OutOfNetwork", 'out_of_network_cost': None, 'out_of_network_details': None, 'result': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 795
+Completion Tokens  : 14
+Total Tokens       : 809
+Remaining Tokens   : 127191
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000119
+Output Cost        : $0.000008
+Total Cost         : $0.000128
+
+This is the answer retrieved from the Neo4j database:
+The out-of-network cost for children's eye exam is not covered.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2631
+Total Completion Tokens  : 137
+Final Total Tokens       : 2768
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000477
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 6.09 seconds
+
+Question-> As a network provider what amount should i pay for children's eye exam as a coinsurance?       
+
+Question: As a network provider what amount should i pay for children's eye exam as a coinsurance?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1834
+Completion Tokens  : 169
+Total Tokens       : 2003
+Remaining Tokens   : 125997
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000275
+Output Cost        : $0.000101
+Total Cost         : $0.000376
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("children's eye exam")
+
+OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (net)-[:VALUE]->(net_val)
+OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+
+RETURN 
+    s.name AS service,
+    net_val.name AS network_cost,
+    net_detail.name AS network_details,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details
+ Connected to Neo4j
+
+DB Result:
+[{'service': "Children's eye exam", 'network_cost': '$35 copay/visit', 'network_details': "Children's eye exam | Network | Copay", 'out_of_network_cost': 'Not covered', 'out_of_network_details': None}, {'service': "Children's eye exam | Limitation", 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': "Children's eye exam | Network", 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': "Children's eye exam | Network | Copay", 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': "Children's eye exam | OutOfNetwork", 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 842
+Completion Tokens  : 38
+Total Tokens       : 880
+Remaining Tokens   : 127120
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000126
+Output Cost        : $0.000023
+Total Cost         : $0.000149
+
+This is the answer retrieved from the Neo4j database:
+You should pay a $35 copay for a children's eye exam as a coinsurance is not applicable here, it is a copay. The service is not covered out-of-network.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2676
+Total Completion Tokens  : 207
+Final Total Tokens       : 2883
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000526
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 6.52 seconds
+
+Question-> What is the copay amount for children's eye care exam?
+
+Question: What is the copay amount for children's eye care exam?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1828
+Completion Tokens  : 170
+Total Tokens       : 1998
+Remaining Tokens   : 126002
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000274
+Output Cost        : $0.000102
+Total Cost         : $0.000376
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("children's eye care exam")
+
+OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (net)-[:VALUE]->(net_val)
+OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+
+RETURN 
+    s.name AS service,
+    net_val.name AS network_cost,
+    net_detail.name AS network_details,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details
+ Connected to Neo4j
+
+DB Result:
+[]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 621
+Completion Tokens  : 6
+Total Tokens       : 627
+Remaining Tokens   : 127373
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000093
+Output Cost        : $0.000004
+Total Cost         : $0.000097
+
+This is the answer retrieved from the Neo4j database:
+No relevant information found.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2449
+Total Completion Tokens  : 176
+Final Total Tokens       : 2625
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000473
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 7.73 seconds
+
+Question-> if we need to stay in hospital what amount should we pay as a coinsurance as a network provider?
+
+Question: if we need to stay in hospital what amount should we pay as a coinsurance as a network provider?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1837
+Completion Tokens  : 179
+Total Tokens       : 2016
+Remaining Tokens   : 125984
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000276
+Output Cost        : $0.000107
+Total Cost         : $0.000383
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("hospital")
+
+OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (net)-[:VALUE]->(net_val)
+OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+OPTIONAL MATCH (net_detail)-[:VALUE]->(val)
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+
+RETURN 
+    s.name AS service,
+    net_val.name AS network_cost,
+    net_detail.name AS network_details,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details
+ Connected to Neo4j
+
+DB Result:
+[{'service': 'Facility fee (e.g., hospital room)', 'network_cost': '20% coinsurance', 'network_details': 'Facility fee (e.g., hospital room) | Network | Coinsurance', 'out_of_network_cost': '40% coinsurance', 'out_of_network_details': 'Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance'}, {'service': 'Facility fee (e.g., hospital room) | Limitation', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Facility fee (e.g., hospital room) | Network', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Facility fee (e.g., hospital room) | Network | Coinsurance', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Facility fee (e.g., hospital room) | OutOfNetwork', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'If you have a hospital stay', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 979
+Completion Tokens  : 17
+Total Tokens       : 996
+Remaining Tokens   : 127004
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000147
+Output Cost        : $0.000010
+Total Cost         : $0.000157
+
+This is the answer retrieved from the Neo4j database:
+You should pay 20% coinsurance as a network provider for a hospital stay.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2816
+Total Completion Tokens  : 196
+Final Total Tokens       : 3012
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000540
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 11.93 seconds
+
+Question-> if we need to stay in hospital what amount should we pay as a coinsurance as a out-of-network provider?
+
+Question: if we need to stay in hospital what amount should we pay as a coinsurance as a out-of-network provider?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1839
+Completion Tokens  : 111
+Total Tokens       : 1950
+Remaining Tokens   : 126050
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000276
+Output Cost        : $0.000067
+Total Cost         : $0.000342
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("hospital")
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+OPTIONAL MATCH (oon_detail)-[:VALUE]->(val)
+
+RETURN 
+    s.name AS entity,
+    "HAS_OUT_OF_NETWORK_COST" AS relationship,
+    oon_detail.name AS result
+ Connected to Neo4j
+
+DB Result:
+[{'entity': 'Facility fee (e.g., hospital room)', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': 'Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance'}, {'entity': 'Facility fee (e.g., hospital room) | Limitation', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}, {'entity': 'Facility fee (e.g., hospital room) | Network', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}, {'entity': 'Facility fee (e.g., hospital room) | Network | Coinsurance', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}, {'entity': 'Facility fee (e.g., hospital room) | OutOfNetwork', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}, {'entity': 'Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}, {'entity': 'If you have a hospital stay', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 868
+Completion Tokens  : 23
+Total Tokens       : 891
+Remaining Tokens   : 127109
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000130
+Output Cost        : $0.000014
+Total Cost         : $0.000144
+
+This is the answer retrieved from the Neo4j database:
+The out-of-network cost for a facility fee, such as a hospital room, is associated with a coinsurance.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2707
+Total Completion Tokens  : 134
+Final Total Tokens       : 2841
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000486
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 9.16 seconds
+
+Question-> if we need to stay in hospital what amount should we pay as a coinsurance as a out-of-network provider(you will pay the most)?
+
+Question: if we need to stay in hospital what amount should we pay as a coinsurance as a out-of-network provider(you will pay the most)?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1846
+Completion Tokens  : 111
+Total Tokens       : 1957
+Remaining Tokens   : 126043
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000277
+Output Cost        : $0.000067
+Total Cost         : $0.000344
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("hospital")
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+OPTIONAL MATCH (oon_detail)-[:VALUE]->(val)
+
+RETURN 
+    s.name AS entity,
+    "HAS_OUT_OF_NETWORK_COST" AS relationship,
+    oon_detail.name AS result
+ Connected to Neo4j
+
+DB Result:
+[{'entity': 'Facility fee (e.g., hospital room)', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': 'Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance'}, {'entity': 'Facility fee (e.g., hospital room) | Limitation', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}, {'entity': 'Facility fee (e.g., hospital room) | Network', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}, {'entity': 'Facility fee (e.g., hospital room) | Network | Coinsurance', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}, {'entity': 'Facility fee (e.g., hospital room) | OutOfNetwork', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}, {'entity': 'Facility fee (e.g., hospital room) | OutOfNetwork | Coinsurance', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}, {'entity': 'If you have a hospital stay', 'relationship': 'HAS_OUT_OF_NETWORK_COST', 'result': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 875
+Completion Tokens  : 32
+Total Tokens       : 907
+Remaining Tokens   : 127093
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000131
+Output Cost        : $0.000019
+Total Cost         : $0.000150
+
+This is the answer retrieved from the Neo4j database:
+The out-of-network cost for a facility fee, such as a hospital room, is associated with a coinsurance, but the specific amount is not provided.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2721
+Total Completion Tokens  : 143
+Final Total Tokens       : 2864
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000494
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 6.02 seconds
+
+Question-> If you need immediate medical attention what amount should we pay for coinsurance and copay as a network and out-of-network provider?
+
+Question: If you need immediate medical attention what amount should we pay for coinsurance and copay as a network and out-of-network provider?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1842
+Completion Tokens  : 203
+Total Tokens       : 2045
+Remaining Tokens   : 125955
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000276
+Output Cost        : $0.000122
+Total Cost         : $0.000398
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("immediate medical attention")
+
+OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (net)-[:VALUE]->(net_val)
+OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+OPTIONAL MATCH (net_detail)-[:VALUE]->(val)
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+OPTIONAL MATCH (oon_detail)-[:VALUE]->(val)
+
+RETURN 
+    s.name AS entity,
+    "HAS_NETWORK_COST" AS relationship,
+    net_val.name AS result,
+    net_detail.name AS network_details,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details
+ Connected to Neo4j
+
+DB Result:
+[{'entity': 'If you need immediate medical attention', 'relationship': 'HAS_NETWORK_COST', 'result': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 681
+Completion Tokens  : 23
+Total Tokens       : 704
+Remaining Tokens   : 127296
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000102
+Output Cost        : $0.000014
+Total Cost         : $0.000116
+
+This is the answer retrieved from the Neo4j database:
+No relevant information found regarding coinsurance and copay amounts for network and out-of-network providers for immediate medical attention.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2523
+Total Completion Tokens  : 226
+Final Total Tokens       : 2749
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000514
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 9.20 seconds
+
+Question-> If you need immediate medical attention(urgent care, transportation,Emergency room care,Emergency medical) what amount should we pay for coinsurance and copay as a network and out-of-network provider?
+
+Question: If you need immediate medical attention(urgent care, transportation,Emergency room care,Emergency medical) what amount should we pay for coinsurance and copay as a network and out-of-network provider?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1858
+Completion Tokens  : 194
+Total Tokens       : 2052
+Remaining Tokens   : 125948
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000279
+Output Cost        : $0.000116
+Total Cost         : $0.000395
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("urgent care")
+
+OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (net)-[:VALUE]->(net_val)
+OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+OPTIONAL MATCH (net_detail)-[:VALUE]->(val)
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+OPTIONAL MATCH (oon_detail)-[:VALUE]->(val)
+
+RETURN 
+    s.name AS service,
+    net_val.name AS network_cost,
+    net_detail.name AS network_details,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details
+ Connected to Neo4j
+
+DB Result:
+[{'service': 'Urgent care', 'network_cost': '$30 copay', 'network_details': 'Urgent care | Network | Copay', 'out_of_network_cost': '40% coinsurance', 'out_of_network_details': 'Urgent care | OutOfNetwork | Coinsurance'}, {'service': 'Urgent care | Limitation', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Urgent care | Network', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Urgent care | Network | Copay', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Urgent care | OutOfNetwork', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Urgent care | OutOfNetwork | Coinsurance', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 913
+Completion Tokens  : 26
+Total Tokens       : 939
+Remaining Tokens   : 127061
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000137
+Output Cost        : $0.000016
+Total Cost         : $0.000153
+
+This is the answer retrieved from the Neo4j database:
+For urgent care, the network cost is $30 copay and the out-of-network cost is 40% coinsurance.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 2771
+Total Completion Tokens  : 220
+Final Total Tokens       : 2991
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000548
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 8.18 seconds
+
+Question-> If you need immediate medical attention(transportation,Emergency room care,Emergency medical) what amount should we pay for coinsurance and copay as a network and out-of-network provider?             
+
+Question: If you need immediate medical attention(transportation,Emergency room care,Emergency medical) what amount should we pay for coinsurance and copay as a network and out-of-network provider?
+
+========== CYPHER GENERATOR USAGE ==========
+Prompt Tokens      : 1855
+Completion Tokens  : 192
+Total Tokens       : 2047
+Remaining Tokens   : 125953
+
+========== CYPHER GENERATOR COST ==========
+Input Cost         : $0.000278
+Output Cost        : $0.000115
+Total Cost         : $0.000393
+
+Generated Cypher:
+MATCH (s:Entity)
+WHERE toLower(s.name) CONTAINS toLower("Emergency")
+
+OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (net)-[:VALUE]->(net_val)
+OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+OPTIONAL MATCH (net_detail)-[:VALUE]->(val)
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+OPTIONAL MATCH (oon_detail)-[:VALUE]->(val)
+
+RETURN 
+    s.name AS service,
+    net_val.name AS network_cost,
+    net_detail.name AS network_details,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details
+ Connected to Neo4j
+
+DB Result:
+[{'service': 'Emergency room care', 'network_cost': '20% coinsurance', 'network_details': 'Emergency room care | Network | Coinsurance', 'out_of_network_cost': '20% coinsurance', 'out_of_network_details': 'Emergency room care | OutOfNetwork | Coinsurance'}, {'service': 'Emergency room care | Limitation', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Emergency room care | Network', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Emergency room care | Network | Coinsurance', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Emergency room care | OutOfNetwork', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Emergency room care | OutOfNetwork | Coinsurance', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Emergency medical transportation', 'network_cost': '20% coinsurance', 'network_details': 'Emergency medical transportation | Network | Coinsurance', 'out_of_network_cost': '20% coinsurance', 'out_of_network_details': 'Emergency medical transportation | OutOfNetwork | Coinsurance'}, {'service': 'Emergency medical transportation | Limitation', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Emergency medical transportation | Network', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Emergency medical transportation | Network | Coinsurance', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Emergency medical transportation | OutOfNetwork', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Emergency medical transportation | OutOfNetwork | Coinsurance', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Non-emergency care outside the U.S.', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}, {'service': 'Emergency room care (including medical supplies)', 'network_cost': None, 'network_details': None, 'out_of_network_cost': None, 'out_of_network_details': None}]
+
+========== ANSWER GENERATOR USAGE ==========
+Prompt Tokens      : 1255
+Completion Tokens  : 44
+Total Tokens       : 1299
+Remaining Tokens   : 126701
+
+========== ANSWER GENERATOR COST ==========
+Input Cost         : $0.000188
+Output Cost        : $0.000026
+Total Cost         : $0.000215
+
+This is the answer retrieved from the Neo4j database:
+For emergency room care, you pay 20% coinsurance both in-network and out-of-network. For emergency medical transportation, you also pay 20% coinsurance for both in-network and out-of-network providers.
+
+========== FINAL LLM USAGE ==========
+Total Prompt Tokens      : 3110
+Total Completion Tokens  : 236
+Final Total Tokens       : 3346
+
+========== FINAL LLM COST ==========
+Final Total Cost         : $0.000608
+
+========== RESPONSE TIME ==========
+Total Retrieval Time : 6.59 seconds
+
+Question-> 

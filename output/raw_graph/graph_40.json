@@ -1,0 +1,118 @@
+{
+  "entities": [
+    "HealthPlan",
+    "Private Duty Nursing",
+    "Routine Foot Care",
+    "Dental Care",
+    "Non-emergency care outside the U.S.",
+    "Infertility Treatment",
+    "Long Term Care",
+    "Routine eye care (Adult)",
+    "Acupuncture (if prescribed for rehabilitation",
+    "Chiropractic Care",
+    "Weight Loss Programs"
+  ],
+  "relationships": [
+    [
+      "HealthPlan",
+      "HAS_BENEFIT_SERVICE",
+      "Private Duty Nursing"
+    ],
+    [
+      "HealthPlan",
+      "HAS_BENEFIT_SERVICE",
+      "Routine Foot Care"
+    ],
+    [
+      "HealthPlan",
+      "HAS_BENEFIT_SERVICE",
+      "Dental Care"
+    ],
+    [
+      "HealthPlan",
+      "HAS_BENEFIT_SERVICE",
+      "Non-emergency care outside the U.S."
+    ],
+    [
+      "HealthPlan",
+      "HAS_BENEFIT_SERVICE",
+      "Infertility Treatment"
+    ],
+    [
+      "HealthPlan",
+      "HAS_BENEFIT_SERVICE",
+      "Long Term Care"
+    ],
+    [
+      "HealthPlan",
+      "HAS_BENEFIT_SERVICE",
+      "Routine eye care (Adult)"
+    ],
+    [
+      "HealthPlan",
+      "HAS_BENEFIT_SERVICE",
+      "Acupuncture (if prescribed for rehabilitation"
+    ],
+    [
+      "HealthPlan",
+      "HAS_BENEFIT_SERVICE",
+      "Chiropractic Care"
+    ],
+    [
+      "HealthPlan",
+      "HAS_BENEFIT_SERVICE",
+      "Weight Loss Programs"
+    ],
+    [
+      "Private Duty Nursing",
+      "NOT_COVERED",
+      "HealthPlan"
+    ],
+    [
+      "Routine Foot Care",
+      "NOT_COVERED",
+      "HealthPlan"
+    ],
+    [
+      "Dental Care",
+      "NOT_COVERED",
+      "HealthPlan"
+    ],
+    [
+      "Non-emergency care outside the U.S.",
+      "NOT_COVERED",
+      "HealthPlan"
+    ],
+    [
+      "Infertility Treatment",
+      "NOT_COVERED",
+      "HealthPlan"
+    ],
+    [
+      "Long Term Care",
+      "NOT_COVERED",
+      "HealthPlan"
+    ],
+    [
+      "Routine eye care (Adult)",
+      "NOT_COVERED",
+      "HealthPlan"
+    ],
+    [
+      "Acupuncture (if prescribed for rehabilitation",
+      "NOT_COVERED",
+      "HealthPlan"
+    ],
+    [
+      "Chiropractic Care",
+      "NOT_COVERED",
+      "HealthPlan"
+    ],
+    [
+      "Weight Loss Programs",
+      "NOT_COVERED",
+      "HealthPlan"
+    ]
+  ],
+  "attributes": []
+}

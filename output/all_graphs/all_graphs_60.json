@@ -1,0 +1,693 @@
+[
+  {
+    "entities": [
+      "HealthPlan",
+      "Medical Event",
+      "Primary care visit to treat an injury or illness",
+      "Specialist visit",
+      "Preventive care/screening/immunization",
+      "Diagnostic test (x-ray, blood work)",
+      "Imaging (CT/PET scans, MRIs)",
+      "Generic drugs (Tier 1) (retail & mail order)",
+      "Preferred brand drugs (Tier 2) (retail & mail order)",
+      "Non-preferred brand drugs (Tier 3)",
+      "Specialty drugs (Tier 4)",
+      "Facility fee (e.g., ambulatory surgery center)",
+      "Physician/surgeon fees",
+      "Emergency room care",
+      "Copay",
+      "Coinsurance",
+      "Deductible",
+      "Limitation",
+      "Preauthorization"
+    ],
+    "relationships": [
+      [
+        "HealthPlan",
+        "HAS_MEDICAL_EVENT",
+        "Medical Event"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Primary care visit to treat an injury or illness"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Specialist visit"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Preventive care/screening/immunization"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Diagnostic test (x-ray, blood work)"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Imaging (CT/PET scans, MRIs)"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Generic drugs (Tier 1) (retail & mail order)"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Preferred brand drugs (Tier 2) (retail & mail order)"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Non-preferred brand drugs (Tier 3)"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Specialty drugs (Tier 4)"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Facility fee (e.g., ambulatory surgery center)"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Physician/surgeon fees"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Emergency room care"
+      ],
+      [
+        "Primary care visit to treat an injury or illness",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Specialist visit",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Preventive care/screening/immunization",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Diagnostic test (x-ray, blood work)",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Imaging (CT/PET scans, MRIs)",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Generic drugs (Tier 1) (retail & mail order)",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Preferred brand drugs (Tier 2) (retail & mail order)",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Non-preferred brand drugs (Tier 3)",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Specialty drugs (Tier 4)",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Facility fee (e.g., ambulatory surgery center)",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Physician/surgeon fees",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Emergency room care",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Specialist visit",
+        "REQUIRES",
+        "Preauthorization"
+      ],
+      [
+        "Facility fee (e.g., ambulatory surgery center)",
+        "REQUIRES",
+        "Preauthorization"
+      ],
+      [
+        "Physician/surgeon fees",
+        "REQUIRES",
+        "Preauthorization"
+      ]
+    ],
+    "attributes": [
+      [
+        "Copay",
+        "value",
+        "$35"
+      ],
+      [
+        "Copay",
+        "value",
+        "$50"
+      ],
+      [
+        "Copay",
+        "value",
+        "$10"
+      ],
+      [
+        "Copay",
+        "value",
+        "$30"
+      ],
+      [
+        "Copay",
+        "value",
+        "$100"
+      ],
+      [
+        "Coinsurance",
+        "value",
+        "20%"
+      ],
+      [
+        "Coinsurance",
+        "value",
+        "40%"
+      ],
+      [
+        "Coinsurance",
+        "value",
+        "50%"
+      ],
+      [
+        "Coinsurance",
+        "value",
+        "60%"
+      ],
+      [
+        "Coinsurance",
+        "value",
+        "70%"
+      ],
+      [
+        "Deductible",
+        "value",
+        "$500"
+      ],
+      [
+        "Deductible",
+        "value",
+        "$1000"
+      ],
+      [
+        "Limitation",
+        "description",
+        "None"
+      ],
+      [
+        "Limitation",
+        "description",
+        "Covers up to a 30-day supply (retail subscription); 31-90 day supply (mail order prescription)."
+      ],
+      [
+        "Preauthorization",
+        "penalty",
+        "50% reduction"
+      ],
+      [
+        "HealthPlan",
+        "type",
+        "PPO"
+      ],
+      [
+        "HealthPlan",
+        "coverage_for",
+        "Family"
+      ]
+    ]
+  },
+  {
+    "entities": [
+      "HealthPlan",
+      "Medical Event",
+      "Emergency medical transportation",
+      "Urgent care",
+      "Facility fee (e.g., hospital room)",
+      "Outpatient services",
+      "Inpatient services",
+      "Office visits",
+      "Childbirth/delivery professional services",
+      "Childbirth/delivery facility services",
+      "Home health care",
+      "Rehabilitation services",
+      "Habilitation services",
+      "Skilled nursing care",
+      "Durable medical equipment",
+      "Hospice services",
+      "Children's eye exam",
+      "Children's glasses",
+      "Children's dental check-up",
+      "Cosmetic Surgery",
+      "Copay",
+      "Coinsurance",
+      "Preauthorization",
+      "Limitation"
+    ],
+    "relationships": [
+      [
+        "HealthPlan",
+        "HAS_MEDICAL_EVENT",
+        "Medical Event"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Emergency medical transportation"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Urgent care"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Facility fee (e.g., hospital room)"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Outpatient services"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Inpatient services"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Office visits"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Childbirth/delivery professional services"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Childbirth/delivery facility services"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Home health care"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Rehabilitation services"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Habilitation services"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Skilled nursing care"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Durable medical equipment"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Hospice services"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Children's eye exam"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Children's glasses"
+      ],
+      [
+        "Medical Event",
+        "INCLUDES_SERVICE",
+        "Children's dental check-up"
+      ],
+      [
+        "HealthPlan",
+        "NOT_COVERED",
+        "Cosmetic Surgery"
+      ],
+      [
+        "Emergency medical transportation",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Urgent care",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Urgent care",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Facility fee (e.g., hospital room)",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Facility fee (e.g., hospital room)",
+        "REQUIRES",
+        "Preauthorization"
+      ],
+      [
+        "Outpatient services",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Outpatient services",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Inpatient services",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Office visits",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Childbirth/delivery professional services",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Childbirth/delivery facility services",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Home health care",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Home health care",
+        "HAS_LIMITATION",
+        "Limitation"
+      ],
+      [
+        "Rehabilitation services",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Rehabilitation services",
+        "HAS_LIMITATION",
+        "Limitation"
+      ],
+      [
+        "Habilitation services",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Skilled nursing care",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Skilled nursing care",
+        "HAS_LIMITATION",
+        "Limitation"
+      ],
+      [
+        "Durable medical equipment",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Durable medical equipment",
+        "HAS_LIMITATION",
+        "Limitation"
+      ],
+      [
+        "Hospice services",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Hospice services",
+        "REQUIRES",
+        "Preauthorization"
+      ],
+      [
+        "Children's eye exam",
+        "HAS_COPAY",
+        "Copay"
+      ],
+      [
+        "Children's glasses",
+        "HAS_COINSURANCE",
+        "Coinsurance"
+      ],
+      [
+        "Children's glasses",
+        "HAS_LIMITATION",
+        "Limitation"
+      ],
+      [
+        "Children's dental check-up",
+        "HAS_COPAY",
+        "Copay"
+      ]
+    ],
+    "attributes": [
+      [
+        "Copay",
+        "value",
+        "$30"
+      ],
+      [
+        "Copay",
+        "value",
+        "$35"
+      ],
+      [
+        "Copay",
+        "value",
+        "$35"
+      ],
+      [
+        "Coinsurance",
+        "value",
+        "20%"
+      ],
+      [
+        "Coinsurance",
+        "value",
+        "40%"
+      ],
+      [
+        "Preauthorization",
+        "penalty",
+        "50% reduction"
+      ],
+      [
+        "Limitation",
+        "value",
+        "60 visits/calendar year"
+      ],
+      [
+        "Limitation",
+        "value",
+        "Coverage limited to one exam/year"
+      ],
+      [
+        "Limitation",
+        "value",
+        "Coverage limited to one pair of glasses/year"
+      ],
+      [
+        "Limitation",
+        "value",
+        "Excludes vehicle modifications, home modifications, exercise, and bathroom equipment."
+      ]
+    ]
+  },
+  {
+    "entities": [
+      "HealthPlan",
+      "Private Duty Nursing",
+      "Routine Foot Care",
+      "Dental Care",
+      "Non-emergency care outside the U.S.",
+      "Infertility Treatment",
+      "Long Term Care",
+      "Routine eye care (Adult)",
+      "Acupuncture (if prescribed for rehabilitation",
+      "Chiropractic Care",
+      "Weight Loss Programs"
+    ],
+    "relationships": [
+      [
+        "HealthPlan",
+        "HAS_BENEFIT_SERVICE",
+        "Private Duty Nursing"
+      ],
+      [
+        "HealthPlan",
+        "HAS_BENEFIT_SERVICE",
+        "Routine Foot Care"
+      ],
+      [
+        "HealthPlan",
+        "HAS_BENEFIT_SERVICE",
+        "Dental Care"
+      ],
+      [
+        "HealthPlan",
+        "HAS_BENEFIT_SERVICE",
+        "Non-emergency care outside the U.S."
+      ],
+      [
+        "HealthPlan",
+        "HAS_BENEFIT_SERVICE",
+        "Infertility Treatment"
+      ],
+      [
+        "HealthPlan",
+        "HAS_BENEFIT_SERVICE",
+        "Long Term Care"
+      ],
+      [
+        "HealthPlan",
+        "HAS_BENEFIT_SERVICE",
+        "Routine eye care (Adult)"
+      ],
+      [
+        "HealthPlan",
+        "HAS_BENEFIT_SERVICE",
+        "Acupuncture (if prescribed for rehabilitation"
+      ],
+      [
+        "HealthPlan",
+        "HAS_BENEFIT_SERVICE",
+        "Chiropractic Care"
+      ],
+      [
+        "HealthPlan",
+        "HAS_BENEFIT_SERVICE",
+        "Weight Loss Programs"
+      ],
+      [
+        "Private Duty Nursing",
+        "NOT_COVERED",
+        "HealthPlan"
+      ],
+      [
+        "Routine Foot Care",
+        "NOT_COVERED",
+        "HealthPlan"
+      ],
+      [
+        "Dental Care",
+        "NOT_COVERED",
+        "HealthPlan"
+      ],
+      [
+        "Non-emergency care outside the U.S.",
+        "NOT_COVERED",
+        "HealthPlan"
+      ],
+      [
+        "Infertility Treatment",
+        "NOT_COVERED",
+        "HealthPlan"
+      ],
+      [
+        "Long Term Care",
+        "NOT_COVERED",
+        "HealthPlan"
+      ],
+      [
+        "Routine eye care (Adult)",
+        "NOT_COVERED",
+        "HealthPlan"
+      ],
+      [
+        "Acupuncture (if prescribed for rehabilitation",
+        "NOT_COVERED",
+        "HealthPlan"
+      ],
+      [
+        "Chiropractic Care",
+        "NOT_COVERED",
+        "HealthPlan"
+      ],
+      [
+        "Weight Loss Programs",
+        "NOT_COVERED",
+        "HealthPlan"
+      ]
+    ],
+    "attributes": []
+  },
+  {
+    "entities": [
+      "HealthPlan",
+      "Medical Event"
+    ],
+    "relationships": [
+      [
+        "HealthPlan",
+        "HAS_MEDICAL_EVENT",
+        "Medical Event"
+      ]
+    ],
+    "attributes": []
+  }
+]

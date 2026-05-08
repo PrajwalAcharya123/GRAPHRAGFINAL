@@ -1,0 +1,14 @@
+{
+  "entities": [
+    "HealthPlan",
+    "Medical Event"
+  ],
+  "relationships": [
+    [
+      "HealthPlan",
+      "HAS_MEDICAL_EVENT",
+      "Medical Event"
+    ]
+  ],
+  "attributes": []
+}

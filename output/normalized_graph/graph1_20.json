@@ -1,0 +1,307 @@
+{
+  "entities": [
+    "HealthPlan",
+    "Medical Event",
+    "Emergency medical transportation",
+    "Urgent care",
+    "Facility fee (e.g., hospital room)",
+    "Outpatient services",
+    "Inpatient services",
+    "Office visits",
+    "Childbirth/delivery professional services",
+    "Childbirth/delivery facility services",
+    "Home health care",
+    "Rehabilitation services",
+    "Habilitation services",
+    "Skilled nursing care",
+    "Durable medical equipment",
+    "Hospice services",
+    "Children's eye exam",
+    "Children's glasses",
+    "Children's dental check-up",
+    "Cosmetic Surgery",
+    "Copay",
+    "Coinsurance",
+    "Preauthorization",
+    "Limitation"
+  ],
+  "relationships": [
+    [
+      "HealthPlan",
+      "HAS_MEDICAL_EVENT",
+      "Medical Event"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Emergency medical transportation"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Urgent care"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Facility fee (e.g., hospital room)"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Outpatient services"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Inpatient services"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Office visits"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Childbirth/delivery professional services"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Childbirth/delivery facility services"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Home health care"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Rehabilitation services"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Habilitation services"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Skilled nursing care"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Durable medical equipment"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Hospice services"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Children's eye exam"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Children's glasses"
+    ],
+    [
+      "Medical Event",
+      "INCLUDES_SERVICE",
+      "Children's dental check-up"
+    ],
+    [
+      "HealthPlan",
+      "NOT_COVERED",
+      "Cosmetic Surgery"
+    ],
+    [
+      "Emergency medical transportation",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Urgent care",
+      "HAS_COPAY",
+      "Copay"
+    ],
+    [
+      "Urgent care",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Facility fee (e.g., hospital room)",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Facility fee (e.g., hospital room)",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "Outpatient services",
+      "HAS_COPAY",
+      "Copay"
+    ],
+    [
+      "Outpatient services",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Inpatient services",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Office visits",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Childbirth/delivery professional services",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Childbirth/delivery facility services",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Home health care",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Home health care",
+      "HAS_LIMITATION",
+      "Limitation"
+    ],
+    [
+      "Rehabilitation services",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Rehabilitation services",
+      "HAS_LIMITATION",
+      "Limitation"
+    ],
+    [
+      "Habilitation services",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Skilled nursing care",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Skilled nursing care",
+      "HAS_LIMITATION",
+      "Limitation"
+    ],
+    [
+      "Durable medical equipment",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Durable medical equipment",
+      "HAS_LIMITATION",
+      "Limitation"
+    ],
+    [
+      "Hospice services",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Hospice services",
+      "REQUIRES",
+      "Preauthorization"
+    ],
+    [
+      "Children's eye exam",
+      "HAS_COPAY",
+      "Copay"
+    ],
+    [
+      "Children's glasses",
+      "HAS_COINSURANCE",
+      "Coinsurance"
+    ],
+    [
+      "Children's glasses",
+      "HAS_LIMITATION",
+      "Limitation"
+    ],
+    [
+      "Children's dental check-up",
+      "HAS_COPAY",
+      "Copay"
+    ]
+  ],
+  "attributes": [
+    [
+      "Copay",
+      "value",
+      "$30"
+    ],
+    [
+      "Copay",
+      "value",
+      "$35"
+    ],
+    [
+      "Copay",
+      "value",
+      "$35"
+    ],
+    [
+      "Coinsurance",
+      "value",
+      "20%"
+    ],
+    [
+      "Coinsurance",
+      "value",
+      "40%"
+    ],
+    [
+      "Preauthorization",
+      "penalty",
+      "50% reduction"
+    ],
+    [
+      "Limitation",
+      "value",
+      "60 visits/calendar year"
+    ],
+    [
+      "Limitation",
+      "value",
+      "Coverage limited to one exam/year"
+    ],
+    [
+      "Limitation",
+      "value",
+      "Coverage limited to one pair of glasses/year"
+    ],
+    [
+      "Limitation",
+      "value",
+      "Excludes vehicle modifications, home modifications, exercise, and bathroom equipment."
+    ]
+  ]
+}

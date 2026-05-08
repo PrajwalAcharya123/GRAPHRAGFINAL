@@ -623,157 +623,67 @@
     "chunk_id": "svc_list_000",
     "type": "excluded_service",
     "service": "Cosmetic Surgery",
-    "section": "Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "svc_list_001",
     "type": "excluded_service",
     "service": "Private Duty Nursing",
-    "section": "Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "svc_list_002",
     "type": "excluded_service",
     "service": "Routine Foot Care",
-    "section": "Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "svc_list_003",
     "type": "excluded_service",
     "service": "Dental Care",
-    "section": "Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "svc_list_004",
     "type": "excluded_service",
     "service": "Non-emergency care outside the U.S.",
-    "section": "Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "svc_list_005",
     "type": "excluded_service",
     "service": "Infertility Treatment",
-    "section": "Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "svc_list_006",
     "type": "excluded_service",
     "service": "Long Term Care",
-    "section": "Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "svc_list_007",
     "type": "excluded_service",
     "service": "Routine eye care (Adult)",
-    "section": "Services Your Plan Generally Does NOT Cover (Check your policy or plan document for more information and a list of any other excluded services.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "svc_list_008",
-    "type": "other_covered_service",
+    "type": "excluded_service",
     "service": "Acupuncture (if prescribed for rehabilitation",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "svc_list_009",
-    "type": "other_covered_service",
+    "type": "excluded_service",
     "service": "Chiropractic Care",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "svc_list_010",
-    "type": "other_covered_service",
+    "type": "excluded_service",
     "service": "Weight Loss Programs",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_011",
-    "type": "other_covered_service",
-    "service": "Bariatric Surgery",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_012",
-    "type": "other_covered_service",
-    "service": "Hearing Aids",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_013",
-    "type": "other_covered_service",
-    "service": "Specialist office visits (prenatal care)",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_014",
-    "type": "other_covered_service",
-    "service": "Childbirth/Delivery Professional Services",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_015",
-    "type": "other_covered_service",
-    "service": "Childbirth/Delivery Facility Services",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_016",
-    "type": "other_covered_service",
-    "service": "Diagnostic tests (ultrasounds and blood work)",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_017",
-    "type": "other_covered_service",
-    "service": "Specialist visit (anesthesia)",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_018",
-    "type": "other_covered_service",
-    "service": "Primary care physician office visits (including disease education)",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_019",
-    "type": "other_covered_service",
-    "service": "Diagnostic tests (blood work)",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_020",
-    "type": "other_covered_service",
-    "service": "Prescription drugs",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_021",
-    "type": "other_covered_service",
-    "service": "Durable medical equipment (glucose meter)",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_022",
-    "type": "other_covered_service",
-    "service": "Emergency room care (including medical supplies)",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_023",
-    "type": "other_covered_service",
-    "service": "Diagnostic test (x-ray)",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_024",
-    "type": "other_covered_service",
-    "service": "Durable medical equipment (crutches)",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
-  },
-  {
-    "chunk_id": "svc_list_025",
-    "type": "other_covered_service",
-    "service": "Rehabilitation services (physical therapy)",
-    "section": "Other Covered Services (Limitations may apply to these services. This isn't a complete list. Please see your plan document.)"
+    "section": "Excluded Services & Other Covered Services:"
   },
   {
     "chunk_id": "section_000",
@@ -837,5 +747,517 @@
     "type": "section",
     "title": "Mia’s Simple Fracture",
     "content": "This EXAMPLE event includes services like: In this example, Mia would pay: The plan would be responsible for the other costs of these EXA"
+  },
+  {
+    "chunk_id": "section_000",
+    "type": "coverage_about",
+    "title": "About these Coverage Examples:",
+    "content": "This is not a cost estimator. Treatments shown are just examples of how this plan might cover medical care. Your actual costs will be different depending on the actual care you receive, the prices your providers charge, and many other factors. Focus on the cost sharing amounts (deductibles, copayments and coinsurance) and excluded services under the plan. Use this information to compare the portion of costs you might pay under different health plans. Please note these coverage examples are based on self-only coverage."
+  },
+  {
+    "chunk_id": "example_001",
+    "type": "coverage_subtitle",
+    "example_name": "Peg is Having a Baby",
+    "content": "(9 months of in-network pre-natal care and a hospital delivery)"
+  },
+  {
+    "chunk_id": "example_002",
+    "type": "coverage_parameter",
+    "example_name": "Peg is Having a Baby",
+    "key": "The plan’s overall deductible",
+    "value": "$500",
+    "raw": {
+      "col_0": "The plan’s overall deductible",
+      "col_1": "$500"
+    }
+  },
+  {
+    "chunk_id": "example_003",
+    "type": "coverage_parameter",
+    "example_name": "Peg is Having a Baby",
+    "key": "Specialist copayment",
+    "value": "$50",
+    "raw": {
+      "col_0": "Specialist copayment",
+      "col_1": "$50"
+    }
+  },
+  {
+    "chunk_id": "example_004",
+    "type": "coverage_cost_sharing",
+    "example_name": "Peg is Having a Baby",
+    "key": "Hospital (facility) coinsurance",
+    "value": "20%",
+    "raw": {
+      "col_0": "Hospital (facility) coinsurance",
+      "col_1": "20%"
+    }
+  },
+  {
+    "chunk_id": "example_005",
+    "type": "coverage_cost_sharing",
+    "example_name": "Peg is Having a Baby",
+    "key": "Other coinsurance",
+    "value": "20%",
+    "raw": {
+      "col_0": "Other coinsurance",
+      "col_1": "20%"
+    }
+  },
+  {
+    "chunk_id": "example_006",
+    "type": "coverage_service",
+    "example_name": "Peg is Having a Baby",
+    "service": "Specialist office visits (prenatal care)",
+    "raw": {
+      "content": "Specialist office visits (prenatal care)"
+    }
+  },
+  {
+    "chunk_id": "example_007",
+    "type": "coverage_service",
+    "example_name": "Peg is Having a Baby",
+    "service": "Childbirth/Delivery Professional Services",
+    "raw": {
+      "content": "Childbirth/Delivery Professional Services"
+    }
+  },
+  {
+    "chunk_id": "example_008",
+    "type": "coverage_service",
+    "example_name": "Peg is Having a Baby",
+    "service": "Childbirth/Delivery Facility Services",
+    "raw": {
+      "content": "Childbirth/Delivery Facility Services"
+    }
+  },
+  {
+    "chunk_id": "example_009",
+    "type": "coverage_service",
+    "example_name": "Peg is Having a Baby",
+    "service": "Diagnostic tests (ultrasounds and blood work)",
+    "raw": {
+      "content": "Diagnostic tests (ultrasounds and blood work)"
+    }
+  },
+  {
+    "chunk_id": "example_010",
+    "type": "coverage_service",
+    "example_name": "Peg is Having a Baby",
+    "service": "Specialist visit (anesthesia)",
+    "raw": {
+      "content": "Specialist visit (anesthesia)"
+    }
+  },
+  {
+    "chunk_id": "example_011",
+    "type": "coverage_total_cost",
+    "example_name": "Peg is Having a Baby",
+    "key": "Total Example Cost",
+    "value": "$12,800",
+    "raw": {
+      "col_0": "Total Example Cost",
+      "col_1": "$12,800"
+    }
+  },
+  {
+    "chunk_id": "example_012",
+    "type": "coverage_section_header",
+    "example_name": "Peg is Having a Baby",
+    "content": "Cost Sharing"
+  },
+  {
+    "chunk_id": "example_013",
+    "type": "coverage_cost_sharing",
+    "example_name": "Peg is Having a Baby",
+    "key": "Deductibles",
+    "value": "$500",
+    "raw": {
+      "col_0": "Deductibles",
+      "col_1": "$500"
+    }
+  },
+  {
+    "chunk_id": "example_014",
+    "type": "coverage_cost_sharing",
+    "example_name": "Peg is Having a Baby",
+    "key": "Copayments",
+    "value": "$300",
+    "raw": {
+      "col_0": "Copayments",
+      "col_1": "$300"
+    }
+  },
+  {
+    "chunk_id": "example_015",
+    "type": "coverage_cost_sharing",
+    "example_name": "Peg is Having a Baby",
+    "key": "Coinsurance",
+    "value": "$2,300",
+    "raw": {
+      "col_0": "Coinsurance",
+      "col_1": "$2,300"
+    }
+  },
+  {
+    "chunk_id": "example_016",
+    "type": "coverage_section_header",
+    "example_name": "Peg is Having a Baby",
+    "content": "What isn’t covered"
+  },
+  {
+    "chunk_id": "example_017",
+    "type": "coverage_cost_sharing",
+    "example_name": "Peg is Having a Baby",
+    "key": "Limits or exclusions",
+    "value": "$60",
+    "raw": {
+      "col_0": "Limits or exclusions",
+      "col_1": "$60"
+    }
+  },
+  {
+    "chunk_id": "example_018",
+    "type": "coverage_cost_sharing",
+    "example_name": "Peg is Having a Baby",
+    "key": "The total Peg would pay is",
+    "value": "$3,160",
+    "raw": {
+      "col_0": "The total Peg would pay is",
+      "col_1": "$3,160"
+    }
+  },
+  {
+    "chunk_id": "example_019",
+    "type": "coverage_subtitle",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "content": "(a year of routine in-network care of a well-controlled condition)"
+  },
+  {
+    "chunk_id": "example_020",
+    "type": "coverage_parameter",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "key": "The plan’s overall deductible",
+    "value": "$500",
+    "raw": {
+      "col_0": "The plan’s overall deductible",
+      "col_1": "$500"
+    }
+  },
+  {
+    "chunk_id": "example_021",
+    "type": "coverage_parameter",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "key": "Specialist copayment",
+    "value": "$50",
+    "raw": {
+      "col_0": "Specialist copayment",
+      "col_1": "$50"
+    }
+  },
+  {
+    "chunk_id": "example_022",
+    "type": "coverage_cost_sharing",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "key": "Hospital (facility) coinsurance",
+    "value": "20%",
+    "raw": {
+      "col_0": "Hospital (facility) coinsurance",
+      "col_1": "20%"
+    }
+  },
+  {
+    "chunk_id": "example_023",
+    "type": "coverage_cost_sharing",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "key": "Other coinsurance",
+    "value": "20%",
+    "raw": {
+      "col_0": "Other coinsurance",
+      "col_1": "20%"
+    }
+  },
+  {
+    "chunk_id": "example_024",
+    "type": "coverage_service",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "service": "Primary care physician office visits (including disease education)",
+    "raw": {
+      "content": "Primary care physician office visits (including disease education)"
+    }
+  },
+  {
+    "chunk_id": "example_025",
+    "type": "coverage_service",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "service": "Diagnostic tests (blood work)",
+    "raw": {
+      "content": "Diagnostic tests (blood work)"
+    }
+  },
+  {
+    "chunk_id": "example_026",
+    "type": "coverage_service",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "service": "Prescription drugs",
+    "raw": {
+      "content": "Prescription drugs"
+    }
+  },
+  {
+    "chunk_id": "example_027",
+    "type": "coverage_service",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "service": "Durable medical equipment (glucose meter)",
+    "raw": {
+      "content": "Durable medical equipment (glucose meter)"
+    }
+  },
+  {
+    "chunk_id": "example_028",
+    "type": "coverage_total_cost",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "key": "Total Example Cost",
+    "value": "$7,400",
+    "raw": {
+      "col_0": "Total Example Cost",
+      "col_1": "$7,400"
+    }
+  },
+  {
+    "chunk_id": "example_029",
+    "type": "coverage_section_header",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "content": "Cost Sharing"
+  },
+  {
+    "chunk_id": "example_030",
+    "type": "coverage_cost_sharing",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "key": "Deductibles",
+    "value": "$800",
+    "raw": {
+      "col_0": "Deductibles",
+      "col_1": "$800"
+    }
+  },
+  {
+    "chunk_id": "example_031",
+    "type": "coverage_cost_sharing",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "key": "Copayments",
+    "value": "$1,200",
+    "raw": {
+      "col_0": "Copayments",
+      "col_1": "$1,200"
+    }
+  },
+  {
+    "chunk_id": "example_032",
+    "type": "coverage_cost_sharing",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "key": "Coinsurance",
+    "value": "$300",
+    "raw": {
+      "col_0": "Coinsurance",
+      "col_1": "$300"
+    }
+  },
+  {
+    "chunk_id": "example_033",
+    "type": "coverage_section_header",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "content": "What isn’t covered"
+  },
+  {
+    "chunk_id": "example_034",
+    "type": "coverage_cost_sharing",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "key": "Limits or exclusions",
+    "value": "$60",
+    "raw": {
+      "col_0": "Limits or exclusions",
+      "col_1": "$60"
+    }
+  },
+  {
+    "chunk_id": "example_035",
+    "type": "coverage_cost_sharing",
+    "example_name": "Managing Joe’s type 2 Diabetes",
+    "key": "The total Joe would pay is",
+    "value": "$2,360",
+    "raw": {
+      "col_0": "The total Joe would pay is",
+      "col_1": "$2,360"
+    }
+  },
+  {
+    "chunk_id": "example_036",
+    "type": "coverage_subtitle",
+    "example_name": "Mia’s Simple Fracture",
+    "content": "(in-network emergency room visit and follow up care)"
+  },
+  {
+    "chunk_id": "example_037",
+    "type": "coverage_parameter",
+    "example_name": "Mia’s Simple Fracture",
+    "key": "The plan’s overall deductible",
+    "value": "$500",
+    "raw": {
+      "col_0": "The plan’s overall deductible",
+      "col_1": "$500"
+    }
+  },
+  {
+    "chunk_id": "example_038",
+    "type": "coverage_parameter",
+    "example_name": "Mia’s Simple Fracture",
+    "key": "Specialist copayment",
+    "value": "$50",
+    "raw": {
+      "col_0": "Specialist copayment",
+      "col_1": "$50"
+    }
+  },
+  {
+    "chunk_id": "example_039",
+    "type": "coverage_cost_sharing",
+    "example_name": "Mia’s Simple Fracture",
+    "key": "Hospital (facility) coinsurance",
+    "value": "20%",
+    "raw": {
+      "col_0": "Hospital (facility) coinsurance",
+      "col_1": "20%"
+    }
+  },
+  {
+    "chunk_id": "example_040",
+    "type": "coverage_cost_sharing",
+    "example_name": "Mia’s Simple Fracture",
+    "key": "Other coinsurance",
+    "value": "20%",
+    "raw": {
+      "col_0": "Other coinsurance",
+      "col_1": "20%"
+    }
+  },
+  {
+    "chunk_id": "example_041",
+    "type": "coverage_service",
+    "example_name": "Mia’s Simple Fracture",
+    "service": "Emergency room care (including medical supplies)",
+    "raw": {
+      "content": "Emergency room care (including medical supplies)"
+    }
+  },
+  {
+    "chunk_id": "example_042",
+    "type": "coverage_service",
+    "example_name": "Mia’s Simple Fracture",
+    "service": "Diagnostic test (x-ray)",
+    "raw": {
+      "content": "Diagnostic test (x-ray)"
+    }
+  },
+  {
+    "chunk_id": "example_043",
+    "type": "coverage_service",
+    "example_name": "Mia’s Simple Fracture",
+    "service": "Durable medical equipment (crutches)",
+    "raw": {
+      "content": "Durable medical equipment (crutches)"
+    }
+  },
+  {
+    "chunk_id": "example_044",
+    "type": "coverage_service",
+    "example_name": "Mia’s Simple Fracture",
+    "service": "Rehabilitation services (physical therapy)",
+    "raw": {
+      "content": "Rehabilitation services (physical therapy)"
+    }
+  },
+  {
+    "chunk_id": "example_045",
+    "type": "coverage_total_cost",
+    "example_name": "Mia’s Simple Fracture",
+    "key": "Total Example Cost",
+    "value": "$2,500",
+    "raw": {
+      "col_0": "Total Example Cost",
+      "col_1": "$2,500"
+    }
+  },
+  {
+    "chunk_id": "example_046",
+    "type": "coverage_section_header",
+    "example_name": "Mia’s Simple Fracture",
+    "content": "Cost Sharing"
+  },
+  {
+    "chunk_id": "example_047",
+    "type": "coverage_cost_sharing",
+    "example_name": "Mia’s Simple Fracture",
+    "key": "Deductibles",
+    "value": "$700",
+    "raw": {
+      "col_0": "Deductibles",
+      "col_1": "$700"
+    }
+  },
+  {
+    "chunk_id": "example_048",
+    "type": "coverage_cost_sharing",
+    "example_name": "Mia’s Simple Fracture",
+    "key": "Copayments",
+    "value": "$200",
+    "raw": {
+      "col_0": "Copayments",
+      "col_1": "$200"
+    }
+  },
+  {
+    "chunk_id": "example_049",
+    "type": "coverage_cost_sharing",
+    "example_name": "Mia’s Simple Fracture",
+    "key": "Coinsurance",
+    "value": "$400",
+    "raw": {
+      "col_0": "Coinsurance",
+      "col_1": "$400"
+    }
+  },
+  {
+    "chunk_id": "example_050",
+    "type": "coverage_section_header",
+    "example_name": "Mia’s Simple Fracture",
+    "content": "What isn’t covered"
+  },
+  {
+    "chunk_id": "example_051",
+    "type": "coverage_cost_sharing",
+    "example_name": "Mia’s Simple Fracture",
+    "key": "Limits or exclusions",
+    "value": "$0",
+    "raw": {
+      "col_0": "Limits or exclusions",
+      "col_1": "$0"
+    }
+  },
+  {
+    "chunk_id": "example_052",
+    "type": "coverage_cost_sharing",
+    "example_name": "Mia’s Simple Fracture",
+    "key": "The total Mia would pay is",
+    "value": "$1,300",
+    "raw": {
+      "col_0": "The total Mia would pay is",
+      "col_1": "$1,300"
+    }
+  },
+  {
+    "chunk_id": "footnote_053",
+    "type": "footnote",
+    "content": "Note: These numbers assume the patient does not participate in the plan’s wellness program. If you participate in the plan’s wellness program, you may be able to reduce your costs. For more information about the wellness program, please contact: [insert]."
   }
 ]
