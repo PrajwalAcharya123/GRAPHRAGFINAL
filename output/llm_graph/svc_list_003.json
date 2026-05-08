@@ -1,0 +1,20 @@
+{
+  "entities": [
+    "HEALTH_PLAN",
+    "DENTAL_CARE"
+  ],
+  "relationships": [
+    {
+      "source": "HEALTH_PLAN",
+      "target": "DENTAL_CARE",
+      "type": "NOT_COVERED"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "DENTAL_CARE",
+      "attribute": "TYPE",
+      "value": "EXCLUDED_SERVICE"
+    }
+  ]
+}

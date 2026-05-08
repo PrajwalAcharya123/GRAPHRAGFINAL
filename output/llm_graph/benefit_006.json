@@ -1,0 +1,62 @@
+{
+  "entities": [
+    "PREFERRED_BRAND_DRUGS",
+    "PRESCRIPTION_DRUG_COVERAGE",
+    "MEDICAL_EVENT",
+    "NETWORK",
+    "OUT_OF_NETWORK",
+    "RETAIL_SUBSCRIPTION",
+    "MAIL_ORDER_PRESCRIPTION"
+  ],
+  "relationships": [
+    {
+      "source": "PREFERRED_BRAND_DRUGS",
+      "target": "NETWORK",
+      "type": "HAS_COPAY"
+    },
+    {
+      "source": "PREFERRED_BRAND_DRUGS",
+      "target": "OUT_OF_NETWORK",
+      "type": "HAS_COINSURANCE"
+    },
+    {
+      "source": "PREFERRED_BRAND_DRUGS",
+      "target": "RETAIL_SUBSCRIPTION",
+      "type": "HAS_LIMITATION"
+    },
+    {
+      "source": "PREFERRED_BRAND_DRUGS",
+      "target": "MAIL_ORDER_PRESCRIPTION",
+      "type": "HAS_LIMITATION"
+    },
+    {
+      "source": "MEDICAL_EVENT",
+      "target": "PREFERRED_BRAND_DRUGS",
+      "type": "REQUIRES"
+    },
+    {
+      "source": "PRESCRIPTION_DRUG_COVERAGE",
+      "target": "PREFERRED_BRAND_DRUGS",
+      "type": "COVERS"
+    }
+  ],
+  "attributes": {
+    "PREFERRED_BRAND_DRUGS": {
+      "copay": "$30",
+      "limitation_retail": "30-day supply",
+      "limitation_mail_order": "31-90 day supply"
+    },
+    "NETWORK": {
+      "cost": "$30 copay/prescription"
+    },
+    "OUT_OF_NETWORK": {
+      "cost": "40% coinsurance"
+    },
+    "RETAIL_SUBSCRIPTION": {
+      "supply_limit": "30-day supply"
+    },
+    "MAIL_ORDER_PRESCRIPTION": {
+      "supply_limit": "31-90 day supply"
+    }
+  }
+}

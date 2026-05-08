@@ -1,0 +1,19 @@
+{
+  "entities": [
+    "PATIENT",
+    "WELLNESS_PROGRAM",
+    "PLAN",
+    "COSTS"
+  ],
+  "relationships": [
+    "PATIENT_HAS_PLAN",
+    "PLAN_HAS_WELLNESS_PROGRAM",
+    "PATIENT_PARTICIPATES_IN_WELLNESS_PROGRAM",
+    "WELLNESS_PROGRAM_REduces_COSTS"
+  ],
+  "attributes": [
+    "COSTS_ARE_REDUCED",
+    "WELLNESS_PROGRAM_AVAILABLE",
+    "PLAN_HAS_CONDITIONS"
+  ]
+}

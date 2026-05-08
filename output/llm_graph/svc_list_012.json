@@ -1,0 +1,22 @@
+{
+  "entities": [
+    "HEARING_AIDS",
+    "OTHER_COVERED_SERVICES",
+    "PLAN_DOCUMENT"
+  ],
+  "relationships": [
+    "OTHER_COVERED_SERVICES_HAS_SERVICE",
+    "HEARING_AIDS_HAS_LIMITATION"
+  ],
+  "attributes": {
+    "HEARING_AIDS": {
+      "type": "other_covered_service"
+    },
+    "OTHER_COVERED_SERVICES": {
+      "description": "Limitations may apply to these services. This isn't a complete list."
+    },
+    "PLAN_DOCUMENT": {
+      "description": "Please see your plan document for more information."
+    }
+  }
+}

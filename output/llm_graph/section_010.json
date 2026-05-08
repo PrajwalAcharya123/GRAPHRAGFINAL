@@ -1,0 +1,57 @@
+{
+  "entities": [
+    "MIA",
+    "SIMPLE_FRACTURE",
+    "PLAN",
+    "COPAY",
+    "COINSURANCE",
+    "LIMITATION"
+  ],
+  "relationships": [
+    {
+      "source": "MIA",
+      "target": "SIMPLE_FRACTURE",
+      "type": "HAS_CONDITION"
+    },
+    {
+      "source": "MIA",
+      "target": "PLAN",
+      "type": "HAS_PLAN"
+    },
+    {
+      "source": "PLAN",
+      "target": "COPAY",
+      "type": "HAS_COPAY"
+    },
+    {
+      "source": "PLAN",
+      "target": "COINSURANCE",
+      "type": "HAS_COINSURANCE"
+    },
+    {
+      "source": "PLAN",
+      "target": "LIMITATION",
+      "type": "HAS_LIMITATION"
+    }
+  ],
+  "attributes": {
+    "MIA": {
+      "role": "patient"
+    },
+    "SIMPLE_FRACTURE": {
+      "type": "medical condition"
+    },
+    "PLAN": {
+      "type": "insurance plan"
+    },
+    "COPAY": {
+      "amount": "variable"
+    },
+    "COINSURANCE": {
+      "percentage": "variable"
+    },
+    "LIMITATION": {
+      "description": "variable"
+    }
+  }
+}

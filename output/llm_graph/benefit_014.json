@@ -1,0 +1,49 @@
+{
+  "entities": [
+    "FACILITY_FEE",
+    "HOSPITAL_STAY",
+    "NETWORK_COST",
+    "OUT_OF_NETWORK_COST",
+    "PREAUTHORIZATION"
+  ],
+  "relationships": [
+    {
+      "source": "FACILITY_FEE",
+      "target": "HOSPITAL_STAY",
+      "type": "REQUIRES"
+    },
+    {
+      "source": "FACILITY_FEE",
+      "target": "NETWORK_COST",
+      "type": "HAS_COINSURANCE"
+    },
+    {
+      "source": "FACILITY_FEE",
+      "target": "OUT_OF_NETWORK_COST",
+      "type": "HAS_COINSURANCE"
+    },
+    {
+      "source": "FACILITY_FEE",
+      "target": "PREAUTHORIZATION",
+      "type": "REQUIRES"
+    }
+  ],
+  "attributes": {
+    "FACILITY_FEE": {
+      "description": "Hospital room"
+    },
+    "HOSPITAL_STAY": {
+      "description": "Medical event"
+    },
+    "NETWORK_COST": {
+      "coinsurance": "20%"
+    },
+    "OUT_OF_NETWORK_COST": {
+      "coinsurance": "40%"
+    },
+    "PREAUTHORIZATION": {
+      "requirement": "Preauthorization is required",
+      "penalty": "50% reduction in benefits"
+    }
+  }
+}

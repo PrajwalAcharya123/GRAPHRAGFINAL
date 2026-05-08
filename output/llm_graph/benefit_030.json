@@ -1,0 +1,40 @@
+{
+  "entities": [
+    "CHILDREN_DENTAL_CHECK_UP",
+    "NETWORK_COST",
+    "OUT_OF_NETWORK",
+    "MEDICAL_EVENT"
+  ],
+  "relationships": [
+    {
+      "source": "CHILDREN_DENTAL_CHECK_UP",
+      "target": "NETWORK_COST",
+      "type": "HAS_COST"
+    },
+    {
+      "source": "CHILDREN_DENTAL_CHECK_UP",
+      "target": "OUT_OF_NETWORK",
+      "type": "NOT_COVERED"
+    },
+    {
+      "source": "MEDICAL_EVENT",
+      "target": "CHILDREN_DENTAL_CHECK_UP",
+      "type": "REQUIRES"
+    }
+  ],
+  "attributes": {
+    "NETWORK_COST": {
+      "amount": 0,
+      "description": "No charge"
+    },
+    "OUT_OF_NETWORK": {
+      "description": "Not covered"
+    },
+    "CHILDREN_DENTAL_CHECK_UP": {
+      "description": "Children's dental check-up"
+    },
+    "MEDICAL_EVENT": {
+      "description": "If your child needs dental or eye care"
+    }
+  }
+}

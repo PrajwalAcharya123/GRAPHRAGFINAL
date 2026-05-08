@@ -1,0 +1,29 @@
+{
+  "entities": [
+    "REHABILITATION_SERVICES",
+    "NETWORK",
+    "OUT_OF_NETWORK",
+    "PHYSICAL_THERAPY",
+    "SPEECH_THERAPY",
+    "OCCUPATIONAL_THERAPY"
+  ],
+  "relationships": [
+    "REHABILITATION_SERVICES HAS_COINSURANCE NETWORK",
+    "REHABILITATION_SERVICES HAS_COINSURANCE OUT_OF_NETWORK",
+    "REHABILITATION_SERVICES HAS_LIMITATION 60 visits/calendar year",
+    "REHABILITATION_SERVICES INCLUDES PHYSICAL_THERAPY",
+    "REHABILITATION_SERVICES INCLUDES SPEECH_THERAPY",
+    "REHABILITATION_SERVICES INCLUDES OCCUPATIONAL_THERAPY"
+  ],
+  "attributes": {
+    "NETWORK": {
+      "coinsurance": "20%"
+    },
+    "OUT_OF_NETWORK": {
+      "coinsurance": "40%"
+    },
+    "REHABILITATION_SERVICES": {
+      "medical_event": "recovering or special health needs"
+    }
+  }
+}

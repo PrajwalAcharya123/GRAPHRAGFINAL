@@ -1,0 +1,28 @@
+{
+  "entities": [
+    "CHILD_BIRTH_SERVICE",
+    "PREGNANCY",
+    "NETWORK_COST",
+    "OUT_OF_NETWORK_COST",
+    "PREVENTIVE_SERVICES",
+    "MATERNITY_CARE"
+  ],
+  "relationships": [
+    "CHILD_BIRTH_SERVICE HAS_COINSURANCE NETWORK_COST",
+    "CHILD_BIRTH_SERVICE HAS_COINSURANCE OUT_OF_NETWORK_COST",
+    "CHILD_BIRTH_SERVICE HAS_LIMITATION PREVENTIVE_SERVICES",
+    "PREGNANCY REQUIRES CHILD_BIRTH_SERVICE",
+    "MATERNITY_CARE INCLUDES CHILD_BIRTH_SERVICE"
+  ],
+  "attributes": {
+    "NETWORK_COST": {
+      "coinsurance": "20%"
+    },
+    "OUT_OF_NETWORK_COST": {
+      "coinsurance": "40%"
+    },
+    "PREVENTIVE_SERVICES": {
+      "cost_sharing": "not applicable"
+    }
+  }
+}

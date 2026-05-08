@@ -1,0 +1,25 @@
+{
+  "entities": [
+    "Health Plan",
+    "Out-of-Pocket Limit"
+  ],
+  "relationships": [
+    [
+      "Health Plan",
+      "HAS_OUT_OF_POCKET_LIMIT",
+      "Out-of-Pocket Limit"
+    ]
+  ],
+  "attributes": [
+    [
+      "Out-of-Pocket Limit",
+      "in_network",
+      "$2,500 individual / $5,000 family"
+    ],
+    [
+      "Out-of-Pocket Limit",
+      "out_of_network",
+      "$4,000 individual / $8,000 family"
+    ]
+  ]
+}

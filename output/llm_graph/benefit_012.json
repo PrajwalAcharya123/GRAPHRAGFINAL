@@ -1,0 +1,28 @@
+{
+  "entities": [
+    "EMERGENCY_MEDICAL_TRANSPORTATION",
+    "IMMEDIATE_MEDICAL_ATTENTION",
+    "NETWORK_COST",
+    "OUT_OF_NETWORK",
+    "COINSURANCE"
+  ],
+  "relationships": [
+    "EMERGENCY_MEDICAL_TRANSPORTATION HAS_COINSURANCE NETWORK_COST",
+    "EMERGENCY_MEDICAL_TRANSPORTATION HAS_COINSURANCE OUT_OF_NETWORK",
+    "EMERGENCY_MEDICAL_TRANSPORTATION REQUIRES IMMEDIATE_MEDICAL_ATTENTION"
+  ],
+  "attributes": {
+    "NETWORK_COST": {
+      "value": "20%"
+    },
+    "OUT_OF_NETWORK": {
+      "value": "20%"
+    },
+    "COINSURANCE": {
+      "value": "20%"
+    },
+    "LIMITATIONS": {
+      "value": "None"
+    }
+  }
+}

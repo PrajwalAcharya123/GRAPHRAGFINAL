@@ -1,0 +1,39 @@
+{
+  "entities": [
+    "Generic_Drugs_Tier_1",
+    "Prescription_Drug_Coverage",
+    "Medical_Event",
+    "Network",
+    "Out_of_Network",
+    "Limitation"
+  ],
+  "relationships": [
+    "Generic_Drugs_Tier_1 HAS_COPAY Network",
+    "Generic_Drugs_Tier_1 HAS_COINSURANCE Out_of_Network",
+    "Generic_Drugs_Tier_1 HAS_LIMITATION Limitation",
+    "Medical_Event REQUIRES Generic_Drugs_Tier_1",
+    "Prescription_Drug_Coverage PROVIDES_INFORMATION_ABOUT Generic_Drugs_Tier_1"
+  ],
+  "attributes": {
+    "Generic_Drugs_Tier_1": {
+      "copay": "$10",
+      "coinsurance": "40%",
+      "limitation": "up to 30-day supply (retail), 31-90 day supply (mail order)"
+    },
+    "Network": {
+      "type": "retail & mail order"
+    },
+    "Out_of_Network": {
+      "type": "40% coinsurance"
+    },
+    "Limitation": {
+      "type": "30-day supply (retail), 31-90 day supply (mail order)"
+    },
+    "Medical_Event": {
+      "description": "if you need drugs to treat your illness or condition"
+    },
+    "Prescription_Drug_Coverage": {
+      "website": "www.[insert].com"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "entities": [
+    "ROUTINE_FOOT_CARE",
+    "HEALTH_PLAN"
+  ],
+  "relationships": [
+    {
+      "source": "HEALTH_PLAN",
+      "target": "ROUTINE_FOOT_CARE",
+      "type": "NOT_COVERED"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "ROUTINE_FOOT_CARE",
+      "attribute": "TYPE",
+      "value": "EXCLUDED_SERVICE"
+    },
+    {
+      "entity": "HEALTH_PLAN",
+      "attribute": "SECTION",
+      "value": "SERVICES_YOUR_PLAN_GENERALLY_DOES_NOT_COVER"
+    }
+  ]
+}

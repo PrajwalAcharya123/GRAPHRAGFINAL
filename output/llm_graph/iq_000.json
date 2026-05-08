@@ -1,0 +1,20 @@
+{
+  "entities": [
+    "Health Plan",
+    "Deductible"
+  ],
+  "relationships": [
+    [
+      "Health Plan",
+      "HAS_DEDUCTIBLE",
+      "Deductible"
+    ]
+  ],
+  "attributes": [
+    [
+      "Deductible",
+      "value",
+      "$500/Individual or $1,000/Family"
+    ]
+  ]
+}

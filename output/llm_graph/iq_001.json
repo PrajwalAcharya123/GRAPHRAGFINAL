@@ -1,0 +1,20 @@
+{
+  "entities": [
+    "Preventive Care",
+    "Primary Care",
+    "Deductible"
+  ],
+  "relationships": [
+    [
+      "Preventive Care",
+      "COVERS_BEFORE_DEDUCTIBLE",
+      "Deductible"
+    ],
+    [
+      "Primary Care",
+      "COVERS_BEFORE_DEDUCTIBLE",
+      "Deductible"
+    ]
+  ],
+  "attributes": []
+}

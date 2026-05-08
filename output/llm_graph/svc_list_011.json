@@ -1,0 +1,22 @@
+{
+  "entities": [
+    "BARIATRIC_SURGERY",
+    "PLAN_DOCUMENT",
+    "OTHER_COVERED_SERVICES"
+  ],
+  "relationships": [
+    "OTHER_COVERED_SERVICES_HAS_SERVICE",
+    "BARIATRIC_SURGERY_HAS_LIMITATION"
+  ],
+  "attributes": {
+    "BARIATRIC_SURGERY": {
+      "TYPE": "MEDICAL_SERVICE"
+    },
+    "OTHER_COVERED_SERVICES": {
+      "DESCRIPTION": "Limitations may apply to these services. This isn't a complete list."
+    },
+    "PLAN_DOCUMENT": {
+      "IMPORTANCE": "REFERENCE"
+    }
+  }
+}

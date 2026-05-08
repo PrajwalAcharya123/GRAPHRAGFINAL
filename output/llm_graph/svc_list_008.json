@@ -1,0 +1,23 @@
+{
+  "entities": [
+    "ACUPUNCTURE",
+    "REHABILITATION",
+    "PLAN_DOCUMENT",
+    "OTHER_COVERED_SERVICES"
+  ],
+  "relationships": [
+    "ACUPUNCTURE HAS_LIMITATION",
+    "OTHER_COVERED_SERVICES INCLUDES ACUPUNCTURE",
+    "ACUPUNCTURE REQUIRES PRESCRIPTION",
+    "ACUPUNCTURE IS_PART_OF REHABILITATION",
+    "PLAN_DOCUMENT DETAILS OTHER_COVERED_SERVICES"
+  ],
+  "attributes": {
+    "ACUPUNCTURE": {
+      "description": "Acupuncture (if prescribed for rehabilitation)"
+    },
+    "OTHER_COVERED_SERVICES": {
+      "description": "Other Covered Services (Limitations may apply to these services. This isn't a complete list.)"
+    }
+  }
+}

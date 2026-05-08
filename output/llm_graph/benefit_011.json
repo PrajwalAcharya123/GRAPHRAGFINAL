@@ -1,0 +1,27 @@
+{
+  "entities": [
+    "EMERGENCY_ROOM_CARE",
+    "MEDICAL_EVENT",
+    "NETWORK_COST",
+    "OUT_OF_NETWORK_COST"
+  ],
+  "relationships": [
+    "EMERGENCY_ROOM_CARE HAS_COINSURANCE NETWORK_COST",
+    "EMERGENCY_ROOM_CARE HAS_COINSURANCE OUT_OF_NETWORK_COST",
+    "EMERGENCY_ROOM_CARE REQUIRES MEDICAL_EVENT"
+  ],
+  "attributes": {
+    "NETWORK_COST": {
+      "value": "20% coinsurance"
+    },
+    "OUT_OF_NETWORK_COST": {
+      "value": "20% coinsurance"
+    },
+    "MEDICAL_EVENT": {
+      "value": "If you need immediate medical attention"
+    },
+    "LIMITATIONS": {
+      "value": "None"
+    }
+  }
+}

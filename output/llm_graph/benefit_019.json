@@ -1,0 +1,28 @@
+{
+  "entities": [
+    "OFFICE_VISITS",
+    "PREGNANCY",
+    "NETWORK_COST",
+    "OUT_OF_NETWORK_COST",
+    "PREVENTIVE_SERVICES",
+    "MATERNITY_CARE"
+  ],
+  "relationships": [
+    "OFFICE_VISITS HAS_COINSURANCE NETWORK_COST",
+    "OFFICE_VISITS HAS_COINSURANCE OUT_OF_NETWORK_COST",
+    "OFFICE_VISITS HAS_LIMITATION PREVENTIVE_SERVICES",
+    "PREGNANCY REQUIRES OFFICE_VISITS",
+    "MATERNITY_CARE INCLUDES OFFICE_VISITS"
+  ],
+  "attributes": {
+    "NETWORK_COST": {
+      "coinsurance": "20%"
+    },
+    "OUT_OF_NETWORK_COST": {
+      "coinsurance": "40%"
+    },
+    "PREVENTIVE_SERVICES": {
+      "cost_sharing": "does not apply"
+    }
+  }
+}

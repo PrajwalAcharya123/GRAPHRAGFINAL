@@ -336,6 +336,8 @@ REAL GRAPH STRUCTURE (IMPORTANT)
 
 (:Entity {{name: "Service"}})
 
+(:Entity)-[:INCLUDES_SERVICE]->(:Entity)
+
 Service → HAS_NETWORK_COST → NetworkNode
 Service → HAS_OUT_OF_NETWORK_COST → OONNode
 
@@ -374,6 +376,7 @@ CRITICAL RULES (DO NOT BREAK)
 
 7. NO explanations. ONLY Cypher.
 8. USE the specialized patterns for related questions
+9. If the question mentions Peg, Joe or Mia, THEN ALWAYS USE the specialized COVERAGE EXAMPLE Cypher pattern.
 
 ---------------------------------
 SMART QUERY PATTERNS
@@ -381,22 +384,29 @@ SMART QUERY PATTERNS
 MATCH (s:Entity)-[:QUESTION]->(q:Value)
 WHERE toLower(q.value) CONTAINS toLower("<keyword>")
 
-OPTIONAL MATCH (s)-[:VALUE]->(v:Value)
+OPTIONAL MATCH (s)-[:INCLUDES_SERVICE]->(svc)
+WITH s, q, COALESCE(svc, s) AS target
 
-OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (target)-[:VALUE]->(v:Value)
+
+OPTIONAL MATCH (target)-[:HAS_NETWORK_COST]->(net)
 OPTIONAL MATCH (net)-[:VALUE]->(net_val)
 OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
 
-OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (target)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
 OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
 OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
 
 RETURN 
-    s.name AS entity,
+    s.name AS matched_entity,
+    target.name AS service,
     "QUESTION_MATCH" AS relationship,
-    v.value AS result
+
+    v.value AS result,
+
     net_val.name AS network_cost,
     net_detail.name AS network_details,
+
     oon_val.name AS out_of_network_cost,
     oon_detail.name AS out_of_network_details
 
@@ -404,22 +414,29 @@ RETURN
 SPECIALIZED PATTERNS
 ----------------------------------
 
-### 1. COPAY / COINSURANCE QUESTIONS
+### 1. COPAY/COINSURANCE QUESTIONS
 MATCH (s:Entity)
 WHERE toLower(s.name) CONTAINS toLower("<keyword>")
 
-OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (s)-[:INCLUDES_SERVICE]->(svc)
+
+WITH s, COALESCE(svc, s) AS target
+
+OPTIONAL MATCH (target)-[:HAS_NETWORK_COST]->(net)
 OPTIONAL MATCH (net)-[:VALUE]->(net_val)
 OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
 
-OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (target)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
 OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
 OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
 
 RETURN 
-    s.name AS service,
+    s.name AS matched_entity,
+    target.name AS service,
+    
     net_val.name AS network_cost,
     net_detail.name AS network_details,
+
     oon_val.name AS out_of_network_cost,
     oon_detail.name AS out_of_network_details
 
@@ -546,8 +563,58 @@ RETURN
     g.name AS section,
     s.value AS summary
 ORDER BY s.value IS NULL
+------------------------------------------------
 
-### 11. GENERAL FALLBACK
+### 11. IMPORTANT QUESTIONS
+MATCH (s:Entity)-[:QUESTION]->(q:Value)
+WHERE toLower(q.value) CONTAINS toLower("<keyword>")
+
+OPTIONAL MATCH (s)-[:VALUE]->(v:Value)
+
+OPTIONAL MATCH (s)-[:HAS_NETWORK_COST]->(net)
+OPTIONAL MATCH (net)-[:VALUE]->(net_val)
+OPTIONAL MATCH (net)-[:HAS_COPAY|HAS_COINSURANCE]->(net_detail)
+
+OPTIONAL MATCH (s)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
+OPTIONAL MATCH (oon)-[:VALUE]->(oon_val)
+OPTIONAL MATCH (oon)-[:HAS_COPAY|HAS_COINSURANCE]->(oon_detail)
+
+RETURN 
+    s.name AS entity,
+    "QUESTION_MATCH" AS relationship,
+    v.value AS result,
+    net_val.name AS network_cost,
+    net_detail.name AS network_details,
+    oon_val.name AS out_of_network_cost,
+    oon_detail.name AS out_of_network_details
+
+--------------------------------------------------
+
+### 12. COVERAGE EXAMPLES for Questions mentioning Peg, Joe or Mia.
+
+MATCH (root:Entity)
+      -[:HAS_SCENARIO]->(scenario:Entity)
+WHERE root.name = "Coverage Example Scenarios"
+
+
+WHERE
+    toLower(scenario.name) CONTAINS toLower($scenario)
+    OR toLower(scenario.display_name) CONTAINS toLower($scenario)
+
+OPTIONAL MATCH (scenario)-[r]->(node:Entity)
+
+WHERE
+    $relationship IS NULL
+    OR type(r) = $relationship
+
+RETURN
+    scenario.name AS scenario,
+    type(r) AS relationship,
+    node.name AS node,
+    node.description AS description,
+    node.amount AS amount
+
+### 13. GENERAL FALLBACK
 
 MATCH (s:Entity)
 WHERE toLower(s.name) CONTAINS toLower("<keyword>")
@@ -564,6 +631,19 @@ ORDER BY entity
 
 
 ### EXAMPLES
+
+Q: What is the overall deductible?
+A:
+MATCH (e:Entity)
+WHERE e.name = "Overall Deductible"
+
+OPTIONAL MATCH (e)-[r:VALUE]->(v)
+
+RETURN 
+    e.name AS entity,
+    type(r) AS relationship,
+    v.result AS value,
+
 
 Q: What is not included in the out-of-pocket limit?
 A:

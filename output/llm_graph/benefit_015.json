@@ -1,0 +1,50 @@
+{
+  "entities": [
+    "PHYSICIAN_SURGEON_FEES",
+    "IN_NETWORK_SERVICE",
+    "OUT_OF_NETWORK_SERVICE",
+    "ANESTHESIA_SERVICE",
+    "COINSURANCE_BENEFIT"
+  ],
+  "relationships": [
+    {
+      "source": "COINSURANCE_BENEFIT",
+      "target": "PHYSICIAN_SURGEON_FEES",
+      "type": "HAS_COINSURANCE"
+    },
+    {
+      "source": "IN_NETWORK_SERVICE",
+      "target": "PHYSICIAN_SURGEON_FEES",
+      "type": "HAS_COINSURANCE"
+    },
+    {
+      "source": "OUT_OF_NETWORK_SERVICE",
+      "target": "ANESTHESIA_SERVICE",
+      "type": "HAS_COINSURANCE"
+    },
+    {
+      "source": "COINSURANCE_BENEFIT",
+      "target": "IN_NETWORK_SERVICE",
+      "type": "HAS_LIMITATION"
+    },
+    {
+      "source": "COINSURANCE_BENEFIT",
+      "target": "OUT_OF_NETWORK_SERVICE",
+      "type": "HAS_LIMITATION"
+    }
+  ],
+  "attributes": {
+    "COINSURANCE_BENEFIT": {
+      "coinsurance_percentage": "20%"
+    },
+    "IN_NETWORK_SERVICE": {
+      "coinsurance_percentage": "40%"
+    },
+    "OUT_OF_NETWORK_SERVICE": {
+      "coinsurance_percentage": "50%"
+    },
+    "ANESTHESIA_SERVICE": {
+      "service_type": "ANESTHESIA"
+    }
+  }
+}

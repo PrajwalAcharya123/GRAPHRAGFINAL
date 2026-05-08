@@ -1,0 +1,27 @@
+{
+  "entities": [
+    "ROUTINE_EYE_CARE",
+    "ADULT",
+    "PLAN",
+    "POLICY"
+  ],
+  "relationships": [
+    "ROUTINE_EYE_CARE NOT_COVERED BY PLAN",
+    "PLAN HAS_POLICY POLICY",
+    "ROUTINE_EYE_CARE FOR_ADULT ADULT"
+  ],
+  "attributes": {
+    "ROUTINE_EYE_CARE": {
+      "DESCRIPTION": "Routine eye care"
+    },
+    "PLAN": {
+      "DESCRIPTION": "Health plan"
+    },
+    "POLICY": {
+      "DESCRIPTION": "Plan policy document"
+    },
+    "ADULT": {
+      "DESCRIPTION": "Adult patient"
+    }
+  }
+}

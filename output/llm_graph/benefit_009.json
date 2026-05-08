@@ -1,0 +1,35 @@
+{
+  "entities": [
+    "FACILITY_FEE",
+    "OUTPATIENT_SURGERY",
+    "NETWORK",
+    "OUT_OF_NETWORK",
+    "PREAUTHORIZATION",
+    "ANESTHESIA"
+  ],
+  "relationships": [
+    "FACILITY_FEE HAS_COPAY NETWORK",
+    "FACILITY_FEE HAS_COINSURANCE OUT_OF_NETWORK",
+    "FACILITY_FEE REQUIRES PREAUTHORIZATION",
+    "FACILITY_FEE HAS_LIMITATION PREAUTHORIZATION",
+    "FACILITY_FEE HAS_COINSURANCE ANESTHESIA",
+    "OUTPATIENT_SURGERY HAS_SERVICE FACILITY_FEE"
+  ],
+  "attributes": {
+    "NETWORK": {
+      "copay": "$100/day"
+    },
+    "OUT_OF_NETWORK": {
+      "coinsurance": "40%"
+    },
+    "PREAUTHORIZATION": {
+      "penalty": "50% reduction in benefits"
+    },
+    "ANESTHESIA": {
+      "coinsurance": "50%"
+    },
+    "FACILITY_FEE": {
+      "type": "ambulatory surgery center"
+    }
+  }
+}

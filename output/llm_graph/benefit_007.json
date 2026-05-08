@@ -1,0 +1,31 @@
+{
+  "entities": [
+    "Non-preferred_brand_drugs",
+    "Prescription_drug_coverage",
+    "Medical_event",
+    "Network",
+    "Out-of-Network"
+  ],
+  "relationships": [
+    "Non-preferred_brand_drugs HAS_COINSURANCE Network",
+    "Non-preferred_brand_drugs HAS_COINSURANCE Out-of-Network",
+    "Non-preferred_brand_drugs HAS_LIMITATION 30-day supply",
+    "Non-preferred_brand_drugs HAS_LIMITATION 31-90 day supply",
+    "Medical_event REQUIRES Non-preferred_brand_drugs",
+    "Prescription_drug_coverage PROVIDES_INFORMATION_ABOUT Non-preferred_brand_drugs"
+  ],
+  "attributes": {
+    "Network": {
+      "coinsurance": "40%"
+    },
+    "Out-of-Network": {
+      "coinsurance": "60%"
+    },
+    "Non-preferred_brand_drugs": {
+      "tier": "Tier 3"
+    },
+    "Prescription_drug_coverage": {
+      "website": "www.[insert].com"
+    }
+  }
+}

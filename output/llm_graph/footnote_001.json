@@ -1,0 +1,31 @@
+{
+  "entities": [
+    "COSTS",
+    "DEDUCTIBLE",
+    "CHART"
+  ],
+  "relationships": [
+    {
+      "source": "COSTS",
+      "target": "DEDUCTIBLE",
+      "type": "AFTER"
+    },
+    {
+      "source": "CHART",
+      "target": "COSTS",
+      "type": "HAS_COPAY"
+    },
+    {
+      "source": "CHART",
+      "target": "COSTS",
+      "type": "HAS_COINSURANCE"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "DEDUCTIBLE",
+      "attribute": "APPLIES",
+      "value": "IF_APPLICABLE"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "entities": [
+    "WEIGHT_LOSS_PROGRAMS",
+    "OTHER_COVERED_SERVICES",
+    "PLAN_DOCUMENT"
+  ],
+  "relationships": [
+    "OTHER_COVERED_SERVICES_HAS_SERVICE",
+    "WEIGHT_LOSS_PROGRAMS_HAS_LIMITATION"
+  ],
+  "attributes": {
+    "LIMITATIONS_APPLY": "True",
+    "COMPLETE_LIST": "False"
+  }
+}

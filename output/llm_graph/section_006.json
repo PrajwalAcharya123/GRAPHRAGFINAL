@@ -1,0 +1,32 @@
+{
+  "entities": [
+    "PLAN",
+    "MINIMUM_VALUE_STANDARDS",
+    "PREMIUM_TAX_CREDIT",
+    "MARKETPLACE"
+  ],
+  "relationships": [
+    {
+      "source": "PLAN",
+      "target": "MINIMUM_VALUE_STANDARDS",
+      "type": "MEETS"
+    },
+    {
+      "source": "PLAN",
+      "target": "PREMIUM_TAX_CREDIT",
+      "type": "ELIGIBLE_FOR"
+    },
+    {
+      "source": "PREMIUM_TAX_CREDIT",
+      "target": "MARKETPLACE",
+      "type": "HELP_PAY_FOR"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "PLAN",
+      "attribute": "MINIMUM_VALUE",
+      "value": "YES"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "entities": [
+    "HOME_HEALTH_CARE",
+    "RECOVERY",
+    "SPECIAL_HEALTH_NEEDS",
+    "NETWORK",
+    "OUT_OF_NETWORK",
+    "CALENDAR_YEAR"
+  ],
+  "relationships": [
+    "HOME_HEALTH_CARE HAS_COINSURANCE NETWORK",
+    "HOME_HEALTH_CARE HAS_COINSURANCE OUT_OF_NETWORK",
+    "HOME_HEALTH_CARE HAS_LIMITATION CALENDAR_YEAR",
+    "RECOVERY REQUIRES HOME_HEALTH_CARE",
+    "SPECIAL_HEALTH_NEEDS REQUIRES HOME_HEALTH_CARE"
+  ],
+  "attributes": {
+    "HOME_HEALTH_CARE": {
+      "coinsurance_network": "20%",
+      "coinsurance_out_of_network": "40%",
+      "limitation": "60 visits"
+    },
+    "NETWORK": {
+      "type": "in-network"
+    },
+    "OUT_OF_NETWORK": {
+      "type": "out-of-network"
+    },
+    "CALENDAR_YEAR": {
+      "type": "time period"
+    }
+  }
+}

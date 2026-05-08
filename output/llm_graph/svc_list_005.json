@@ -1,0 +1,25 @@
+{
+  "entities": [
+    "INFERTILITY_TREATMENT",
+    "HEALTH_PLAN"
+  ],
+  "relationships": [
+    {
+      "source": "HEALTH_PLAN",
+      "target": "INFERTILITY_TREATMENT",
+      "type": "NOT_COVERED"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "INFERTILITY_TREATMENT",
+      "attribute": "TYPE",
+      "value": "EXCLUDED_SERVICE"
+    },
+    {
+      "entity": "HEALTH_PLAN",
+      "attribute": "SECTION",
+      "value": "SERVICES_YOUR_PLAN_GENERALLY_DOES_NOT_COVER"
+    }
+  ]
+}

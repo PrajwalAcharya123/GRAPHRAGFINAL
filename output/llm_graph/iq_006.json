@@ -1,0 +1,20 @@
+{
+  "entities": [
+    "Specialist Visit",
+    "Referral Requirement"
+  ],
+  "relationships": [
+    [
+      "Specialist Visit",
+      "REQUIRES_REFERRAL",
+      "Referral Requirement"
+    ]
+  ],
+  "attributes": [
+    [
+      "Referral Requirement",
+      "value",
+      "Yes"
+    ]
+  ]
+}

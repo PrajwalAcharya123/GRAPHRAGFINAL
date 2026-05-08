@@ -1,0 +1,31 @@
+{
+  "entities": [
+    "HOSPICE_SERVICES",
+    "RECOVERY_HELP",
+    "SPECIAL_HEALTH_NEEDS",
+    "PREAUTHORIZATION",
+    "NETWORK_CARE",
+    "OUT_OF_NETWORK_CARE"
+  ],
+  "relationships": [
+    "HOSPICE_SERVICES HAS_COINSURANCE NETWORK_CARE",
+    "HOSPICE_SERVICES HAS_COINSURANCE OUT_OF_NETWORK_CARE",
+    "HOSPICE_SERVICES REQUIRES PREAUTHORIZATION",
+    "HOSPICE_SERVICES HAS_LIMITATION PREAUTHORIZATION"
+  ],
+  "attributes": {
+    "HOSPICE_SERVICES": {
+      "NETWORK_COST": "20% coinsurance",
+      "OUT_OF_NETWORK": "40% coinsurance"
+    },
+    "PREAUTHORIZATION": {
+      "FAILURE_RESULT": "reduction in benefits by 50% of the total cost of the service"
+    },
+    "RECOVERY_HELP": {
+      "DESCRIPTION": "help recovering"
+    },
+    "SPECIAL_HEALTH_NEEDS": {
+      "DESCRIPTION": "other special health needs"
+    }
+  }
+}

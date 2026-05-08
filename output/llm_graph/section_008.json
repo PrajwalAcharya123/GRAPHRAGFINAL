@@ -1,0 +1,68 @@
+{
+  "entities": [
+    "HEALTH_PLAN",
+    "COST_ESTIMATOR",
+    "MEDICAL_CARE",
+    "PROVIDER",
+    "PATIENT",
+    "COVERAGE_EXAMPLES",
+    "SELF_ONLY_COVERAGE",
+    "PEG",
+    "JOE"
+  ],
+  "relationships": [
+    {
+      "source": "HEALTH_PLAN",
+      "target": "COST_ESTIMATOR",
+      "type": "NOT_COVERED"
+    },
+    {
+      "source": "HEALTH_PLAN",
+      "target": "MEDICAL_CARE",
+      "type": "COVERS"
+    },
+    {
+      "source": "MEDICAL_CARE",
+      "target": "PROVIDER",
+      "type": "REQUIRES"
+    },
+    {
+      "source": "HEALTH_PLAN",
+      "target": "PATIENT",
+      "type": "HAS_LIMITATION"
+    },
+    {
+      "source": "COVERAGE_EXAMPLES",
+      "target": "SELF_ONLY_COVERAGE",
+      "type": "IS_BASED_ON"
+    },
+    {
+      "source": "PEG",
+      "target": "HEALTH_PLAN",
+      "type": "HAS_COPAY"
+    },
+    {
+      "source": "JOE",
+      "target": "HEALTH_PLAN",
+      "type": "HAS_COINSURANCE"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "HEALTH_PLAN",
+      "attribute": "DEDUCTIBLE"
+    },
+    {
+      "entity": "HEALTH_PLAN",
+      "attribute": "COPAYMENT"
+    },
+    {
+      "entity": "HEALTH_PLAN",
+      "attribute": "COINSURANCE"
+    },
+    {
+      "entity": "COVERAGE_EXAMPLES",
+      "attribute": "EXAMPLE_EVENT"
+    }
+  ]
+}

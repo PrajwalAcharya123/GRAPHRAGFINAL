@@ -1,0 +1,31 @@
+{
+  "entities": [
+    "Prescription Drug",
+    "Occupational Therapy",
+    "Plan Deductible"
+  ],
+  "relationships": [
+    [
+      "Plan Deductible",
+      "HAS_SPECIFIC_DEDUCTIBLE",
+      "Prescription Drug"
+    ],
+    [
+      "Plan Deductible",
+      "HAS_SPECIFIC_DEDUCTIBLE",
+      "Occupational Therapy"
+    ]
+  ],
+  "attributes": [
+    [
+      "Prescription Drug",
+      "deductible",
+      "$300"
+    ],
+    [
+      "Occupational Therapy",
+      "deductible",
+      "$300"
+    ]
+  ]
+}

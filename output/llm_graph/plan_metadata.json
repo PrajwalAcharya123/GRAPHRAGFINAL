@@ -1,0 +1,27 @@
+{
+  "entities": [
+    "FAMILY",
+    "PPO",
+    "COVERAGE"
+  ],
+  "relationships": [
+    "FAMILY HAS_COVERAGE PPO",
+    "PPO REQUIRES PRE_AUTHORIZATION",
+    "PPO HAS_LIMITATION MAX_OUT_OF_POCKET",
+    "PPO HAS_COPAY DOCTOR_VISIT",
+    "PPO HAS_COINSURANCE HOSPITAL_STAY"
+  ],
+  "attributes": {
+    "FAMILY": {
+      "type": "dependent"
+    },
+    "PPO": {
+      "type": "health_insurance",
+      "network": "preferred_provider"
+    },
+    "COVERAGE": {
+      "type": "medical",
+      "level": "comprehensive"
+    }
+  }
+}

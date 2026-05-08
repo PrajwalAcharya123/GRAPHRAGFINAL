@@ -1,0 +1,29 @@
+{
+  "entities": [
+    "PLAN",
+    "MINIMUM_ESSENTIAL_COVERAGE",
+    "TAX_RETURN",
+    "EXEMPTION",
+    "HEALTH_COVERAGE"
+  ],
+  "relationships": [
+    "PLAN_HAS_MINIMUM_ESSENTIAL_COVERAGE",
+    "PLAN_REQUIRES_PAYMENT",
+    "TAX_RETURN_REQUIRES_PAYMENT",
+    "EXEMPTION_EXEMPTS_PAYMENT"
+  ],
+  "attributes": {
+    "PLAN": {
+      "provides": "MINIMUM_ESSENTIAL_COVERAGE"
+    },
+    "MINIMUM_ESSENTIAL_COVERAGE": {
+      "required": "True"
+    },
+    "TAX_RETURN": {
+      "requires": "PAYMENT"
+    },
+    "EXEMPTION": {
+      "exempts": "PAYMENT"
+    }
+  }
+}

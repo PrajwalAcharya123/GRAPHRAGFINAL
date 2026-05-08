@@ -1,0 +1,39 @@
+{
+  "entities": [
+    "PHYSICIAN_SURGEON_FEES",
+    "OUTPATIENT_SURGERY",
+    "NETWORK",
+    "OUT_OF_NETWORK",
+    "PREAUTHORIZATION",
+    "ANESTHESIA"
+  ],
+  "relationships": [
+    "PHYSICIAN_SURGEON_FEES HAS_COINSURANCE NETWORK 20%",
+    "PHYSICIAN_SURGEON_FEES HAS_COINSURANCE OUT_OF_NETWORK 40%",
+    "PHYSICIAN_SURGEON_FEES HAS_LIMITATION PREAUTHORIZATION",
+    "PHYSICIAN_SURGEON_FEES REQUIRES PREAUTHORIZATION",
+    "OUTPATIENT_SURGERY HAS_SERVICE PHYSICIAN_SURGEON_FEES",
+    "PHYSICIAN_SURGEON_FEES HAS_COINSURANCE ANESTHESIA 50%",
+    "PREAUTHORIZATION NOT_COVERED 50% OF TOTAL COST"
+  ],
+  "attributes": {
+    "PHYSICIAN_SURGEON_FEES": {
+      "type": "benefit_service"
+    },
+    "OUTPATIENT_SURGERY": {
+      "type": "medical_event"
+    },
+    "NETWORK": {
+      "type": "network_cost"
+    },
+    "OUT_OF_NETWORK": {
+      "type": "out_of_network"
+    },
+    "PREAUTHORIZATION": {
+      "type": "limitation"
+    },
+    "ANESTHESIA": {
+      "type": "service"
+    }
+  }
+}

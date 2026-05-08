@@ -1,0 +1,27 @@
+{
+  "entities": [
+    "URGENT_CARE",
+    "MEDICAL_EVENT",
+    "NETWORK",
+    "OUT_OF_NETWORK"
+  ],
+  "relationships": [
+    "URGENT_CARE HAS_COPAY NETWORK",
+    "URGENT_CARE HAS_COINSURANCE OUT_OF_NETWORK",
+    "URGENT_CARE REQUIRES MEDICAL_EVENT"
+  ],
+  "attributes": {
+    "NETWORK": {
+      "COPAY": "$30"
+    },
+    "OUT_OF_NETWORK": {
+      "COINSURANCE": "40%"
+    },
+    "MEDICAL_EVENT": {
+      "DESCRIPTION": "If you need immediate medical attention"
+    },
+    "URGENT_CARE": {
+      "LIMITATIONS": "None"
+    }
+  }
+}

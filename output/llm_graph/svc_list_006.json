@@ -1,0 +1,25 @@
+{
+  "entities": [
+    "Long Term Care",
+    "Plan"
+  ],
+  "relationships": [
+    {
+      "source": "Plan",
+      "target": "Long Term Care",
+      "type": "NOT_COVERED"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "Long Term Care",
+      "attribute": "TYPE",
+      "value": "excluded_service"
+    },
+    {
+      "entity": "Plan",
+      "attribute": "SECTION",
+      "value": "Services Your Plan Generally Does NOT Cover"
+    }
+  ]
+}

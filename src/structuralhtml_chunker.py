@@ -253,141 +253,111 @@ def extract_important_questions(table):
         })
     return chunks
 
-# COVERAGE EXAMPLE ASSEMBLER
+
 def assemble_coverage_examples(soup):
     """
-    Robust extractor:
-    - Each <div> = one coverage example container
-    - No global state machine
-    - No cross-contamination between examples
+    Robust granular coverage examples parser.
     """
-
-    body = soup.find("body")
+    chunks = []
+    body = soup.find("body") or soup
     if not body:
-        return []
+        return chunks
 
-    examples = []
-
-    # ---------------------------------------------------
-    # 1. EACH DIV IS A SELF-CONTAINED EXAMPLE
-    # ---------------------------------------------------
-    for div in body.find_all("div", recursive=False):
-
-        headers = div.find_all(["h2", "h3"])
-        if not headers:
-            continue
-
-        name = None
-        subtitle = ""
-        plan_params = {}
-        services = []
-        total_cost = ""
-        cost_breakdown = {}
-        patient_total = ""
-
-        state = None  # params | services | breakdown
-
-        # ---------------------------------------------------
-        # 2. WALK INSIDE DIV IN ORDER
-        # ---------------------------------------------------
-        for el in div.descendants:
-
-            if not isinstance(el, Tag):
-                continue
-
-            text = clean(el.get_text(" ", strip=True))
-            low = text.lower()
-
-            # ---------------------------
-            # HEADERS
-            # ---------------------------
-            if el.name in ("h2", "h3"):
-
-                # Example name detection
-                if re.search(r"(peg|mia|joe)", text, re.I):
-                    name = text
-                    state = "params"
-                    continue
-
-                if "example includes" in low:
-                    state = "services"
-                    continue
-
-                if "would pay" in low:
-                    state = "breakdown"
-                    continue
-
-            # ---------------------------
-            # PARAGRAPHS
-            # ---------------------------
-            elif el.name == "p":
-                if not text:
-                    continue
-
-                if state == "params" and not subtitle:
-                    subtitle = text
-
-                elif state == "services":
-                    services.append(text)
-
-            # ---------------------------
-            # TABLES
-            # ---------------------------
-            elif el.name == "table":
-                rows = el.find_all("tr")
-
-                for row in rows:
-                    cells = row.find_all(["td", "th"])
-                    if len(cells) < 2:
-                        continue
-
-                    k = clean(cells[0].get_text(" ", strip=True))
-                    v = clean(cells[1].get_text(" ", strip=True))
-
-                    kl = k.lower()
-
-                    # -------------------
-                    # PLAN PARAMETERS
-                    # -------------------
-                    if state == "params":
-                        if k:
-                            plan_params[k] = v
-
-                    # -------------------
-                    # TOTAL COST
-                    # -------------------
-                    if "total example cost" in kl:
-                        total_cost = v
-
-                    # -------------------
-                    # BREAKDOWN
-                    # -------------------
-                    if state == "breakdown":
-
-                        if "total" in kl and "pay" in kl:
-                            patient_total = v
-                        else:
-                            cost_breakdown[k] = v
-
-        # ---------------------------------------------------
-        # 3. VALIDATION (avoid empty junk nodes)
-        # ---------------------------------------------------
-        if not name:
-            continue
-
-        examples.append({
-            "chunk_id": f"example_{len(examples):03d}",
-            "type": "coverage_example",
-            "name": name,
-            "subtitle": subtitle,
-            "plan_parameters": plan_params,
-            "included_services": services,
-            "total_cost": total_cost,
-            "cost_breakdown": cost_breakdown,
-            "patient_total": patient_total,
+    # 1. ABOUT SECTION
+    about_h2 = body.find("h2", string=re.compile(r"about these coverage examples", re.I))
+    if about_h2:
+        about_p = about_h2.find_next_sibling("p") or about_h2.find_next("p")
+        chunks.append({
+            "chunk_id": f"section_{len(chunks):03d}",
+            "type": "coverage_about",
+            "title": clean(about_h2.get_text()),
+            "content": clean(about_p.get_text(" ", strip=True) if about_p else ""),
         })
 
-    return examples
+    # 2. FIND ALL EXAMPLE BLOCKS (more flexible)
+    example_headings = body.find_all(["h3", "h2"], string=re.compile(r"(Peg|Joe|Mia)", re.I))
+
+    for heading in example_headings:
+        example_name = clean(heading.get_text())
+        
+        # Get the parent container (div or the heading itself)
+        container = heading.find_parent("div") or heading.parent
+
+        # Subtitle
+        subtitle_p = container.find("p", string=re.compile(r"\(.*\)")) if container else None
+        if subtitle_p:
+            chunks.append({
+                "chunk_id": f"example_{len(chunks):03d}",
+                "type": "coverage_subtitle",
+                "example_name": example_name,
+                "content": clean(subtitle_p.get_text()),
+            })
+
+        # Process ULs and Tables inside this container
+        for elem in (container.find_all(["table", "ul"]) if container else []):
+            if elem.name == "ul":
+                for li in elem.find_all("li"):
+                    svc = clean(li.get_text())
+                    if svc:
+                        chunks.append({
+                            "chunk_id": f"example_{len(chunks):03d}",
+                            "type": "coverage_service",
+                            "example_name": example_name,
+                            "service": svc,
+                            "raw": {"content": svc}
+                        })
+                continue
+
+            # Table rows
+            if elem.name == "table":
+                for row in elem.find_all("tr"):
+                    cells = row.find_all(["td", "th"])
+                    if len(cells) == 1:
+                        header = clean(cells[0].get_text())
+                        if header in ["Cost Sharing", "What isn’t covered"]:
+                            chunks.append({
+                                "chunk_id": f"example_{len(chunks):03d}",
+                                "type": "coverage_section_header",
+                                "example_name": example_name,
+                                "content": header,
+                            })
+                        continue
+
+                    if len(cells) >= 2:
+                        key = clean(cells[0].get_text())
+                        value = clean(cells[1].get_text())
+
+                        if not key:
+                            continue
+
+                        chunk_type = "coverage_parameter"
+                        if "total example cost" in key.lower():
+                            chunk_type = "coverage_total_cost"
+                        elif any(w in key.lower() for w in ["deductibles", "copayments", "coinsurance", 
+                                                          "limits or exclusions", "total", "would pay"]):
+                            chunk_type = "coverage_cost_sharing"
+
+                        chunks.append({
+                            "chunk_id": f"example_{len(chunks):03d}",
+                            "type": chunk_type,
+                            "example_name": example_name,
+                            "key": key,
+                            "value": value,
+                            "raw": {"col_0": key, "col_1": value}
+                        })
+
+    # 3. FOOTNOTE
+    for p in body.find_all("p"):
+        txt = clean(p.get_text())
+        if txt.lower().startswith("note:"):
+            chunks.append({
+                "chunk_id": f"footnote_{len(chunks):03d}",
+                "type": "footnote",
+                "content": txt,
+            })
+
+    return chunks
+
 def extract_service_lists(soup):
     chunks = []
 
@@ -484,7 +454,22 @@ def extract_service_lists(soup):
 
     return chunks
 
-# SECTION / PREAMBLE / FOOTNOTE CHUNKERS
+
+
+# def is_in_coverage_examples_region(tag, start_tag, end_tag):
+#     """Check if a tag is inside the coverage examples block."""
+#     if not start_tag or not end_tag:
+#         return False
+
+#     # Simple ancestor or positional check
+#     current = tag
+#     while current:
+#         if current == start_tag:
+#             return True
+#         if current == end_tag:
+#             return False
+#         current = current.parent
+#     return False
 
 _FOOTNOTE_RE = re.compile(
     r"^(note:|all copayment|this is only a summary|about these coverage|"
@@ -613,15 +598,18 @@ def chunk_html(input_html_path, output_path):
     chunks.extend(svc_chunks)
     print(f"  service_lists     : {len(svc_chunks)}")
 
-    # 5. Coverage examples (assembled from heading + multiple tables)
-    example_chunks = assemble_coverage_examples(soup)
-    chunks.extend(example_chunks)
-    print(f"  coverage_example  : {len(example_chunks)}")
-
     # 6. Prose sections + footnotes
     prose_chunks = extract_prose(soup)
     chunks.extend(prose_chunks)
     print(f"  prose/footnotes   : {len(prose_chunks)}")
+
+    # 5. Coverage examples (assembled from heading + multiple tables)
+    example_chunks = assemble_coverage_examples(soup)
+    chunks.extend(example_chunks)
+    print(f"  coverage_example  : {len(example_chunks)}")
+    # remove_processed_nodes(soup)
+
+    
 
     os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:

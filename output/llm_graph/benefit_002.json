@@ -1,0 +1,27 @@
+{
+  "entities": [
+    "PREVENTIVE_CARE",
+    "HEALTH_CARE_PROVIDER",
+    "NETWORK",
+    "OUT_OF_NETWORK",
+    "PLAN"
+  ],
+  "relationships": [
+    "PREVENTIVE_CARE HAS_COPAY No charge",
+    "OUT_OF_NETWORK HAS_COINSURANCE 40%",
+    "PREVENTIVE_CARE HAS_LIMITATION services that aren’t preventive",
+    "PLAN NOT_COVERED services that aren’t preventive",
+    "HEALTH_CARE_PROVIDER REQUIRES check with plan"
+  ],
+  "attributes": {
+    "NETWORK": {
+      "cost": "No charge"
+    },
+    "OUT_OF_NETWORK": {
+      "cost": "40% coinsurance"
+    },
+    "PREVENTIVE_CARE": {
+      "type": "screening/immunization"
+    }
+  }
+}

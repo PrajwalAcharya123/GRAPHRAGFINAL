@@ -1,0 +1,27 @@
+{
+  "entities": [
+    "PRIMARY_CARE_VISIT",
+    "IN_NETWORK",
+    "OUT_OF_NETWORK",
+    "MEDICAL_EVENT"
+  ],
+  "relationships": [
+    "PRIMARY_CARE_VISIT HAS_COPAY IN_NETWORK",
+    "PRIMARY_CARE_VISIT HAS_COINSURANCE IN_NETWORK",
+    "PRIMARY_CARE_VISIT HAS_COINSURANCE OUT_OF_NETWORK",
+    "MEDICAL_EVENT REQUIRES PRIMARY_CARE_VISIT"
+  ],
+  "attributes": {
+    "IN_NETWORK": {
+      "COPAY": "$35",
+      "COINSURANCE": "20%",
+      "DEDUCTIBLE": "NOT_APPLICABLE"
+    },
+    "OUT_OF_NETWORK": {
+      "COINSURANCE": "40%"
+    },
+    "PRIMARY_CARE_VISIT": {
+      "LIMITATIONS": "NONE"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "entities": [
+    "SERVICE",
+    "PLAN",
+    "POLICY_DOCUMENT",
+    "NON_EMERGENCY_CARE_OUTSIDE_US"
+  ],
+  "relationships": [
+    "NOT_COVERED"
+  ],
+  "attributes": {
+    "SERVICE": {
+      "type": "Non-emergency care outside the U.S."
+    },
+    "PLAN": {
+      "description": "Your Plan"
+    },
+    "POLICY_DOCUMENT": {
+      "description": "policy or plan document"
+    },
+    "NON_EMERGENCY_CARE_OUTSIDE_US": {
+      "description": "Non-emergency care outside the U.S."
+    }
+  }
+}

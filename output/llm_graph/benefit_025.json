@@ -1,0 +1,27 @@
+{
+  "entities": [
+    "Skilled_Nursing_Care",
+    "Recovery",
+    "Special_Health_Needs",
+    "Network",
+    "Out_of_Network"
+  ],
+  "relationships": [
+    "Skilled_Nursing_Care HAS_COINSURANCE Network",
+    "Skilled_Nursing_Care HAS_COINSURANCE Out_of_Network",
+    "Skilled_Nursing_Care HAS_LIMITATION 60 visits/calendar year",
+    "Recovery REQUIRES Skilled_Nursing_Care",
+    "Special_Health_Needs REQUIRES Skilled_Nursing_Care"
+  ],
+  "attributes": {
+    "Network": {
+      "coinsurance": "20%"
+    },
+    "Out_of_Network": {
+      "coinsurance": "40%"
+    },
+    "Skilled_Nursing_Care": {
+      "type": "benefit_service"
+    }
+  }
+}

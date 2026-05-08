@@ -1,0 +1,58 @@
+{
+  "entities": [
+    "POLICY",
+    "PLAN_DOCUMENT",
+    "EXCLUDED_SERVICES",
+    "COVERED_SERVICES",
+    "LIMITATIONS"
+  ],
+  "relationships": [
+    {
+      "source": "POLICY",
+      "target": "EXCLUDED_SERVICES",
+      "type": "NOT_COVERED"
+    },
+    {
+      "source": "POLICY",
+      "target": "COVERED_SERVICES",
+      "type": "HAS_LIMITATION"
+    },
+    {
+      "source": "PLAN_DOCUMENT",
+      "target": "EXCLUDED_SERVICES",
+      "type": "HAS_INFORMATION"
+    },
+    {
+      "source": "PLAN_DOCUMENT",
+      "target": "COVERED_SERVICES",
+      "type": "HAS_INFORMATION"
+    },
+    {
+      "source": "COVERED_SERVICES",
+      "target": "LIMITATIONS",
+      "type": "HAS_LIMITATION"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "POLICY",
+      "attribute": "TYPE",
+      "value": "HEALTH_INSURANCE"
+    },
+    {
+      "entity": "PLAN_DOCUMENT",
+      "attribute": "CONTENT",
+      "value": "EXCLUDED_SERVICES_LIST"
+    },
+    {
+      "entity": "EXCLUDED_SERVICES",
+      "attribute": "DESCRIPTION",
+      "value": "SERVICES_NOT_COVERED_BY_PLAN"
+    },
+    {
+      "entity": "COVERED_SERVICES",
+      "attribute": "DESCRIPTION",
+      "value": "SERVICES_COVERED_BY_PLAN_WITH_LIMITATIONS"
+    }
+  ]
+}

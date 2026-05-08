@@ -1,0 +1,20 @@
+{
+  "entities": [
+    "Network Provider",
+    "Insurance Cost"
+  ],
+  "relationships": [
+    [
+      "Network Provider",
+      "REDUCES",
+      "Insurance Cost"
+    ]
+  ],
+  "attributes": [
+    [
+      "Insurance Cost",
+      "comparison",
+      "lower"
+    ]
+  ]
+}

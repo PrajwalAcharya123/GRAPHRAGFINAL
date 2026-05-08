@@ -1,0 +1,27 @@
+{
+  "entities": [
+    "SPECIALIST_VISIT",
+    "HEALTH_CARE_PROVIDER",
+    "NETWORK",
+    "OUT_OF_NETWORK",
+    "PREAUTHORIZATION"
+  ],
+  "relationships": [
+    "SPECIALIST_VISIT HAS_COPAY NETWORK",
+    "SPECIALIST_VISIT HAS_COINSURANCE OUT_OF_NETWORK",
+    "SPECIALIST_VISIT REQUIRES PREAUTHORIZATION",
+    "FAILURE_TO_OBTAIN_PREAUTHORIZATION NOT_COVERED 50%_OF_TOTAL_COST",
+    "SPECIALIST_VISIT HAS_LIMITATION PREAUTHORIZATION"
+  ],
+  "attributes": {
+    "NETWORK": {
+      "COPAY": "$50/visit"
+    },
+    "OUT_OF_NETWORK": {
+      "COINSURANCE": "40%"
+    },
+    "PREAUTHORIZATION": {
+      "DESCRIPTION": "required for specialist visit"
+    }
+  }
+}

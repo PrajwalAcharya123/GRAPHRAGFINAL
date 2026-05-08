@@ -1,0 +1,31 @@
+{
+  "entities": [
+    "IMAGING_SERVICE",
+    "MEDICAL_EVENT",
+    "NETWORK_COST",
+    "OUT_OF_NETWORK",
+    "LIMITATIONS"
+  ],
+  "relationships": [
+    "IMAGING_SERVICE HAS_COPAY NETWORK_COST",
+    "IMAGING_SERVICE HAS_COINSURANCE OUT_OF_NETWORK",
+    "IMAGING_SERVICE REQUIRES MEDICAL_EVENT"
+  ],
+  "attributes": {
+    "NETWORK_COST": {
+      "amount": 50,
+      "type": "copay",
+      "per": "test"
+    },
+    "OUT_OF_NETWORK": {
+      "percentage": 40,
+      "type": "coinsurance"
+    },
+    "LIMITATIONS": {
+      "description": "None"
+    },
+    "MEDICAL_EVENT": {
+      "description": "If you have a test"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "entities": [
+    "CHIROPRACTIC_CARE",
+    "OTHER_COVERED_SERVICES",
+    "PLAN_DOCUMENT"
+  ],
+  "relationships": [
+    "OTHER_COVERED_SERVICES_HAS_SERVICE",
+    "CHIROPRACTIC_CARE_HAS_LIMITATION"
+  ],
+  "attributes": {
+    "CHIROPRACTIC_CARE": {
+      "TYPE": "OTHER_COVERED_SERVICE"
+    },
+    "OTHER_COVERED_SERVICES": {
+      "DESCRIPTION": "Limitations may apply to these services. This isn't a complete list."
+    },
+    "PLAN_DOCUMENT": {
+      "PURPOSE": "COMPLETE_LIST_OF_COVERED_SERVICES"
+    }
+  }
+}

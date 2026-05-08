@@ -1,0 +1,20 @@
+{
+  "entities": [
+    "Out-of-Pocket Limit",
+    "Excluded Costs"
+  ],
+  "relationships": [
+    [
+      "Out-of-Pocket Limit",
+      "EXCLUDES",
+      "Excluded Costs"
+    ]
+  ],
+  "attributes": [
+    [
+      "Excluded Costs",
+      "type",
+      "Copayments, Premiums, Balance Bills"
+    ]
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "entities": [
+    "DIAGNOSTIC_TEST",
+    "NETWORK",
+    "OUT_OF_NETWORK",
+    "MEDICAL_EVENT"
+  ],
+  "relationships": [
+    "DIAGNOSTIC_TEST HAS_COPAY NETWORK",
+    "DIAGNOSTIC_TEST HAS_COINSURANCE OUT_OF_NETWORK",
+    "DIAGNOSTIC_TEST REQUIRES MEDICAL_EVENT",
+    "NETWORK HAS_LIMITATION NONE"
+  ],
+  "attributes": {
+    "DIAGNOSTIC_TEST": {
+      "COPAY": "$10",
+      "COINSURANCE": "40%"
+    },
+    "NETWORK": {
+      "COPAY": "$10"
+    },
+    "OUT_OF_NETWORK": {
+      "COINSURANCE": "40%"
+    },
+    "MEDICAL_EVENT": {
+      "DESCRIPTION": "If you have a test"
+    }
+  }
+}

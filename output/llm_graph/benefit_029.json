@@ -1,0 +1,25 @@
+{
+  "entities": [
+    "CHILDREN_GLASSES",
+    "DENTAL_CARE",
+    "EYE_CARE",
+    "NETWORK_COST",
+    "OUT_OF_NETWORK",
+    "COVERAGE_LIMIT"
+  ],
+  "relationships": [
+    "CHILDREN_GLASSES HAS_COINSURANCE NETWORK_COST",
+    "CHILDREN_GLASSES REQUIRES EYE_CARE",
+    "CHILDREN_GLASSES REQUIRES DENTAL_CARE",
+    "OUT_OF_NETWORK NOT_COVERED CHILDREN_GLASSES",
+    "CHILDREN_GLASSES HAS_LIMITATION COVERAGE_LIMIT"
+  ],
+  "attributes": {
+    "NETWORK_COST": {
+      "value": "20% coinsurance"
+    },
+    "COVERAGE_LIMIT": {
+      "value": "one pair of glasses/year"
+    }
+  }
+}

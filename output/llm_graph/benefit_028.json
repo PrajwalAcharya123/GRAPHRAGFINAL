@@ -1,0 +1,18 @@
+{
+  "entities": [
+    "CHILDREN_EYE_EXAM",
+    "NETWORK",
+    "OUT_OF_NETWORK",
+    "DENTAL_OR_EYE_CARE"
+  ],
+  "relationships": [
+    "CHILDREN_EYE_EXAM HAS_COPAY NETWORK",
+    "CHILDREN_EYE_EXAM NOT_COVERED OUT_OF_NETWORK",
+    "CHILDREN_EYE_EXAM HAS_LIMITATION one exam/year",
+    "DENTAL_OR_EYE_CARE REQUIRES CHILDREN_EYE_EXAM"
+  ],
+  "attributes": {
+    "COPAY": "$35/visit",
+    "LIMITATION": "one exam/year"
+  }
+}

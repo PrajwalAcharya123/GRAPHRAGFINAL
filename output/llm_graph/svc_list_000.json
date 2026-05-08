@@ -1,0 +1,25 @@
+{
+  "entities": [
+    "Cosmetic Surgery",
+    "Plan"
+  ],
+  "relationships": [
+    {
+      "source": "Plan",
+      "target": "Cosmetic Surgery",
+      "type": "NOT_COVERED"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "Cosmetic Surgery",
+      "attribute": "TYPE",
+      "value": "excluded_service"
+    },
+    {
+      "entity": "Plan",
+      "attribute": "SECTION",
+      "value": "Services Your Plan Generally Does NOT Cover"
+    }
+  ]
+}

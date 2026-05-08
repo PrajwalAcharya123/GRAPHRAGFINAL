@@ -1,0 +1,25 @@
+{
+  "entities": [
+    "PRIVATE_DUTY_NURSING",
+    "PLAN"
+  ],
+  "relationships": [
+    {
+      "source": "PLAN",
+      "target": "PRIVATE_DUTY_NURSING",
+      "type": "NOT_COVERED"
+    }
+  ],
+  "attributes": [
+    {
+      "entity": "PRIVATE_DUTY_NURSING",
+      "attribute": "TYPE",
+      "value": "EXCLUDED_SERVICE"
+    },
+    {
+      "entity": "PLAN",
+      "attribute": "SECTION",
+      "value": "SERVICES_YOUR_PLAN_GENERALLY_DOES_NOT_COVER"
+    }
+  ]
+}
