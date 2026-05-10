@@ -394,6 +394,7 @@ WHERE toLower(q.value) CONTAINS toLower("<keyword>")
 OPTIONAL MATCH (s)-[:INCLUDES_SERVICE]->(svc)
 WITH s, q, COALESCE(svc, s) AS target
 
+OPTIONAL MATCH (s)-[r]->(v)
 OPTIONAL MATCH (target)-[:VALUE]->(v:Value)
 
 OPTIONAL MATCH (target)-[:HAS_NETWORK_COST]->(net)
@@ -434,6 +435,7 @@ SPECIALIZED PATTERNS
 ----------------------------------
 
 ### 1. COPAY/COINSURANCE QUESTIONS
+
 MATCH (s:Entity)
 WHERE toLower(s.name) CONTAINS toLower("<keyword>")
 
@@ -465,6 +467,7 @@ RETURN
 
     oon_copay_val.value AS out_of_network_copay,
     oon_coin_val.value AS out_of_network_coinsurance
+
 ----------------------------------
 
 ### 2. DEDUCTIBLE
@@ -483,27 +486,13 @@ RETURN
     e.network_cost AS network_cost,
     e.out_of_network_cost AS out_of_network_cost
 ORDER BY relationship
-------------------------------------------
-### 3. OUT OF POCKET LIMIT
-MATCH (s:Entity)
-WHERE s.name = toLower(k)
+-----------------------------------------------
+### 3. OUT OF POCKET LIMIT / OUT OF POCKET EXCLUSION 
 
-OPTIONAL MATCH (s)-[:VALUE]->(v:Value)
-
-RETURN 
-    s.name AS entity,
-    "VALUE" AS relationship,
-    v.value AS result
-------------------------------------------------
-### 4. Out-of-pocket exclusion
-MATCH (e:Entity)
-WHERE toLower(e.name) = "out-of-pocket exclusions"
-
-OPTIONAL MATCH (e)-[:VALUE]->(v:Value)
-
-RETURN 
-    e.name AS entity,
-    v.value AS out_of_pocket_exclusion
+MATCH (e:Entity)-[:QUESTION]->(q:Value)
+WHERE q.value CONTAINS "<keyword>"
+MATCH (e)-[r]->(v)
+RETURN e, q, r, v
 -------------------------------------------------
 ### 5. LIMITATIONS
 
@@ -550,7 +539,12 @@ RETURN
     "EXCLUDES_SERVICE" AS relationship,
     s.name AS result
 ORDER BY s.name
-
+----------------------------------
+#### 8. MINIMUM VALUE STANDARDS / MINIMUM ESSENTIAL COVERAGE
+MATCH (e:Entity)-[:TITLE]->(t:Value)
+WHERE toLower(t.value) CONTAINS toLower("<keyword>")
+MATCH (e)-[r]->(v)
+RETURN e, t, v, type(r) AS relationship
 -----------------------------------
 
 ### 8. OTHER COVERED SERVICES
@@ -561,96 +555,84 @@ RETURN
 
 --------------------------------------
 
-### 9. RIGHTS
-MATCH (p:Entity)
-      -[r]->
-      (g:Entity)
-WHERE toLower(g.name) CONTAINS toLower("<keyword>")
-
-OPTIONAL MATCH (g)-[:SUMMARY]->(s:Value)
-
-RETURN
-    p.name AS plan,
-    type(r) AS relationship,
-    g.name AS section,
-    s.value AS summary
-ORDER BY s.value IS NULL
+### 9. RIGHTS / LANGUAGE 
+MATCH (e:Entity)-[:TITLE]->(t:Value)
+WHERE toLower(t.value) CONTAINS toLower("<keyword>")
+MATCH (e)-[r]->(v)
+RETURN e, t, v, type(r) AS relationship
 --------------------------------------------
 
-### 12. MINIMUM ESSENTIAL COVERAGE / MINIMUM VALUE STANDARDS
-MATCH (p:Entity)
-      -[r]->
-      (g:Entity)
-WHERE toLower(g.name) CONTAINS toLower("<keyword>")
 
-OPTIONAL MATCH (g)-[:SUMMARY]->(s:Value)
+### 10. COVERAGE EXAMPLES
+
+MATCH (p:Entity)-[:HAS_COVERAGE_EXAMPLE|EXAMPLE_NAME|COVERS_SERVICE|HAS_DEDUCTIBLE]->(example:Entity)
+
+WITH toLower($keyword) AS kw
+
+MATCH (v:Value)
+WHERE toLower(v.value) CONTAINS kw
+
+MATCH (example:Entity)-[:TITLE|EXAMPLE_NAME|DESCRIPTION]->(v)
+
+WITH DISTINCT example
+
+OPTIONAL MATCH (example)-[:TITLE]->(title:Value)
+OPTIONAL MATCH (example)-[:DESCRIPTION]->(desc:Value)
+OPTIONAL MATCH (example)-[:SERVICE_TYPE]->(stype:Value)
+
+OPTIONAL MATCH (example)-[:INCLUDES_SERVICE]->(service:Entity)
+
+OPTIONAL MATCH (example)-[:HAS_PARAMETER]->(param:Entity)
+OPTIONAL MATCH (param)-[:KEY]->(k:Value)
+OPTIONAL MATCH (param)-[:VALUE]->(v:Value)
+
+OPTIONAL MATCH (example)-[:AMOUNT]->(amount_val:Value)
+
+OPTIONAL MATCH (example)-[:HAS_TOTAL_COST]->(total:Entity)
+OPTIONAL MATCH (total)-[:AMOUNT]->(total_amount:Value)
+
+OPTIONAL MATCH (example)-[:TOTAL_YOU_PAY]->(pay:Entity)
+OPTIONAL MATCH (pay)-[:VALUE]->(pay_val:Value)
+
+OPTIONAL MATCH (example)-[:NOT_COVERED]->(notcov:Entity)
+OPTIONAL MATCH (notcov)-[:VALUE]->(notcov_val:Value)
+
+OPTIONAL MATCH (example)-[r]->(related)
+OPTIONAL MATCH (related)-[:KEY]->(related_key:Value)
+OPTIONAL MATCH (related)-[:VALUE]->(related_value:Value)
+OPTIONAL MATCH (related)-[:AMOUNT]->(related_amount:Value)
 
 RETURN
-    p.name AS plan,
-    type(r) AS relationship,
-    g.name AS section,
-    s.value AS summary
-ORDER BY s.value IS NULL
+    example.name AS coverage_example,
+    title.value AS title,
+    desc.value AS description,
+    stype.value AS service_type,
+
+
+    collect(service.name) AS included_services,
+
+    collect({{
+        parameter: k.value,
+        value: v.value
+    }}) AS parameters,
+
+    collect({{
+        item: notcov.name,
+        amount: notcov_val.value
+    }}) AS not_covered,
+
+    total_amount.value AS total_example_cost,
+
+    pay_val.value AS total_you_pay
 ------------------------------------------------
 
 ### 11. IMPORTANT QUESTIONS
-MATCH (s:Entity)-[:QUESTION]->(q:Value)
-WHERE toLower(q.name) CONTAINS toLower("<keyword")
+MATCH (e:Entity)-[:QUESTION]->(q:Value)
+WHERE q.value CONTAINS "covered before you meet your deductible"
+MATCH (e)-[r]->(v)
+RETURN e, q, r, v
 
-OPTIONAL MATCH (s)-[:INCLUDES_SERVICE]->(svc)
-WITH s, COALESCE(svc, s) AS target
-
-OPTIONAL MATCH (target)-[:HAS_NETWORK_COST]->(net)
-
-OPTIONAL MATCH (net)-[:HAS_COPAY]->(net_copay)
-OPTIONAL MATCH (net_copay)-[:COPAY_VALUE]->(net_copay_val)
-
-OPTIONAL MATCH (net)-[:HAS_COINSURANCE]->(net_coin)
-OPTIONAL MATCH (net_coin)-[:COINSURANCE_VALUE]->(net_coin_val)
-
-OPTIONAL MATCH (target)-[:HAS_OUT_OF_NETWORK_COST]->(oon)
-
-OPTIONAL MATCH (oon)-[:HAS_COPAY]->(oon_copay)
-OPTIONAL MATCH (oon_copay)-[:COPAY_VALUE]->(oon_copay_val)
-
-OPTIONAL MATCH (oon)-[:HAS_COINSURANCE]->(oon_coin)
-OPTIONAL MATCH (oon_coin)-[:COINSURANCE_VALUE]->(oon_coin_val)
-
-RETURN 
-    s.name AS matched_entity,
-    target.name AS service,
-
-    net_copay_val.value AS network_copay,
-    net_coin_val.value AS network_coinsurance,
-
-    oon_copay_val.value AS out_of_network_copay,
-    oon_coin_val.value AS out_of_network_coinsurance
-
---------------------------------------------------
-
-### 12. COVERAGE EXAMPLES for Questions mentioning Peg, Joe or Mia.
-
-MATCH (root:Entity)
-      -[:HAS_SCENARIO]->(scenario:Entity)
-WHERE root.name = "Coverage Example Scenarios"
-
-
-WHERE
-    toLower(scenario.name) CONTAINS toLower($scenario)
-    OR toLower(scenario.display_name) CONTAINS toLower($scenario)
-
-OPTIONAL MATCH (scenario)-[r]->(node:Entity)
-
-WHERE
-    $relationship IS NULL
-    OR type(r) = $relationship
-
-RETURN
-    scenario.name AS scenario,
-    type(r) AS relationship,
-    node.name AS node,
-    node.description AS description,
-    node.amount AS amount
+----------------------------------------------------
 
 ### 13. GENERAL FALLBACK
 
@@ -672,7 +654,7 @@ ORDER BY entity
 Q: What is the overall deductible?
 A:
 MATCH (e:Entity)
-WHERE e.name = "Overall Deductible"
+WHERE e.name = "deductible"
 
 OPTIONAL MATCH (e)-[r:VALUE]->(v)
 
@@ -681,48 +663,21 @@ RETURN
     type(r) AS relationship,
     v.result AS value,
 
-
-Q: What is not included in the out-of-pocket limit?
-A:
-MATCH (s:Entity)
-WHERE s.name = "Out-of-Pocket Exclusions"
-
-OPTIONAL MATCH (s)-[:VALUE]->(v:Value)
-
-RETURN 
-    s.name AS entity,
-    "VALUE" AS relationship,
-    v.value AS result
-
-
 Q: Will you pay less if you use a network provider?
 A:
-MATCH (s:Entity)-[:QUESTION]->(q:Value)
-WHERE toLower(q.value) CONTAINS toLower("<keyword>")
+MATCH (e:Entity)-[:QUESTION]->(q:Value)
+WHERE q.value CONTAINS "<keyword>"
+MATCH (e)-[r]->(v)
+RETURN e, q, r, v
 
-OPTIONAL MATCH (s)-[:VALUE]->(v:Value)
-
-
-RETURN 
-    s.name AS entity,
-    "QUESTION_MATCH" AS relationship,
-    v.value AS result
-
-Q: Does this plan provide minimum essential coverage?
+Q: Do you need a referral to see a specialist?
 A:
-MATCH (p:Entity)
-      -[r]->
-      (g:Entity)
-WHERE toLower(g.name) CONTAINS toLower("<keyword>")
+MATCH (e:Entity)-[:QUESTION]->(q:Value)
+WHERE q.value CONTAINS "<keyword>"
+MATCH (e)-[r]->(v)
+RETURN e, q, r, v
 
-OPTIONAL MATCH (g)-[:SUMMARY]->(s:Value)
-
-RETURN
-    p.name AS plan,
-    type(r) AS relationship,
-    g.name AS section,
-    s.value AS summary
-ORDER BY s.value IS NULL
+Q: What is the limit amount for peg? 
 
 Q: What are the other covered services?
 A:
@@ -730,6 +685,8 @@ MATCH (p:Entity)-[:COVERS_SERVICE]->(s:Entity)
 RETURN 
     p.name AS healthplan,
     s.name AS covered_service
+
+
 ------------------------------------
 
 QUESTION:

@@ -491,8 +491,20 @@ UPGRADE PRINCIPLES:
 """
 from __future__ import annotations
 from typing import Any
+import json
+import os 
+import requests 
+from typing import Any, Set, List, Tuple
+from collections import defaultdict
+from dotenv import load_dotenv
+load_dotenv()
 import re
 PLAN_NODE = "HealthPlan"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+if not OPENROUTER_API_KEY:
+    print(" WARNING: OPENROUTER_API_KEY is not set!")
+
+OPENROUTER_MODEL = "meta-llama/llama-3.1-70b-instruct"
 # ─────────────────────────────
 # helpers
 # ─────────────────────────────
@@ -518,6 +530,10 @@ def _add_attr(A, entity, key, value):
         return
     A.append((entity, key, v))
 
+def _clean_name(text: str, max_len: int = 90) -> str:
+    text = re.sub(r'\s+', ' ', text.strip())
+    return text[:max_len] if len(text) <= max_len else text[:max_len] + "..."
+
 def extract_copay_value(text):
     if not text:
         return None
@@ -531,6 +547,74 @@ def extract_coinsurance_value(text):
 
     match = re.search(r"\d+\s*%", text)
     return match.group(0).replace(" ", "") if match else None
+
+def llm_enrich_chunk(chunk: dict, context: str="") -> tuple[str, str, dict]:
+    """
+    Uses OpenRouter to intelligently generate entity name and relationship.
+    """
+    chunk_type = chunk.get("type", "unknown")
+    content = json.dumps({k: v for k, v in chunk.items() if k not in ["raw", "chunk_id"]}, 
+                        indent=2, default=str)
+
+    prompt = f"""You are an expert Knowledge Graph engineer for health insurance documents.
+
+Context: {context if context else 'General chunk from Summary of Benefits'}
+
+Given this chunk from a Summary of Benefits and Coverage (SBC), suggest the best:
+1. entity_name → Short, meaningful, natural name (max 80 chars)
+2. relationship → Best relationship type from HealthPlan → Entity (UPPER_SNAKE_CASE)
+3. attributes → Important key-value metadata
+
+Chunk Type: {chunk_type}
+Content:
+{content}
+
+Respond with valid JSON only:
+{{
+  "entity_name": "Best Entity Name",
+  "relationship": "HAS_DEDUCTIBLE",
+  "attributes": {{ "key1": "value1", ... }}
+}}
+"""
+
+    try:
+        response = requests.post(
+            url="https://openrouter.ai/api/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+                "HTTP-Referer": "https://yourapp.com",   # Optional but recommended
+                "X-Title": "HealthPlan Graph Builder",
+            },
+            json={
+                "model": OPENROUTER_MODEL,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.1,
+                "max_tokens": 1000,
+                "response_format": {"type": "json_object"}
+            },
+            timeout=30
+        )
+
+        response.raise_for_status()
+        result = response.json()["choices"][0]["message"]["content"]
+        parsed = json.loads(result)
+
+        entity_name = parsed.get("entity_name") or _clean_name(
+            str(chunk.get("question") or chunk.get("title") or chunk.get("service") or "Entity")
+        )
+        relationship = parsed.get("relationship") or f"HAS_{chunk_type.upper().replace('-', '_')}"
+        attributes = parsed.get("attributes") or {}
+
+        return entity_name, relationship, attributes
+
+
+    except json.JSONDecodeError:
+        print("JSON Decode Error from OpenRouter (bad response)")
+        return _get_fallback(chunk)
+    except Exception as e:
+        print(f"OpenRouter Error: {e}")
+        return _get_fallback(chunk)
+
 # ─────────────────────────────
 # PLAN METADATA
 # ─────────────────────────────
@@ -554,62 +638,80 @@ def _plan_metadata(chunk, E, R, A):
 # _add_attr(A, node, "question", q)
 # _add_attr(A, node, "answer", chunk.get("answer"))
 # _add_attr(A, node, "why_it_matters", chunk.get("why_it_matters"))
+# def _important_question(chunk, E, R, A):
+#     question = _s(chunk.get("question"))
+#     answer = _s(chunk.get("answer"))
+#     why_it_matters = _s(chunk.get("why_it_matters"))
+   
+#     if not question or not answer:
+#         return
+#     E.add(PLAN_NODE)
+#     q_lower = question.lower().strip()
+#     # ── Smart Semantic Mapping ──
+#     if "overall deductible" in q_lower:
+#         entity_name = "Overall Deductible"
+#         _add(E, R, PLAN_NODE, "HAS_DEDUCTIBLE", entity_name)
+#     elif "services covered before" in q_lower or "before you meet your deductible" in q_lower:
+#         entity_name = "Services Before Deductible"
+#         _add(E, R, PLAN_NODE, "COVERS_BEFORE_DEDUCTIBLE", entity_name)
+#     elif "other deductibles for specific services" in q_lower:
+#         entity_name = "Service Specific Deductibles"
+#         _add(E, R, PLAN_NODE, "HAS_SERVICE_SPECIFIC_DEDUCTIBLE", entity_name)
+#     elif "out-of-pocket limit" in q_lower and "not included" not in q_lower:
+#         entity_name = "Out-of-Pocket Limit"
+#         _add(E, R, PLAN_NODE, "HAS_OUT_OF_POCKET_LIMIT", entity_name)
+#     elif "not included in the out-of-pocket limit" in q_lower:
+#         entity_name = "Out-of-Pocket Exclusions"
+#         _add(E, R, PLAN_NODE, "HAS_OUT_OF_POCKET_EXCLUSIONS", entity_name)
+#     elif "will you pay less if you use a network provider" in q_lower or "network provider" in q_lower:
+#         entity_name = "Network Provider Benefit"
+#         _add(E, R, PLAN_NODE, "HAS_NETWORK_ADVANTAGE", entity_name)
+#     elif "referral to see a specialist" in q_lower or "need a referral" in q_lower:
+#         entity_name = "Specialist Referral Requirement"
+#         _add(E, R, PLAN_NODE, "REQUIRES_REFERRAL", entity_name)
+#     else:
+#         # Smart fallback
+#         words = [w for w in question.split()
+#                  if w.lower() not in ['what', 'is', 'are', 'the', 'for', 'this', 'plan', 'do', 'you', '?']]
+#         entity_name = " ".join(words[:7]).strip().title()
+#         if len(entity_name) > 60:
+#             entity_name = entity_name[:60]
+       
+#         rel_type = "HAS_INFO"
+#         if "deductible" in q_lower:
+#             rel_type = "HAS_DEDUCTIBLE"
+#         elif "limit" in q_lower:
+#             rel_type = "HAS_LIMIT"
+#         elif "covered" in q_lower:
+#             rel_type = "COVERS"
+       
+#         _add(E, R, PLAN_NODE, rel_type, entity_name)
+#     # === Store clean, useful attributes ===
+#     _add_attr(A, entity_name, "value", answer)
+   
+#     if why_it_matters:
+#         _add_attr(A, entity_name, "why_it_matters", why_it_matters)
+#     # Optional: Store a short version of the original question for reference
+#     short_question = question[:150] + "..." if len(question) > 150 else question
+#     _add_attr(A, entity_name, "question", short_question)
+
 def _important_question(chunk, E, R, A):
     question = _s(chunk.get("question"))
-    answer = _s(chunk.get("answer"))
-    why_it_matters = _s(chunk.get("why_it_matters"))
-   
-    if not question or not answer:
+    if not question:
         return
     E.add(PLAN_NODE)
-    q_lower = question.lower().strip()
-    # ── Smart Semantic Mapping ──
-    if "overall deductible" in q_lower:
-        entity_name = "Overall Deductible"
-        _add(E, R, PLAN_NODE, "HAS_DEDUCTIBLE", entity_name)
-    elif "services covered before" in q_lower or "before you meet your deductible" in q_lower:
-        entity_name = "Services Before Deductible"
-        _add(E, R, PLAN_NODE, "COVERS_BEFORE_DEDUCTIBLE", entity_name)
-    elif "other deductibles for specific services" in q_lower:
-        entity_name = "Service Specific Deductibles"
-        _add(E, R, PLAN_NODE, "HAS_SERVICE_SPECIFIC_DEDUCTIBLE", entity_name)
-    elif "out-of-pocket limit" in q_lower and "not included" not in q_lower:
-        entity_name = "Out-of-Pocket Limit"
-        _add(E, R, PLAN_NODE, "HAS_OUT_OF_POCKET_LIMIT", entity_name)
-    elif "not included in the out-of-pocket limit" in q_lower:
-        entity_name = "Out-of-Pocket Exclusions"
-        _add(E, R, PLAN_NODE, "HAS_OUT_OF_POCKET_EXCLUSIONS", entity_name)
-    elif "will you pay less if you use a network provider" in q_lower or "network provider" in q_lower:
-        entity_name = "Network Provider Benefit"
-        _add(E, R, PLAN_NODE, "HAS_NETWORK_ADVANTAGE", entity_name)
-    elif "referral to see a specialist" in q_lower or "need a referral" in q_lower:
-        entity_name = "Specialist Referral Requirement"
-        _add(E, R, PLAN_NODE, "REQUIRES_REFERRAL", entity_name)
-    else:
-        # Smart fallback
-        words = [w for w in question.split()
-                 if w.lower() not in ['what', 'is', 'are', 'the', 'for', 'this', 'plan', 'do', 'you', '?']]
-        entity_name = " ".join(words[:7]).strip().title()
-        if len(entity_name) > 60:
-            entity_name = entity_name[:60]
-       
-        rel_type = "HAS_INFO"
-        if "deductible" in q_lower:
-            rel_type = "HAS_DEDUCTIBLE"
-        elif "limit" in q_lower:
-            rel_type = "HAS_LIMIT"
-        elif "covered" in q_lower:
-            rel_type = "COVERS"
-       
-        _add(E, R, PLAN_NODE, rel_type, entity_name)
-    # === Store clean, useful attributes ===
-    _add_attr(A, entity_name, "value", answer)
-   
-    if why_it_matters:
-        _add_attr(A, entity_name, "why_it_matters", why_it_matters)
-    # Optional: Store a short version of the original question for reference
-    short_question = question[:150] + "..." if len(question) > 150 else question
-    _add_attr(A, entity_name, "question", short_question)
+    entity, rel, attrs = llm_enrich_chunk(chunk)
+    _add(E, R, PLAN_NODE, rel, entity)
+
+    _add_attr(A, entity, "type", "ImportantQuestion")
+    _add_attr(A, entity, "question", question)
+    # _add_attr(A, entity, "answer", _s(chunk.get("answer")))
+    _add_attr(A, entity, "why_it_matters", _s(chunk.get("why_it_matters")))
+    
+    for k, v in attrs.items():
+        _add_attr(A, entity, k, v)
+    # _add_attr(A, entity, "chunk_id", chunk.get("chunk_id"))
+
 # BENEFIT SERVICE
 import re
 # def parse_cost_string(cost_str: str) -> dict:
@@ -784,399 +886,189 @@ def _other_covered_service(chunk, E, R, A):
         _add(E, R, PLAN_NODE, "COVERS_SERVICE", svc)
 
 # COVERAGE EXAMPLES 
-def _coverage_example(all_chunks, E, R, A):
+def _coverage_example(chunk, E, R, A, example_cache: dict):
     """
-    Builds a rich semantic graph from normalized coverage example chunks.
-    Preserves:
-    - scenario identity
-    - subtitles
-    - services
-    - plan parameters
-    - total costs
-    - patient responsibility
-    - section headers
-    - exclusions
-    - cost-sharing structure
+    LLM-first handler for coverage examples.
+    - Uses LLM to name the main scenario node (just like important_question)
+    - Groups all related chunks by example_name
+    - Stores rich attributes for easy querying
     """
-    E.add(PLAN_NODE)
-    # ---------------------------------------------------
-    # ROOT GROUP
-    # ---------------------------------------------------
-    root = "Coverage Example Scenarios"
-    _add(
-        E,
-        R,
-        PLAN_NODE,
-        "INCLUDES_COVERAGE_EXAMPLES",
-        root
-    )
-    current_example = None
-    current_section = None
-    processed = set()
-    # ---------------------------------------------------
-    # SCENARIO MAPPER
-    # ---------------------------------------------------
-    def map_scenario(name):
-        low = name.lower()
-        if any(x in low for x in ["peg", "baby", "pregnancy", "childbirth"]):
-            return (
-                "Pregnancy & Childbirth Scenario",
-                "MATERNITY"
-            )
-        elif any(x in low for x in ["joe", "diabetes"]):
-            return (
-                "Chronic Disease Management Scenario",
-                "CHRONIC_CARE"
-            )
-        elif any(x in low for x in ["mia", "fracture", "emergency"]):
-            return (
-                "Emergency Care Scenario",
-                "EMERGENCY_CARE"
-            )
-        return (name, "GENERAL")
-    # ---------------------------------------------------
-    # MAIN LOOP
-    # ---------------------------------------------------
-    for chunk in all_chunks:
-        if not isinstance(chunk, dict):
-            continue
-        ctype = chunk.get("type", "")
-        # =================================================
-        # ABOUT SECTION
-        # =================================================
-        if ctype == "coverage_about":
-            txt = _s(chunk.get("content"))
-            if txt:
-                _add_attr(
-                    A,
-                    root,
-                    "about_coverage_examples",
-                    txt
-                )
-            continue
-        # =================================================
-        # FOOTNOTE
-        # =================================================
-        if ctype == "footnote":
-            txt = _s(chunk.get("content"))
-            if txt:
-                foot = "Coverage Example Footnote"
-                _add(E, R, root, "HAS_FOOTNOTE", foot)
-                _add_attr(A, foot, "text", txt)
-            continue
-        # =================================================
-        # SCENARIO DETECTION
-        # =================================================
-        ex_name = _s(chunk.get("example_name"))
-        if ex_name:
-            scenario, category = map_scenario(ex_name)
-            if current_example != scenario:
-                current_example = scenario
-                current_section = None
-                if scenario not in processed:
-                    processed.add(scenario)
-                    _add(
-                        E,
-                        R,
-                        root,
-                        "HAS_SCENARIO",
-                        scenario
-                    )
-                    _add_attr(
-                        A,
-                        scenario,
-                        "category",
-                        category
-                    )
-                    _add_attr(
-                        A,
-                        scenario,
-                        "display_name",
-                        ex_name
-                    )
-        if not current_example:
-            continue
-        # =================================================
-        # SUBTITLE
-        # =================================================
-        if ctype == "coverage_subtitle":
-            subtitle = _s(chunk.get("content"))
-            if subtitle:
-                _add_attr(
-                    A,
-                    current_example,
-                    "description",
-                    subtitle
-                )
-            continue
-        # =================================================
-        # SECTION HEADERS
-        # =================================================
-        if ctype == "coverage_section_header":
-            section_name = _s(chunk.get("content"))
-            if not section_name:
-                continue
-            current_section = (
-                f"{current_example} | {section_name}"
-            )
-            _add(
-                E,
-                R,
-                current_example,
-                "HAS_SECTION",
-                current_section
-            )
-            _add_attr(
-                A,
-                current_section,
-                "title",
-                section_name
-            )
-            continue
-        # =================================================
-        # SERVICES
-        # =================================================
-        if ctype == "coverage_service":
-            svc = _s(chunk.get("service"))
-            if not svc:
-                continue
-            service_node = svc
-            _add(
-                E,
-                R,
-                current_example,
-                "COVERS_SERVICE",
-                service_node
-            )
-            # Optional semantic typing
-            low = svc.lower()
-            if "diagnostic" in low:
-                _add(
-                    E,
-                    R,
-                    service_node,
-                    "SERVICE_CATEGORY",
-                    "Diagnostic Services"
-                )
-            elif "emergency" in low:
-                _add(
-                    E,
-                    R,
-                    service_node,
-                    "SERVICE_CATEGORY",
-                    "Emergency Services"
-                )
-            elif "prescription" in low:
-                _add(
-                    E,
-                    R,
-                    service_node,
-                    "SERVICE_CATEGORY",
-                    "Prescription Drug Coverage"
-                )
-            elif "rehabilitation" in low:
-                _add(
-                    E,
-                    R,
-                    service_node,
-                    "SERVICE_CATEGORY",
-                    "Rehabilitation Services"
-                )
-            continue
-        # =================================================
-        # TOTAL COST
-        # =================================================
-        if ctype == "coverage_total_cost":
-            val = _s(chunk.get("value"))
-            if val:
-                total_node = (
-                    f"{current_example} | Total Example Cost"
-                )
-                _add(
-                    E,
-                    R,
-                    current_example,
-                    "HAS_TOTAL_EXAMPLE_COST",
-                    total_node
-                )
-                _add_attr(
-                    A,
-                    total_node,
-                    "amount",
-                    val
-                )
-            continue
-        # =================================================
-        # PARAMETERS + COST SHARING
-        # =================================================
-        if ctype in (
-            "coverage_parameter",
-            "coverage_cost_sharing"
-        ):
-            key = _s(chunk.get("key"))
-            val = _s(chunk.get("value"))
-            if not key or not val:
-                continue
-            low = key.lower()
-            component = (
-                f"{current_example} | {key}"
-            )
-            # --------------------------------------------
-            # RELATION TYPE
-            # --------------------------------------------
-            if "deductible" in low:
-                rel = "HAS_DEDUCTIBLE"
-            elif "copay" in low:
-                rel = "HAS_COPAYMENT"
-            elif "coinsurance" in low:
-                rel = "HAS_COINSURANCE"
-            elif "limit" in low or "exclusion" in low:
-                rel = "HAS_LIMITATION"
-            elif "total" in low and "pay" in low:
-                rel = "HAS_PATIENT_RESPONSIBILITY"
-                _add_attr(
-                    A,
-                    current_example,
-                    "patient_total",
-                    val
-                )
-            else:
-                rel = "HAS_COST_COMPONENT"
-            # --------------------------------------------
-            # CONNECT
-            # --------------------------------------------
-            _add(
-                E,
-                R,
-                current_example,
-                rel,
-                component
-            )
-            # --------------------------------------------
-            # SECTION ORGANIZATION
-            # --------------------------------------------
-            if current_section:
-                _add(
-                    E,
-                    R,
-                    current_section,
-                    "CONTAINS_COMPONENT",
-                    component
-                )
-            # --------------------------------------------
-            # ATTRIBUTES
-            # --------------------------------------------
-            _add_attr(
-                A,
-                component,
-                "description",
-                key
-            )
-            _add_attr(
-                A,
-                component,
-                "amount",
-                val
-            )
-    print(
-        f" → Coverage Examples Graph built successfully "
-        f"({len(processed)} scenarios)"
-    )
+    example_name = _s(chunk.get("example_name"))
+    ctype = chunk.get("type")
 
+    # Handle general coverage examples info (the "About" section)
+    if ctype == "coverage_about":
+        entity, rel, attrs = llm_enrich_chunk(chunk, context="Coverage Examples Overview")
+        _add(E, R, PLAN_NODE, rel or "HAS_COVERAGE_EXAMPLES_INFO", entity)
+        _add_attr(A, entity, "type", "CoverageExamplesAbout")
+        _add_attr(A, entity, "title", _s(chunk.get("title")))
+        _add_attr(A, entity, "content", _s(chunk.get("content")))
+        for k, v in attrs.items():
+            _add_attr(A, entity, k, v)
+        return
+
+    # Skip if no example_name
+    if not example_name:
+        return
+
+    # === Create main Coverage Example Node using LLM (only once per example) ===
+    if example_name not in example_cache:
+        entity, rel, attrs = llm_enrich_chunk(chunk, context="Coverage Example: {example_name}")
+        
+        _add(E, R, PLAN_NODE, rel or "HAS_COVERAGE_EXAMPLE", entity)
+        
+        # Core metadata
+        _add_attr(A, entity, "type", "CoverageExample")
+        _add_attr(A, entity, "example_name", example_name)
+        _add_attr(A, entity, "title", example_name)
+        
+        for k, v in attrs.items():
+            _add_attr(A, entity, k, v)
+        
+        example_cache[example_name] = entity
+    else:
+        entity = example_cache[example_name]
+
+    # === Attach specific data from this chunk ===
+    if ctype == "coverage_subtitle":
+        _add_attr(A, entity, "description", _s(chunk.get("content")))
+
+    elif ctype in ["coverage_parameter", "coverage_cost_sharing"]:
+        key = _s(chunk.get("key"))
+        value = _s(chunk.get("value"))
+        if key and value:
+            param_node = f"{entity} | {key}"
+            _add(E, R, entity, "HAS_PARAMETER", param_node)
+            _add_attr(A, param_node, "key", key)
+            _add_attr(A, param_node, "value", value)
+
+    elif ctype == "coverage_service":
+        service = _s(chunk.get("service"))
+        if service:
+            _add(E, R, entity, "INCLUDES_SERVICE", service)
+
+    elif ctype == "coverage_total_cost":
+        value = _s(chunk.get("value"))
+        if value:
+            total_node = f"{entity} | Total Example Cost"
+            _add(E, R, entity, "HAS_TOTAL_COST", total_node)
+            _add_attr(A, total_node, "amount", value)
+
+    elif ctype == "coverage_section_header":
+        header = _s(chunk.get("content"))
+        if header:
+            _add_attr(A, entity, f"section_{header.lower().replace(' ', '_')}", header)
 
 # SEMANTIC SECTION DETECTION
 # ─────────────────────────────
 def _section(chunk, E, R, A):
-    title = _s(chunk.get("title", ""))
-    content = _s(chunk.get("content", ""))
+    title = _s(chunk.get("title"))
+    content = _s(chunk.get("content"))
     if not title and not content:
         return
 
-    raw_text = f"{title} {content}".lower()
-    text = re.sub(r"\s+", " ", raw_text).strip()
-
     E.add(PLAN_NODE)
+    entity, rel, llm_attrs = llm_enrich_chunk(chunk)
 
-    added = False
+    _add(E, R, PLAN_NODE, rel, entity)
 
-    # ─────────────────────────
-    # CONTINUATION RIGHTS (Made more robust)
-    # ─────────────────────────
-    if any(phrase in text for phrase in [
-        "your rights to continue coverage",
-        "right to continue coverage",
-        "continuation of coverage",
-        "continue coverage",
-        "cobra"  # common real-world term
-    ]):
-        node = "Rights to Continue Coverage"
-        _add(E, R, PLAN_NODE, "PROVIDES_CONTINUATION_OF_COVERAGE_RIGHTS", node)
-        added = True
+    _add_attr(A, entity, "type", "Section")
+    _add_attr(A, entity, "title", title)
+    _add_attr(A, entity, "content", content[:1500])  # Limit size
 
-    # ─────────────────────────
-    # GRIEVANCE / APPEALS
-    # ─────────────────────────
-    elif any(phrase in text for phrase in [
-        "grievance", "appeal", "claim denial", "internal appeal", "external review"
-    ]):
-        node = "Grievance and Appeals Rights"
-        _add(E, R, PLAN_NODE, "PROVIDES_GRIEVANCE_AND_APPEAL_RIGHTS", node)
-        added = True
+    for k, v in llm_attrs.items():
+        _add_attr(A, entity, k, v)
+# def _section(chunk, E, R, A):
+#     title = _s(chunk.get("title", ""))
+#     content = _s(chunk.get("content", ""))
+#     if not title and not content:
+#         return
 
-    # ─────────────────────────
-    # MINIMUM ESSENTIAL COVERAGE
-    # ─────────────────────────
-    elif "minimum essential coverage" in text:
-        node = "Minimum Essential Coverage"
-        _add(E, R, PLAN_NODE, "SATISFIES_MINIMUM_ESSENTIAL_COVERAGE_REQUIREMENT", node)
-        added = True
+#     raw_text = f"{title} {content}".lower()
+#     text = re.sub(r"\s+", " ", raw_text).strip()
 
-    # ─────────────────────────
-    # MINIMUM VALUE STANDARD
-    # ─────────────────────────
-    elif any(phrase in text for phrase in ["minimum value standard", "minimum value"]):
-        node = "Minimum Value Standards"
-        _add(E, R, PLAN_NODE, "SATISFIES_MINIMUM_VALUE_STANDARD", node)
-        added = True
+#     E.add(PLAN_NODE)
 
-    # ─────────────────────────
-    # LANGUAGE ACCESS
-    # ─────────────────────────
-    elif any(phrase in text for phrase in [
-        "language access", "language assistance", "spanish", "tagalog", "chinese", "navajo"
-    ]):
-        node = "Language Assistance Services"
-        _add(E, R, PLAN_NODE, "PROVIDES_LANGUAGE_ASSISTANCE_SERVICES", node)
-        added = True
+#     added = False
 
-    # ─────────────────────────
-    # COVERAGE EXAMPLES
-    # ─────────────────────────
-    elif any(phrase in text for phrase in [
-        "coverage example", "peg is having", "managing joe", "mia's simple fracture"
-    ]):
-        node = "Health Coverage Cost Examples"
-        _add(E, R, PLAN_NODE, "PROVIDES_HEALTH_COVERAGE_COST_EXAMPLES", node)
-        added = True
+#     # ─────────────────────────
+#     # CONTINUATION RIGHTS (Made more robust)
+#     # ─────────────────────────
+#     if any(phrase in text for phrase in [
+#         "your rights to continue coverage",
+#         "right to continue coverage",
+#         "continuation of coverage",
+#         "continue coverage",
+#         "cobra"  # common real-world term
+#     ]):
+#         node = "Rights to Continue Coverage"
+#         _add(E, R, PLAN_NODE, "PROVIDES_CONTINUATION_OF_COVERAGE_RIGHTS", node)
+#         added = True
 
-    # ─────────────────────────
-    # COVERAGE DISCLAIMER
-    # ─────────────────────────
-    elif any(phrase in text for phrase in [
-        "not a cost estimator", "actual costs will be different", "this is only a summary"
-    ]):
-        node = "Coverage Example Disclaimer"
-        _add(E, R, PLAN_NODE, "PROVIDES_COVERAGE_COST_DISCLAIMER", node)
-        added = True
+#     # ─────────────────────────
+#     # GRIEVANCE / APPEALS
+#     # ─────────────────────────
+#     elif any(phrase in text for phrase in [
+#         "grievance", "appeal", "claim denial", "internal appeal", "external review"
+#     ]):
+#         node = "Grievance and Appeals Rights"
+#         _add(E, R, PLAN_NODE, "PROVIDES_GRIEVANCE_AND_APPEAL_RIGHTS", node)
+#         added = True
 
-    # Add more common important sections here (expand as needed)
-    elif "your rights" in text and "plan" in text:
-        node = "Plan Rights and Responsibilities"
-        _add(E, R, PLAN_NODE, "PROVIDES_MEMBER_RIGHTS", node)
-        added = True
+#     # ─────────────────────────
+#     # MINIMUM ESSENTIAL COVERAGE
+#     # ─────────────────────────
+#     elif "minimum essential coverage" in text:
+#         node = "Minimum Essential Coverage"
+#         _add(E, R, PLAN_NODE, "SATISFIES_MINIMUM_ESSENTIAL_COVERAGE_REQUIREMENT", node)
+#         added = True
 
-    if added and content:
-        _add_attr(A, node, "summary", content[:800])
+#     # ─────────────────────────
+#     # MINIMUM VALUE STANDARD
+#     # ─────────────────────────
+#     elif any(phrase in text for phrase in ["minimum value standard", "minimum value"]):
+#         node = "Minimum Value Standards"
+#         _add(E, R, PLAN_NODE, "SATISFIES_MINIMUM_VALUE_STANDARD", node)
+#         added = True
+
+#     # ─────────────────────────
+#     # LANGUAGE ACCESS
+#     # ─────────────────────────
+#     elif any(phrase in text for phrase in [
+#         "language access", "language assistance", "spanish", "tagalog", "chinese", "navajo"
+#     ]):
+#         node = "Language Assistance Services"
+#         _add(E, R, PLAN_NODE, "PROVIDES_LANGUAGE_ASSISTANCE_SERVICES", node)
+#         added = True
+
+#     # ─────────────────────────
+#     # COVERAGE EXAMPLES
+#     # ─────────────────────────
+#     elif any(phrase in text for phrase in [
+#         "coverage example", "peg is having", "managing joe", "mia's simple fracture"
+#     ]):
+#         node = "Health Coverage Cost Examples"
+#         _add(E, R, PLAN_NODE, "PROVIDES_HEALTH_COVERAGE_COST_EXAMPLES", node)
+#         added = True
+
+#     # ─────────────────────────
+#     # COVERAGE DISCLAIMER
+#     # ─────────────────────────
+#     elif any(phrase in text for phrase in [
+#         "not a cost estimator", "actual costs will be different", "this is only a summary"
+#     ]):
+#         node = "Coverage Example Disclaimer"
+#         _add(E, R, PLAN_NODE, "PROVIDES_COVERAGE_COST_DISCLAIMER", node)
+#         added = True
+
+#     # Add more common important sections here (expand as needed)
+#     elif "your rights" in text and "plan" in text:
+#         node = "Plan Rights and Responsibilities"
+#         _add(E, R, PLAN_NODE, "PROVIDES_MEMBER_RIGHTS", node)
+#         added = True
+
+#     if added and content:
+#         _add_attr(A, node, "summary", content[:800])
 
     # Optional: Log when nothing matched (very useful for debugging)
     # else:
@@ -1201,56 +1093,64 @@ def _preamble(chunk, E, R, A):
 # FOOTNOTE
 # ─────────────────────────────
 def _footnote(chunk, E, R, A):
-    content = _s(chunk.get("content"))
-    if not content:
+    if not _s(chunk.get("content")):
         return
-    text = (content)
     E.add(PLAN_NODE)
-    # ─────────────────────────
-    # WELLNESS PROGRAM
-    # ─────────────────────────
-    if "wellness program" in text:
-        node = "Wellness Program Cost Reduction Notice"
-        _add(
-            E,
-            R,
-            PLAN_NODE,
-            "OFFERS_WELLNESS_PROGRAM_SAVINGS",
-            node
-        )
-    # ─────────────────────────
-    # COVERAGE ASSUMPTION
-    # ─────────────────────────
-    elif (
-        "examples assume" in text
-        or "these numbers assume" in text
-    ):
-        node = "Coverage Example Assumptions"
-        _add(
-            E,
-            R,
-            PLAN_NODE,
-            "PROVIDES_COVERAGE_EXAMPLE_ASSUMPTIONS",
-            node
-        )
-    # ─────────────────────────
-    # COST DISCLAIMER
-    # ─────────────────────────
-    elif (
-        "not a cost estimator" in text
-        or "actual costs" in text
-    ):
-        node = "Medical Cost Estimation Disclaimer"
-        _add(
-            E,
-            R,
-            PLAN_NODE,
-            "DISCLAIMS_EXACT_MEDICAL_COST_ESTIMATES",
-            node
-        )
-    else:
-        return
-    _add_attr(A, node, "content", content[:800]) # Keep reasonable length
+    entity, rel, attrs = llm_enrich_chunk(chunk)
+    _add(E, R, PLAN_NODE, rel, entity)
+    for k, v in attrs.items():
+        _add_attr(A, entity, k, v)
+# def _footnote(chunk, E, R, A):
+#     content = _s(chunk.get("content"))
+#     if not content:
+#         return
+#     text = (content)
+#     E.add(PLAN_NODE)
+#     # ─────────────────────────
+#     # WELLNESS PROGRAM
+#     # ─────────────────────────
+#     if "wellness program" in text:
+#         node = "Wellness Program Cost Reduction Notice"
+#         _add(
+#             E,
+#             R,
+#             PLAN_NODE,
+#             "OFFERS_WELLNESS_PROGRAM_SAVINGS",
+#             node
+#         )
+#     # ─────────────────────────
+#     # COVERAGE ASSUMPTION
+#     # ─────────────────────────
+#     elif (
+#         "examples assume" in text
+#         or "these numbers assume" in text
+#     ):
+#         node = "Coverage Example Assumptions"
+#         _add(
+#             E,
+#             R,
+#             PLAN_NODE,
+#             "PROVIDES_COVERAGE_EXAMPLE_ASSUMPTIONS",
+#             node
+#         )
+#     # ─────────────────────────
+#     # COST DISCLAIMER
+#     # ─────────────────────────
+#     elif (
+#         "not a cost estimator" in text
+#         or "actual costs" in text
+#     ):
+#         node = "Medical Cost Estimation Disclaimer"
+#         _add(
+#             E,
+#             R,
+#             PLAN_NODE,
+#             "DISCLAIMS_EXACT_MEDICAL_COST_ESTIMATES",
+#             node
+#         )
+#     else:
+#         return
+#     _add_attr(A, node, "content", content[:800]) # Keep reasonable length
 # ─────────────────────────────
 # DISPATCHER
 # ─────────────────────────────
@@ -1260,59 +1160,47 @@ _DISPATCH = {
     "benefit_service": _benefit_service,
     "excluded_service": _excluded_service,
     "other_covered_service": _other_covered_service,
-    # "coverage_example": _coverage_example,
+    "coverage_example": _coverage_example,
     "section": _section,
     "preamble": _preamble,
     "footnote": _footnote,
 }
 # ─────────────────────────────
 # MAIN FUNCTION
-# ─────────────────────────────
+
 # def chunks_to_graph_data(chunks: list[dict]) -> dict:
-# entities = set()
-# relationships = []
-# attributes = []
-# coverage_chunks = [
-# c for c in chunks
-# if c.get("type", "").startswith("coverage_")
-# ]
-# if coverage_chunks:
-# _coverage_example(
-# coverage_chunks,
-# entities,
-# relationships,
-# attributes
-# )
-# for chunk in chunks:
-# fn = _DISPATCH.get(chunk.get("type"))
-# if fn:
-# fn(chunk, entities, relationships, attributes)
-# return {
-# "entities": sorted(entities),
-# "relationships": relationships,
-# "attributes": attributes,
-# }
-def chunks_to_graph_data(chunks):
-    entities = set()
-    relationships = []
-    attributes = []
-    # 1. Run coverage pipeline FIRST (isolated)
-    coverage_chunks = [
-        c for c in chunks
-        if c.get("type", "").startswith("coverage_")
-    ]
-    if coverage_chunks:
-        _coverage_example(coverage_chunks, entities, relationships, attributes)
-    # 2. Run everything else (clean separation)
+#     entities: Set[str] = set()
+#     relationships: List[Tuple] = []
+#     attributes: List[Tuple] = []
+
+#     for chunk in chunks:
+#         handler = _DISPATCH.get(chunk.get("type"))
+#         if handler:
+#             handler(chunk, entities, relationships, attributes)
+
+#     return {
+#         "entities": sorted(entities),
+#         "relationships": relationships,
+#         "attributes": attributes,
+#     }
+def chunks_to_graph_data(chunks: list[dict]) -> dict:
+    entities: Set[str] = set()
+    relationships: List[Tuple] = []
+    attributes: List[Tuple] = []
+    example_cache: dict = {}   # Key: example_name → entity node
+
     for chunk in chunks:
-        ctype = chunk.get("type")
+        ctype = chunk.get("type", "")
+
         if ctype.startswith("coverage_"):
-            continue
-        fn = _DISPATCH.get(ctype)
-        if fn:
-            fn(chunk, entities, relationships, attributes)
+            _coverage_example(chunk, entities, relationships, attributes, example_cache)
+        else:
+            handler = _DISPATCH.get(ctype)
+            if handler:
+                handler(chunk, entities, relationships, attributes)
+
     return {
         "entities": sorted(entities),
         "relationships": relationships,
         "attributes": attributes,
-    } 
+    }
